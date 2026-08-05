@@ -1,0 +1,22 @@
+/*
+ * NexGenio Brand Tokens
+ * Source of truth — all properties import or inline these variables.
+ *
+ * Usage: <link rel="stylesheet" href="/tokens/tokens.css">
+ * Or inline at build time for self-contained pages.
+ */
+
+:root {
+  /* Primary — teal */
+  --t:  #215675;   /* brand teal (primary text, links, borders) */
+  --tm: #2d6e94;   /* teal mid (gradients, hover states) */
+  --tl: #e6eef3;   /* teal light (backgrounds, dividers) */
+
+  /* Accents */
+  --o:  #f6911b;   /* orange (CTA, hover) */
+  --g:  #3c9a00;   /* green (status: active, success) */
+
+  /* Neutrals */
+  --bg: #f8f9fb;   /* page background */
+  --lg: #666;      /* light grey (body copy, meta) */
+}

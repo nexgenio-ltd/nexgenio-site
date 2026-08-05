@@ -1,24 +1,134 @@
-name: Deploy to nexgenio.com
+name: Deploy NexGenio Web
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
-  deploy:
+  # Detect which paths changed
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      public: ${{ steps.filter.outputs.public }}
+      admin: ${{ steps.filter.outputs.admin }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            public:
+              - 'apex/**'
+              - 'training/**'
+              - 'blog/**'
+              - 'tokens/**'
+            admin:
+              - 'admin/**'
+              - 'tokens/**'
+
+  # S3 + CloudFront — apex, training, blog, tokens
+  deploy-public:
+    needs: changes
+    if: needs.changes.outputs.public == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Configure AWS credentials (nxg-root)
+      - name: Configure AWS credentials (S3/CF role)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.NXG_ROOT_AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.NXG_ROOT_AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: arn:aws:iam::124971231536:role/NexgenioPublicDeployRole
           aws-region: eu-central-1
 
-      - name: Sync to S3
-        run: aws s3 sync . s3://nxg-site-public/ --delete --exclude ".git/*" --exclude ".github/*" --exclude "README.md"
+      - name: Sync apex → S3 root
+        run: |
+          aws s3 sync apex/ s3://nxg-web-public/ \
+            --delete --region eu-central-1
+
+      - name: Sync tokens → S3 /tokens/
+        run: |
+          aws s3 sync tokens/ s3://nxg-web-public/tokens/ \
+            --delete --region eu-central-1
+
+      - name: Sync training → S3 /training/
+        run: |
+          aws s3 sync training/ s3://nxg-web-public/training/ \
+            --delete --region eu-central-1 \
+            --exclude ".gitkeep"
+
+      - name: Sync blog → S3 /blog/
+        run: |
+          aws s3 sync blog/ s3://nxg-web-public/blog/ \
+            --delete --region eu-central-1 \
+            --exclude ".gitkeep"
 
       - name: Invalidate CloudFront
-        run: aws cloudfront create-invalidation --distribution-id E2CENAXP7JGRVQ --paths "/*"
+        env:
+          CF_DIST_ID: ${{ vars.CF_PUBLIC_DIST_ID }}
+        run: |
+          if [ -n "$CF_DIST_ID" ]; then
+            aws cloudfront create-invalidation \
+              --distribution-id "$CF_DIST_ID" \
+              --paths "/*" --region us-east-1
+          else
+            echo "CF_PUBLIC_DIST_ID not set — skipping invalidation (pre-cutover)"
+          fi
+
+  # nginx on EC2 — admin portal
+  deploy-admin:
+    needs: changes
+    if: needs.changes.outputs.admin == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (admin/SSM role)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::124971231536:role/NexgenioAdminDeployRole
+          aws-region: eu-central-1
+
+      - name: Stage admin HTML to S3
+        run: |
+          aws s3 cp admin/index.html \
+            s3://nxg-web-public/_admin-staging/index.html \
+            --region eu-central-1
+
+      - name: Deploy to nginx via SSM
+        run: |
+          CMD_ID=$(aws ssm send-command \
+            --instance-ids i-06f18744c6fdcc1d0 \
+            --document-name "AWS-RunShellScript" \
+            --parameters '{"commands":[
+              "aws s3 cp s3://nxg-web-public/_admin-staging/index.html /home/ubuntu/nexgenio/admin/html/index.html --region eu-central-1",
+              "docker exec nexgenio-admin-portal nginx -s reload || true"
+            ]}' \
+            --region eu-central-1 \
+            --query "Command.CommandId" --output text)
+          echo "SSM command: $CMD_ID"
+          sleep 10
+          STATUS=$(aws ssm get-command-invocation \
+            --command-id "$CMD_ID" \
+            --instance-id i-06f18744c6fdcc1d0 \
+            --region eu-central-1 \
+            --query "Status" --output text)
+          echo "Status: $STATUS"
+          if [ "$STATUS" != "Success" ]; then
+            aws ssm get-command-invocation \
+              --command-id "$CMD_ID" \
+              --instance-id i-06f18744c6fdcc1d0 \
+              --region eu-central-1 \
+              --query "StandardErrorContent" --output text
+            exit 1
+          fi
+
+      - name: Cleanup staging file
+        if: always()
+        run: |
+          aws s3 rm s3://nxg-web-public/_admin-staging/index.html \
+            --region eu-central-1 || true
