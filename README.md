@@ -6,13 +6,25 @@ Source for [nexgenio.com](https://nexgenio.com).
 
 | Resource | Value |
 |---|---|
-| CloudFront | E2CENAXP7JGRVQ (nexgenio.com, www.nexgenio.com) |
-| S3 Origin | nxg-site-public (eu-central-1, nxg-root account 661069877777) |
+| AWS Account | 124971231536 (nexgenio) |
+| CloudFront | E2WWYNB9MTIF3N (nexgenio.com, www.nexgenio.com) |
+| S3 Origin | nxg-web-public (eu-central-1) |
+| Assets CDN | E2CAYG5EO6VM6Q → nxg-assets (assets.nexgenio.com) |
 
 ## Deploy
 
 Push to `main` syncs to S3 and invalidates CloudFront via GitHub Actions.
-Repo secrets required: `NXG_ROOT_AWS_ACCESS_KEY_ID`, `NXG_ROOT_AWS_SECRET_ACCESS_KEY`.
+Uses OIDC roles `NexgenioPublicDeployRole` and `NexgenioAdminDeployRole`.
+
+## Structure
+
+```
+apex/       → nexgenio.com root (static HTML)
+admin/      → admin.nexgenio.com (deployed to EC2 nginx via SSM)
+blog/       → placeholder for Ghost integration
+tokens/     → design tokens / shared CSS
+training/   → placeholder for training content
+```
 
 ## Status
 
