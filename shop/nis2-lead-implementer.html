@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIS2 Lead Implementer &mdash; NexGenio Training</title>
+  <meta name="description" content="NIS2 Lead Implementer self-paced training. Self-Study and eLearning options with PECB certification exam included.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/tokens/tokens.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+
+    /* HEADER */
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:80px}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:200px;height:auto;display:block}
+    .brand-divider{width:1px;height:36px;background:#e0e8ed}
+    .brand-sub{font-size:12px;color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:13px;color:var(--t)}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    /* BREADCRUMB */
+    .breadcrumb{max-width:1140px;margin:0 auto;padding:16px 32px;font-size:13px;color:var(--lg)}
+    .breadcrumb a{color:var(--t);text-decoration:none}
+    .breadcrumb a:hover{color:var(--o)}
+
+    /* COURSE HERO */
+    .course-hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px}
+    .course-hero .inn{max-width:1140px;margin:0 auto}
+    .course-hero .chip{display:inline-block;font-size:10px;font-weight:700;background:rgba(255,255,255,.12);color:#fff;padding:4px 14px;border-radius:10px;margin-bottom:16px;letter-spacing:.6px;text-transform:uppercase}
+    .course-hero h1{font-size:clamp(24px,3.5vw,42px);font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
+    .course-hero .credential{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:8px}
+    .course-hero .tagline{font-size:17px;color:rgba(255,255,255,.85);max-width:700px;line-height:1.7}
+
+    /* SECTIONS */
+    .inn{max-width:1140px;margin:0 auto}
+    section{padding:64px 32px}
+    .alt{background:var(--bg)}
+    .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:15px;color:var(--lg);max-width:640px;margin-bottom:36px;line-height:1.75}
+
+    /* COURSE DESCRIPTION */
+    .course-desc p{font-size:15px;color:#444;line-height:1.8;margin-bottom:14px}
+    .course-desc a{color:var(--t);text-decoration:underline}
+    .course-desc a:hover{color:var(--o)}
+
+    /* PLACEHOLDER STYLING */
+    .placeholder{background:#fff3e0;border:1px dashed var(--o);border-radius:4px;padding:10px 16px;color:#b86800;font-size:14px;font-style:italic;display:inline-block;margin:8px 0}
+    a.placeholder-link{background:#fff3e0;border:1px dashed var(--o);border-radius:4px;padding:6px 14px;color:#b86800;font-size:14px;font-style:italic;text-decoration:none;display:inline-block;margin:8px 0}
+    a.placeholder-link:hover{background:#ffe8cc}
+    .placeholder-img{background:#fff3e0;border:1px dashed var(--o);border-radius:4px;padding:40px 16px;color:#b86800;font-size:14px;font-style:italic;text-align:center;margin:16px 0}
+
+    /* TIER CARDS */
+    .tiers{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:16px}
+    .tier-card{background:#fff;border-radius:8px;border-top:4px solid var(--t);box-shadow:0 2px 16px rgba(33,86,117,.08);padding:36px 32px;display:flex;flex-direction:column}
+    .tier-card.elearning{border-top-color:var(--tm)}
+    .tier-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lg);margin-bottom:6px}
+    .tier-name{font-size:22px;font-weight:bold;color:var(--t);margin-bottom:12px}
+    .tier-card.elearning .tier-name{color:var(--tm)}
+    .tier-desc{font-size:14px;color:#555;line-height:1.7;margin-bottom:20px}
+    .tier-includes{list-style:none;padding:0;margin:0 0 28px}
+    .tier-includes li{font-size:13px;color:#555;padding:7px 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px}
+    .tier-includes li:last-child{border-bottom:none}
+    .tier-includes li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .tier-price{font-size:14px;color:var(--lg);margin-bottom:16px}
+    .tier-price .amount{font-size:28px;font-weight:bold;color:var(--t);display:block;margin-top:4px}
+    .tier-card.elearning .tier-price .amount{color:var(--tm)}
+    .tier-cta{margin-top:auto}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:15px;font-weight:bold;padding:14px 36px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;text-align:center;width:100%}
+    .btn:hover{background:#d97a0f}
+    .btn-outline{display:inline-block;border:2px solid var(--t);color:var(--t);font-size:15px;font-weight:bold;padding:12px 34px;border-radius:4px;text-decoration:none;text-align:center;width:100%}
+    .btn-outline:hover{border-color:var(--o);color:var(--o)}
+
+    /* FOOTER */
+    footer{background:var(--t);border-top:3px solid var(--o)}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
+    .footer-brand{display:flex;align-items:center;gap:16px}
+    .footer-brand-text .fn{font-size:14px;font-weight:bold;color:#fff}
+    .footer-brand-text .ft{font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+    .footer-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:7px}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+    .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
+    .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+
+    @media(max-width:900px){
+      .tiers{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    @media(max-width:520px){
+      section{padding:40px 20px}
+      .course-hero{padding:40px 20px 36px}
+      .hi{padding:0 20px}
+      .breadcrumb{padding:12px 20px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="200">
+      <div class="brand-divider"></div>
+      <div class="brand-sub"><strong>Training</strong>Self-paced certification courses</div>
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/shop/">Courses</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> &rsaquo; <a href="/shop/">Courses</a> &rsaquo; NIS2 Lead Implementer
+</div>
+
+<div class="course-hero">
+  <div class="inn">
+    <div class="chip">PECB Certified</div>
+    <h1>NIS2 Lead Implementer</h1>
+    <div class="credential">PECB Credential: Certified NIS2 Lead Implementer</div>
+    <div class="tagline">[Add description here...]</div>
+  </div>
+</div>
+
+<section>
+  <div class="inn">
+    <div class="sl">About this course</div>
+    <div class="st">NIS2 Lead Implementer</div>
+
+    <div class="placeholder-img">[Add picture here]</div>
+
+    <div class="course-desc">
+      <p>[Add description here...]</p>
+      <p>This certification demonstrates your ability to implement and manage cybersecurity measures in accordance with the NIS2 Directive. It is designed for professionals responsible for ensuring network and information security across essential and important entities in the EU.</p>
+      <p>
+        <a class="placeholder-link" href="#">[Add link to PECB brochure here]</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Self-paced training options</div>
+    <div class="st">Choose your format</div>
+    <p class="ss">Both options include the PECB certification exam and certificate at no extra cost. Study at your own pace, on your own schedule.</p>
+
+    <div class="tiers">
+
+      <!-- SELF-STUDY -->
+      <div class="tier-card">
+        <div class="tier-label">Self-paced</div>
+        <div class="tier-name">Self-Study</div>
+        <div class="tier-desc">Course slides and exercise/quiz materials for self-paced reading and study. Work through the material at your own speed.</div>
+        <ul class="tier-includes">
+          <li>Course slides (full curriculum)</li>
+          <li>Exercises and quizzes</li>
+          <li>PECB certification exam included</li>
+          <li>Certificate included at no extra cost</li>
+        </ul>
+        <div class="tier-price">
+          Price
+          <span class="amount">[TODO-PDM13]</span>
+        </div>
+        <div class="tier-cta">
+          <a href="#" class="btn">Buy Self-Study</a>
+        </div>
+      </div>
+
+      <!-- eLEARNING -->
+      <div class="tier-card elearning">
+        <div class="tier-label">Self-paced</div>
+        <div class="tier-name">eLearning</div>
+        <div class="tier-desc">Pre-recorded video sessions plus course materials. Watch, pause, and revisit lessons at your own pace.</div>
+        <ul class="tier-includes">
+          <li>Pre-recorded video sessions</li>
+          <li>Course slides (full curriculum)</li>
+          <li>Exercises and quizzes</li>
+          <li>PECB certification exam included</li>
+          <li>Certificate included at no extra cost</li>
+        </ul>
+        <div class="tier-price">
+          Price
+          <span class="amount">[TODO-PDM13]</span>
+        </div>
+        <div class="tier-cta">
+          <a href="#" class="btn">Buy eLearning</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-text">
+          <div class="fn">NexGenio LTD</div>
+          <div class="ft">Compliance by design.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Training</h5><a href="/shop/">All courses</a></div>
+        <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/#privacy">Privacy</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
+      <div><a href="/#impressum">Impressum</a><a href="/#privacy">Privacy Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
