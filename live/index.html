@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Training &mdash; NexGenio</title>
+  <meta name="description" content="Scheduled live training courses from NexGenio. Classroom and online formats with PECB certification.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/tokens/tokens.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:80px}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:200px;height:auto;display:block}
+    .brand-divider{width:1px;height:36px;background:#e0e8ed}
+    .brand-sub{font-size:12px;color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:13px;color:var(--t)}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px;text-align:center}
+    .hero h1{font-size:clamp(26px,3.5vw,44px);font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
+    .hero p{font-size:17px;color:rgba(255,255,255,.85);max-width:640px;margin:0 auto;line-height:1.7}
+
+    .inn{max-width:1140px;margin:0 auto}
+    section{padding:64px 32px}
+    .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+
+    .empty-state{background:var(--bg);border-radius:6px;padding:48px 32px;text-align:center;color:var(--lg);font-size:16px;line-height:1.7;margin-bottom:48px}
+
+    .self-pointer{background:#fff;border-radius:6px;border-left:3px solid var(--o);padding:24px 28px;box-shadow:0 2px 8px rgba(33,86,117,.05)}
+    .self-pointer p{font-size:15px;color:#444;line-height:1.7;margin-bottom:12px}
+    .self-pointer a{color:var(--t);font-weight:600;text-decoration:none}
+    .self-pointer a:hover{color:var(--o)}
+
+    footer{background:var(--t);border-top:3px solid var(--o)}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
+    .footer-brand{display:flex;align-items:center;gap:16px}
+    .footer-brand-text .fn{font-size:14px;font-weight:bold;color:#fff}
+    .footer-brand-text .ft{font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+    .footer-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:7px}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+    .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
+    .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+
+    @media(max-width:900px){nav{display:none}}
+    @media(max-width:520px){section{padding:40px 20px}.hero{padding:40px 20px 36px}.hi{padding:0 20px}}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="200">
+      <div class="brand-divider"></div>
+      <div class="brand-sub"><strong>Training</strong>Live instructor-led courses</div>
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/live/">Live Courses</a>
+      <a href="/self/">Self-Paced</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Live Training Schedule</h1>
+  <p>Instructor-led courses in classroom and online formats, with PECB certification exam included.</p>
+</div>
+
+<section>
+  <div class="inn">
+    <div class="sl">Upcoming courses</div>
+    <div class="st">Schedule</div>
+
+    <div class="empty-state">
+      [No courses currently scheduled &mdash; check back soon]
+    </div>
+
+    <div class="self-pointer">
+      <p>Looking to start right away? Our self-paced courses are available now &mdash; study on your own schedule with exam and certificate included.</p>
+      <a href="/self/">View self-paced courses &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-text">
+          <div class="fn">NexGenio LTD</div>
+          <div class="ft">Compliance by design.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Training</h5><a href="/self/">Self-paced courses</a><a href="/live/">Live schedule</a></div>
+        <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/#privacy">Privacy</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
+      <div><a href="/#impressum">Impressum</a><a href="/#privacy">Privacy Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

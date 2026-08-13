@@ -26,7 +26,8 @@ jobs:
               - 'apex/**'
               - 'training/**'
               - 'blog/**'
-              - 'shop/**'
+              - 'self/**'
+              - 'live/**'
               - 'tokens/**'
             admin:
               - 'admin/**'
@@ -68,9 +69,15 @@ jobs:
             --delete --region eu-central-1 \
             --exclude ".gitkeep"
 
-      - name: Sync shop → S3 /shop/
+      - name: Sync self → S3 /self/
         run: |
-          aws s3 sync shop/ s3://nxg-web-public/shop/ \
+          aws s3 sync self/ s3://nxg-web-public/self/ \
+            --delete --region eu-central-1 \
+            --exclude ".gitkeep"
+
+      - name: Sync live → S3 /live/
+        run: |
+          aws s3 sync live/ s3://nxg-web-public/live/ \
             --delete --region eu-central-1 \
             --exclude ".gitkeep"
 
