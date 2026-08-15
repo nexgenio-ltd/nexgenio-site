@@ -109,6 +109,34 @@
     .ei::before{content:"▸";color:var(--t);flex-shrink:0}
     .ei-note{font-size:12px;color:var(--lg);margin-top:14px;line-height:1.6}
 
+    /* TRAINING */
+    .training{padding:72px 32px;background:#fff}
+    .training .inn{max-width:1140px;margin:0 auto}
+    .training-header{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;margin-bottom:40px;flex-wrap:wrap}
+    .training-header-text{max-width:620px}
+    .training-badge{width:140px;height:auto;flex-shrink:0}
+    .course-slider{position:relative;overflow:hidden}
+    .course-track{display:flex;gap:24px;transition:transform .4s ease}
+    .course-slide{min-width:calc(33.333% - 16px);background:#fff;border-radius:6px;border-top:3px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06);padding:24px 22px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s}
+    .course-slide:hover{box-shadow:0 4px 20px rgba(33,86,117,.12);transform:translateY(-2px)}
+    .course-slide .chip{display:inline-block;font-size:10px;font-weight:700;background:var(--tl);color:var(--t);padding:3px 10px;border-radius:10px;margin-bottom:10px;letter-spacing:.4px;text-transform:uppercase;align-self:flex-start}
+    .course-slide h3{font-size:16px;color:var(--t);font-weight:bold;margin-bottom:6px;line-height:1.3}
+    .course-slide .teaser{font-size:13px;color:#555;line-height:1.65;margin-bottom:16px;flex:1}
+    .course-slide .view-link{font-size:13px;font-weight:600;color:var(--o);letter-spacing:.2px}
+    .course-slide:hover .view-link{text-decoration:underline}
+    .slider-nav{display:flex;gap:12px;justify-content:center;margin-top:28px}
+    .slider-btn{width:40px;height:40px;border-radius:50%;border:2px solid var(--tl);background:#fff;color:var(--t);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s}
+    .slider-btn:hover{border-color:var(--o);color:var(--o)}
+    .slider-btn:disabled{opacity:.3;cursor:default}
+    @media(max-width:900px){
+      .course-slide{min-width:calc(50% - 12px)}
+      .training-badge{width:110px}
+    }
+    @media(max-width:520px){
+      .course-slide{min-width:100%}
+      .training{padding:56px 20px}
+    }
+
     /* LEGAL */
     .legal{padding:64px 32px;background:var(--bg)}
     .legal h2{font-size:22px;color:var(--t);margin-bottom:20px;font-weight:bold}
@@ -160,6 +188,7 @@
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+      <a href="/self/">Training</a>
     </nav>
   </div>
 </header>
@@ -346,6 +375,127 @@
   </div>
 </section>
 
+<section class="training" id="training">
+  <div class="inn">
+    <div class="training-header">
+      <div class="training-header-text">
+        <div class="sl">PECB Training Partner</div>
+        <div class="st">Certification Training</div>
+        <p class="ss">Self-paced PECB certification courses with exam and certificate included. Study at your own pace &mdash; choose Self-Study or eLearning format.</p>
+      </div>
+      <img src="https://assets.nexgenio.com/brand/pecb-authorized-partner.png" alt="PECB Authorized Training Partner" class="training-badge">
+    </div>
+
+    <div class="course-slider">
+      <div class="course-track" id="courseTrack">
+
+        <a href="/self/iso-27001-lead-implementer.html" class="course-slide">
+          <div class="chip">ISO/IEC 27001</div>
+          <h3>ISO 27001 Lead Implementer</h3>
+          <div class="teaser">Implement and manage an Information Security Management System (ISMS) based on ISO/IEC 27001.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+        <a href="/self/nis2-lead-implementer.html" class="course-slide">
+          <div class="chip">NIS2</div>
+          <h3>NIS2 Lead Implementer</h3>
+          <div class="teaser">Implement cybersecurity measures in accordance with the NIS2 Directive for essential and important entities.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+        <a href="/self/nis2-foundation.html" class="course-slide">
+          <div class="chip">NIS2</div>
+          <h3>NIS2 Directive Foundation</h3>
+          <div class="teaser">Understand the NIS2 Directive and its cybersecurity requirements. No prerequisites required.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+        <a href="/self/dora-lead-manager.html" class="course-slide">
+          <div class="chip">DORA</div>
+          <h3>DORA Lead Manager</h3>
+          <div class="teaser">Manage DORA compliance including ICT risk management, incident reporting, and operational resilience.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+        <a href="/self/dora-foundation.html" class="course-slide">
+          <div class="chip">DORA</div>
+          <h3>DORA Foundation</h3>
+          <div class="teaser">Understand the Digital Operational Resilience Act and its ICT risk management requirements.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+        <a href="/self/iso-42001-lead-implementer.html" class="course-slide">
+          <div class="chip">ISO/IEC 42001</div>
+          <h3>ISO 42001 Lead Implementer</h3>
+          <div class="teaser">Implement and manage an AI Management System (AIMS) for responsible AI governance.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+        <a href="/self/iso-22301-lead-implementer.html" class="course-slide">
+          <div class="chip">ISO 22301</div>
+          <h3>ISO 22301 Lead Implementer</h3>
+          <div class="teaser">Implement and manage a Business Continuity Management System (BCMS) based on ISO 22301.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+        <a href="/self/iso-27701.html" class="course-slide">
+          <div class="chip">ISO/IEC 27701</div>
+          <h3>ISO 27701</h3>
+          <div class="teaser">Implement a Privacy Information Management System (PIMS) for GDPR and data protection compliance.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+        <a href="/self/iso-31000.html" class="course-slide">
+          <div class="chip">ISO 31000</div>
+          <h3>ISO 31000</h3>
+          <div class="teaser">Establish and improve a risk management framework based on ISO 31000 across your organisation.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+        <a href="/self/caim.html" class="course-slide">
+          <div class="chip">AI Management</div>
+          <h3>CAIM</h3>
+          <div class="teaser">Manage AI initiatives, governance, ethics, and regulatory compliance across your organisation.</div>
+          <div class="view-link">View course &rarr;</div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="slider-nav">
+      <button class="slider-btn" id="sliderPrev" aria-label="Previous courses">&#8592;</button>
+      <button class="slider-btn" id="sliderNext" aria-label="Next courses">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var track=document.getElementById('courseTrack');
+  var prev=document.getElementById('sliderPrev');
+  var next=document.getElementById('sliderNext');
+  var pos=0;
+  function slidesVisible(){
+    var w=window.innerWidth;
+    return w<=520?1:w<=900?2:3;
+  }
+  function maxPos(){return Math.max(0,track.children.length-slidesVisible())}
+  function update(){
+    if(pos>maxPos())pos=maxPos();
+    var slide=track.children[0];
+    var gap=24;
+    var offset=pos*(slide.offsetWidth+gap);
+    track.style.transform='translateX(-'+offset+'px)';
+    prev.disabled=pos===0;
+    next.disabled=pos>=maxPos();
+  }
+  prev.addEventListener('click',function(){if(pos>0){pos--;update()}});
+  next.addEventListener('click',function(){if(pos<maxPos()){pos++;update()}});
+  window.addEventListener('resize',update);
+  update();
+})();
+</script>
+
 <section class="legal" id="impressum">
   <div class="inn" style="max-width:720px">
     <h2>Impressum / Legal Notice</h2>
@@ -375,5 +525,6 @@
       </div>
       <div class="footer-cols">
         <div class="footer-col"><h5>Services</h5><a href="#services">ISO 27001</a><a href="#services">ISO 22301</a><a href="#services">ISO 42001</a><a href="#services">NIS2 &amp; DORA</a><a href="#services">EU AI Act</a></div>
+        <div class="footer-col"><h5>Training</h5><a href="/self/">Self-paced courses</a><a href="/live/">Live schedule</a></div>
         <div class="footer-col"><h5>Who we serve</h5><a href="#who">Essential entities</a><a href="#who">Financial entities</a><a href="#who">Important entities</a></div>
         <div class="footer-col"><h5>Company</h5><a href="#about">About</a><a href="#approach">Approach</a><a href="#contact">Contact
