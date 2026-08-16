@@ -139,6 +139,8 @@
 
     /* LEGAL */
     .legal{padding:64px 32px;background:var(--bg)}
+    .legal-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+    @media(max-width:640px){.legal-grid{grid-template-columns:1fr;gap:32px}}
     .legal h2{font-size:22px;color:var(--t);margin-bottom:20px;font-weight:bold}
     .legal h3{font-size:14px;color:var(--t);font-weight:bold;margin:20px 0 6px}
     .legal p{font-size:13px;color:#444;line-height:1.75;margin-bottom:4px}
@@ -497,24 +499,23 @@
 </script>
 
 <section class="legal" id="impressum">
-  <div class="inn" style="max-width:720px">
-    <h2>Impressum / Legal Notice</h2>
-    <h3>Company</h3><p>NexGenio LTD &nbsp;&middot;&nbsp; 36 St Dminika Street, Victoria (Gozo) VCT9030, Malta<br>VAT: MT25941925 &nbsp;&middot;&nbsp; Registered under the Companies Act (Cap. 386)</p>
-    <h3>Contact</h3><p>Email: <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a> &nbsp;&middot;&nbsp; Phone: +356 2778 0376</p>
-    <h3>Responsible for content</h3><p>Tobias Bayer, Director, NexGenio LTD</p>
-    <h3>EU dispute resolution</h3><p>Platform: <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a>. NexGenio is not obliged to participate in consumer dispute resolution proceedings.</p>
-  </div>
-</section>
-
-<section class="legal" id="privacy" style="background:#fff">
-  <div class="inn" style="max-width:720px">
-    <h2>Privacy Policy</h2>
-    <h3>Controller</h3><p>NexGenio LTD, 36 St Dminika Street, Victoria (Gozo) VCT9030, Malta. <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a></p>
-    <h3>Data collected</h3><p>This website uses no cookies, tracking scripts or analytics. Personal data is processed only when you contact us directly.</p>
-    <h3>Contact inquiries</h3><p>Contact details processed for the purpose of responding to your inquiry. Legal basis: Art.6(1)(b) or Art.6(1)(f) GDPR. Not shared with third parties. Deleted when no longer required.</p>
-    <h3>Hosting</h3><p>AWS infrastructure, eu-central-1 Frankfurt. Standard server access logs retained maximum 30 days.</p>
-    <h3>Your rights</h3><p>Access, rectification, erasure, restriction and data portability under GDPR. Contact: <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a>.</p>
-    <h3>Last updated</h3><p>April 2026.</p>
+  <div class="legal-grid">
+    <div id="legal-impressum">
+      <h2>Impressum / Legal Notice</h2>
+      <h3>Company</h3><p>NexGenio LTD &nbsp;&middot;&nbsp; 36 St Dminika Street, Victoria (Gozo) VCT9030, Malta<br>VAT: MT25941925 &nbsp;&middot;&nbsp; Registered under the Companies Act (Cap. 386)</p>
+      <h3>Contact</h3><p>Email: <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a> &nbsp;&middot;&nbsp; Phone: +356 2778 0376</p>
+      <h3>Responsible for content</h3><p>Tobias Bayer, Director, NexGenio LTD</p>
+      <h3>EU dispute resolution</h3><p>Platform: <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a>. NexGenio is not obliged to participate in consumer dispute resolution proceedings.</p>
+    </div>
+    <div id="privacy">
+      <h2>Privacy Policy</h2>
+      <h3>Controller</h3><p>NexGenio LTD, 36 St Dminika Street, Victoria (Gozo) VCT9030, Malta. <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a></p>
+      <h3>Data collected</h3><p>This website uses no cookies, tracking scripts or analytics. Personal data is processed only when you contact us directly.</p>
+      <h3>Contact inquiries</h3><p>Contact details processed for the purpose of responding to your inquiry. Legal basis: Art.6(1)(b) or Art.6(1)(f) GDPR. Not shared with third parties. Deleted when no longer required.</p>
+      <h3>Hosting</h3><p>AWS infrastructure, eu-central-1 Frankfurt. Standard server access logs retained maximum 30 days.</p>
+      <h3>Your rights</h3><p>Access, rectification, erasure, restriction and data portability under GDPR. Contact: <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a>.</p>
+      <h3>Last updated</h3><p>April 2026.</p>
+    </div>
   </div>
 </section>
 
