@@ -19,4 +19,16 @@
   /* Neutrals */
   --bg: #f8f9fb;   /* page background */
   --lg: #666;      /* light grey (body copy, meta) */
+
+  /* Header type scale */
+  --nav-fs:  16px;  /* main nav links */
+  --tag-fs:  15px;  /* brand tagline label (e.g. "Training") */
+  --sub-fs:  14px;  /* brand tagline sub-text */
+
+  /* Course page type scale (5 levels) */
+  --h1-fs:      clamp(24px, 3.5vw, 42px); /* hero course title */
+  --price-fs:   28px;  /* price display (€699, €839) */
+  --heading-fs: 20px;  /* section headings, accordion headers */
+  --body-fs:    15px;  /* body text, paragraphs, lists */
+  --label-fs:   11px;  /* chips, pills, captions, breadcrumb */
 }
