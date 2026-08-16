@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Training Courses &mdash; NexGenio</title>
+  <title>Self-Paced Courses &mdash; NexGenio Training</title>
   <meta name="description" content="Self-paced PECB certification training courses from NexGenio. ISO 27001, ISO 22301, ISO 42001, NIS2, DORA, ISO 27701, ISO 31000, CAIM, and Foundation courses.">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="/tokens/tokens.css">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -32,19 +32,26 @@
     /* SECTIONS */
     .inn{max-width:1140px;margin:0 auto}
     section{padding:64px 32px}
+    section.alt{background:var(--bg)}
     .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
     .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
-    .ss{font-size:15px;color:var(--lg);max-width:640px;margin-bottom:44px;line-height:1.75}
 
-    /* COURSE GRID */
+    /* FORMAT EXPLAINER */
+    .format-box{background:#fff;border-radius:8px;border-left:4px solid var(--t);padding:28px 32px;box-shadow:0 2px 8px rgba(33,86,117,.05);font-size:15px;color:#444;line-height:1.8}
+
+    /* COURSE CARDS — badge-left layout */
     .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
-    .course-card{background:#fff;border-radius:6px;border-top:3px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06);padding:28px 24px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s}
-    .course-card:hover{box-shadow:0 4px 20px rgba(33,86,117,.12);transform:translateY(-2px)}
-    .course-card .chip{display:inline-block;font-size:10px;font-weight:700;background:var(--tl);color:var(--t);padding:3px 10px;border-radius:10px;margin-bottom:12px;letter-spacing:.4px;text-transform:uppercase;align-self:flex-start}
-    .course-card h3{font-size:18px;color:var(--t);font-weight:bold;margin-bottom:8px;line-height:1.3}
-    .course-card .credential{font-size:12px;color:var(--lg);margin-bottom:12px}
-    .course-card .teaser{font-size:14px;color:#555;line-height:1.7;margin-bottom:20px;flex:1}
-    .course-card .view-link{font-size:14px;font-weight:600;color:var(--o);letter-spacing:.2px}
+    .course-card{background:#fff;border-radius:8px;border:2px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06);padding:24px;display:flex;align-items:center;gap:20px;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s,border-color .2s}
+    .course-card:hover{box-shadow:0 6px 24px rgba(33,86,117,.14);transform:translateY(-2px)}
+    .course-card.recommended{border-color:var(--o)}
+    .course-card.recommended:hover{border-color:#d97a0f}
+    .card-badge{width:72px;height:72px;flex-shrink:0;object-fit:contain;border-radius:4px}
+    .card-badge-spacer{width:72px;height:72px;flex-shrink:0}
+    .card-body{flex:1;min-width:0}
+    .card-body h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:6px;line-height:1.3}
+    .course-card.recommended .card-body h3{color:#b86800}
+    .card-body p{font-size:14px;color:#555;line-height:1.6;margin:0}
+    .card-body .view-link{font-size:13px;font-weight:600;color:var(--o);margin-top:8px;display:block}
     .course-card:hover .view-link{text-decoration:underline}
 
     /* FOOTER */
@@ -63,13 +70,13 @@
     .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
     .footer-bottom a:hover{color:rgba(255,255,255,.8)}
 
-    @media(max-width:900px){
-      nav{display:none}
-    }
+    @media(max-width:900px){nav{display:none}}
     @media(max-width:520px){
       section{padding:40px 20px}
       .hero{padding:40px 20px 36px}
       .hi{padding:0 20px}
+      .format-box{padding:20px}
+      .course-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -78,12 +85,13 @@
 <header>
   <div class="hi">
     <a href="/" class="brand">
-      <img src="/tokens/logo.jpg" alt="NexGenio" width="200">
+      <img src="https://assets.nexgenio.com/brand/nexgenio-logo.svg" alt="NexGenio" width="200" height="40">
       <div class="brand-divider"></div>
       <div class="brand-sub"><strong>Training</strong>Self-paced certification courses</div>
     </a>
     <nav>
       <a href="/">Home</a>
+      <a href="/training/index.html">Training</a>
       <a href="/self/index.html">Self-Paced</a>
       <a href="/live/index.html">Live Courses</a>
     </nav>
@@ -92,95 +100,128 @@
 
 <div class="hero">
   <h1>Self-Paced Certification Training</h1>
-  <p>PECB-certified courses with exam and certificate included. Choose Self-Study or eLearning and learn at your own pace.</p>
+  <p>PECB-certified courses with exam and certificate included. Choose Self-Study or e-Learning and learn at your own pace.</p>
 </div>
 
+<!-- FORMAT EXPLAINER -->
 <section>
   <div class="inn">
-    <div class="sl">Course catalogue</div>
-    <div class="st">All courses</div>
-    <p class="ss">Each course is available in two self-paced formats: Self-Study (course slides and exercises) and eLearning (pre-recorded video sessions plus materials).</p>
+    <div class="sl">Two formats</div>
+    <div class="st">Self-Study &amp; e-Learning</div>
+    <div class="format-box">
+      All self-paced courses are available in two formats. <strong>Self-Study</strong> includes course slides and exercises for independent reading, at the lowest price point. <strong>e-Learning</strong> includes everything in Self-Study, plus pre-recorded video sessions guiding you through the material. Both include the full curriculum, quizzes, PECB certification exam, and certificate.
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED COURSES (orange border) -->
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Featured</div>
+    <div class="st">Recommended Courses</div>
 
     <div class="course-grid">
 
-      <a href="/self/iso-27001-lead-implementer.html" class="course-card">
-        <div class="chip">ISO/IEC 27001</div>
-        <h3>ISO 27001 Lead Implementer</h3>
-        <div class="credential">PECB Credential: Certified ISO/IEC 27001 Lead Implementer</div>
-        <div class="teaser">Implement and manage an Information Security Management System (ISMS) based on ISO/IEC 27001.</div>
-        <div class="view-link">View course &rarr;</div>
+      <a href="/self/nis2-lead-implementer.html" class="course-card recommended">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/nis-2-directive-lead-implementer.png" alt="NIS2 Lead Implementer badge" class="card-badge">
+        <div class="card-body">
+          <h3>NIS2 Lead Implementer</h3>
+          <p>Lead a cybersecurity program aligned with the EU&rsquo;s NIS2 Directive</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
       </a>
 
-      <a href="/self/nis2-lead-implementer.html" class="course-card">
-        <div class="chip">NIS2</div>
-        <h3>NIS2 Lead Implementer</h3>
-        <div class="credential">PECB Credential: Certified NIS2 Lead Implementer</div>
-        <div class="teaser">Implement cybersecurity measures in accordance with the NIS2 Directive for essential and important entities.</div>
-        <div class="view-link">View course &rarr;</div>
+      <a href="/self/dora-lead-manager.html" class="course-card recommended">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/dora-lead-manager.png" alt="DORA Lead Manager badge" class="card-badge">
+        <div class="card-body">
+          <h3>DORA Lead Manager</h3>
+          <p>Lead digital operational resilience programs in financial entities under DORA</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
       </a>
 
-      <a href="/self/nis2-foundation.html" class="course-card">
-        <div class="chip">NIS2</div>
-        <h3>NIS2 Directive Foundation</h3>
-        <div class="credential">PECB Credential: Certified NIS2 Directive Foundation</div>
-        <div class="teaser">Understand the NIS2 Directive and its cybersecurity requirements. Entry-level &mdash; no prerequisites required.</div>
-        <div class="view-link">View course &rarr;</div>
+      <a href="/self/iso-27001-lead-implementer.html" class="course-card recommended">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-implementer.png" alt="ISO 27001 Lead Implementer badge" class="card-badge">
+        <div class="card-body">
+          <h3>ISO 27001 Lead Implementer</h3>
+          <p>Implement and manage an information security management system</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
       </a>
 
-      <a href="/self/dora-lead-manager.html" class="course-card">
-        <div class="chip">DORA</div>
-        <h3>DORA Lead Manager</h3>
-        <div class="credential">PECB Credential: Certified DORA Lead Manager</div>
-        <div class="teaser">Manage DORA compliance including ICT risk management, incident reporting, and operational resilience for financial entities.</div>
-        <div class="view-link">View course &rarr;</div>
+      <a href="/self/iso-42001-lead-implementer.html" class="course-card recommended">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-42001-lead-implementer.png" alt="ISO 42001 Lead Implementer badge" class="card-badge">
+        <div class="card-body">
+          <h3>ISO 42001 Lead Implementer</h3>
+          <p>Implement and manage an AI management system</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
       </a>
 
-      <a href="/self/dora-foundation.html" class="course-card">
-        <div class="chip">DORA</div>
-        <h3>DORA Foundation</h3>
-        <div class="credential">PECB Credential: Certified DORA Foundation</div>
-        <div class="teaser">Understand the Digital Operational Resilience Act and its ICT risk management requirements. Entry-level &mdash; no prerequisites required.</div>
-        <div class="view-link">View course &rarr;</div>
-      </a>
+    </div>
+  </div>
+</section>
 
-      <a href="/self/iso-42001-lead-implementer.html" class="course-card">
-        <div class="chip">ISO/IEC 42001</div>
-        <h3>ISO 42001 Lead Implementer</h3>
-        <div class="credential">PECB Credential: Certified ISO/IEC 42001 Lead Implementer</div>
-        <div class="teaser">Implement and manage an AI Management System (AIMS) for responsible AI development and governance.</div>
-        <div class="view-link">View course &rarr;</div>
-      </a>
+<!-- ALL OTHER COURSES (blue border) -->
+<section>
+  <div class="inn">
+    <div class="sl">Full catalogue</div>
+    <div class="st">All Courses</div>
+
+    <div class="course-grid">
 
       <a href="/self/iso-22301-lead-implementer.html" class="course-card">
-        <div class="chip">ISO 22301</div>
-        <h3>ISO 22301 Lead Implementer</h3>
-        <div class="credential">PECB Credential: Certified ISO 22301 Lead Implementer</div>
-        <div class="teaser">Implement and manage a Business Continuity Management System (BCMS) based on ISO 22301.</div>
-        <div class="view-link">View course &rarr;</div>
+        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-22301-lead-implementer.png" alt="ISO 22301 Lead Implementer badge" class="card-badge">
+        <div class="card-body">
+          <h3>ISO 22301 Lead Implementer</h3>
+          <p>Implement and manage a Business Continuity Management System (BCMS) based on ISO 22301</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
       </a>
 
       <a href="/self/iso-27701-lead-implementer.html" class="course-card">
-        <div class="chip">ISO/IEC 27701</div>
-        <h3>ISO 27701</h3>
-        <div class="credential">PECB Credential: Certified ISO/IEC 27701</div>
-        <div class="teaser">Implement a Privacy Information Management System (PIMS) extending ISO 27001 for GDPR and data protection compliance.</div>
-        <div class="view-link">View course &rarr;</div>
+        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27701-lead-implementer.png" alt="ISO 27701 Lead Implementer badge" class="card-badge">
+        <div class="card-body">
+          <h3>ISO 27701 Lead Implementer</h3>
+          <p>Implement a Privacy Information Management System (PIMS) for GDPR and data protection compliance</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
       </a>
 
       <a href="/self/iso-31000-risk-manager.html" class="course-card">
-        <div class="chip">ISO 31000</div>
-        <h3>ISO 31000</h3>
-        <div class="credential">PECB Credential: Certified ISO 31000</div>
-        <div class="teaser">Establish and improve a risk management framework based on ISO 31000 across your organisation.</div>
-        <div class="view-link">View course &rarr;</div>
+        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-31000-risk-manager.png" alt="ISO 31000 Risk Manager badge" class="card-badge">
+        <div class="card-body">
+          <h3>ISO 31000 Risk Manager</h3>
+          <p>Establish and improve a risk management framework based on ISO 31000 across your organisation</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
       </a>
 
       <a href="/self/caim.html" class="course-card">
-        <div class="chip">AI Management</div>
-        <h3>CAIM</h3>
-        <div class="credential">PECB Credential: Certified Artificial Intelligence Manager (CAIM)</div>
-        <div class="teaser">Manage AI initiatives, governance, ethics, and regulatory compliance across your organisation.</div>
-        <div class="view-link">View course &rarr;</div>
+        <div class="card-badge-spacer"></div>
+        <div class="card-body">
+          <h3>Certified Artificial Intelligence Manager (CAIM)</h3>
+          <p>Manage AI initiatives, governance, ethics, and regulatory compliance across your organisation</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/self/nis2-foundation.html" class="course-card">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/nis-2-directive-foundation.png" alt="NIS2 Foundation badge" class="card-badge">
+        <div class="card-body">
+          <h3>NIS2 Directive Foundation</h3>
+          <p>Understand the NIS2 Directive and its cybersecurity requirements &mdash; no prerequisites required</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/self/dora-foundation.html" class="course-card">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/dora-foundation.png" alt="DORA Foundation badge" class="card-badge">
+        <div class="card-body">
+          <h3>DORA Foundation</h3>
+          <p>Understand the Digital Operational Resilience Act and its ICT risk management requirements &mdash; no prerequisites required</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
       </a>
 
     </div>
@@ -190,21 +231,16 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-brand-text">
-          <div class="fn">NexGenio LTD</div>
-          <div class="ft">Compliance by design.</div>
-        </div>
-      </div>
+      <div class="footer-brand"><div class="footer-brand-text"><div class="fn">NexGenio LTD</div><div class="ft">Compliance by design.</div></div></div>
       <div class="footer-cols">
-        <div class="footer-col"><h5>Training</h5><a href="/self/index.html">All courses</a></div>
+        <div class="footer-col"><h5>Training</h5><a href="/self/index.html">Self-paced courses</a><a href="/live/index.html">Live schedule</a></div>
         <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
-        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
-      <div><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+      <div><a href="/legal/terms.html">Terms</a><a href="/legal/privacy.html">Privacy</a></div>
     </div>
   </div>
 </footer>

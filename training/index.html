@@ -28,26 +28,48 @@
     .hero h1{font-size:clamp(28px,4vw,46px);font-weight:bold;color:#fff;margin-bottom:10px}
     .hero p{font-size:17px;color:rgba(255,255,255,.75);max-width:600px;margin:0 auto}
 
-    /* INTRO */
-    .intro{max-width:800px;margin:0 auto;padding:48px 32px 0;display:flex;align-items:center;gap:32px;flex-wrap:wrap}
-    .intro img{width:140px;height:auto;flex-shrink:0}
-    .intro p{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.75;flex:1;min-width:260px}
+    /* SECTIONS */
+    .inn{max-width:1140px;margin:0 auto}
+    section{padding:64px 32px}
+    section.alt{background:var(--bg)}
+    .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
 
-    /* TRACK CHOOSER */
-    .tracks{max-width:800px;margin:0 auto;padding:48px 32px 64px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
-    @media(max-width:640px){.tracks{grid-template-columns:1fr}}
-    .track-card{background:#fff;border-radius:8px;border-top:4px solid var(--t);box-shadow:0 2px 16px rgba(33,86,117,.08);padding:36px 32px;display:flex;flex-direction:column}
-    .track-card.live{border-top-color:var(--o)}
-    .track-card h2{font-size:var(--heading-fs,20px);font-weight:700;color:var(--t);margin-bottom:12px}
-    .track-card.live h2{color:#b86800}
-    .track-card p{font-size:var(--body-fs,15px);color:#555;line-height:1.7;margin-bottom:20px;flex:1}
-    .track-card .badge{display:inline-block;font-size:var(--label-fs,11px);font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:14px}
-    .track-card .badge{background:var(--tl);color:var(--t)}
-    .track-card.live .badge{background:rgba(246,145,27,.12);color:#b86800}
-    .track-card .btn{display:inline-block;padding:12px 28px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;color:#fff;background:var(--t);transition:background .15s}
-    .track-card .btn:hover{background:var(--tm)}
-    .track-card.live .btn{background:#b86800}
-    .track-card.live .btn:hover{background:var(--o)}
+    /* PARTNERSHIP */
+    .partner-row{display:flex;align-items:center;gap:36px;flex-wrap:wrap}
+    .partner-row img{width:140px;height:auto;flex-shrink:0}
+    .partner-row p{font-size:15px;color:#444;line-height:1.8;flex:1;min-width:260px}
+
+    /* PECB INFO */
+    .pecb-row{display:flex;align-items:center;gap:36px;flex-wrap:wrap}
+    .pecb-row img{width:180px;height:auto;flex-shrink:0}
+    .pecb-row p{font-size:15px;color:#444;line-height:1.8;flex:1;min-width:260px}
+
+    /* LIVE PLACEHOLDER */
+    .live-placeholder{background:#fff;border-radius:6px;border-left:4px solid var(--o);padding:28px 32px;box-shadow:0 2px 8px rgba(33,86,117,.05)}
+    .live-placeholder p{font-size:15px;color:#555;line-height:1.7;margin:0}
+    .live-placeholder a{color:var(--t);font-weight:600;text-decoration:none}
+    .live-placeholder a:hover{color:var(--o)}
+
+    /* COURSE CARDS — badge-left layout */
+    .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;margin-bottom:36px}
+    .course-card{background:#fff;border-radius:8px;border:2px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06);padding:24px;display:flex;align-items:center;gap:20px;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s,border-color .2s}
+    .course-card:hover{box-shadow:0 6px 24px rgba(33,86,117,.14);transform:translateY(-2px)}
+    .course-card.recommended{border-color:var(--o)}
+    .course-card.recommended:hover{border-color:#d97a0f}
+    .card-badge{width:72px;height:72px;flex-shrink:0;object-fit:contain;border-radius:4px}
+    .card-badge-spacer{width:72px;height:72px;flex-shrink:0}
+    .card-body{flex:1;min-width:0}
+    .card-body h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:6px;line-height:1.3}
+    .course-card.recommended .card-body h3{color:#b86800}
+    .card-body p{font-size:14px;color:#555;line-height:1.6;margin:0}
+    .card-body .view-link{font-size:13px;font-weight:600;color:var(--o);margin-top:8px;display:block}
+    .course-card:hover .view-link{text-decoration:underline}
+
+    /* CTA BUTTON */
+    .cta-center{text-align:center;margin-top:12px}
+    .btn-primary{display:inline-block;padding:14px 36px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;color:#fff;background:var(--o);transition:background .15s}
+    .btn-primary:hover{background:#d97a0f}
 
     /* FOOTER */
     footer{background:var(--t);border-top:3px solid var(--o)}
@@ -64,6 +86,15 @@
     .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
     .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
     .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+
+    @media(max-width:900px){nav{display:none}}
+    @media(max-width:520px){
+      section{padding:40px 20px}
+      .hero{padding:48px 20px 40px}
+      .hi{padding:0 20px}
+      .partner-row,.pecb-row{gap:20px}
+      .course-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -89,28 +120,92 @@
   <p>PECB Authorized Training Partner &mdash; certification courses with exam and certificate included.</p>
 </section>
 
-<div class="intro">
-  <img src="https://assets.nexgenio.com/PECB/pecb-authorized-partner.png" alt="PECB Authorized Training Partner" width="140" height="140">
-  <p>Self-paced PECB certification courses with exam and certificate included. Study at your own pace &mdash; choose Self-Study or eLearning format.</p>
-</div>
-
-<div class="tracks">
-
-  <div class="track-card">
-    <div class="badge">Available now</div>
-    <h2>Self-Paced</h2>
-    <p>Self-Study or eLearning format &mdash; work through the material at your own pace, on your own schedule. PECB certification exam and certificate included in every course.</p>
-    <a href="/self/index.html" class="btn">View courses</a>
+<!-- SECTION 1: NexGenio + PECB Partnership -->
+<section>
+  <div class="inn">
+    <div class="sl">Authorized Partner</div>
+    <div class="st">NexGenio + PECB</div>
+    <div class="partner-row">
+      <img src="https://assets.nexgenio.com/PECB/pecb-authorized-partner.png" alt="PECB Authorized Training Partner" width="140" height="140">
+      <p>NexGenio is an Authorized PECB Training Partner, delivering official PECB certification courses across cybersecurity, AI governance, and business resilience. As a training partner, we bring the same practical, hands-on approach from our advisory work into every course &mdash; helping you build real capability, not just a certificate.</p>
+    </div>
   </div>
+</section>
 
-  <div class="track-card live">
-    <div class="badge">Coming soon</div>
-    <h2>Live Training</h2>
-    <p>Instructor-led courses in classroom or live-online format. No courses currently scheduled &mdash; check back soon.</p>
-    <a href="/live/index.html" class="btn">View schedule</a>
+<!-- SECTION 2: What is PECB? -->
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Certification Body</div>
+    <div class="st">What is PECB?</div>
+    <div class="pecb-row">
+      <img src="https://assets.nexgenio.com/PECB/logo/pecb-logo.png" alt="PECB" width="180">
+      <p>PECB (Professional Evaluation and Certification Board) is a global certification body providing training, examination, and certification across a wide range of standards &mdash; including information security (ISO/IEC 27001), business continuity (ISO 22301), AI management (ISO/IEC 42001), privacy (ISO/IEC 27701), and emerging frameworks like the EU&rsquo;s NIS2 Directive and DORA. PECB certification demonstrates practical skill in implementing these frameworks, not just theoretical knowledge.</p>
+    </div>
   </div>
+</section>
 
-</div>
+<!-- SECTION 3: Live Training -->
+<section>
+  <div class="inn">
+    <div class="sl">Classroom &amp; Live-Online</div>
+    <div class="st">Live Training</div>
+    <div class="live-placeholder">
+      <p>No live sessions are currently scheduled &mdash; check back soon, or explore our self-paced options below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: Recommended Self-Paced Courses -->
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Self-Paced</div>
+    <div class="st">Recommended Courses</div>
+
+    <div class="course-grid">
+
+      <a href="/self/nis2-lead-implementer.html" class="course-card recommended">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/nis-2-directive-lead-implementer.png" alt="NIS2 Lead Implementer badge" class="card-badge">
+        <div class="card-body">
+          <h3>NIS2 Lead Implementer</h3>
+          <p>Lead a cybersecurity program aligned with the EU&rsquo;s NIS2 Directive</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/self/dora-lead-manager.html" class="course-card recommended">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/dora-lead-manager.png" alt="DORA Lead Manager badge" class="card-badge">
+        <div class="card-body">
+          <h3>DORA Lead Manager</h3>
+          <p>Lead digital operational resilience programs in financial entities under DORA</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/self/iso-27001-lead-implementer.html" class="course-card recommended">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-implementer.png" alt="ISO 27001 Lead Implementer badge" class="card-badge">
+        <div class="card-body">
+          <h3>ISO 27001 Lead Implementer</h3>
+          <p>Implement and manage an information security management system</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
+      </a>
+
+      <a href="/self/iso-42001-lead-implementer.html" class="course-card recommended">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-42001-lead-implementer.png" alt="ISO 42001 Lead Implementer badge" class="card-badge">
+        <div class="card-body">
+          <h3>ISO 42001 Lead Implementer</h3>
+          <p>Implement and manage an AI management system</p>
+          <span class="view-link">View course &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="cta-center">
+      <a href="/self/index.html" class="btn-primary">See our full course offerings</a>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="footer-inner">
