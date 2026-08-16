@@ -28,6 +28,7 @@ jobs:
               - 'blog/**'
               - 'self/**'
               - 'live/**'
+              - 'legal/**'
               - 'tokens/**'
             admin:
               - 'admin/**'
@@ -78,6 +79,12 @@ jobs:
       - name: Sync live → S3 /live/
         run: |
           aws s3 sync live/ s3://nxg-web-public/live/ \
+            --delete --region eu-central-1 \
+            --exclude ".gitkeep"
+
+      - name: Sync legal → S3 /legal/
+        run: |
+          aws s3 sync legal/ s3://nxg-web-public/legal/ \
             --delete --region eu-central-1 \
             --exclude ".gitkeep"
 

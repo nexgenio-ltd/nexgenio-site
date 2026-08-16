@@ -17,10 +17,10 @@
     .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
     .brand img{width:200px;height:auto;display:block}
     .brand-divider{width:1px;height:36px;background:#e0e8ed}
-    .brand-sub{font-size:12px;color:var(--lg);line-height:1.35}
-    .brand-sub strong{display:block;font-size:13px;color:var(--t)}
+    .brand-sub{font-size:var(--sub-fs,14px);color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:var(--tag-fs,15px);color:var(--t)}
     nav{display:flex;gap:32px}
-    nav a{color:var(--t);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.2px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,16px);font-weight:600;letter-spacing:.2px}
     nav a:hover{color:var(--o)}
 
     .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px;text-align:center}
@@ -69,8 +69,8 @@
     </a>
     <nav>
       <a href="/">Home</a>
-      <a href="/live/">Live Courses</a>
-      <a href="/self/">Self-Paced</a>
+      <a href="/live/index.html">Live Courses</a>
+      <a href="/self/index.html">Self-Paced</a>
     </nav>
   </div>
 </header>
@@ -91,7 +91,7 @@
 
     <div class="self-pointer">
       <p>Looking to start right away? Our self-paced courses are available now &mdash; study on your own schedule with exam and certificate included.</p>
-      <a href="/self/">View self-paced courses &rarr;</a>
+      <a href="/self/index.html">View self-paced courses &rarr;</a>
     </div>
   </div>
 </section>
@@ -106,14 +106,14 @@
         </div>
       </div>
       <div class="footer-cols">
-        <div class="footer-col"><h5>Training</h5><a href="/self/">Self-paced courses</a><a href="/live/">Live schedule</a></div>
+        <div class="footer-col"><h5>Training</h5><a href="/self/index.html">Self-paced courses</a><a href="/live/index.html">Live schedule</a></div>
         <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
-        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/#privacy">Privacy</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
-      <div><a href="/#impressum">Impressum</a><a href="/#privacy">Privacy Policy</a></div>
+      <div><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
     </div>
   </div>
 </footer>
