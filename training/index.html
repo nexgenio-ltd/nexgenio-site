@@ -13,14 +13,14 @@
 
     /* HEADER */
     header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
-    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:80px}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
     .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
-    .brand img{width:200px;height:auto;display:block}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
     .brand-divider{width:1px;height:36px;background:#e0e8ed}
-    .brand-sub{font-size:var(--sub-fs,14px);color:var(--lg);line-height:1.35}
-    .brand-sub strong{display:block;font-size:var(--tag-fs,15px);color:var(--t)}
+    .brand-sub{font-size:var(--sub-fs,16px);color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:var(--tag-fs,17px);color:var(--t)}
     nav{display:flex;gap:32px}
-    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,16px);font-weight:600;letter-spacing:.2px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
     nav a:hover{color:var(--o)}
 
     /* HERO */
@@ -102,7 +102,7 @@
 <header>
   <div class="hi">
     <a href="/" class="brand">
-      <img src="https://assets.nexgenio.com/brand/nexgenio-logo.svg" alt="NexGenio" width="200" height="40">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
       <div class="brand-divider"></div>
       <div class="brand-sub"><strong>Training</strong>PECB Certification</div>
     </a>

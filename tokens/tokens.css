@@ -20,10 +20,14 @@
   --bg: #f8f9fb;   /* page background */
   --lg: #666;      /* light grey (body copy, meta) */
 
+  /* Header dimensions */
+  --nav-h:   92px;  /* nav bar height (~15% up from 80px) */
+  --logo-w:  230px; /* logo width (~15% up from 200px) */
+
   /* Header type scale */
-  --nav-fs:  16px;  /* main nav links */
-  --tag-fs:  15px;  /* brand tagline label (e.g. "Training") */
-  --sub-fs:  14px;  /* brand tagline sub-text */
+  --nav-fs:  18px;  /* main nav links (~15% up from 16px) */
+  --tag-fs:  17px;  /* brand tagline label (~15% up from 15px) */
+  --sub-fs:  16px;  /* brand tagline sub-text (~15% up from 14px) */
 
   /* Course page type scale (5 levels) */
   --h1-fs:      clamp(24px, 3.5vw, 42px); /* hero course title */
