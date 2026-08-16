@@ -18,65 +18,99 @@
     .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
     .brand img{width:200px;height:auto;display:block}
     .brand-divider{width:1px;height:36px;background:#e0e8ed}
-    .brand-sub{font-size:12px;color:var(--lg);line-height:1.35}
-    .brand-sub strong{display:block;font-size:13px;color:var(--t)}
+    .brand-sub{font-size:var(--sub-fs,14px);color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:var(--tag-fs,15px);color:var(--t)}
     nav{display:flex;gap:32px}
-    nav a{color:var(--t);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.2px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,16px);font-weight:600;letter-spacing:.2px}
     nav a:hover{color:var(--o)}
 
     /* BREADCRUMB */
-    .breadcrumb{max-width:1140px;margin:0 auto;padding:16px 32px;font-size:13px;color:var(--lg)}
+    .breadcrumb{max-width:1140px;margin:0 auto;padding:16px 32px;font-size:var(--label-fs,11px);color:var(--lg)}
     .breadcrumb a{color:var(--t);text-decoration:none}
     .breadcrumb a:hover{color:var(--o)}
 
     /* COURSE HERO */
     .course-hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px}
     .course-hero .inn{max-width:1140px;margin:0 auto}
-    .course-hero .chip{display:inline-block;font-size:10px;font-weight:700;background:rgba(255,255,255,.12);color:#fff;padding:4px 14px;border-radius:10px;margin-bottom:16px;letter-spacing:.6px;text-transform:uppercase}
-    .course-hero h1{font-size:clamp(24px,3.5vw,42px);font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
-    .course-hero .credential{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:8px}
-    .course-hero .tagline{font-size:17px;color:rgba(255,255,255,.85);max-width:700px;line-height:1.7}
+    .hero-badges{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .chip{display:inline-block;font-size:var(--label-fs,11px);font-weight:700;background:rgba(255,255,255,.12);color:#fff;padding:4px 14px;border-radius:10px;letter-spacing:.6px;text-transform:uppercase}
+    .chip-orange{background:var(--o);color:#fff}
+    .course-hero h1{font-size:var(--h1-fs,clamp(24px,3.5vw,42px));font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
+    .credential-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .course-hero .credential{font-size:var(--body-fs,15px);color:rgba(255,255,255,.75)}
+    .pecb-hero-logo{height:22px;width:auto;opacity:.8}
+
+    /* INTRO FRAME */
+    .intro-frame{padding:48px 32px}
+    .intro-frame .inn{max-width:1140px;margin:0 auto}
+    .intro-card{background:#fff;border:1px solid #e4e9ed;border-left:4px solid var(--o);border-radius:6px;padding:32px 36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;box-shadow:0 2px 12px rgba(33,86,117,.05)}
+    .intro-card p{font-size:var(--body-fs,15px);color:#333;line-height:1.85;flex:1;min-width:280px;margin:0;font-weight:600}
+    .intro-card .pecb-red-logo{height:32px;width:auto;flex-shrink:0}
 
     /* SECTIONS */
     .inn{max-width:1140px;margin:0 auto}
     section{padding:64px 32px}
     .alt{background:var(--bg)}
-    .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
-    .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
-    .ss{font-size:15px;color:var(--lg);max-width:640px;margin-bottom:36px;line-height:1.75}
-
-    /* COURSE DESCRIPTION */
-    .course-desc p{font-size:15px;color:#444;line-height:1.8;margin-bottom:14px}
-    .course-desc a{color:var(--t);text-decoration:underline}
-    .course-desc a:hover{color:var(--o)}
-
-    /* PLACEHOLDER STYLING */
-    .placeholder{background:#fff3e0;border:1px dashed var(--o);border-radius:4px;padding:10px 16px;color:#b86800;font-size:14px;font-style:italic;display:inline-block;margin:8px 0}
-    a.placeholder-link{background:#fff3e0;border:1px dashed var(--o);border-radius:4px;padding:6px 14px;color:#b86800;font-size:14px;font-style:italic;text-decoration:none;display:inline-block;margin:8px 0}
-    a.placeholder-link:hover{background:#ffe8cc}
-    .placeholder-img{background:#fff3e0;border:1px dashed var(--o);border-radius:4px;padding:40px 16px;color:#b86800;font-size:14px;font-style:italic;text-align:center;margin:16px 0}
+    .sl{font-size:var(--label-fs,11px);font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:var(--body-fs,15px);color:var(--lg);max-width:640px;margin-bottom:36px;line-height:1.75}
 
     /* TIER CARDS */
     .tiers{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:16px}
     .tier-card{background:#fff;border-radius:8px;border-top:4px solid var(--t);box-shadow:0 2px 16px rgba(33,86,117,.08);padding:36px 32px;display:flex;flex-direction:column}
-    .tier-card.elearning{border-top-color:var(--tm)}
-    .tier-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lg);margin-bottom:6px}
-    .tier-name{font-size:22px;font-weight:bold;color:var(--t);margin-bottom:12px}
-    .tier-card.elearning .tier-name{color:var(--tm)}
-    .tier-desc{font-size:14px;color:#555;line-height:1.7;margin-bottom:20px}
+    .tier-card.elearning{border-top-color:var(--o)}
+    .tier-label{display:inline-block;font-size:var(--heading-fs,20px);font-weight:700;letter-spacing:.4px;padding:6px 18px;border-radius:10px;margin-bottom:12px;background:var(--tl);color:var(--t)}
+    .tier-card.elearning .tier-label{background:rgba(246,145,27,.12);color:#b86800}
+    .tier-desc{font-size:var(--body-fs,15px);color:#555;line-height:1.7;margin-bottom:20px}
+    .tier-desc .only{font-size:var(--body-fs,15px);font-weight:bold;letter-spacing:.5px;color:#333}
     .tier-includes{list-style:none;padding:0;margin:0 0 28px}
-    .tier-includes li{font-size:13px;color:#555;padding:7px 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px}
+    .tier-includes li{font-size:var(--body-fs,15px);color:#555;padding:7px 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px}
     .tier-includes li:last-child{border-bottom:none}
     .tier-includes li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
-    .tier-price{font-size:14px;color:var(--lg);margin-bottom:16px}
-    .tier-price .amount{font-size:28px;font-weight:bold;color:var(--t);display:block;margin-top:4px}
+    .tier-price{font-size:var(--label-fs,11px);color:var(--lg);margin-bottom:16px;margin-top:auto}
+    .tier-price .amount{font-size:var(--price-fs,28px);font-weight:bold;color:var(--t);display:block;margin-top:4px}
     .tier-card.elearning .tier-price .amount{color:var(--tm)}
-    .vat-note{display:block;font-size:12px;color:var(--lg);font-weight:normal;margin-top:2px}
-    .tier-cta{margin-top:auto}
-    .btn{display:inline-block;background:var(--o);color:#fff;font-size:15px;font-weight:bold;padding:14px 36px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;text-align:center;width:100%}
+    .vat-note{display:block;font-size:var(--label-fs,11px);color:var(--lg);font-weight:normal;margin-top:2px}
+    .tier-cta{}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:var(--body-fs,15px);font-weight:bold;padding:14px 36px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;text-align:center;width:100%}
     .btn:hover{background:#d97a0f}
-    .btn-outline{display:inline-block;border:2px solid var(--t);color:var(--t);font-size:15px;font-weight:bold;padding:12px 34px;border-radius:4px;text-decoration:none;text-align:center;width:100%}
-    .btn-outline:hover{border-color:var(--o);color:var(--o)}
+
+    /* ACCORDION */
+    .accordion{padding:0 32px 64px}
+    .accordion .inn{max-width:1140px;margin:0 auto}
+    details.acc{border:1px solid #e4e9ed;border-radius:6px;margin-bottom:12px;background:#fff;overflow:hidden}
+    details.acc + details.acc{margin-top:0}
+    details.acc summary{padding:18px 24px;font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .15s}
+    details.acc summary:hover{background:var(--bg)}
+    details.acc summary::-webkit-details-marker{display:none}
+    details.acc summary::after{content:"+";font-size:var(--heading-fs,20px);font-weight:300;color:var(--lg);flex-shrink:0;margin-left:16px;transition:transform .2s}
+    details.acc[open] summary::after{content:"\2212"}
+    details.acc[open] summary{border-bottom:1px solid #e4e9ed}
+    .acc-body{padding:24px;font-size:var(--body-fs,15px);color:#444;line-height:1.8}
+    .acc-body p{margin-bottom:14px}
+    .acc-body p:last-child{margin-bottom:0}
+    .acc-body ul{margin:0 0 14px 0;padding:0;list-style:none;font-size:var(--body-fs,15px)}
+    .acc-body ul li{padding:6px 0;display:flex;gap:10px}
+    .acc-body ul li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .acc-body .curriculum li::before{content:"\25B6";color:var(--o);font-size:var(--label-fs,11px);margin-top:4px}
+    .acc-body a{color:var(--t);text-decoration:underline}
+    .acc-body a:hover{color:var(--o)}
+    .acc-body h4{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin:20px 0 8px}
+    .acc-body h4:first-child{margin-top:0}
+    .acc-body .steps{list-style:none;padding:0;margin:0;counter-reset:step}
+    .acc-body .steps li{padding:8px 0;display:flex;gap:12px;counter-increment:step}
+    .acc-body .steps li::before{content:counter(step);background:var(--t);color:#fff;font-size:var(--label-fs,11px);font-weight:bold;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .acc-body .placeholder{background:#fff3e0;border:2px dashed var(--o);border-radius:4px;padding:10px 16px;color:#b86800;font-size:var(--body-fs,15px);font-style:italic;margin:8px 0}
+
+    /* CREDENTIAL TABLE */
+    .cred-intro{display:flex;align-items:flex-start;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+    .cred-badge{width:120px;height:auto;flex-shrink:0;border-radius:6px}
+    .cred-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:var(--body-fs,15px)}
+    .cred-table th{background:var(--t);color:#fff;text-align:left;padding:10px 14px;font-weight:600;font-size:var(--body-fs,15px);letter-spacing:.3px}
+    .cred-table td{padding:10px 14px;border-bottom:1px solid #eee;color:#444}
+    .cred-table tr:last-child td{border-bottom:none}
+    .cred-table tr:nth-child(even){background:var(--bg)}
+    .cred-closing{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.7;margin-top:16px}
 
     /* FOOTER */
     footer{background:var(--t);border-top:3px solid var(--o)}
@@ -103,7 +137,11 @@
       .course-hero{padding:40px 20px 36px}
       .hi{padding:0 20px}
       .breadcrumb{padding:12px 20px}
+      .intro-frame{padding:32px 20px}
+      .intro-card{padding:24px 20px}
+      .accordion{padding:0 20px 40px}
     }
+
   </style>
 </head>
 <body>
@@ -124,50 +162,48 @@
 </header>
 
 <div class="breadcrumb">
-  <a href="/">Home</a> &rsaquo; <a href="/self/">Self-Paced</a>
-      <a href="/live/">Live Courses</a> &rsaquo; DORA Lead Manager
+  <a href="/">Home</a> &rsaquo; <a href="/self/">Self-Paced Courses</a> &rsaquo; DORA Lead Manager
 </div>
 
+<!-- HERO -->
 <div class="course-hero">
   <div class="inn">
-    <div class="chip">PECB Certified</div>
+    <div class="hero-badges">
+      <span class="chip">PECB Certified</span>
+      <span class="chip chip-orange">Self-Paced</span>
+    </div>
     <h1>DORA Lead Manager</h1>
-    <div class="credential">PECB Credential: Certified DORA Lead Manager</div>
-    <div class="tagline">[Add description here...]</div>
+    <div class="credential-line">
+      <span class="credential">PECB Credential: Certified DORA Lead Manager</span>
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_White.svg" alt="PECB" class="pecb-hero-logo">
+    </div>
   </div>
 </div>
 
-<section>
+<!-- INTRO FRAME -->
+<div class="intro-frame">
   <div class="inn">
-    <div class="sl">About this course</div>
-    <div class="st">DORA Lead Manager</div>
-
-    <div class="placeholder-img">[Add picture here]</div>
-
-    <div class="course-desc">
-      <p>[Add description here...]</p>
-      <p>This certification demonstrates your ability to manage Digital Operational Resilience Act (DORA) compliance. It is designed for professionals responsible for overseeing ICT risk management, incident reporting, and operational resilience within financial entities.</p>
-      <p>
-        <a class="placeholder-link" href="#">[Add link to PECB brochure here]</a>
-      </p>
+    <div class="intro-card">
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_RedWhite.svg" alt="PECB" class="pecb-red-logo">
+      <p>Master the skills to lead digital operational resilience programs in financial entities aligned with DORA &mdash; from ICT risk management and governance through incident reporting and third-party oversight. A practical path to the skills financial institutions now need as DORA compliance becomes a supervisory priority across the EU financial sector.</p>
     </div>
   </div>
-</section>
+</div>
 
+<!-- PRICING -->
 <section class="alt">
   <div class="inn">
     <div class="sl">Self-paced training options</div>
-    <div class="st">Choose your format</div>
-    <p class="ss">Both options include the PECB certification exam and certificate at no extra cost. Study at your own pace, on your own schedule.</p>
+    <div class="st">Your Choice</div>
 
     <div class="tiers">
 
       <!-- SELF-STUDY -->
       <div class="tier-card">
-        <div class="tier-label">Self-paced</div>
-        <div class="tier-name">Self-Study</div>
+        <div class="tier-label">Self-Study</div>
         <div class="tier-desc">Course slides and exercise/quiz materials for self-paced reading and study. Work through the material at your own speed.</div>
         <ul class="tier-includes">
+          <li><strong>No video recordings &mdash; slides only</strong></li>
           <li>Course slides (full curriculum)</li>
           <li>Exercises and quizzes</li>
           <li>PECB certification exam included</li>
@@ -175,21 +211,20 @@
         </ul>
         <div class="tier-price">
           Price
-          <span class="amount">€699</span>
+          <span class="amount">&euro;699</span>
           <span class="vat-note">excl. VAT</span>
         </div>
         <div class="tier-cta">
-          <a href="https://buy.stripe.com/bJeeV57pn8PC60NbCF0Ba02" class="btn">Buy Self-Study</a>
+          <a href="#" class="btn">Buy Self-Study</a>
         </div>
       </div>
 
       <!-- eLEARNING -->
       <div class="tier-card elearning">
-        <div class="tier-label">Self-paced</div>
-        <div class="tier-name">eLearning</div>
+        <div class="tier-label">eLearning</div>
         <div class="tier-desc">Pre-recorded video sessions plus course materials. Watch, pause, and revisit lessons at your own pace.</div>
         <ul class="tier-includes">
-          <li>Pre-recorded video sessions</li>
+          <li><strong>Pre-recorded video sessions</strong></li>
           <li>Course slides (full curriculum)</li>
           <li>Exercises and quizzes</li>
           <li>PECB certification exam included</li>
@@ -197,17 +232,112 @@
         </ul>
         <div class="tier-price">
           Price
-          <span class="amount">€839</span>
+          <span class="amount">&euro;839</span>
           <span class="vat-note">excl. VAT</span>
         </div>
         <div class="tier-cta">
-          <a href="https://buy.stripe.com/cNibIT3975Dqexj5eh0Ba03" class="btn">Buy eLearning</a>
+          <a href="#" class="btn">Buy eLearning</a>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- ACCORDION -->
+<div class="accordion">
+  <div class="inn">
+
+  <!-- 1. What is X? -->
+  <details class="acc">
+    <summary>What is DORA?</summary>
+    <div class="acc-body">
+      <p>The Digital Operational Resilience Act (DORA) is EU Regulation 2022/2554, in force since 17 January 2025, and it sets binding ICT risk management requirements for banks, insurers, investment firms, and other financial entities operating in the EU &mdash; including the critical third parties, like cloud and IT service providers, that support them. DORA consolidates what used to be a patchwork of national and sector rules into a single framework covering ICT risk management, incident reporting, resilience testing, and oversight of third-party ICT providers &mdash; with real supervisory teeth behind it, not just guidance.</p>
+      <p>Financial institutions now need people who can translate DORA&rsquo;s five pillars into an operating reality, not just read the regulation. This course builds that competency directly: you learn how to plan and govern an ICT risk management program, handle incident detection and regulatory reporting, run resilience testing, and manage third-party ICT risk &mdash; the same skills regulators and boards expect from whoever is accountable for DORA compliance.</p>
+    </div>
+  </details>
+
+  <!-- 2. About this course -->
+  <details class="acc">
+    <summary>About this course</summary>
+    <div class="acc-body">
+      <h4>Who it&rsquo;s for</h4>
+      <ul>
+        <li>Financial institution executives and risk officers implementing DORA requirements</li>
+        <li>IT professionals responsible for ICT risk management</li>
+        <li>Compliance officers overseeing DORA obligations</li>
+      </ul>
+
+      <h4>What&rsquo;s covered</h4>
+      <ul class="curriculum">
+        <li><strong>Days 1&ndash;2:</strong>&nbsp; DORA fundamentals, governance, ICT risk and incident management</li>
+        <li><strong>Day 3:</strong>&nbsp; Third-party ICT risk management and information sharing</li>
+        <li><strong>Day 4:</strong>&nbsp; Review and continual improvement</li>
+        <li><strong>Day 5:</strong>&nbsp; Certification exam (3 hours, 5 competency domains)</li>
+      </ul>
+
+      <p><a href="https://assets.nexgenio.com/training/pecb/brochures/dora-lead-manager.pdf">View PECB course brochure (PDF) &rarr;</a></p>
+    </div>
+  </details>
+
+  <!-- 3. Credential -->
+  <details class="acc">
+    <summary>Which credential will I earn?</summary>
+    <div class="acc-body">
+      <div class="cred-intro">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/dora-lead-manager.png" alt="PECB Certified DORA Lead Manager" class="cred-badge">
+        <p style="flex:1;min-width:260px">Everyone who attends this course sits the same exam &mdash; the PECB Certified DORA Lead Manager exam. What differs is which credential you can apply for afterward, based on your prior professional experience. There&rsquo;s no separate exam or extra study required for a higher tier &mdash; it&rsquo;s the same certification, recognized at a level that matches your background.</p>
+      </div>
+
+      <table class="cred-table">
+        <thead>
+          <tr>
+            <th>Credential</th>
+            <th>Experience required</th>
+            <th>ICT risk management experience</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Provisional Manager</td><td>None</td><td>None</td></tr>
+          <tr><td>Manager</td><td>2 years (1 in ICT risk mgmt)</td><td>200+ hours</td></tr>
+          <tr><td>Lead Manager</td><td>5 years (2 in ICT risk mgmt)</td><td>300+ hours</td></tr>
+          <tr><td>Senior Lead Manager</td><td>10 years (7 in ICT risk mgmt)</td><td>1,000+ hours</td></tr>
+        </tbody>
+      </table>
+
+      <p class="cred-closing">New to the field? You&rsquo;ll qualify for Provisional Manager immediately after passing &mdash; a fully valid PECB credential &mdash; and can apply for a higher tier later as your experience grows, without retaking the course.</p>
+    </div>
+  </details>
+
+  <!-- 4. How it works -->
+  <details class="acc">
+    <summary>How it works</summary>
+    <div class="acc-body">
+      <ol class="steps">
+        <li>Complete checkout and receive your order confirmation</li>
+        <li>We register your enrollment directly with PECB</li>
+        <li>You receive access to your course materials by email within 24 hours of your enrollment being registered with PECB (business days)</li>
+        <li>Study at your own pace, using the materials included in your chosen format</li>
+        <li>Book your certification exam directly through PECB when you&rsquo;re ready</li>
+      </ol>
+    </div>
+  </details>
+
+  <!-- 5. What's in the price -->
+  <details class="acc">
+    <summary>What&rsquo;s in the price</summary>
+    <div class="acc-body">
+      <ul>
+        <li>Certification and exam fees included in course price</li>
+        <li>Free exam retake within 12 months if unsuccessful</li>
+        <li>31 CPD credits awarded on completion</li>
+        <li>Access to course materials for 12 months</li>
+      </ul>
+    </div>
+  </details>
+
+  </div>
+</div>
 
 <footer>
   <div class="footer-inner">
@@ -221,12 +351,12 @@
       <div class="footer-cols">
         <div class="footer-col"><h5>Training</h5><a href="/self/">All courses</a></div>
         <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
-        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/#privacy">Privacy</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
-      <div><a href="/#impressum">Impressum</a><a href="/#privacy">Privacy Policy</a></div>
+      <div><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
     </div>
   </div>
 </footer>
