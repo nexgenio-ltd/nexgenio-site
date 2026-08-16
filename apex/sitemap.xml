@@ -12,5 +12,6 @@
   <url><loc>https://nexgenio.com/self/iso-27701-lead-implementer.html</loc></url>
   <url><loc>https://nexgenio.com/self/iso-31000-risk-manager.html</loc></url>
   <url><loc>https://nexgenio.com/self/caim.html</loc></url>
+  <url><loc>https://nexgenio.com/training/</loc><priority>0.8</priority></url>
   <url><loc>https://nexgenio.com/live/</loc><priority>0.6</priority></url>
 </urlset>

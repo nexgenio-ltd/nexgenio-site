@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training &mdash; NexGenio</title>
+  <meta name="description" content="PECB certification training from NexGenio — choose self-paced or live instructor-led courses with exam and certificate included.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/tokens/tokens.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+
+    /* HEADER */
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:80px}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:200px;height:auto;display:block}
+    .brand-divider{width:1px;height:36px;background:#e0e8ed}
+    .brand-sub{font-size:var(--sub-fs,14px);color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:var(--tag-fs,15px);color:var(--t)}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,16px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    /* HERO */
+    .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:72px 32px 64px;text-align:center}
+    .hero h1{font-size:clamp(28px,4vw,46px);font-weight:bold;color:#fff;margin-bottom:10px}
+    .hero p{font-size:17px;color:rgba(255,255,255,.75);max-width:600px;margin:0 auto}
+
+    /* INTRO */
+    .intro{max-width:800px;margin:0 auto;padding:48px 32px 0;display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+    .intro img{width:140px;height:auto;flex-shrink:0}
+    .intro p{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.75;flex:1;min-width:260px}
+
+    /* TRACK CHOOSER */
+    .tracks{max-width:800px;margin:0 auto;padding:48px 32px 64px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    @media(max-width:640px){.tracks{grid-template-columns:1fr}}
+    .track-card{background:#fff;border-radius:8px;border-top:4px solid var(--t);box-shadow:0 2px 16px rgba(33,86,117,.08);padding:36px 32px;display:flex;flex-direction:column}
+    .track-card.live{border-top-color:var(--o)}
+    .track-card h2{font-size:var(--heading-fs,20px);font-weight:700;color:var(--t);margin-bottom:12px}
+    .track-card.live h2{color:#b86800}
+    .track-card p{font-size:var(--body-fs,15px);color:#555;line-height:1.7;margin-bottom:20px;flex:1}
+    .track-card .badge{display:inline-block;font-size:var(--label-fs,11px);font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:14px}
+    .track-card .badge{background:var(--tl);color:var(--t)}
+    .track-card.live .badge{background:rgba(246,145,27,.12);color:#b86800}
+    .track-card .btn{display:inline-block;padding:12px 28px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;color:#fff;background:var(--t);transition:background .15s}
+    .track-card .btn:hover{background:var(--tm)}
+    .track-card.live .btn{background:#b86800}
+    .track-card.live .btn:hover{background:var(--o)}
+
+    /* FOOTER */
+    footer{background:var(--t);border-top:3px solid var(--o)}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
+    .footer-brand{display:flex;align-items:center;gap:16px}
+    .footer-brand-text .fn{font-size:14px;font-weight:bold;color:#fff}
+    .footer-brand-text .ft{font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+    .footer-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:7px}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+    .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
+    .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="https://assets.nexgenio.com/brand/nexgenio-logo.svg" alt="NexGenio" width="200" height="40">
+      <div class="brand-divider"></div>
+      <div class="brand-sub"><strong>Training</strong>PECB Certification</div>
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/self/index.html">Self-Paced</a>
+      <a href="/live/index.html">Live Courses</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Training</h1>
+  <p>PECB Authorized Training Partner &mdash; certification courses with exam and certificate included.</p>
+</section>
+
+<div class="intro">
+  <img src="https://assets.nexgenio.com/PECB/pecb-authorized-partner.png" alt="PECB Authorized Training Partner" width="140" height="140">
+  <p>Self-paced PECB certification courses with exam and certificate included. Study at your own pace &mdash; choose Self-Study or eLearning format.</p>
+</div>
+
+<div class="tracks">
+
+  <div class="track-card">
+    <div class="badge">Available now</div>
+    <h2>Self-Paced</h2>
+    <p>Self-Study or eLearning format &mdash; work through the material at your own pace, on your own schedule. PECB certification exam and certificate included in every course.</p>
+    <a href="/self/index.html" class="btn">View courses</a>
+  </div>
+
+  <div class="track-card live">
+    <div class="badge">Coming soon</div>
+    <h2>Live Training</h2>
+    <p>Instructor-led courses in classroom or live-online format. No courses currently scheduled &mdash; check back soon.</p>
+    <a href="/live/index.html" class="btn">View schedule</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-brand-text"><div class="fn">NexGenio LTD</div><div class="ft">Compliance by design.</div></div></div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Training</h5><a href="/self/index.html">Self-paced courses</a><a href="/live/index.html">Live schedule</a></div>
+        <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
+      <div><a href="/legal/terms.html">Terms</a><a href="/legal/privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
