@@ -114,7 +114,9 @@
     .training .inn{max-width:1140px;margin:0 auto}
     .training-header{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;margin-bottom:40px;flex-wrap:wrap}
     .training-header-text{max-width:620px}
-    .training-badge{width:140px;height:auto;flex-shrink:0}
+    .training-badge-link{flex-shrink:0;display:block;border-radius:6px;transition:transform .2s,box-shadow .2s}
+    .training-badge-link:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(33,86,117,.12)}
+    .training-badge{width:140px;height:auto;display:block}
     .course-slider{position:relative;overflow:hidden}
     .course-track{display:flex;gap:24px;transition:transform .4s ease}
     .course-slide{min-width:calc(33.333% - 16px);background:#fff;border-radius:6px;border-top:3px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06);padding:24px 22px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s}
@@ -384,8 +386,9 @@
         <div class="sl">PECB Training Partner</div>
         <div class="st">Certification Training</div>
         <p class="ss">Self-paced PECB certification courses with exam and certificate included. Study at your own pace &mdash; choose Self-Study or eLearning format.</p>
+        <a href="/training/index.html" class="view-link" style="font-size:14px;font-weight:600;color:var(--o);text-decoration:none;letter-spacing:.2px">Explore all training options &rarr;</a>
       </div>
-      <img src="https://assets.nexgenio.com/PECB/pecb-authorized-partner.png" alt="PECB Authorized Training Partner" class="training-badge">
+      <a href="/training/index.html" class="training-badge-link"><img src="https://assets.nexgenio.com/PECB/pecb-authorized-partner.png" alt="PECB Authorized Training Partner" class="training-badge"></a>
     </div>
 
     <div class="course-slider">
