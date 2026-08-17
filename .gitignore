@@ -1,0 +1,7 @@
+node_modules/
+
+# Generated blog content (built from Strapi, deployed via blog-build workflow)
+blog/*.html
+blog/*.xml
+blog/*.txt
+!blog/.gitkeep

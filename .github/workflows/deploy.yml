@@ -25,7 +25,6 @@ jobs:
             public:
               - 'apex/**'
               - 'training/**'
-              - 'blog/**'
               - 'self/**'
               - 'live/**'
               - 'legal/**'
@@ -61,12 +60,6 @@ jobs:
       - name: Sync training → S3 /training/
         run: |
           aws s3 sync training/ s3://nxg-web-public/training/ \
-            --delete --region eu-central-1 \
-            --exclude ".gitkeep"
-
-      - name: Sync blog → S3 /blog/
-        run: |
-          aws s3 sync blog/ s3://nxg-web-public/blog/ \
             --delete --region eu-central-1 \
             --exclude ".gitkeep"
 
