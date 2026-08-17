@@ -36,11 +36,12 @@ async function fetchArticles() {
       metaTitle: a.metaTitle || a.title,
       metaDescription: a.metaDescription || a.excerpt || "",
       updatedAt: a.updatedAt,
-      featuredImage: a.featuredImage?.url
-        ? a.featuredImage.url.startsWith("http")
-          ? a.featuredImage.url
-          : `${STRAPI_URL}${a.featuredImage.url}`
-        : null,
+      featuredImage: a.featuredImageUrl
+        || (a.featuredImage?.url
+          ? a.featuredImage.url.startsWith("http")
+            ? a.featuredImage.url
+            : `${STRAPI_URL}${a.featuredImage.url}`
+          : null),
     };
   });
 }
@@ -104,6 +105,11 @@ function htmlHead(title, description, extra = "") {
     .article-card .card-date{font-size:12px;color:var(--lg);margin-bottom:8px}
     .article-card .view-link{font-size:13px;font-weight:600;color:var(--o);margin-top:12px;display:block}
     .article-card:hover .view-link{text-decoration:underline}
+    .card-img{background:#fff;text-align:center;padding:16px;margin:-24px -24px 16px;border-radius:6px 6px 0 0;border-bottom:1px solid var(--tl)}
+    .card-img img{max-height:80px;max-width:200px;height:auto;object-fit:contain}
+
+    .featured-img{background:#fff;text-align:center;padding:32px 32px 0}
+    .featured-img img{max-width:320px;max-height:160px;height:auto;object-fit:contain}
 
     .article-content{max-width:780px;margin:0 auto;font-size:16px;line-height:1.85;color:#333}
     .article-content h2{font-size:22px;font-weight:bold;color:var(--t);margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--o)}
@@ -208,7 +214,7 @@ function buildIndex(articles) {
   const cards = articles
     .map(
       (a) => `
-      <a href="/blog/${esc(a.slug)}.html" class="article-card">
+      <a href="/blog/${esc(a.slug)}.html" class="article-card">${a.featuredImage ? `\n        <div class="card-img"><img src="${esc(a.featuredImage)}" alt="${esc(a.title)}"></div>` : ""}
         <div class="card-date">${fmtDate(a.publishedDate)}</div>
         <h3>${esc(a.title)}</h3>
         <p>${esc(a.excerpt)}</p>
@@ -266,6 +272,10 @@ function buildArticle(a) {
     ...(a.featuredImage ? { image: a.featuredImage } : {}),
   });
 
+  const featuredImgHtml = a.featuredImage
+    ? `\n<div class="featured-img"><img src="${esc(a.featuredImage)}" alt="${esc(a.title)}"></div>`
+    : "";
+
   return `${htmlHead(a.metaTitle, a.metaDescription)}
 <body>
 ${header}
@@ -274,7 +284,7 @@ ${header}
   <h1>${esc(a.title)}</h1>
   <div class="article-date">${fmtDate(a.publishedDate)}</div>
 </div>
-
+${featuredImgHtml}
 <section>
   <div class="inn">
     <div class="article-content">
