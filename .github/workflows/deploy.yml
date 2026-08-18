@@ -29,6 +29,8 @@ jobs:
               - 'live/**'
               - 'legal/**'
               - 'tokens/**'
+              - 'partials/**'
+              - 'scripts/inject-nav.mjs'
             admin:
               - 'admin/**'
               - 'tokens/**'
@@ -40,6 +42,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Inject shared nav into all pages
+        run: node scripts/inject-nav.mjs
 
       - name: Configure AWS credentials (S3/CF role)
         uses: aws-actions/configure-aws-credentials@v4

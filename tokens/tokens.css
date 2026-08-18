@@ -36,3 +36,7 @@
   --body-fs:    15px;  /* body text, paragraphs, lists */
   --label-fs:   11px;  /* chips, pills, captions, breadcrumb */
 }
+
+/* Training-section PECB marker in nav */
+.pecb-label { white-space: nowrap }
+.pecb-mark { height: 14px; width: auto; vertical-align: middle; margin-left: 4px }

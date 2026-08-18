@@ -6,6 +6,7 @@
 import { writeFileSync, mkdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { Marked } from "marked";
+import { baseNav } from "../partials/nav.mjs";
 
 const STRAPI_URL = process.env.STRAPI_URL || "https://nexgenio.com/cms";
 const STRAPI_TOKEN = process.env.STRAPI_TOKEN;
@@ -146,22 +147,7 @@ function htmlHead(title, description, extra = "") {
 </head>`;
 }
 
-const header = `
-<header>
-  <div class="hi">
-    <a href="/" class="brand">
-      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
-      <div class="brand-divider"></div>
-      <div class="brand-sub"><strong>Blog</strong>Insights &amp; updates</div>
-    </a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/training/index.html">Training</a>
-      <a href="/self/index.html">Self-Paced</a>
-      <a href="/blog/">Blog</a>
-    </nav>
-  </div>
-</header>`;
+const header = `\n${baseNav}`;
 
 const footer = `
 <footer>
