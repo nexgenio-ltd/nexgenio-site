@@ -162,7 +162,6 @@ const footer = `
     </div>
     <div class="footer-bottom">
       <p>&copy; ${new Date().getFullYear()} NexGenio LTD. All rights reserved.</p>
-      <div><a href="/legal/terms.html">Terms</a><a href="/legal/privacy.html">Privacy</a></div>
     </div>
   </div>
 </footer>`;

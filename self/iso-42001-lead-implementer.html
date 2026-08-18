@@ -110,6 +110,16 @@
     .cred-table td{padding:10px 14px;border-bottom:1px solid #eee;color:#444}
     .cred-table tr:last-child td{border-bottom:none}
     .cred-table tr:nth-child(even){background:var(--bg)}
+    @media(max-width:600px){
+      .cred-table thead{display:none}
+      .cred-table,.cred-table tbody,.cred-table tr,.cred-table td{display:block;width:100%}
+      .cred-table tr{background:#fff;border:1px solid var(--tl);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+      .cred-table tr:nth-child(even){background:#fff}
+      .cred-table td{padding:3px 0;border-bottom:none;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+      .cred-table td:first-child{font-weight:700;color:var(--t);font-size:15px;padding-bottom:8px;display:block}
+      .cred-table td:not(:first-child)::before{content:attr(data-label);font-weight:600;color:var(--t);font-size:13px;flex-shrink:0}
+      .cred-table tr:last-child td{border-bottom:none}
+    }
     .cred-closing{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.7;margin-top:16px}
 
     /* FOOTER */
@@ -301,10 +311,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Provisional Implementer</td><td>None</td><td>None</td></tr>
-          <tr><td>Implementer</td><td>2 years (1 in AI)</td><td>200+ hours</td></tr>
-          <tr><td>Lead Implementer</td><td>5 years (2 in AI)</td><td>300+ hours</td></tr>
-          <tr><td>Senior Lead Implementer</td><td>10 years (7 in AI)</td><td>1,000+ hours</td></tr>
+          <tr><td>Provisional Implementer</td><td data-label="Experience">None</td><td data-label="AIMS project">None</td></tr>
+          <tr><td>Implementer</td><td data-label="Experience">2 years (1 in AI)</td><td data-label="AIMS project">200+ hours</td></tr>
+          <tr><td>Lead Implementer</td><td data-label="Experience">5 years (2 in AI)</td><td data-label="AIMS project">300+ hours</td></tr>
+          <tr><td>Senior Lead Implementer</td><td data-label="Experience">10 years (7 in AI)</td><td data-label="AIMS project">1,000+ hours</td></tr>
         </tbody>
       </table>
 
@@ -359,7 +369,6 @@
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
-      <div><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
     </div>
   </div>
 </footer>
