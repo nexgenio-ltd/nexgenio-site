@@ -53,8 +53,9 @@ const orgJsonLd = JSON.stringify({
   name: "NexGenio LTD",
   url: SITE_URL,
   logo: "https://assets.nexgenio.com/brand/logo.png",
-  address: { "@type": "PostalAddress", addressCountry: "MT" },
-  vatID: "MT29471117",
+  address: { "@type": "PostalAddress", streetAddress: "36 St Dminika Street", addressLocality: "Victoria, Gozo", postalCode: "VCT 9030", addressCountry: "MT" },
+  vatID: "MT25941925",
+  taxID: "C 88842",
   sameAs: ["https://www.linkedin.com/company/nexgenio"],
 });
 

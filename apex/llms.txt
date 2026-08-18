@@ -1,0 +1,28 @@
+# NexGenio LTD
+> Boutique GRC and security architecture consultancy based in Malta, helping organisations across Europe navigate NIS2, DORA, ISO 27001/42001/22301, and AI governance requirements.
+
+## Pages
+
+- [Home](https://nexgenio.com/) — ISO & regulatory compliance programmes for essential entities, financial entities, and organisations across Europe
+- [Training Hub](https://nexgenio.com/training/index.html) — PECB-certified training courses overview (self-paced and live)
+- [Self-Paced Courses](https://nexgenio.com/self/index.html) — Full catalog of self-paced PECB certification courses
+- [Live Courses](https://nexgenio.com/live/index.html) — Scheduled live/instructor-led training sessions
+- [Blog](https://nexgenio.com/blog/) — Insights and updates on compliance, cybersecurity, and AI governance
+
+## Self-Paced Courses
+
+- [NIS2 Directive Lead Implementer](https://nexgenio.com/self/nis2-lead-implementer.html) — Implement and manage a cybersecurity programme aligned with the NIS2 Directive
+- [NIS2 Directive Foundation](https://nexgenio.com/self/nis2-foundation.html) — Foundational understanding of NIS2 Directive requirements and principles
+- [DORA Lead Manager](https://nexgenio.com/self/dora-lead-manager.html) — Lead digital operational resilience management under DORA regulation
+- [DORA Foundation](https://nexgenio.com/self/dora-foundation.html) — Foundational understanding of DORA requirements for financial entities
+- [ISO/IEC 27001 Lead Implementer](https://nexgenio.com/self/iso-27001-lead-implementer.html) — Implement and manage an information security management system (ISMS)
+- [ISO/IEC 42001 Lead Implementer](https://nexgenio.com/self/iso-42001-lead-implementer.html) — Implement and manage an AI management system (AIMS) per ISO 42001
+- [ISO 22301 Lead Implementer](https://nexgenio.com/self/iso-22301-lead-implementer.html) — Implement and manage a business continuity management system (BCMS)
+- [ISO/IEC 27701 Lead Implementer](https://nexgenio.com/self/iso-27701-lead-implementer.html) — Implement and manage a privacy information management system (PIMS)
+- [ISO 31000 Risk Manager](https://nexgenio.com/self/iso-31000-risk-manager.html) — Risk management principles and guidelines per ISO 31000
+- [Certified AI Manager (CAIM)](https://nexgenio.com/self/caim.html) — AI governance, ethics, and management certification
+
+## Legal
+
+- [Terms of Sale](https://nexgenio.com/legal/terms.html)
+- [Privacy Policy](https://nexgenio.com/legal/privacy.html)
