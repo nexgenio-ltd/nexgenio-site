@@ -32,7 +32,8 @@ const TRAINING_PATHS = new Set([
 ]);
 
 const DIRS = ["apex", "self", "training", "live", "legal"];
-const HEADER_RE = /<header>[\s\S]*?<\/header>/;
+// Match either <!-- NAV -->...<!-- /NAV --> (re-run) or bare <header>...</header> (first run)
+const NAV_RE = /<!-- NAV -->[\s\S]*?<!-- \/NAV -->|<header>[\s\S]*?<\/header>/;
 
 let count = 0;
 
@@ -52,12 +53,12 @@ for (const dir of DIRS) {
     const nav = isTraining ? trainingNav : baseNav;
 
     let html = readFileSync(filePath, "utf8");
-    if (!HEADER_RE.test(html)) {
+    if (!NAV_RE.test(html)) {
       console.log(`  — skip: ${relPath} (no <header> found)`);
       continue;
     }
 
-    html = html.replace(HEADER_RE, nav);
+    html = html.replace(NAV_RE, nav);
     writeFileSync(filePath, html);
     count++;
     console.log(`  ${isTraining ? "T" : "✓"} ${relPath}`);

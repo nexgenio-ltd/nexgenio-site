@@ -5,9 +5,15 @@
  * Two variants:
  *   baseNav     — all pages (apex, blog, legal, 404)
  *   trainingNav — training-section pages (training/, self/, live/)
+ *
+ * Alignment fix: the nav-align <style> block moves horizontal padding
+ * from .hi to header so the logo's left edge aligns with .inn content.
  */
 
-export const baseNav = `<header>
+const navAlignCss = `<style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}@media(max-width:520px){header{padding:0 20px}}</style>`;
+
+export const baseNav = `<!-- NAV -->${navAlignCss}
+<header>
   <div class="hi">
     <a href="/" class="brand">
       <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
@@ -18,14 +24,16 @@ export const baseNav = `<header>
       <a href="/blog/">Blog</a>
     </nav>
   </div>
-</header>`;
+</header>
+<!-- /NAV -->`;
 
-export const trainingNav = `<header>
+export const trainingNav = `<!-- NAV -->${navAlignCss}
+<header>
   <div class="hi">
     <a href="/" class="brand">
       <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
       <div class="brand-divider"></div>
-      <div class="brand-sub"><strong>Training</strong><span class="pecb-label">PECB Certification <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_RedWhite.svg" alt="PECB" class="pecb-mark"></span></div>
+      <div class="brand-sub"><strong>Training</strong><span class="pecb-label">PECB Certification <img src="https://assets.nexgenio.com/PECB/pecb-authorized-partner.png" alt="PECB Authorized Partner" class="pecb-mark" width="20" height="24"></span></div>
     </a>
     <nav>
       <a href="/">Home</a>
@@ -33,4 +41,5 @@ export const trainingNav = `<header>
       <a href="/blog/">Blog</a>
     </nav>
   </div>
-</header>`;
+</header>
+<!-- /NAV -->`;
