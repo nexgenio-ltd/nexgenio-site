@@ -10,7 +10,7 @@
  * from .hi to header so the logo's left edge aligns with .inn content.
  */
 
-const navAlignCss = `<style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{width:20px;height:24px;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}</style>`;
+const navAlignCss = `<style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{width:42px;height:15px;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}</style>`;
 
 export const baseNav = `<!-- NAV -->${navAlignCss}
 <header>
@@ -33,7 +33,7 @@ export const trainingNav = `<!-- NAV -->${navAlignCss}
     <a href="/" class="brand">
       <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
       <div class="brand-divider"></div>
-      <div class="brand-sub"><strong>Training</strong><span class="pecb-label">PECB Certification <img src="https://assets.nexgenio.com/PECB/pecb-authorized-partner.png" alt="PECB Authorized Partner" class="pecb-mark" width="20" height="24"></span></div>
+      <div class="brand-sub"><strong>Training</strong><span class="pecb-label">PECB Certification <img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_BlackWhite@2x.png" alt="PECB" class="pecb-mark" width="42" height="15"></span></div>
     </a>
     <nav>
       <a href="/">Home</a>
