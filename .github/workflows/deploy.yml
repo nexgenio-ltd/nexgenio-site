@@ -55,7 +55,15 @@ jobs:
       - name: Sync apex → S3 root
         run: |
           aws s3 sync apex/ s3://nxg-web-public/ \
-            --delete --region eu-central-1
+            --delete --region eu-central-1 \
+            --exclude "training/*" \
+            --exclude "self/*" \
+            --exclude "live/*" \
+            --exclude "legal/*" \
+            --exclude "tokens/*" \
+            --exclude "blog/*" \
+            --exclude "cms/*" \
+            --exclude "_admin-staging/*"
 
       - name: Sync tokens → S3 /tokens/
         run: |
