@@ -10,7 +10,7 @@
  * from .hi to header so the logo's left edge aligns with .inn content.
  */
 
-const navAlignCss = `<style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}@media(max-width:520px){header{padding:0 20px}}</style>`;
+const navAlignCss = `<style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{width:20px;height:24px;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}</style>`;
 
 export const baseNav = `<!-- NAV -->${navAlignCss}
 <header>

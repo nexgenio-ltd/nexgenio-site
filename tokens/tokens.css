@@ -39,4 +39,4 @@
 
 /* Training-section PECB marker in nav */
 .pecb-label { white-space: nowrap }
-.pecb-mark { height: 24px; width: 20px; vertical-align: middle; margin-left: 6px; object-fit: contain }
+.brand .pecb-mark { width: 20px; height: 24px; vertical-align: middle; margin-left: 6px; object-fit: contain; display: inline }
