@@ -42,18 +42,18 @@ const logoPath = resolve(__dirname, 'blog-header-logo.png');
 const logoB64 = readFileSync(logoPath).toString('base64');
 const logoDataUri = `data:image/png;base64,${logoB64}`;
 
-// Determine font size based on title length
+// Determine font size based on title length — sized up for confident fill
 function getTitleStyle(title) {
   const len = title.length;
-  if (len <= 30) return { fontSize: '52px', lineHeight: '1.15' };
-  if (len <= 60) return { fontSize: '44px', lineHeight: '1.2' };
-  if (len <= 90) return { fontSize: '36px', lineHeight: '1.25' };
-  return { fontSize: '30px', lineHeight: '1.3' };
+  if (len <= 30) return { fontSize: '64px', lineHeight: '1.1' };
+  if (len <= 60) return { fontSize: '52px', lineHeight: '1.15' };
+  if (len <= 90) return { fontSize: '42px', lineHeight: '1.2' };
+  return { fontSize: '36px', lineHeight: '1.25' };
 }
 
 const ts = getTitleStyle(title);
 
-// Build the HTML template — white background, brand-colour text/accents only
+// Build the HTML template — white background, bold network motif, brand-colour text/accents
 const html = `<!DOCTYPE html>
 <html>
 <head>
@@ -69,44 +69,49 @@ const html = `<!DOCTYPE html>
     position: relative;
   }
 
+  /* Network motif — right third, full opacity, real graphic */
   .motif {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0; right: 0; bottom: 0;
+    width: 480px;
     pointer-events: none;
     overflow: hidden;
   }
   .motif svg {
     position: absolute;
     top: 0; right: 0;
-    width: 500px;
+    width: 480px;
     height: 630px;
-    opacity: 0.06;
   }
 
+  /* Orange accent bar at top */
   .accent-top {
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 6px;
     background: #f6911b;
+    z-index: 2;
   }
 
+  /* Content — left two-thirds */
   .content {
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 72px 48px;
+    padding: 48px 60px 48px 64px;
     height: 100%;
+    max-width: 740px;
   }
 
   .kicker {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 2.5px;
     text-transform: uppercase;
     color: #f6911b;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   .title {
@@ -114,69 +119,98 @@ const html = `<!DOCTYPE html>
     font-weight: bold;
     line-height: ${ts.lineHeight};
     color: #215675;
-    max-width: 900px;
     margin-bottom: 0;
   }
 
   .rule {
     width: 80px;
-    height: 3px;
-    background: #215675;
+    height: 4px;
+    background: #f6911b;
     margin-top: 28px;
     border-radius: 2px;
   }
 
+  /* Logo bottom-left */
   .logo-area {
     position: absolute;
-    bottom: 36px;
-    left: 72px;
+    bottom: 32px;
+    left: 64px;
     display: flex;
     align-items: center;
     gap: 16px;
+    z-index: 2;
   }
   .logo-area img {
-    height: 40px;
+    height: 36px;
     width: auto;
   }
   .logo-area .url {
-    font-size: 15px;
+    font-size: 14px;
     color: #999;
     font-weight: 400;
     letter-spacing: 0.3px;
   }
 
+  /* Teal bottom border */
   .accent-bottom {
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 3px;
     background: #215675;
+    z-index: 2;
   }
 </style>
 </head>
 <body>
+  <!-- Network/node motif — full opacity, true brand colours, occupies right third -->
   <div class="motif">
-    <svg viewBox="0 0 500 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="420" cy="120" r="4" fill="#215675"/>
-      <circle cx="350" cy="200" r="6" fill="#215675"/>
-      <circle cx="460" cy="280" r="3" fill="#215675"/>
-      <circle cx="380" cy="380" r="5" fill="#215675"/>
-      <circle cx="440" cy="480" r="4" fill="#215675"/>
-      <circle cx="300" cy="320" r="3" fill="#215675"/>
-      <circle cx="480" cy="180" r="3" fill="#215675"/>
-      <circle cx="320" cy="500" r="5" fill="#215675"/>
-      <line x1="420" y1="120" x2="350" y2="200" stroke="#215675" stroke-width="1.5"/>
-      <line x1="350" y1="200" x2="460" y2="280" stroke="#215675" stroke-width="1.5"/>
-      <line x1="460" y1="280" x2="380" y2="380" stroke="#215675" stroke-width="1.5"/>
-      <line x1="380" y1="380" x2="440" y2="480" stroke="#215675" stroke-width="1.5"/>
-      <line x1="350" y1="200" x2="300" y2="320" stroke="#215675" stroke-width="1.5"/>
-      <line x1="300" y1="320" x2="380" y2="380" stroke="#215675" stroke-width="1.5"/>
-      <line x1="420" y1="120" x2="480" y2="180" stroke="#215675" stroke-width="1.5"/>
-      <line x1="480" y1="180" x2="460" y2="280" stroke="#215675" stroke-width="1.5"/>
-      <line x1="440" y1="480" x2="320" y2="500" stroke="#215675" stroke-width="1.5"/>
-      <circle cx="420" cy="120" r="2" fill="#f6911b"/>
-      <circle cx="460" cy="280" r="2" fill="#3c9a00"/>
-      <circle cx="440" cy="480" r="2" fill="#f6911b"/>
-      <circle cx="300" cy="320" r="2" fill="#3c9a00"/>
+    <svg viewBox="0 0 480 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Connection lines — teal, confident stroke widths -->
+      <line x1="80" y1="60" x2="200" y2="160" stroke="#215675" stroke-width="2"/>
+      <line x1="200" y1="160" x2="140" y2="310" stroke="#215675" stroke-width="2"/>
+      <line x1="200" y1="160" x2="360" y2="120" stroke="#215675" stroke-width="2"/>
+      <line x1="360" y1="120" x2="420" y2="240" stroke="#215675" stroke-width="1.5"/>
+      <line x1="420" y1="240" x2="300" y2="300" stroke="#215675" stroke-width="2"/>
+      <line x1="300" y1="300" x2="140" y2="310" stroke="#215675" stroke-width="1.5"/>
+      <line x1="300" y1="300" x2="380" y2="420" stroke="#215675" stroke-width="2"/>
+      <line x1="140" y1="310" x2="60" y2="440" stroke="#215675" stroke-width="1.5"/>
+      <line x1="60" y1="440" x2="180" y2="500" stroke="#215675" stroke-width="2"/>
+      <line x1="180" y1="500" x2="380" y2="420" stroke="#215675" stroke-width="1.5"/>
+      <line x1="380" y1="420" x2="440" y2="540" stroke="#215675" stroke-width="2"/>
+      <line x1="180" y1="500" x2="280" y2="580" stroke="#215675" stroke-width="1.5"/>
+      <line x1="440" y1="540" x2="280" y2="580" stroke="#215675" stroke-width="2"/>
+      <line x1="200" y1="160" x2="300" y2="300" stroke="#215675" stroke-width="1.5"/>
+      <line x1="360" y1="120" x2="300" y2="300" stroke="#215675" stroke-width="1.5"/>
+      <line x1="60" y1="440" x2="380" y2="420" stroke="#215675" stroke-width="1"/>
+      <!-- Secondary finer connections -->
+      <line x1="80" y1="60" x2="360" y2="120" stroke="#215675" stroke-width="1" opacity="0.3"/>
+      <line x1="420" y1="240" x2="380" y2="420" stroke="#215675" stroke-width="1" opacity="0.3"/>
+      <line x1="140" y1="310" x2="180" y2="500" stroke="#215675" stroke-width="1" opacity="0.3"/>
+
+      <!-- Primary nodes — teal, varying sizes for depth -->
+      <circle cx="200" cy="160" r="14" fill="#215675"/>
+      <circle cx="300" cy="300" r="18" fill="#215675"/>
+      <circle cx="380" cy="420" r="12" fill="#215675"/>
+      <circle cx="180" cy="500" r="14" fill="#215675"/>
+
+      <!-- Secondary nodes — teal, smaller -->
+      <circle cx="80" cy="60" r="8" fill="#215675"/>
+      <circle cx="360" cy="120" r="10" fill="#215675"/>
+      <circle cx="420" cy="240" r="9" fill="#215675"/>
+      <circle cx="140" cy="310" r="10" fill="#215675"/>
+      <circle cx="60" cy="440" r="8" fill="#215675"/>
+      <circle cx="440" cy="540" r="10" fill="#215675"/>
+      <circle cx="280" cy="580" r="8" fill="#215675"/>
+
+      <!-- Accent nodes — orange and green highlights on key intersections -->
+      <circle cx="200" cy="160" r="7" fill="#f6911b"/>
+      <circle cx="300" cy="300" r="9" fill="#f6911b"/>
+      <circle cx="380" cy="420" r="6" fill="#3c9a00"/>
+      <circle cx="180" cy="500" r="7" fill="#3c9a00"/>
+      <circle cx="360" cy="120" r="5" fill="#f6911b"/>
+      <circle cx="440" cy="540" r="5" fill="#3c9a00"/>
+      <circle cx="420" cy="240" r="4.5" fill="#f6911b"/>
+      <circle cx="60" cy="440" r="4" fill="#3c9a00"/>
     </svg>
   </div>
 
