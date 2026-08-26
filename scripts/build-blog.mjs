@@ -111,8 +111,8 @@ function htmlHead(title, description, extra = "") {
     .card-img{background:#fff;text-align:center;padding:16px;margin:-24px -24px 16px;border-radius:6px 6px 0 0;border-bottom:1px solid var(--tl)}
     .card-img img{max-height:80px;max-width:200px;height:auto;object-fit:contain}
 
-    .featured-img{background:#fff;text-align:center;padding:32px 32px 0}
-    .featured-img img{max-width:320px;max-height:160px;height:auto;object-fit:contain}
+    .featured-img{max-width:780px;margin:0 auto;padding:32px 0 0}
+    .featured-img img{width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;border-radius:6px}
 
     .article-content{max-width:780px;margin:0 auto;font-size:16px;line-height:1.85;color:#333}
     .article-content h2{font-size:22px;font-weight:bold;color:var(--t);margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--o)}
