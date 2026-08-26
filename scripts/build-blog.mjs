@@ -122,8 +122,8 @@ function htmlHead(title, description, extra = "") {
     .article-content li{margin-bottom:8px}
     .article-content strong{color:var(--t)}
     .article-content blockquote{border-left:4px solid var(--o);padding:16px 24px;margin:24px 0;background:#fff8f0;border-radius:4px;font-style:italic;color:#555}
-    .article-content a{color:var(--t);font-weight:600;text-decoration:none}
-    .article-content a:hover{color:var(--o)}
+    .article-content a{color:var(--o);font-weight:600;text-decoration:none}
+    .article-content a:hover{color:var(--t)}
     .article-content img{max-width:100%;height:auto;border-radius:6px;margin:24px 0}
     .article-content hr{border:none;border-top:2px solid var(--o);margin:40px 0}
 
