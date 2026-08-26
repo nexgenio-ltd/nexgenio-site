@@ -112,6 +112,15 @@
     .cred-table tr:nth-child(even){background:var(--bg)}
     .cred-closing{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.7;margin-top:16px}
 
+    /* RELATED COURSES */
+    .related{padding:48px 32px 56px}
+    .related .inn{max-width:1140px;margin:0 auto}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px}
+    .related-card{background:#fff;border:1px solid #e4e9ed;border-top:3px solid var(--t);border-radius:6px;padding:24px 28px;text-decoration:none;display:block;transition:box-shadow .15s,border-color .15s}
+    .related-card:hover{box-shadow:0 4px 20px rgba(33,86,117,.1);border-top-color:var(--o)}
+    .related-card .rc-title{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin-bottom:8px}
+    .related-card .rc-reason{font-size:13px;color:var(--lg);line-height:1.6}
+
     /* FOOTER */
     footer{background:var(--t);border-top:3px solid var(--o)}
     .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
@@ -140,6 +149,7 @@
       .intro-frame{padding:32px 20px}
       .intro-card{padding:24px 20px}
       .accordion{padding:0 20px 40px}
+      .related{padding:32px 20px 40px}
     }
 
   </style>
@@ -320,6 +330,24 @@
     </div>
   </details>
 
+  </div>
+</div>
+
+<!-- RELATED COURSES -->
+<div class="related alt">
+  <div class="inn">
+    <div class="sl">Continue your journey</div>
+    <div class="st">Related courses</div>
+    <div class="related-grid">
+      <a href="/self/iso-42001-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO/IEC 42001 Lead Implementer</div>
+        <div class="rc-reason">Formalise AI governance with the international standard for AI management systems</div>
+      </a>
+      <a href="/self/nis2-lead-implementer.html" class="related-card">
+        <div class="rc-title">NIS2 Directive Lead Implementer</div>
+        <div class="rc-reason">Understand the cybersecurity directive that shapes AI deployment in critical sectors</div>
+      </a>
+    </div>
   </div>
 </div>
 
