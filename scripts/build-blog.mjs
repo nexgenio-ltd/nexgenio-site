@@ -43,6 +43,7 @@ async function fetchArticles() {
             ? a.featuredImage.url
             : `${STRAPI_URL}${a.featuredImage.url}`
           : null),
+      ogImage: a.ogImageUrl || null,
     };
   });
 }
@@ -262,7 +263,17 @@ function buildArticle(a) {
     ? `\n<div class="featured-img"><img src="${esc(a.featuredImage)}" alt="${esc(a.title)}"></div>`
     : "";
 
-  return `${htmlHead(a.metaTitle, a.metaDescription)}
+  // og:image: use ogImage (social version with text) if set, fall back to featuredImage,
+  // or derive from featuredImage by swapping -article- → -social- in filename
+  let ogImg = a.ogImage || a.featuredImage || null;
+  if (!a.ogImage && a.featuredImage && a.featuredImage.includes("-article-")) {
+    ogImg = a.featuredImage.replace("-article-", "-social-");
+  }
+  const ogMeta = ogImg
+    ? `<meta property="og:image" content="${esc(ogImg)}">\n  <meta property="og:title" content="${esc(a.metaTitle)}">\n  <meta property="og:description" content="${esc(a.metaDescription)}">\n  <meta property="og:type" content="article">`
+    : "";
+
+  return `${htmlHead(a.metaTitle, a.metaDescription, ogMeta)}
 <body>
 ${header}
 
