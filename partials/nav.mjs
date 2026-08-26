@@ -22,6 +22,7 @@ export const baseNav = `<!-- NAV -->${navAlignCss}
       <a href="/">Home</a>
       <a href="/training/index.html">Training</a>
       <a href="/blog/">Blog</a>
+      <a href="/#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -39,6 +40,7 @@ export const trainingNav = `<!-- NAV -->${navAlignCss}
       <a href="/">Home</a>
       <a href="/training/index.html">Training</a>
       <a href="/blog/">Blog</a>
+      <a href="/#contact">Contact</a>
     </nav>
   </div>
 </header>

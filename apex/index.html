@@ -586,5 +586,46 @@
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Tobias Bayer", "jobTitle": "Director", "worksFor": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}}</script>
 <script src="https://tally.so/widgets/embed.js" async></script>
+
+<!-- 3D Tilt on card elements -->
+<script>
+(function(){
+  const TILT_SELECTORS = '.card, .step, .svc, .why-item, .course-slide, .engage-box, .faq-item';
+  const MAX_TILT = 6; // degrees
+  const PERSPECTIVE = 800;
+
+  document.querySelectorAll(TILT_SELECTORS).forEach(function(el){
+    el.style.transition = 'transform .35s ease-out, box-shadow .35s ease-out';
+    el.style.transformStyle = 'preserve-3d';
+    el.style.willChange = 'transform';
+
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width;   // 0-1
+      var y = (e.clientY - r.top)  / r.height;   // 0-1
+      var rotY = (x - 0.5) * MAX_TILT * 2;
+      var rotX = (0.5 - y) * MAX_TILT * 2;
+      var shadowX = -(x - 0.5) * 16;
+      var shadowY = -(0.5 - y) * 16;
+      el.style.transform = 'perspective(' + PERSPECTIVE + 'px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
+      el.style.boxShadow = shadowX + 'px ' + shadowY + 'px 24px rgba(33,86,117,.12)';
+    });
+
+    el.addEventListener('mouseleave', function(){
+      el.style.transform = 'perspective(' + PERSPECTIVE + 'px) rotateX(0) rotateY(0)';
+      el.style.boxShadow = '';
+    });
+  });
+})();
+</script>
+
+<!-- Glass/shine on buttons -->
+<style>
+.btn{position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);pointer-events:none}
+.btn{border-top:1px solid rgba(255,255,255,.35);border-left:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px 1px rgba(255,255,255,.25)}
+@keyframes shine-sweep{0%{left:-100%}100%{left:150%}}
+.btn::after{animation:shine-sweep .8s ease-out .3s 1 forwards}
+</style>
 </body>
 </html>
