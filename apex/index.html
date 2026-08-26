@@ -587,9 +587,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Tobias Bayer", "jobTitle": "Director", "worksFor": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}}</script>
 <script src="https://tally.so/widgets/embed.js" async></script>
 <style>
-/* Center Tally popup overlay */
-.tally-popup{display:flex!important;align-items:center!important;justify-content:center!important}
-.tally-popup iframe{position:relative!important;left:auto!important;right:auto!important;margin:0 auto!important}
+/* Center Tally popup — override Tally's fixed positioning */
+.tally-popup{position:fixed!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important}
 </style>
 
 <!-- 3D Tilt on card elements -->
