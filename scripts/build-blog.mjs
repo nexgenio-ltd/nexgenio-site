@@ -266,8 +266,8 @@ function buildArticle(a) {
   // og:image: use ogImage (social version with text) if set, fall back to featuredImage,
   // or derive from featuredImage by swapping -article- → -social- in filename
   let ogImg = a.ogImage || a.featuredImage || null;
-  if (!a.ogImage && a.featuredImage && a.featuredImage.includes("-article-")) {
-    ogImg = a.featuredImage.replace("-article-", "-social-");
+  if (!a.ogImage && a.featuredImage) {
+    ogImg = a.featuredImage.replace(/-article-(og|insta-portrait|insta-square)\./, '-social-$1.');
   }
   const ogMeta = ogImg
     ? `<meta property="og:image" content="${esc(ogImg)}">\n  <meta property="og:title" content="${esc(a.metaTitle)}">\n  <meta property="og:description" content="${esc(a.metaDescription)}">\n  <meta property="og:type" content="article">`
