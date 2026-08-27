@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://nexgenio.com/sitemap.xml
+Sitemap: https://nexgenio.com/blog/sitemap.xml
