@@ -1,0 +1,56 @@
+name: Fix CloudFront CMS POST methods (one-time)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::124971231536:role/NexgenioPublicDeployRole
+          aws-region: us-east-1
+
+      - name: Update CloudFront to allow POST for /cms/*
+        run: |
+          DIST_ID="E2WWYNB9MTIF3N"
+          echo "Fetching current distribution config..."
+          aws cloudfront get-distribution-config --id $DIST_ID --region us-east-1 > /tmp/dist-config.json
+
+          ETAG=$(jq -r '.ETag' /tmp/dist-config.json)
+          echo "ETag: $ETAG"
+
+          # Extract just the DistributionConfig
+          jq '.DistributionConfig' /tmp/dist-config.json > /tmp/config.json
+
+          # Find the /cms/* cache behavior and update AllowedMethods
+          echo "Current CacheBehaviors:"
+          jq '.CacheBehaviors.Items[] | {PathPattern, AllowedMethods: .AllowedMethods.Items}' /tmp/config.json
+
+          # Update the /cms/* behavior to allow all methods
+          jq '(.CacheBehaviors.Items[] | select(.PathPattern == "/cms/*") | .AllowedMethods) = {
+            "Quantity": 7,
+            "Items": ["GET","HEAD","OPTIONS","PUT","POST","PATCH","DELETE"],
+            "CachedMethods": {
+              "Quantity": 2,
+              "Items": ["GET","HEAD"]
+            }
+          }' /tmp/config.json > /tmp/config-updated.json
+
+          echo "Updated CacheBehaviors:"
+          jq '.CacheBehaviors.Items[] | {PathPattern, AllowedMethods: .AllowedMethods.Items}' /tmp/config-updated.json
+
+          echo "Applying update..."
+          aws cloudfront update-distribution \
+            --id $DIST_ID \
+            --distribution-config file:///tmp/config-updated.json \
+            --if-match "$ETAG" \
+            --region us-east-1
+
+          echo "Done. CloudFront /cms/* now accepts POST/PUT/PATCH/DELETE."
