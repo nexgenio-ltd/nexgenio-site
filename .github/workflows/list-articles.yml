@@ -7,46 +7,30 @@ jobs:
   list:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: List all articles (published + draft)
         env:
           STRAPI_URL: https://nexgenio.com/cms
           STRAPI_TOKEN: ${{ secrets.STRAPI_READ_TOKEN }}
         run: |
-          echo "=== Published ==="
-          RESP=$(curl -s -w "\nHTTP_STATUS:%{http_code}" \
-            "${STRAPI_URL}/api/articles?fields[0]=title&fields[1]=slug&fields[2]=publishedAt&pagination[pageSize]=100&sort=publishedDate:desc&status=published" \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${STRAPI_TOKEN}")
-          HTTP_CODE=$(echo "$RESP" | tail -1 | sed 's/HTTP_STATUS://')
-          BODY=$(echo "$RESP" | sed '$d')
-          echo "HTTP status: $HTTP_CODE"
-          if [ "$HTTP_CODE" = "200" ]; then
-            echo "$BODY" | python3 -c "
-          import sys,json
-          d=json.load(sys.stdin)
-          for a in d.get('data',[]):
-            print(f\"  {a.get('title','?')[:80]}\")
-          print(f\"Total published: {len(d.get('data',[]))}\")"
-          else
-            echo "Response: $BODY" | head -5
-          fi
-
-          echo ""
-          echo "=== Draft ==="
-          RESP=$(curl -s -w "\nHTTP_STATUS:%{http_code}" \
-            "${STRAPI_URL}/api/articles?fields[0]=title&fields[1]=slug&fields[2]=publishedAt&pagination[pageSize]=100&sort=createdAt:desc&status=draft" \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${STRAPI_TOKEN}")
-          HTTP_CODE=$(echo "$RESP" | tail -1 | sed 's/HTTP_STATUS://')
-          BODY=$(echo "$RESP" | sed '$d')
-          echo "HTTP status: $HTTP_CODE"
-          if [ "$HTTP_CODE" = "200" ]; then
-            echo "$BODY" | python3 -c "
-          import sys,json
-          d=json.load(sys.stdin)
-          for a in d.get('data',[]):
-            print(f\"  {a.get('title','?')[:80]}\")
-          print(f\"Total draft: {len(d.get('data',[]))}\")"
-          else
-            echo "Response: $BODY" | head -5
-          fi
+          node -e '
+          async function list(status) {
+            const url = process.env.STRAPI_URL + "/api/articles?fields[0]=title&fields[1]=slug&fields[2]=publishedAt&pagination[pageSize]=100&sort=createdAt:desc&status=" + status;
+            const headers = {"Content-Type":"application/json"};
+            if (process.env.STRAPI_TOKEN) headers.Authorization = "Bearer " + process.env.STRAPI_TOKEN;
+            const res = await fetch(url, {headers});
+            console.log("=== " + status.toUpperCase() + " (HTTP " + res.status + ") ===");
+            if (!res.ok) { console.log(await res.text().then(t=>t.substring(0,200))); return; }
+            const json = await res.json();
+            for (const a of json.data) {
+              console.log("  " + (a.title || "?").substring(0,80) + " [slug=" + (a.slug||"?") + "]");
+            }
+            console.log("Total " + status + ": " + json.data.length);
+          }
+          await list("published");
+          console.log("");
+          await list("draft");
+          '
