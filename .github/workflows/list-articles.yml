@@ -1,0 +1,32 @@
+name: List Strapi Articles (diagnostic)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List all articles (published + draft)
+        env:
+          STRAPI_URL: https://nexgenio.com/cms
+          STRAPI_TOKEN: ${{ secrets.STRAPI_READ_TOKEN }}
+        run: |
+          echo "=== Published ==="
+          curl -sf "${STRAPI_URL}/api/articles?fields[0]=title&fields[1]=slug&fields[2]=publishedAt&pagination[pageSize]=100&sort=publishedDate:desc&status=published" \
+            -H "Authorization: Bearer ${STRAPI_TOKEN}" | python3 -c "
+          import sys,json
+          d=json.load(sys.stdin)
+          for a in d.get('data',[]):
+            print(f\"  [{a.get('documentId','?')[:8]}] {a.get('title','?')[:70]}\")
+          print(f\"Total published: {len(d.get('data',[]))}\")" || echo "Failed to query published"
+
+          echo ""
+          echo "=== Draft ==="
+          curl -sf "${STRAPI_URL}/api/articles?fields[0]=title&fields[1]=slug&fields[2]=publishedAt&pagination[pageSize]=100&sort=createdAt:desc&status=draft" \
+            -H "Authorization: Bearer ${STRAPI_TOKEN}" | python3 -c "
+          import sys,json
+          d=json.load(sys.stdin)
+          for a in d.get('data',[]):
+            print(f\"  [{a.get('documentId','?')[:8]}] {a.get('title','?')[:70]}\")
+          print(f\"Total draft: {len(d.get('data',[]))}\")" || echo "Failed to query drafts"
