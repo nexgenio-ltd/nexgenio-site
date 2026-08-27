@@ -7,7 +7,7 @@
 - [Training Hub](https://nexgenio.com/training/index.html) — PECB-certified training courses overview (self-paced and live)
 - [Self-Paced Courses](https://nexgenio.com/self/index.html) — Full catalog of self-paced PECB certification courses
 - [Live Courses](https://nexgenio.com/live/index.html) — Scheduled live/instructor-led training sessions
-- [Blog](https://nexgenio.com/blog/) — Insights and updates on compliance, cybersecurity, and AI governance
+- [Blog](https://nexgenio.com/blog/index.html) — Insights and updates on compliance, cybersecurity, and AI governance
 
 ## Self-Paced Courses
 

@@ -112,8 +112,9 @@ function htmlHead(title, description, extra = "") {
     .card-img{background:#fff;text-align:center;padding:16px;margin:-24px -24px 16px;border-radius:6px 6px 0 0;border-bottom:1px solid var(--tl)}
     .card-img img{max-height:80px;max-width:200px;height:auto;object-fit:contain}
 
-    .featured-img{max-width:780px;margin:0 auto;padding:32px 0 0}
-    .featured-img img{width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;border-radius:6px}
+    .featured-img{max-width:780px;margin:0 auto;padding:32px 32px 0;overflow:hidden}
+    .featured-img img{max-width:100%;height:auto;border-radius:6px}
+    @media(max-width:520px){.featured-img{padding:24px 20px 0}}
 
     .article-content{max-width:780px;margin:0 auto;font-size:16px;line-height:1.85;color:#333}
     .article-content h2{font-size:22px;font-weight:bold;color:var(--t);margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--o)}
@@ -302,7 +303,7 @@ ${footer}
 // ── Sitemap ─────────────────────────────────────────────────────────
 function buildSitemap(articles) {
   const urls = [
-    `  <url><loc>${BLOG_URL}/</loc><priority>0.8</priority></url>`,
+    `  <url><loc>${BLOG_URL}/index.html</loc><priority>0.8</priority></url>`,
     ...articles.map(
       (a) =>
         `  <url><loc>${BLOG_URL}/${a.slug}.html</loc><lastmod>${isoDate(a.updatedAt || a.publishedDate)}</lastmod></url>`
@@ -332,7 +333,7 @@ function buildRss(articles) {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NexGenio Blog</title>
-    <link>${BLOG_URL}/</link>
+    <link>${BLOG_URL}/index.html</link>
     <description>Insights and updates on compliance, cybersecurity, and AI governance from NexGenio.</description>
     <language>en</language>
     <atom:link href="${BLOG_URL}/feed.xml" rel="self" type="application/rss+xml"/>

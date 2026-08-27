@@ -14,7 +14,7 @@
   <url><loc>https://nexgenio.com/self/dora-foundation.html</loc></url>
   <url><loc>https://nexgenio.com/self/caim.html</loc></url>
   <url><loc>https://nexgenio.com/live/index.html</loc><priority>0.6</priority></url>
-  <url><loc>https://nexgenio.com/blog/</loc><priority>0.7</priority></url>
+  <url><loc>https://nexgenio.com/blog/index.html</loc><priority>0.7</priority></url>
   <url><loc>https://nexgenio.com/legal/privacy.html</loc><priority>0.3</priority></url>
   <url><loc>https://nexgenio.com/legal/terms.html</loc><priority>0.3</priority></url>
 </urlset>

@@ -67,7 +67,7 @@ export const baseNav = `<!-- NAV -->${navAlignCss}
     <nav>
       <a href="/">Home</a>
       <a href="/training/index.html">Training</a>
-      <a href="/blog/">Blog</a>
+      <a href="/blog/index.html">Blog</a>
       <a href="/#contact">Contact</a>
     </nav>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -75,7 +75,7 @@ export const baseNav = `<!-- NAV -->${navAlignCss}
   <div class="mobile-menu">
     <a href="/">Home</a>
     <a href="/training/index.html">Training</a>
-    <a href="/blog/">Blog</a>
+    <a href="/blog/index.html">Blog</a>
     <a href="/#contact">Contact</a>
   </div>
 </header>
@@ -92,7 +92,7 @@ export const trainingNav = `<!-- NAV -->${navAlignCss}
     <nav>
       <a href="/">Home</a>
       <a href="/training/index.html">Training</a>
-      <a href="/blog/">Blog</a>
+      <a href="/blog/index.html">Blog</a>
       <a href="/#contact">Contact</a>
     </nav>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -100,7 +100,7 @@ export const trainingNav = `<!-- NAV -->${navAlignCss}
   <div class="mobile-menu">
     <a href="/">Home</a>
     <a href="/training/index.html">Training</a>
-    <a href="/blog/">Blog</a>
+    <a href="/blog/index.html">Blog</a>
     <a href="/#contact">Contact</a>
   </div>
 </header>
