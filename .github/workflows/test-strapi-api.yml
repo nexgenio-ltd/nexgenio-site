@@ -1,0 +1,58 @@
+name: Test Strapi API (diagnostic)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test Strapi API endpoints
+        env:
+          STRAPI_URL: https://nexgenio.com/cms
+          STRAPI_TOKEN: ${{ secrets.STRAPI_READ_TOKEN }}
+        run: |
+          node -e '
+          const url = process.env.STRAPI_URL;
+          const token = process.env.STRAPI_TOKEN;
+          const headers = {"Content-Type":"application/json","Authorization":"Bearer "+token};
+
+          async function test(label, method, path, body) {
+            const opts = {method, headers, redirect:"manual"};
+            if (body) opts.body = JSON.stringify(body);
+            console.log("\n=== " + label + " ===");
+            console.log(method + " " + url + path);
+            try {
+              const res = await fetch(url + path, opts);
+              console.log("Status:", res.status, res.statusText);
+              console.log("Location:", res.headers.get("location") || "(none)");
+              console.log("Content-Type:", res.headers.get("content-type"));
+              const text = await res.text();
+              console.log("Body (first 300):", text.substring(0,300));
+            } catch(e) {
+              console.log("ERROR:", e.message);
+            }
+          }
+
+          (async () => {
+            // Test 1: GET articles (should work)
+            await test("GET articles", "GET", "/api/articles?pagination[pageSize]=1");
+
+            // Test 2: POST to create (the failing call)
+            await test("POST create article", "POST", "/api/articles", {
+              data: {title:"API Test Post",slug:"api-test-delete-me",body:"test",excerpt:"test"}
+            });
+
+            // Test 3: OPTIONS preflight
+            await test("OPTIONS preflight", "OPTIONS", "/api/articles");
+
+            // Test 4: Try POST with trailing slash
+            await test("POST with trailing slash", "POST", "/api/articles/", {
+              data: {title:"API Test Post 2",slug:"api-test-delete-me-2",body:"test",excerpt:"test"}
+            });
+          })();
+          '
