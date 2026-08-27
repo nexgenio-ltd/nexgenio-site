@@ -94,6 +94,15 @@ jobs:
             --delete --region eu-central-1 \
             --exclude ".gitkeep"
 
+      - name: Deploy IndexNow key file to S3 root
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          if [ -n "$INDEXNOW_KEY" ]; then
+            echo "$INDEXNOW_KEY" > "/tmp/${INDEXNOW_KEY}.txt"
+            aws s3 cp "/tmp/${INDEXNOW_KEY}.txt" "s3://nxg-web-public/${INDEXNOW_KEY}.txt" --region eu-central-1
+          fi
+
       - name: Invalidate CloudFront
         env:
           CF_DIST_ID: ${{ vars.CF_PUBLIC_DIST_ID }}
@@ -105,6 +114,20 @@ jobs:
           else
             echo "CF_PUBLIC_DIST_ID not set — skipping invalidation (pre-cutover)"
           fi
+
+      - name: Ping IndexNow with sitemap URLs
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          if [ -z "$INDEXNOW_KEY" ]; then
+            echo "INDEXNOW_KEY not set — skipping"
+            exit 0
+          fi
+          URLS=$(grep -oP 'https://nexgenio\.com/[^<]+' apex/sitemap.xml | head -50)
+          JSON_URLS=$(echo "$URLS" | jq -R . | jq -s .)
+          curl -sf -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json" \
+            -d "{\"host\":\"nexgenio.com\",\"key\":\"${INDEXNOW_KEY}\",\"keyLocation\":\"https://nexgenio.com/${INDEXNOW_KEY}.txt\",\"urlList\":${JSON_URLS}}" || echo "IndexNow ping failed (non-fatal)"
 
   # nginx on EC2 — admin portal
   deploy-admin:

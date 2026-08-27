@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://nexgenio.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://nexgenio.com/self/</loc><priority>0.8</priority></url>
+  <url><loc>https://nexgenio.com/self/index.html</loc><priority>0.8</priority></url>
   <url><loc>https://nexgenio.com/self/iso-27001-lead-implementer.html</loc></url>
   <url><loc>https://nexgenio.com/self/nis2-lead-implementer.html</loc></url>
   <url><loc>https://nexgenio.com/self/nis2-foundation.html</loc></url>
@@ -12,6 +12,6 @@
   <url><loc>https://nexgenio.com/self/iso-27701-lead-implementer.html</loc></url>
   <url><loc>https://nexgenio.com/self/iso-31000-risk-manager.html</loc></url>
   <url><loc>https://nexgenio.com/self/caim.html</loc></url>
-  <url><loc>https://nexgenio.com/training/</loc><priority>0.8</priority></url>
-  <url><loc>https://nexgenio.com/live/</loc><priority>0.6</priority></url>
+  <url><loc>https://nexgenio.com/training/index.html</loc><priority>0.8</priority></url>
+  <url><loc>https://nexgenio.com/live/index.html</loc><priority>0.6</priority></url>
 </urlset>
