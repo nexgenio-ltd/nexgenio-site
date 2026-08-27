@@ -66,16 +66,16 @@ export const baseNav = `<!-- NAV -->${navAlignCss}
     </a>
     <nav>
       <a href="/">Home</a>
-      <a href="/training/index.html">Training</a>
-      <a href="/blog/index.html">Blog</a>
+      <a href="/training/index.html">Academy</a>
+      <a href="/blog/index.html">Insights</a>
       <a href="/#contact">Contact</a>
     </nav>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
     <a href="/">Home</a>
-    <a href="/training/index.html">Training</a>
-    <a href="/blog/index.html">Blog</a>
+    <a href="/training/index.html">Academy</a>
+    <a href="/blog/index.html">Insights</a>
     <a href="/#contact">Contact</a>
   </div>
 </header>
@@ -91,16 +91,16 @@ export const trainingNav = `<!-- NAV -->${navAlignCss}
     </a>
     <nav>
       <a href="/">Home</a>
-      <a href="/training/index.html">Training</a>
-      <a href="/blog/index.html">Blog</a>
+      <a href="/training/index.html">Academy</a>
+      <a href="/blog/index.html">Insights</a>
       <a href="/#contact">Contact</a>
     </nav>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
     <a href="/">Home</a>
-    <a href="/training/index.html">Training</a>
-    <a href="/blog/index.html">Blog</a>
+    <a href="/training/index.html">Academy</a>
+    <a href="/blog/index.html">Insights</a>
     <a href="/#contact">Contact</a>
   </div>
 </header>

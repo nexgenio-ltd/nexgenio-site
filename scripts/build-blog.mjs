@@ -212,12 +212,12 @@ function buildIndex(articles) {
     )
     .join("\n");
 
-  return `${htmlHead("Blog", "Insights and updates from NexGenio — compliance, cybersecurity, and AI governance.")}
+  return `${htmlHead("Insights", "Insights and updates from NexGenio — compliance, cybersecurity, and AI governance.")}
 <body>
 ${header}
 
 <div class="hero">
-  <h1>Blog</h1>
+  <h1>Insights</h1>
   <p>Insights and updates on compliance, cybersecurity, and AI governance.</p>
 </div>
 
