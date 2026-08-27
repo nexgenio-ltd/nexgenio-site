@@ -1,0 +1,29 @@
+name: List Assets Bucket (diagnostic)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::124971231536:role/NexgenioPublicDeployRole
+          aws-region: eu-central-1
+
+      - name: List blog header images in assets bucket
+        run: |
+          echo "=== nexgenio-assets blog/headers/ ==="
+          aws s3 ls s3://nexgenio-assets/blog/headers/ --recursive --region eu-central-1 || echo "Path not found"
+          echo ""
+          echo "=== nexgenio-assets blog/ ==="
+          aws s3 ls s3://nexgenio-assets/blog/ --region eu-central-1 || echo "Path not found"
+          echo ""
+          echo "=== nexgenio-assets (root, first 30) ==="
+          aws s3 ls s3://nexgenio-assets/ --region eu-central-1 | head -30
