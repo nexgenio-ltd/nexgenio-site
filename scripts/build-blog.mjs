@@ -71,6 +71,11 @@ function htmlHead(title, description, extra = "") {
   <meta name="description" content="${esc(description)}">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/tokens/tokens.css">
   <link rel="alternate" type="application/rss+xml" title="NexGenio Blog" href="/blog/feed.xml">
   ${extra}
