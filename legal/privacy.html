@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy &mdash; NexGenio</title>
+  <title>Privacy Policy | NexGenio</title>
   <meta name="description" content="NexGenio Privacy Policy covering nexgenio.com, the training course store, and NexGenio Insights blog. Draft pending legal review.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="/tokens/tokens.css">
@@ -84,7 +84,7 @@
 </head>
 <body>
 
-<div class="draft-banner">DRAFT &mdash; Pending legal review. Not yet a binding document.</div>
+<div class="draft-banner">DRAFT - Pending legal review. Not yet a binding document.</div>
 
 <!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
 <header>
@@ -107,7 +107,49 @@
     <a href="/#contact">Contact</a>
   </div>
 </header>
-<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><!-- /NAV -->
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'}]}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'en',
+      translations:{
+        en:{
+          consentModal:{
+            title:'We value your privacy',
+            description:'This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href="/legal/privacy.html">Privacy Policy</a>.',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            showPreferencesBtn:'Cookie Settings'
+          },
+          preferencesModal:{
+            title:'Cookie Preferences',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            savePreferencesBtn:'Save Preferences',
+            sections:[
+              {title:'Cookie Usage',description:'We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out.'},
+              {title:'Necessary',description:'These cookies are essential for the website to function. They cannot be disabled.',linkedCategory:'necessary'},
+              {title:'Analytics',description:'Analytics cookies help us understand how visitors interact with the website by collecting and reporting information anonymously. [Specific analytics tools to be confirmed by Director.]',linkedCategory:'analytics'},
+              {title:'Marketing',description:'Marketing cookies are used to track visitors across websites to display relevant advertisements. [Specific marketing tools to be confirmed by Director.]',linkedCategory:'marketing'},
+              {title:'More information',description:'For questions about our cookie policy, please <a href="/#contact">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer.'}
+            ]
+          }
+        }
+      }
+    }
+  });
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent='Cookie Settings';a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><!-- /NAV -->
 
 <div class="breadcrumb"><a href="/">Home</a> &rarr; <a href="/legal/privacy.html">Legal</a> &rarr; Privacy Policy</div>
 
@@ -126,32 +168,43 @@
   <ul>
     <li><strong>Course purchases</strong> (nexgenio.com/self/): name, email address, billing address, VAT identification number (if provided for reverse charge), and payment confirmation details from Stripe (we do not receive or store full card numbers).</li>
     <li><strong>Contact/enquiry forms</strong> (if present on the apex site): name, email address, and message content.</li>
-    <li><strong>Blog</strong> (nexgenio.com/blog/): currently no newsletter/subscription data is collected &mdash; the native signup form has been disabled pending a proper CRM-integrated implementation.</li>
-    <li><strong>Website analytics</strong>: see Draft Flag below.</li>
+    <li><strong>Blog</strong> (nexgenio.com/blog/): currently no newsletter/subscription data is collected - the native signup form has been disabled pending a proper CRM-integrated implementation.</li>
+    <li><strong>Website analytics</strong>: if you consent, analytics cookies may be used to understand how visitors interact with the site. See Section 3 (Cookies and Consent) below.</li>
   </ul>
 
-  <div class="draft-flag">
-    <strong>Draft Flag</strong>
-    Analytics/cookie disclosure cannot be finalized until confirmed whether any tracking tool is actually in use across apex/self/blog. If none, state that explicitly rather than describing hypothetical tracking.
-  </div>
+  <h2>3. Cookies and Consent</h2>
+  <p>This website uses a cookie consent mechanism to obtain your explicit consent before setting any non-essential cookies. You can manage your preferences at any time via the <a href="#" data-cc="show-preferencesModal" onclick="event.preventDefault()">Cookie Settings</a> link in the footer.</p>
 
-  <h2>3. How We Use Your Data (Purposes and Legal Basis)</h2>
+  <h3>Cookie Categories</h3>
   <ul>
-    <li><strong>To process and fulfil course purchases</strong> &mdash; legal basis: performance of a contract (Art. 6(1)(b) GDPR).</li>
-    <li><strong>To comply with tax and accounting obligations</strong> (VAT records, invoicing) &mdash; legal basis: legal obligation (Art. 6(1)(c) GDPR).</li>
-    <li><strong>To respond to enquiries</strong> submitted via contact forms &mdash; legal basis: legitimate interest in responding to business enquiries (Art. 6(1)(f) GDPR), or contract performance where the enquiry leads to a service agreement.</li>
+    <li><strong>Necessary</strong> (always active): These cookies are essential for the website to function. They include the consent preference cookie set by our consent manager (CookieConsent by orestbida). No personal data is collected. Retention: 182 days (consent record).</li>
+    <li><strong>Analytics</strong> (requires consent): [Analytics tool to be confirmed by Director, e.g. Google Analytics]. Purpose: measuring site traffic, page views, and visitor behaviour to improve site content and structure. Data is anonymised where possible. Retention: [to be confirmed per tool, typically 14-26 months]. Third-party recipient: [to be confirmed].</li>
+    <li><strong>Marketing</strong> (requires consent): [Marketing tool to be confirmed by Director, e.g. Meta Pixel, LinkedIn Insight Tag]. Purpose: tracking conversions from advertising campaigns and enabling remarketing. Retention: [to be confirmed per tool, typically 90 days to 2 years]. Third-party recipient: [to be confirmed].</li>
   </ul>
 
-  <h2>4. Payment Processing</h2>
+  <h3>How to Withdraw Consent</h3>
+  <p>You can withdraw or change your cookie consent at any time by clicking the <a href="#" data-cc="show-preferencesModal" onclick="event.preventDefault()">Cookie Settings</a> link in the footer of any page. Previously set cookies for rejected categories will be automatically cleared.</p>
+
+  <h3>No Tracking Without Consent</h3>
+  <p>No analytics or marketing scripts are loaded until you actively consent. Rejecting all non-essential cookies means only the consent preference cookie itself is stored. The site remains fully functional without any optional cookies.</p>
+
+  <h2>4. How We Use Your Data (Purposes and Legal Basis)</h2>
+  <ul>
+    <li><strong>To process and fulfil course purchases</strong> - legal basis: performance of a contract (Art. 6(1)(b) GDPR).</li>
+    <li><strong>To comply with tax and accounting obligations</strong> (VAT records, invoicing) - legal basis: legal obligation (Art. 6(1)(c) GDPR).</li>
+    <li><strong>To respond to enquiries</strong> submitted via contact forms - legal basis: legitimate interest in responding to business enquiries (Art. 6(1)(f) GDPR), or contract performance where the enquiry leads to a service agreement.</li>
+  </ul>
+
+  <h2>5. Payment Processing</h2>
   <p>Payments are processed by Stripe, Inc., acting as our payment processor. Stripe processes payment data under its own privacy policy and data processing agreement, available at <a href="https://stripe.com/privacy">stripe.com/privacy</a>. Card details are entered directly into Stripe&rsquo;s secure checkout and are not received or stored by NexGenio.</p>
 
-  <h2>5. Sharing Data with PECB</h2>
-  <p>When you purchase a course, your name and email address are manually entered by our Director into the official PECB partner platform (myPECB) in order to provision your access to course materials and register you for the relevant certification examination. This is a manual process performed by a NexGenio staff member, not an automated data transfer. PECB acts as an independent data controller for this purpose &mdash; see <a href="https://pecb.com">PECB&rsquo;s own privacy policy</a> for how they handle your data.</p>
+  <h2>6. Sharing Data with PECB</h2>
+  <p>When you purchase a course, your name and email address are manually entered by our Director into the official PECB partner platform (myPECB) in order to provision your access to course materials and register you for the relevant certification examination. This is a manual process performed by a NexGenio staff member, not an automated data transfer. PECB acts as an independent data controller for this purpose - see <a href="https://pecb.com">PECB&rsquo;s own privacy policy</a> for how they handle your data.</p>
 
-  <h2>6. Data Retention</h2>
-  <div class="placeholder-block">PLACEHOLDER &mdash; retention periods to be defined by Director/lawyer &mdash; typically: purchase/invoice records retained per Malta tax law requirements (usually a minimum of several years), enquiry data retained only as long as necessary to handle the enquiry.</div>
+  <h2>7. Data Retention</h2>
+  <div class="placeholder-block">PLACEHOLDER - retention periods to be defined by Director/lawyer - typically: purchase/invoice records retained per Malta tax law requirements (usually a minimum of several years), enquiry data retained only as long as necessary to handle the enquiry.</div>
 
-  <h2>7. Your Rights Under GDPR</h2>
+  <h2>8. Your Rights Under GDPR</h2>
   <p>As a data subject, you have the right to:</p>
   <ul>
     <li>Access the personal data we hold about you</li>
@@ -163,20 +216,20 @@
   </ul>
   <p>To exercise any of these rights, contact <a href="mailto:toby@nexgenio.com">toby@nexgenio.com</a>.</p>
 
-  <h2>8. International Data Transfers</h2>
+  <h2>9. International Data Transfers</h2>
   <p>Stripe and PECB may process data outside the EU/EEA in some circumstances. Where this occurs, appropriate safeguards (such as Standard Contractual Clauses) are relied upon by those processors under their own privacy policies.</p>
-  <div class="placeholder-block">PLACEHOLDER &mdash; confirm specifics with lawyer if this needs to be stated in more detail.</div>
+  <div class="placeholder-block">PLACEHOLDER - confirm specifics with lawyer if this needs to be stated in more detail.</div>
 
-  <h2>9. Security</h2>
-  <div class="placeholder-block">PLACEHOLDER &mdash; describe actual technical/organizational security measures in place, e.g. HTTPS/TLS on all properties, access controls on infrastructure, to be confirmed with Director before finalizing.</div>
+  <h2>10. Security</h2>
+  <div class="placeholder-block">PLACEHOLDER - describe actual technical/organizational security measures in place, e.g. HTTPS/TLS on all properties, access controls on infrastructure, to be confirmed with Director before finalizing.</div>
 
-  <h2>10. Children&rsquo;s Data</h2>
+  <h2>11. Children&rsquo;s Data</h2>
   <p>Our services are directed at business professionals and are not intended for use by children. We do not knowingly collect personal data from anyone under the age of 16.</p>
 
-  <h2>11. Changes to This Policy</h2>
+  <h2>12. Changes to This Policy</h2>
   <p>We may update this policy from time to time. The date of the most recent update will be shown at the top of this page. Material changes will be communicated where appropriate.</p>
 
-  <h2>12. Contact and Complaints</h2>
+  <h2>13. Contact and Complaints</h2>
   <p>
     NexGenio LTD<br>
     36 St Dminika Street, Victoria (Gozo) VCT9030, Malta<br>

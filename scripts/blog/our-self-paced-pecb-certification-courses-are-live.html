@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Self-Paced Courses &mdash; NexGenio Training</title>
-  <meta name="description" content="Self-paced PECB certification training courses from NexGenio. ISO 27001, ISO 22301, ISO 42001, NIS2, DORA, ISO 27701, ISO 31000, CAIM, and Foundation courses.">
+  <title>Our Self-Paced PECB Certification Courses Are Live &mdash; NexGenio</title>
+  <meta name="description" content="NexGenio launches ten self-paced PECB certification courses covering NIS2, DORA, ISO 27001, ISO 42001, and more — with exam and certificate included.">
   <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="/tokens/tokens.css">
+  <link rel="alternate" type="application/rss+xml" title="NexGenio Blog" href="/blog/feed.xml">
+  <meta property="og:image" content="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite.png">
+  <meta property="og:title" content="Our Self-Paced PECB Certification Courses Are Live">
+  <meta property="og:description" content="NexGenio launches ten self-paced PECB certification courses covering NIS2, DORA, ISO 27001, ISO 42001, and more — with exam and certificate included.">
+  <meta property="og:type" content="article">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
 
-    /* HEADER */
     header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
     .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
     .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
@@ -25,37 +28,44 @@
     nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
     nav a:hover{color:var(--o)}
 
-    /* HERO */
     .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px;text-align:center}
     .hero h1{font-size:clamp(26px,3.5vw,44px);font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
     .hero p{font-size:17px;color:rgba(255,255,255,.85);max-width:640px;margin:0 auto;line-height:1.7}
+    .hero .article-date{font-size:14px;color:rgba(255,255,255,.6);margin-top:12px}
 
-    /* SECTIONS */
     .inn{max-width:1140px;margin:0 auto}
     section{padding:64px 32px}
     section.alt{background:var(--bg)}
     .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
     .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
 
-    /* FORMAT EXPLAINER */
-    .format-box{background:#fff;border-radius:8px;border-left:4px solid var(--t);padding:28px 32px;box-shadow:0 2px 8px rgba(33,86,117,.05);font-size:15px;color:#444;line-height:1.8}
+    .article-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+    .article-card{background:#fff;border-radius:8px;border:2px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06);padding:24px;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+    .article-card:hover{box-shadow:0 6px 24px rgba(33,86,117,.14);transform:translateY(-2px)}
+    .article-card h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:8px;line-height:1.3}
+    .article-card p{font-size:14px;color:#555;line-height:1.6;margin:0;flex:1}
+    .article-card .card-date{font-size:12px;color:var(--lg);margin-bottom:8px}
+    .article-card .view-link{font-size:13px;font-weight:600;color:var(--o);margin-top:12px;display:block}
+    .article-card:hover .view-link{text-decoration:underline}
+    .card-img{background:#fff;text-align:center;padding:16px;margin:-24px -24px 16px;border-radius:6px 6px 0 0;border-bottom:1px solid var(--tl)}
+    .card-img img{max-height:80px;max-width:200px;height:auto;object-fit:contain}
 
-    /* COURSE CARDS — badge-left layout */
-    .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
-    .course-card{background:#fff;border-radius:8px;border:2px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06);padding:24px;display:flex;align-items:center;gap:20px;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s,border-color .2s}
-    .course-card:hover{box-shadow:0 6px 24px rgba(33,86,117,.14);transform:translateY(-2px)}
-    .course-card.recommended{border-color:var(--o)}
-    .course-card.recommended:hover{border-color:#d97a0f}
-    .card-badge{width:72px;height:72px;flex-shrink:0;object-fit:contain;border-radius:4px}
-    .card-badge-spacer{width:72px;height:72px;flex-shrink:0}
-    .card-body{flex:1;min-width:0}
-    .card-body h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:6px;line-height:1.3}
-    .course-card.recommended .card-body h3{color:#b86800}
-    .card-body p{font-size:14px;color:#555;line-height:1.6;margin:0}
-    .card-body .view-link{font-size:13px;font-weight:600;color:var(--o);margin-top:8px;display:block}
-    .course-card:hover .view-link{text-decoration:underline}
+    .featured-img{background:#fff;text-align:center;padding:32px 32px 0}
+    .featured-img img{max-width:320px;max-height:160px;height:auto;object-fit:contain}
 
-    /* FOOTER */
+    .article-content{max-width:780px;margin:0 auto;font-size:16px;line-height:1.85;color:#333}
+    .article-content h2{font-size:22px;font-weight:bold;color:var(--t);margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--o)}
+    .article-content h3{font-size:18px;font-weight:bold;color:var(--t);margin:32px 0 12px}
+    .article-content p{margin-bottom:20px}
+    .article-content ul,.article-content ol{background:#f8f9fb;border-left:4px solid var(--t);border-radius:6px;padding:20px 20px 20px 36px;margin-bottom:20px}
+    .article-content li{margin-bottom:8px}
+    .article-content strong{color:var(--t)}
+    .article-content blockquote{border-left:4px solid var(--o);padding:16px 24px;margin:24px 0;background:#fff8f0;border-radius:4px;font-style:italic;color:#555}
+    .article-content a{color:var(--t);font-weight:600;text-decoration:none}
+    .article-content a:hover{color:var(--o)}
+    .article-content img{max-width:100%;height:auto;border-radius:6px;margin:24px 0}
+    .article-content hr{border:none;border-top:2px solid var(--o);margin:40px 0}
+
     footer{background:var(--t);border-top:3px solid var(--o)}
     .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
     .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
@@ -72,15 +82,8 @@
     .footer-bottom a:hover{color:rgba(255,255,255,.8)}
 
     @media(max-width:900px){nav{display:none}}
-    @media(max-width:520px){
-      section{padding:40px 20px}
-      .hero{padding:40px 20px 36px}
-      .hi{padding:0 20px}
-      .format-box{padding:20px}
-      .course-grid{grid-template-columns:1fr}
-    }
+    @media(max-width:520px){section{padding:40px 20px}.hero{padding:40px 20px 36px}.hi{padding:0 20px}.article-grid{grid-template-columns:1fr}}
   </style>
-  <link rel="canonical" href="https://nexgenio.com/self/index.html">
 </head>
 <body>
 
@@ -89,8 +92,6 @@
   <div class="hi">
     <a href="/" class="brand">
       <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
-      <div class="brand-divider"></div>
-      <img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite_Tagline@2x.png" alt="PECB — Where Excellence Meets Recognition" class="pecb-mark" height="35">
     </a>
     <nav>
       <a href="/">Home</a>
@@ -152,136 +153,44 @@
 </script><!-- /NAV -->
 
 <div class="hero">
-  <h1>Self-Paced Certification Training</h1>
-  <p>PECB-certified courses with exam and certificate included. Choose Self-Study or e-Learning and learn at your own pace.</p>
+  <h1>Our Self-Paced PECB Certification Courses Are Live</h1>
+  <div class="article-date">20 July 2026</div>
 </div>
 
-<!-- FORMAT EXPLAINER -->
+<div class="featured-img"><img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite.png" alt="Our Self-Paced PECB Certification Courses Are Live"></div>
 <section>
   <div class="inn">
-    <div class="sl">Two formats</div>
-    <div class="st">Self-Study &amp; e-Learning</div>
-    <div class="format-box">
-      All self-paced courses are available in two formats. <strong>Self-Study</strong> includes course slides and exercises for independent reading, at the lowest price point. <strong>e-Learning</strong> includes everything in Self-Study, plus pre-recorded video sessions guiding you through the material. Both include the full curriculum, quizzes, PECB certification exam, and certificate.
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED COURSES (orange border) -->
-<section class="alt">
-  <div class="inn">
-    <div class="sl">Featured</div>
-    <div class="st">Recommended Courses</div>
-
-    <div class="course-grid">
-
-      <a href="/self/nis2-lead-implementer.html" class="course-card recommended">
-        <img src="https://assets.nexgenio.com/PECB/course-badges/nis-2-directive-lead-implementer.png" alt="NIS2 Lead Implementer badge" class="card-badge">
-        <div class="card-body">
-          <h3>NIS2 Lead Implementer</h3>
-          <p>Lead a cybersecurity program aligned with the EU&rsquo;s NIS2 Directive</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
-
-      <a href="/self/dora-lead-manager.html" class="course-card recommended">
-        <img src="https://assets.nexgenio.com/PECB/course-badges/dora-lead-manager.png" alt="DORA Lead Manager badge" class="card-badge">
-        <div class="card-body">
-          <h3>DORA Lead Manager</h3>
-          <p>Lead digital operational resilience programs in financial entities under DORA</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
-
-      <a href="/self/iso-27001-lead-implementer.html" class="course-card recommended">
-        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-implementer.png" alt="ISO 27001 Lead Implementer badge" class="card-badge">
-        <div class="card-body">
-          <h3>ISO 27001 Lead Implementer</h3>
-          <p>Implement and manage an information security management system</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
-
-      <a href="/self/iso-42001-lead-implementer.html" class="course-card recommended">
-        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-42001-lead-implementer.png" alt="ISO 42001 Lead Implementer badge" class="card-badge">
-        <div class="card-body">
-          <h3>ISO 42001 Lead Implementer</h3>
-          <p>Implement and manage an AI management system</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
+    <div class="article-content">
+<p>NexGenio&#39;s self-paced PECB certification courses are now live — ten courses across NIS2, DORA, and ISO 27001/22301/27701/42001/31000, available in Self-Study or e-Learning format, with the PECB certification exam and certificate included in every course price.</p>
+<p>As an Authorized PECB Training Partner, we&#39;ve built this catalog around what&#39;s actually driving demand right now: NIS2 and DORA compliance obligations that are already in force, ISO 27001 and ISO 42001 certification becoming baseline expectations, and organisations across Europe needing certified people faster than internal training programs can produce them.</p>
+<h2>What&#39;s available</h2>
+<p>Ten certification tracks, each with two study formats:</p>
+<ul>
+<li><strong>Self-Study</strong> — course slides and exercises, work through the material at your own pace</li>
+<li><strong>e-Learning</strong> — everything in Self-Study, plus pre-recorded video sessions guiding you through the content</li>
+</ul>
+<p>Every course includes the full curriculum, exercises and quizzes, the PECB certification exam, and your certificate — no separate exam booking, no extra fees.</p>
+<h2>The courses</h2>
+<ul>
+<li><a href="https://nexgenio.com/self/nis2-lead-implementer.html" target="_blank" rel="noopener noreferrer">NIS2 Directive Lead Implementer</a></li>
+<li><a href="https://nexgenio.com/self/nis2-foundation.html" target="_blank" rel="noopener noreferrer">NIS2 Directive Foundation</a></li>
+<li><a href="https://nexgenio.com/self/dora-lead-manager.html" target="_blank" rel="noopener noreferrer">DORA Lead Manager</a></li>
+<li><a href="https://nexgenio.com/self/dora-foundation.html" target="_blank" rel="noopener noreferrer">DORA Foundation</a></li>
+<li><a href="https://nexgenio.com/self/iso-27001-lead-implementer.html" target="_blank" rel="noopener noreferrer">ISO/IEC 27001 Lead Implementer</a></li>
+<li><a href="https://nexgenio.com/self/iso-42001-lead-implementer.html" target="_blank" rel="noopener noreferrer">ISO/IEC 42001 Lead Implementer</a></li>
+<li><a href="https://nexgenio.com/self/iso-22301-lead-implementer.html" target="_blank" rel="noopener noreferrer">ISO 22301 Lead Implementer</a></li>
+<li><a href="https://nexgenio.com/self/iso-27701-lead-implementer.html" target="_blank" rel="noopener noreferrer">ISO/IEC 27701 Lead Implementer</a></li>
+<li><a href="https://nexgenio.com/self/iso-31000-risk-manager.html" target="_blank" rel="noopener noreferrer">ISO 31000 Risk Manager</a></li>
+<li><a href="https://nexgenio.com/self/caim.html" target="_blank" rel="noopener noreferrer">Certified Artificial Intelligence Manager (CAIM)</a></li>
+</ul>
+<h2>Why self-paced, why now</h2>
+<p>NIS2 and DORA are already in force. ISO/IEC 42001 is the first international standard specifically for AI management systems, and organisations building or scaling AI use are under growing pressure to show it&#39;s actually governed, not just deployed. Self-paced certification is the fastest way to build that capability internally, without waiting for a scheduled classroom date.</p>
+<p>Browse the full course catalog and enrol at <a href="https://nexgenio.com/self/index.html">nexgenio.com/self</a>.</p>
 
     </div>
   </div>
 </section>
 
-<!-- ALL OTHER COURSES (blue border) -->
-<section>
-  <div class="inn">
-    <div class="sl">Full catalogue</div>
-    <div class="st">All Courses</div>
-
-    <div class="course-grid">
-
-      <a href="/self/iso-22301-lead-implementer.html" class="course-card">
-        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-22301-lead-implementer.png" alt="ISO 22301 Lead Implementer badge" class="card-badge">
-        <div class="card-body">
-          <h3>ISO 22301 Lead Implementer</h3>
-          <p>Implement and manage a Business Continuity Management System (BCMS) based on ISO 22301</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
-
-      <a href="/self/iso-27701-lead-implementer.html" class="course-card">
-        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27701-lead-implementer.png" alt="ISO 27701 Lead Implementer badge" class="card-badge">
-        <div class="card-body">
-          <h3>ISO 27701 Lead Implementer</h3>
-          <p>Implement a Privacy Information Management System (PIMS) for GDPR and data protection compliance</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
-
-      <a href="/self/iso-31000-risk-manager.html" class="course-card">
-        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-31000-risk-manager.png" alt="ISO 31000 Risk Manager badge" class="card-badge">
-        <div class="card-body">
-          <h3>ISO 31000 Risk Manager</h3>
-          <p>Establish and improve a risk management framework based on ISO 31000 across your organisation</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
-
-      <a href="/self/caim.html" class="course-card">
-        <div class="card-badge-spacer"></div>
-        <div class="card-body">
-          <h3>Certified Artificial Intelligence Manager (CAIM)</h3>
-          <p>Manage AI initiatives, governance, ethics, and regulatory compliance across your organisation</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
-
-      <a href="/self/nis2-foundation.html" class="course-card">
-        <img src="https://assets.nexgenio.com/PECB/course-badges/nis-2-directive-foundation.png" alt="NIS2 Foundation badge" class="card-badge">
-        <div class="card-body">
-          <h3>NIS2 Directive Foundation</h3>
-          <p>Understand the NIS2 Directive and its cybersecurity requirements &mdash; no prerequisites required</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
-
-      <a href="/self/dora-foundation.html" class="course-card">
-        <img src="https://assets.nexgenio.com/PECB/course-badges/dora-foundation.png" alt="DORA Foundation badge" class="card-badge">
-        <div class="card-body">
-          <h3>DORA Foundation</h3>
-          <p>Understand the Digital Operational Resilience Act and its ICT risk management requirements &mdash; no prerequisites required</p>
-          <span class="view-link">View course &rarr;</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<div style="text-align:center;padding:12px 32px;font-size:12px;color:#999">Last reviewed: August 2026</div>
 
 <footer>
   <div class="footer-inner">
@@ -299,6 +208,7 @@
   </div>
 </footer>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com", "logo": "https://assets.nexgenio.com/brand/logo.png", "address": {"@type": "PostalAddress", "streetAddress": "36 St Dminika Street", "addressLocality": "Victoria, Gozo", "postalCode": "VCT 9030", "addressCountry": "MT"}, "vatID": "MT25941925", "taxID": "C 88842", "sameAs": ["https://www.linkedin.com/company/nexgenio"], "dateModified": "2026-08-18"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Our Self-Paced PECB Certification Courses Are Live","description":"NexGenio launches ten self-paced PECB certification courses covering NIS2, DORA, ISO 27001, ISO 42001, and more — with exam and certificate included.","datePublished":"2026-07-20T10:00:00.000Z","dateModified":"2026-08-17T01:28:26.935Z","author":{"@type":"Organization","name":"NexGenio LTD"},"publisher":{"@type":"Organization","name":"NexGenio LTD","logo":{"@type":"ImageObject","url":"https://assets.nexgenio.com/brand/logo.png"}},"mainEntityOfPage":"https://nexgenio.com/blog/our-self-paced-pecb-certification-courses-are-live.html","image":"https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite.png"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com","logo":"https://assets.nexgenio.com/brand/logo.png","address":{"@type":"PostalAddress","streetAddress":"36 St Dminika Street","addressLocality":"Victoria, Gozo","postalCode":"VCT 9030","addressCountry":"MT"},"vatID":"MT25941925","taxID":"C 88842","sameAs":["https://www.linkedin.com/company/nexgenio"]}</script>
 </body>
 </html>

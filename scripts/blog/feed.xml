@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NexGenio Blog</title>
+    <link>https://nexgenio.com/blog/</link>
+    <description>Insights and updates on compliance, cybersecurity, and AI governance from NexGenio.</description>
+    <language>en</language>
+    <atom:link href="https://nexgenio.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Three hours in a meeting. Legal cites Article 29. IT says the links are redundant. Nobody can say if that's the same thing.</title>
+      <link>https://nexgenio.com/blog/three-hours-article-29-translation-gap.html</link>
+      <description>A DORA Article 29 concentration-risk requirement and an IT team's redundant-failover architecture can't be verified against each other because the regulatory obligation and the technical spec were never mapped together.</description>
+      <pubDate>Wed, 26 Aug 2026 03:22:51 GMT</pubDate>
+      <guid isPermaLink="true">https://nexgenio.com/blog/three-hours-article-29-translation-gap.html</guid>
+    </item>
+    <item>
+      <title>PECB Signs a Partnership Agreement with NexGenio</title>
+      <link>https://nexgenio.com/blog/pecb-signs-a-partnership-agreement-with-nexgenio.html</link>
+      <description>PECB announces a partnership with NexGenio for the organisation and distribution of PECB training courses in Malta.</description>
+      <pubDate>Tue, 28 Jul 2026 10:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://nexgenio.com/blog/pecb-signs-a-partnership-agreement-with-nexgenio.html</guid>
+    </item>
+    <item>
+      <title>Our Self-Paced PECB Certification Courses Are Live</title>
+      <link>https://nexgenio.com/blog/our-self-paced-pecb-certification-courses-are-live.html</link>
+      <description>Ten PECB certification courses across NIS2, DORA, and ISO standards, available in Self-Study or e-Learning format, with exam and certificate included.</description>
+      <pubDate>Mon, 20 Jul 2026 10:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://nexgenio.com/blog/our-self-paced-pecb-certification-courses-are-live.html</guid>
+    </item>
+  </channel>
+</rss>

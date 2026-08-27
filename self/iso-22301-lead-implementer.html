@@ -191,7 +191,49 @@
     <a href="/#contact">Contact</a>
   </div>
 </header>
-<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><!-- /NAV -->
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'}]}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'en',
+      translations:{
+        en:{
+          consentModal:{
+            title:'We value your privacy',
+            description:'This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href="/legal/privacy.html">Privacy Policy</a>.',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            showPreferencesBtn:'Cookie Settings'
+          },
+          preferencesModal:{
+            title:'Cookie Preferences',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            savePreferencesBtn:'Save Preferences',
+            sections:[
+              {title:'Cookie Usage',description:'We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out.'},
+              {title:'Necessary',description:'These cookies are essential for the website to function. They cannot be disabled.',linkedCategory:'necessary'},
+              {title:'Analytics',description:'Analytics cookies help us understand how visitors interact with the website by collecting and reporting information anonymously. [Specific analytics tools to be confirmed by Director.]',linkedCategory:'analytics'},
+              {title:'Marketing',description:'Marketing cookies are used to track visitors across websites to display relevant advertisements. [Specific marketing tools to be confirmed by Director.]',linkedCategory:'marketing'},
+              {title:'More information',description:'For questions about our cookie policy, please <a href="/#contact">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer.'}
+            ]
+          }
+        }
+      }
+    }
+  });
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent='Cookie Settings';a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><!-- /NAV -->
 
 <div class="breadcrumb">
   <a href="/">Home</a> &rsaquo; <a href="/self/index.html">Self-Paced Courses</a> &rsaquo; ISO 22301 Lead Implementer
