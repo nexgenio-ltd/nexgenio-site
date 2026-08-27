@@ -19,7 +19,7 @@ const posts = [
     metaTitle: "\u20ac300,000 for 200 pages. Still sitting on a shelf. What was actually missing?",
     metaDescription: "Why expensive ISO 27001 certification projects fail when the organisation cannot operate the management system the consultants built.",
     featuredImageUrl: `${ASSETS}/post-2-300k-shelf-article-og.png`,
-    ogImageUrl: `${ASSETS}/post-2-300k-shelf-social-og.png`,
+
     body: `A mid-sized organisation spends \u20ac300,000 on external consultants to achieve ISO 27001 certification. Six months later, the auditors sign off. The deliverable is impressive: 200 pages of policies, procedures, risk registers, and statements of applicability. The certificate goes on the wall. The documents go into a SharePoint folder. And there they stay.
 
 Twelve months on, the information security manager leaves. The risk register has not been updated since the audit. Incident response procedures exist on paper, but nobody has rehearsed them. Internal audits are overdue. When a client asks for evidence of continuous improvement, the team scrambles to reconstruct what the consultants built, because nobody inside the organisation truly understands how to operate it.
@@ -54,7 +54,7 @@ That is what \u20ac300,000 should buy. The question is whether it did.`
     metaTitle: "Third redesign. Same deadline, six months gone. What actually needed fixing was the translation.",
     metaDescription: "Why governance architectures break with every new regulation and how building the translation layer once eliminates the cycle of perpetual redesign.",
     featuredImageUrl: `${ASSETS}/post-3-third-redesign-article-og.png`,
-    ogImageUrl: `${ASSETS}/post-3-third-redesign-social-og.png`,
+
     body: `An organisation builds its ISMS around ISO 27001. It works. Controls map to assets, audits pass, the board signs off. Then NIS2 arrives. The security team retrofits the existing architecture, bolting on incident reporting timelines, supply chain obligations, and sector-specific requirements. It takes four months. The structure holds, barely.
 
 Then DORA lands. Financial services oversight, ICT risk management frameworks, third-party concentration risk. The architecture bends again. Another redesign, another five months. Controls overlap in some places and contradict in others. Mapping documents multiply. The team spends more time maintaining cross-references than managing actual risk.
@@ -87,7 +87,7 @@ The organisation that stops redesigning is the one that built the translation ri
     metaTitle: "DORA compliant? Four people, four different answers.",
     metaDescription: "When four departments define DORA compliance differently, the organisation has a language barrier. Here is how governance architecture creates one shared answer.",
     featuredImageUrl: `${ASSETS}/post-4-four-answers-article-og.png`,
-    ogImageUrl: `${ASSETS}/post-4-four-answers-social-og.png`,
+
     body: `A CISO, a DPO, a head of IT, and a board member sit in the same room. Someone asks: "Are we DORA compliant?" Four answers come back. The CISO talks about incident reporting timelines. The DPO raises third-party processor contracts. IT points to the disaster recovery test they ran last quarter. The board member recalls a slide deck from an external auditor six months ago. Every answer is partially correct. None of them align.
 
 This scene plays out across financial services firms every week. The assumption is that the organisation has a knowledge problem, that someone needs to read the regulation more carefully or attend one more workshop. But knowledge is already in the room. The real problem is language. Four competent professionals are describing the same obligations using four different vocabularies, shaped by four different operational contexts. DORA does not fail at the point of understanding. It fails at the point of translation.
@@ -110,7 +110,7 @@ When four people answer the same question four different ways, the organisation 
     metaTitle: "DORA compliant since January 2025. Eighteen months later, maintaining it costs more than building it did.",
     metaDescription: "Why DORA compliance maintenance costs more than initial implementation and how governance architecture designed for continuous operation changes the equation.",
     featuredImageUrl: `${ASSETS}/post-5-maintaining-costs-article-og.png`,
-    ogImageUrl: `${ASSETS}/post-5-maintaining-costs-social-og.png`,
+
     body: `A mid-sized financial services firm hits its DORA compliance deadline in January 2025. The programme runs for fourteen months, costs six figures, and finishes on time. Six months later, the CISO reports that maintaining compliance is consuming 35% of the operational risk team's capacity. Evidence gathering alone takes eleven hours per week. Every ICT incident triggers a manual scramble to reconstruct audit trails, map third-party dependencies, and produce documentation that satisfies the regulator. The team built for BAU is now running a permanent compliance operation on the side.
 
 This pattern is remarkably common. According to a 2025 Gartner survey, 62% of organisations that achieved regulatory compliance on schedule reported higher ongoing costs than their initial implementation. For DORA specifically, the numbers are worse. The regulation's five pillars demand continuous proof: live risk registers, tested resilience scenarios, up-to-date third-party oversight, and incident reporting within tight timeframes. Compliance is a present-tense obligation, and the evidence burden compounds quarter by quarter.
@@ -133,7 +133,7 @@ The firms that struggle with post-compliance fatigue share one trait. They optim
     metaTitle: "NIS2. DORA. ISO 27001. ISO 42001. EU AI Act. All tracked in one person\u2019s spreadsheet.",
     metaDescription: "How a unified governance architecture eliminates the spreadsheet that holds five regulatory frameworks together and replaces it with one coherent compliance structure.",
     featuredImageUrl: `${ASSETS}/post-6-one-spreadsheet-article-og.png`,
-    ogImageUrl: `${ASSETS}/post-6-one-spreadsheet-social-og.png`,
+
     body: `A compliance manager opens her laptop on Monday morning. She has fourteen tabs open. One for the NIS2 gap analysis. One for the DORA register of ICT third-party providers. One for the ISO 27001 Statement of Applicability. One for the AI risk assessment the board requested last quarter. One for the spreadsheet that tries to tie it all together.
 
 That spreadsheet is the actual governance architecture. Everything depends on it. And it lives on one person's machine.
@@ -168,7 +168,7 @@ One structure. One evidence base. All frameworks. No spreadsheet required.`
     metaTitle: "The system was built correctly. The audit found the evidence wasn\u2019t there.",
     metaDescription: "Why well-designed management systems still fail surveillance audits and how evidence-producing infrastructure closes the gap between built and operating.",
     featuredImageUrl: `${ASSETS}/post-7-evidence-missing-article-og.png`,
-    ogImageUrl: `${ASSETS}/post-7-evidence-missing-social-og.png`,
+
     body: `A mid-sized services firm passes its ISO 27001 Stage 2 certification. The ISMS is well designed. Policies are thorough, risk treatments are mapped, and the Statement of Applicability covers every relevant control. Twelve months later, the surveillance auditor asks a simple question: "Show me evidence that access reviews were performed quarterly as your policy states." The room goes quiet. The reviews happened. The evidence was never captured.
 
 The nonconformity lands. Leadership is frustrated. They invested heavily in building the system. They hired consultants, trained staff, purchased tooling. The system itself is sound. But the audit outcome tells a different story, because the question was never whether the system was designed correctly. The question was whether anyone could prove it was operating.
@@ -195,7 +195,7 @@ The system was built correctly. The next step is making sure the evidence proves
     metaTitle: "Certified. Audited. Passed. Still no governance.",
     metaDescription: "Why ISO 27001 certification and successful audits do not equal governance, and what real board-level oversight looks like.",
     featuredImageUrl: `${ASSETS}/post-8-no-governance-article-og.png`,
-    ogImageUrl: `${ASSETS}/post-8-no-governance-social-og.png`,
+
     body: `A mid-sized financial services firm. ISO 27001 certified for three years running. External audits passed every cycle. Surveillance visits completed on schedule. The ISMS is maintained, the risk register updated, the statement of applicability current.
 
 The board receives a quarterly slide deck. Ten minutes. Green across the board. Nods. Next agenda item.
@@ -232,7 +232,7 @@ The certificate says the system is in place. Governance makes sure it is going s
     metaTitle: "Your board is now personally liable. Nobody gave them a way to see the risk.",
     metaDescription: "How NIS2 Article 20(2) personal liability exposes the translation gap between technical cybersecurity risk and board-level governance.",
     featuredImageUrl: `${ASSETS}/post-9-board-liable-article-og.png`,
-    ogImageUrl: `${ASSETS}/post-9-board-liable-social-og.png`,
+
     body: `NIS2 Article 20(2) is unambiguous. Management bodies are personally liable for overseeing cybersecurity risk management. The directive does not assign this duty to the CISO, the IT department, or a compliance team. It assigns it to the board.
 
 So the board asks to see the risk.
