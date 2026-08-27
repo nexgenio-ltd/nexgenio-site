@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write
   contents: read
   actions: write
 
@@ -18,28 +17,10 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::124971231536:role/NexgenioPublicDeployRole
-          aws-region: eu-central-1
-
-      - name: Fetch Strapi write token from Secrets Manager
-        id: token
-        run: |
-          TOKEN=$(aws secretsmanager get-secret-value \
-            --secret-id /nexgenio/strapi/write-token \
-            --query SecretString --output text --region eu-central-1 2>/dev/null \
-          || aws ssm get-parameter \
-            --name /nexgenio/strapi/write-token \
-            --with-decryption --query Parameter.Value --output text --region eu-central-1)
-          echo "::add-mask::$TOKEN"
-          echo "STRAPI_WRITE_TOKEN=$TOKEN" >> "$GITHUB_ENV"
-
       - name: Create and publish posts in Strapi
         env:
           STRAPI_URL: https://nexgenio.com/cms
-          STRAPI_WRITE_TOKEN: ${{ env.STRAPI_WRITE_TOKEN }}
+          STRAPI_WRITE_TOKEN: ${{ secrets.STRAPI_WRITE_TOKEN }}
         run: node scripts/create-posts.mjs
 
       - name: Trigger blog build and deploy
