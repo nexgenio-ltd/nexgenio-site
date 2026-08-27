@@ -67,9 +67,10 @@ function htmlHead(title, description, extra = "") {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${esc(title)} &mdash; NexGenio</title>
+  <title>${esc(title)} | NexGenio</title>
   <meta name="description" content="${esc(description)}">
   <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
   <link rel="stylesheet" href="/tokens/tokens.css">
   <link rel="alternate" type="application/rss+xml" title="NexGenio Blog" href="/blog/feed.xml">
   ${extra}
