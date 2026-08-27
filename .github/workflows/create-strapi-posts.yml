@@ -20,7 +20,7 @@ jobs:
       - name: Create and publish posts in Strapi
         env:
           STRAPI_URL: https://nexgenio.com/cms
-          STRAPI_WRITE_TOKEN: ${{ secrets.STRAPI_WRITE_TOKEN }}
+          STRAPI_WRITE_TOKEN: ${{ secrets.STRAPI_WRITE_TOKEN || secrets.STRAPI_READ_TOKEN }}
         run: node scripts/create-posts.mjs
 
       - name: Trigger blog build and deploy
