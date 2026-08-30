@@ -217,7 +217,20 @@ function buildIndex(articles) {
     )
     .join("\n");
 
-  return `${htmlHead("Insights", "Insights and updates from NexGenio — compliance, cybersecurity, and AI governance.")}
+  const indexOg = [
+    `<meta property="og:type" content="website">`,
+    `<meta property="og:site_name" content="NexGenio">`,
+    `<meta property="og:title" content="Insights | NexGenio">`,
+    `<meta property="og:description" content="Insights and updates from NexGenio — compliance, cybersecurity, and AI governance.">`,
+    `<meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">`,
+    `<meta property="og:url" content="${BLOG_URL}/index.html">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="Insights | NexGenio">`,
+    `<meta name="twitter:description" content="Insights and updates from NexGenio — compliance, cybersecurity, and AI governance.">`,
+    `<meta name="twitter:image" content="https://assets.nexgenio.com/brand/logo.png">`,
+  ].join("\n  ");
+
+  return `${htmlHead("Insights", "Insights and updates from NexGenio — compliance, cybersecurity, and AI governance.", indexOg)}
 <body>
 ${header}
 
@@ -276,9 +289,18 @@ function buildArticle(a) {
   if (!a.ogImage && a.featuredImage) {
     ogImg = a.featuredImage.replace(/-article-(og|insta-portrait|insta-square)\./, '-social-$1.');
   }
-  const ogMeta = ogImg
-    ? `<meta property="og:image" content="${esc(ogImg)}">\n  <meta property="og:title" content="${esc(a.metaTitle)}">\n  <meta property="og:description" content="${esc(a.metaDescription)}">\n  <meta property="og:type" content="article">`
-    : "";
+  const ogMeta = [
+    `<meta property="og:type" content="article">`,
+    `<meta property="og:site_name" content="NexGenio">`,
+    `<meta property="og:title" content="${esc(a.metaTitle)}">`,
+    `<meta property="og:description" content="${esc(a.metaDescription)}">`,
+    ogImg ? `<meta property="og:image" content="${esc(ogImg)}">` : "",
+    `<meta property="og:url" content="${BLOG_URL}/${a.slug}.html">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${esc(a.metaTitle)}">`,
+    `<meta name="twitter:description" content="${esc(a.metaDescription)}">`,
+    ogImg ? `<meta name="twitter:image" content="${esc(ogImg)}">` : "",
+  ].filter(Boolean).join("\n  ");
 
   return `${htmlHead(a.metaTitle, a.metaDescription, ogMeta)}
 <body>
