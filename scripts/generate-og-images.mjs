@@ -57,7 +57,7 @@ function buildHtml(course) {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    padding: 48px 56px 44px;
+    padding: 48px 56px 48px;
     position: relative;
     overflow: hidden;
   }
@@ -67,9 +67,9 @@ function buildHtml(course) {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
   }
-  .logo img { height: 48px; width: auto; }
+  .logo img { height: 72px; width: auto; }
 
   .promo-badge {
     background: #f6911b;
@@ -84,11 +84,11 @@ function buildHtml(course) {
 
   /* Course name */
   .course-name {
-    font-size: 52px;
+    font-size: 54px;
     font-weight: bold;
     color: #215675;
     line-height: 1.15;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   /* Format line */
@@ -96,14 +96,13 @@ function buildHtml(course) {
     font-size: 26px;
     color: #666;
     font-weight: 600;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   /* Dates */
   .dates {
     display: flex;
     gap: 20px;
-    margin-bottom: 20px;
   }
   .date {
     font-size: 24px;
@@ -114,33 +113,31 @@ function buildHtml(course) {
     border-radius: 6px;
   }
 
-  /* Price */
+  /* Bottom row: price left, badge right */
+  .bottom-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: auto;
+  }
   .price-line {
     display: flex;
     align-items: baseline;
     gap: 10px;
-    margin-top: 24px;
   }
   .price {
-    font-size: 44px;
+    font-size: 48px;
     font-weight: bold;
     color: #f6911b;
   }
   .price-suffix {
-    font-size: 22px;
+    font-size: 24px;
     color: #666;
     font-weight: 600;
   }
-
-  /* PECB badge bottom right */
-  .badge {
-    position: absolute;
-    bottom: 44px;
-    right: 56px;
-  }
   .badge img {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     object-fit: contain;
   }
 </style>
@@ -155,12 +152,14 @@ function buildHtml(course) {
   <div class="course-name">${course.name}</div>
   <div class="format-line">${course.format === 'live-online' ? 'Live-Online' : course.format}, ${course.duration}</div>
   <div class="dates">${dates}</div>
-  <div class="price-line">
-    <span class="price">&euro;${course.price}</span>
-    <span class="price-suffix">per seat</span>
-  </div>
-  <div class="badge">
-    <img src="${course.badge}" alt="Credential badge">
+  <div class="bottom-row">
+    <div class="price-line">
+      <span class="price">&euro;${course.price}</span>
+      <span class="price-suffix">per seat</span>
+    </div>
+    <div class="badge">
+      <img src="${course.badge}" alt="Credential badge">
+    </div>
   </div>
 </body>
 </html>`;
@@ -168,7 +167,7 @@ function buildHtml(course) {
 
 console.log(`OG images: generating ${courses.length} image(s)...`);
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
+const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 2 });
 
 for (const course of courses) {
   const html = buildHtml(course);
@@ -176,13 +175,22 @@ for (const course of courses) {
   writeFileSync(tmpHtml, html);
 
   await page.goto(`file://${tmpHtml}`, { waitUntil: 'networkidle' });
-  const outPath = join(OUT_DIR, `${course.slug}.png`);
-  await page.screenshot({ path: outPath, type: 'png', clip: { x: 0, y: 0, width: 1200, height: 630 } });
-  console.log(`  -> ${outPath}`);
+  const hiresPath = join(OUT_DIR, `${course.slug}-2x.png`);
+  await page.screenshot({ path: hiresPath, type: 'png', clip: { x: 0, y: 0, width: 1200, height: 630 } });
 
-  // Clean up temp HTML
+  // Downscale 2400x1260 → 1200x630 via browser image rendering
+  const hiresData = readFileSync(hiresPath).toString('base64');
+  const downPage = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
+  await downPage.setContent(`<html><body style="margin:0;padding:0;overflow:hidden"><img src="data:image/png;base64,${hiresData}" width="1200" height="630" style="display:block"></body></html>`);
+  await downPage.waitForLoadState('networkidle');
+  const outPath = join(OUT_DIR, `${course.slug}.png`);
+  await downPage.screenshot({ path: outPath, type: 'png', clip: { x: 0, y: 0, width: 1200, height: 630 } });
+  await downPage.close();
+
+  // Clean up temp files
   const { unlinkSync } = await import('node:fs');
   unlinkSync(tmpHtml);
+  unlinkSync(hiresPath);
 }
 
 await browser.close();
