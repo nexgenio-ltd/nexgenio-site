@@ -5,6 +5,3 @@ blog/*.html
 blog/*.xml
 blog/*.txt
 !blog/.gitkeep
-
-# Generated OG images (built in CI, synced to S3)
-og-images/
