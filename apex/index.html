@@ -166,7 +166,11 @@
     .tl-date .tl-weekday{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lg)}
     .tl-date .tl-day{font-size:42px;font-weight:900;color:var(--t);line-height:1}
     .tl-date .tl-monthyear{font-size:15px;font-weight:700;color:var(--t);text-transform:uppercase;letter-spacing:1px}
-    .tl-details{padding-left:8px}
+    .tl-details{padding-left:8px;display:flex;align-items:center;gap:12px}
+    .tl-badge{width:72px;height:72px;object-fit:contain;flex-shrink:0;border-radius:4px}
+    .tl-body{flex:1;min-width:0}
+    .slide-badge{width:72px;height:72px;object-fit:contain;border-radius:4px;margin-bottom:8px}
+    .slide-badge-spacer{width:72px;height:72px}
     .tl-details h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:4px;line-height:1.3}
     .tl-details h3 a{color:inherit;text-decoration:none}
     .tl-details h3 a:hover{color:var(--o)}
@@ -537,7 +541,10 @@
             <span class="tl-monthyear">September 2026</span>
           </div>
           <div class="tl-details">
-            <h3><a href="/live/iso-27001-lead-implementer.html">ISO/IEC 27001 Lead Implementer</a></h3>
+            <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-implementer.png" alt="PECB ISO 27001 Lead Implementer" class="tl-badge">
+            <div class="tl-body">
+              <h3><a href="/live/iso-27001-lead-implementer.html">ISO/IEC 27001 Lead Implementer</a></h3>
+            </div>
           </div>
         </div>
         <div class="tl-stop" role="listitem">
@@ -549,7 +556,10 @@
             <span class="tl-monthyear">October 2026</span>
           </div>
           <div class="tl-details">
-            <h3><a href="/live/iso-27001-lead-implementer.html">ISO/IEC 27001 Lead Implementer</a></h3>
+            <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-implementer.png" alt="PECB ISO 27001 Lead Implementer" class="tl-badge">
+            <div class="tl-body">
+              <h3><a href="/live/iso-27001-lead-implementer.html">ISO/IEC 27001 Lead Implementer</a></h3>
+            </div>
           </div>
         </div>
         <div class="tl-tail" aria-hidden="true"></div>
@@ -574,6 +584,7 @@
 
         <div class="course-slide recommended" onclick="if(event.target.tagName!=='A')window.location='/self/iso-27001-lead-implementer.html'" style="cursor:pointer">
           <span class="popular-badge">Most Popular</span>
+          <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-implementer.png" alt="PECB ISO 27001 Lead Implementer" class="slide-badge">
           <div class="chip">ISO/IEC 27001</div>
           <h3>ISO 27001 Lead Implementer</h3>
           <div class="live-cross">Also available as <a href="/live/iso-27001-lead-implementer.html">live instructor-led training</a></div>
@@ -582,12 +593,14 @@
 
         <a href="/self/nis2-lead-implementer.html" class="course-slide recommended">
           <span class="popular-badge">Most Popular</span>
+          <img src="https://assets.nexgenio.com/PECB/course-badges/nis-2-directive-lead-implementer.png" alt="PECB NIS2 Lead Implementer" class="slide-badge">
           <div class="chip">NIS2</div>
           <h3>NIS2 Lead Implementer</h3>
           <div class="view-link">View course &rarr;</div>
         </a>
 
         <a href="/self/nis2-foundation.html" class="course-slide">
+          <img src="https://assets.nexgenio.com/PECB/course-badges/nis-2-directive-foundation.png" alt="PECB NIS2 Foundation" class="slide-badge">
           <div class="chip">NIS2</div>
           <h3>NIS2 Directive Foundation</h3>
           <div class="view-link">View course &rarr;</div>
@@ -595,12 +608,14 @@
 
         <a href="/self/dora-lead-manager.html" class="course-slide recommended">
           <span class="popular-badge">Most Popular</span>
+          <img src="https://assets.nexgenio.com/PECB/course-badges/dora-lead-manager.png" alt="PECB DORA Lead Manager" class="slide-badge">
           <div class="chip">DORA</div>
           <h3>DORA Lead Manager</h3>
           <div class="view-link">View course &rarr;</div>
         </a>
 
         <a href="/self/dora-foundation.html" class="course-slide">
+          <img src="https://assets.nexgenio.com/PECB/course-badges/dora-foundation.png" alt="PECB DORA Foundation" class="slide-badge">
           <div class="chip">DORA</div>
           <h3>DORA Foundation</h3>
           <div class="view-link">View course &rarr;</div>
@@ -608,30 +623,35 @@
 
         <a href="/self/iso-42001-lead-implementer.html" class="course-slide recommended">
           <span class="popular-badge">Most Popular</span>
+          <img src="https://assets.nexgenio.com/PECB/course-badges/iso-42001-lead-implementer.png" alt="PECB ISO 42001 Lead Implementer" class="slide-badge">
           <div class="chip">ISO/IEC 42001</div>
           <h3>ISO 42001 Lead Implementer</h3>
           <div class="view-link">View course &rarr;</div>
         </a>
 
         <a href="/self/iso-22301-lead-implementer.html" class="course-slide">
+          <img src="https://assets.nexgenio.com/PECB/course-badges/iso-22301-lead-implementer.png" alt="PECB ISO 22301 Lead Implementer" class="slide-badge">
           <div class="chip">ISO 22301</div>
           <h3>ISO 22301 Lead Implementer</h3>
           <div class="view-link">View course &rarr;</div>
         </a>
 
         <a href="/self/iso-27701-lead-implementer.html" class="course-slide">
+          <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27701-lead-implementer.png" alt="PECB ISO 27701 Lead Implementer" class="slide-badge">
           <div class="chip">ISO/IEC 27701</div>
           <h3>ISO 27701</h3>
           <div class="view-link">View course &rarr;</div>
         </a>
 
         <a href="/self/iso-31000-risk-manager.html" class="course-slide">
+          <img src="https://assets.nexgenio.com/PECB/course-badges/iso-31000-risk-manager.png" alt="PECB ISO 31000 Risk Manager" class="slide-badge">
           <div class="chip">ISO 31000</div>
           <h3>ISO 31000</h3>
           <div class="view-link">View course &rarr;</div>
         </a>
 
         <a href="/self/caim.html" class="course-slide">
+          <div class="slide-badge-spacer"></div>
           <div class="chip">AI Management</div>
           <h3>CAIM</h3>
           <div class="view-link">View course &rarr;</div>
