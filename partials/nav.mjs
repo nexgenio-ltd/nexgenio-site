@@ -91,7 +91,7 @@ export const baseNav = `<!-- NAV -->${navAlignCss}
     <a href="/#contact">Contact</a>
   </div>
 </header>
-${mobileMenuJs}${cookieConsentBlock}<!-- /NAV -->`;
+${mobileMenuJs}${cookieConsentBlock}<script src="/tokens/nxg-events.js"></script><!-- /NAV -->`;
 
 export const trainingNav = `<!-- NAV -->${navAlignCss}
 <header>
@@ -116,4 +116,4 @@ export const trainingNav = `<!-- NAV -->${navAlignCss}
     <a href="/#contact">Contact</a>
   </div>
 </header>
-${mobileMenuJs}${cookieConsentBlock}<!-- /NAV -->`;
+${mobileMenuJs}${cookieConsentBlock}<script src="/tokens/nxg-events.js"></script><!-- /NAV -->`;
