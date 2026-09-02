@@ -36,6 +36,7 @@
     section.alt{background:var(--bg)}
     .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
     .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:24px;line-height:1.2}
+    .ss{font-size:16px;color:var(--lg);max-width:580px;margin-bottom:36px;line-height:1.75}
 
     /* NAV-ONLY TIMELINE */
     .tl-wrap{position:relative;padding:0 28px}
@@ -62,6 +63,7 @@
     .tl-btn:hover{background:var(--t);color:#fff}
     .tl-btn.prev{left:-14px}
     .tl-btn.next{right:-14px}
+    .popular-badge{position:absolute;top:30px;right:8px;background:var(--o);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:4px;z-index:1}
 
     .self-pointer{background:#fff;border-radius:6px;border-left:3px solid var(--o);padding:24px 28px;box-shadow:0 2px 8px rgba(33,86,117,.05);margin-top:36px}
     .self-pointer p{font-size:15px;color:#444;line-height:1.7;margin-bottom:12px}
@@ -199,7 +201,7 @@
 <section>
   <div class="inn">
     <div class="sl">Live Training</div>
-    <h2 class="st">Learn live, online, from a PECB Platinum Trainer.</h2>
+    <h2 class="st">Learn live, online, from PECB Platinum Trainers.</h2>
     <p class="ss">Fixed dates. Real-time instruction. The full course, delivered live.</p>
 
     <div class="tl-wrap">
@@ -207,6 +209,7 @@
       <div class="tl-track" tabindex="0" role="list" aria-label="Training timeline">
 
         <div class="tl-stop" role="listitem">
+          <span class="popular-badge">Most Popular</span>
           <div class="tl-stem"></div>
           <div class="tl-date">
             <span class="tl-weekday">Monday</span>
@@ -221,6 +224,7 @@
         </div>
 
         <div class="tl-stop" role="listitem">
+          <span class="popular-badge">Most Popular</span>
           <div class="tl-stem"></div>
           <div class="tl-date">
             <span class="tl-weekday">Sunday</span>

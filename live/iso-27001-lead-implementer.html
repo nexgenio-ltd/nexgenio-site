@@ -10,7 +10,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISO/IEC 27001 Lead Implementer — Live Training &mdash; NexGenio</title>
-  <meta name="description" content="ISO/IEC 27001 Lead Implementer live-online training with PECB Platinum Trainer. 4 training days, exam and certification included. Upcoming dates: 21 Sep and 4 Oct 2026.">
+  <meta name="description" content="ISO/IEC 27001 Lead Implementer live-online training with PECB Platinum Trainers. 4 training days, exam and certification included. Upcoming dates: 21 Sep and 4 Oct 2026.">
   <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="/tokens/tokens.css">
   <style>
@@ -55,7 +55,7 @@
     .ss{font-size:var(--body-fs,15px);color:var(--lg);max-width:640px;margin-bottom:36px;line-height:1.75}
 
     /* SELECTABLE TIMELINE */
-    .tl-wrap{position:relative;padding:0 28px}
+    .tl-wrap{position:relative;padding:12px 28px 0}
     .tl-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 0 8px;outline:none}
     .tl-track::-webkit-scrollbar{display:none}
     .tl-stop{flex:0 0 auto;min-width:280px;scroll-snap-align:start;position:relative;padding:40px 48px 0 0;cursor:pointer;user-select:none}
@@ -74,6 +74,7 @@
     .tl-btn:hover{background:var(--t);color:#fff}
     .tl-btn.prev{left:-14px}
     .tl-btn.next{right:-14px}
+    .popular-badge{position:absolute;top:30px;right:8px;background:var(--o);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:4px;z-index:1}
 
     .reserve-row{margin-top:24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .reserve-row .price{font-size:var(--price-fs,28px);font-weight:900;color:var(--t)}
@@ -163,7 +164,7 @@
       .intro-card{padding:24px 20px}
       .accordion{padding:0 20px 40px}
       .related{padding:32px 20px 40px}
-      .tl-wrap{padding:0 20px}
+      .tl-wrap{padding:12px 20px 0}
       .tl-stop{min-width:220px;padding-right:32px}
       .tl-date .tl-day{font-size:34px}
       .tl-btn.prev{left:-6px}
@@ -176,12 +177,12 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NexGenio">
   <meta property="og:title" content="ISO/IEC 27001 Lead Implementer — Live Training — NexGenio">
-  <meta property="og:description" content="ISO/IEC 27001 Lead Implementer live-online training with PECB Platinum Trainer. 4 training days, exam and certification included.">
+  <meta property="og:description" content="ISO/IEC 27001 Lead Implementer live-online training with PECB Platinum Trainers. 4 training days, exam and certification included.">
   <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
   <meta property="og:url" content="https://nexgenio.com/live/iso-27001-lead-implementer.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ISO/IEC 27001 Lead Implementer — Live Training — NexGenio">
-  <meta name="twitter:description" content="ISO/IEC 27001 Lead Implementer live-online training with PECB Platinum Trainer. 4 training days, exam and certification included.">
+  <meta name="twitter:description" content="ISO/IEC 27001 Lead Implementer live-online training with PECB Platinum Trainers. 4 training days, exam and certification included.">
   <meta name="twitter:image" content="https://assets.nexgenio.com/brand/logo.png">
   <!-- /OG -->
 </head>
@@ -300,12 +301,14 @@
   <div class="inn">
     <div class="sl">Choose your date</div>
     <div class="st">Select a Start Date</div>
+    <p class="ss">Pick the session that fits your calendar. Both dates cover the same curriculum.</p>
 
     <div class="tl-wrap" id="booking-timeline">
       <button class="tl-btn prev" aria-label="Previous date">&lsaquo;</button>
       <div class="tl-track" tabindex="0" role="listbox" aria-label="Select a training date">
 
         <div class="tl-stop selected" role="option" aria-selected="true" data-session="a" data-date="21 September 2026" tabindex="0">
+          <span class="popular-badge">Most Popular</span>
           <div class="tl-stem"></div>
           <div class="tl-date">
             <span class="tl-weekday">Monday</span>
@@ -316,6 +319,7 @@
         </div>
 
         <div class="tl-stop" role="option" aria-selected="false" data-session="b" data-date="4 October 2026" tabindex="-1">
+          <span class="popular-badge">Most Popular</span>
           <div class="tl-stem"></div>
           <div class="tl-date">
             <span class="tl-weekday">Sunday</span>
@@ -334,7 +338,7 @@
       <span class="format-chip">Live-Online</span>
       <span class="format-chip">4 training days</span>
       <span class="format-chip">English</span>
-      <span class="format-chip">PECB Platinum Trainer</span>
+      <span class="format-chip">PECB Platinum Trainers</span>
     </div>
 
     <div class="reserve-row">
