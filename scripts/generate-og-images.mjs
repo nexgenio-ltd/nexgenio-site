@@ -48,13 +48,16 @@ function buildHtml(course) {
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     width: 1200px;
     height: 630px;
     background: #fff;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     padding: 48px 56px 48px;
@@ -175,22 +178,13 @@ for (const course of courses) {
   writeFileSync(tmpHtml, html);
 
   await page.goto(`file://${tmpHtml}`, { waitUntil: 'networkidle' });
-  const hiresPath = join(OUT_DIR, `${course.slug}-2x.png`);
-  await page.screenshot({ path: hiresPath, type: 'png', clip: { x: 0, y: 0, width: 1200, height: 630 } });
-
-  // Downscale 2400x1260 → 1200x630 via browser image rendering
-  const hiresData = readFileSync(hiresPath).toString('base64');
-  const downPage = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
-  await downPage.setContent(`<html><body style="margin:0;padding:0;overflow:hidden"><img src="data:image/png;base64,${hiresData}" width="1200" height="630" style="display:block"></body></html>`);
-  await downPage.waitForLoadState('networkidle');
   const outPath = join(OUT_DIR, `${course.slug}.png`);
-  await downPage.screenshot({ path: outPath, type: 'png', clip: { x: 0, y: 0, width: 1200, height: 630 } });
-  await downPage.close();
+  await page.screenshot({ path: outPath, type: 'png', clip: { x: 0, y: 0, width: 1200, height: 630 } });
+  console.log(`  -> ${outPath}`);
 
-  // Clean up temp files
+  // Clean up temp HTML
   const { unlinkSync } = await import('node:fs');
   unlinkSync(tmpHtml);
-  unlinkSync(hiresPath);
 }
 
 await browser.close();
