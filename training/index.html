@@ -39,7 +39,7 @@
 
     /* NAV-ONLY TIMELINE */
     .tl-wrap{position:relative;padding:0 28px}
-    .tl-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 0 8px;outline:none}
+    .tl-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:12px 0 8px;outline:none}
     .tl-track::-webkit-scrollbar{display:none}
     .tl-stop{flex:0 0 auto;min-width:280px;scroll-snap-align:start;position:relative;padding:40px 48px 0 0}
     .tl-stop::before{content:'';position:absolute;top:6px;left:0;right:0;height:3px;background:var(--t)}
@@ -82,7 +82,7 @@
     .card-body .live-cross a{color:var(--t);font-weight:600;text-decoration:underline;position:relative;z-index:2}
     .card-body .live-cross a:hover{color:var(--o)}
     .popular-badge{position:absolute;top:-1px;right:16px;background:var(--o);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:0 0 6px 6px}
-    .tl-stop .popular-badge{top:30px;right:8px;font-size:10px;padding:3px 10px;border-radius:4px}
+    .tl-stop .popular-badge{position:static;float:right;background-color:#f6911b;font-size:10px;padding:3px 10px;border-radius:4px;margin-top:4px}
 
     /* CAROUSEL */
     .carousel-wrap{position:relative}
@@ -249,6 +249,7 @@
     <div class="sl">Live Training</div>
     <h2 class="st">Learn live, online, from PECB Platinum Trainers.</h2>
     <p class="ss">Fixed dates. Real-time instruction. The full course, delivered live.</p>
+    <p style="font-size:15px;color:#444;line-height:1.75;max-width:720px;margin-bottom:36px">Instructor-led sessions on fixed dates, delivered online in real time by PECB Platinum Trainers. You attend live, ask questions as they come up, and sit the certification exam as part of the course.</p>
 
     <div class="tl-wrap">
       <button class="tl-btn prev" aria-label="Previous date">&lsaquo;</button>
@@ -264,7 +265,7 @@
           </div>
           <div class="tl-details">
             <h3><a href="/live/iso-27001-lead-implementer.html">ISO/IEC 27001 Lead Implementer</a></h3>
-            <div class="tl-label">Live-Online &middot; 4 training days &middot; English</div>
+            <div class="tl-label">Live-Online &middot; 5 days &middot; English</div>
             <a href="/live/iso-27001-lead-implementer.html" class="tl-link">View details &rarr;</a>
           </div>
         </div>
@@ -279,7 +280,7 @@
           </div>
           <div class="tl-details">
             <h3><a href="/live/iso-27001-lead-implementer.html">ISO/IEC 27001 Lead Implementer</a></h3>
-            <div class="tl-label">Live-Online &middot; 4 training days &middot; English</div>
+            <div class="tl-label">Live-Online &middot; 5 days &middot; English</div>
             <a href="/live/iso-27001-lead-implementer.html" class="tl-link">View details &rarr;</a>
           </div>
         </div>
@@ -298,6 +299,7 @@
     <div class="sl">Self-Paced</div>
     <h2 class="st">Or study entirely on your own schedule.</h2>
     <p class="ss">Real certification you build alongside full-time work, at your own pace.</p>
+    <p style="font-size:15px;color:#444;line-height:1.75;max-width:720px;margin-bottom:36px">The same PECB certification, studied on your own schedule. Self-Study gives you the full course materials to work through independently. e-Learning adds guided video instruction on top of the same content. Exam and certificate included either way.</p>
 
     <div class="carousel-wrap">
       <button class="carousel-btn prev" aria-label="Scroll left">&lsaquo;</button>

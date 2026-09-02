@@ -144,14 +144,17 @@
     .course-slide .teaser{font-size:13px;color:#555;line-height:1.65;margin-bottom:16px;flex:1}
     .course-slide .view-link{font-size:13px;font-weight:600;color:var(--o);letter-spacing:.2px}
     .course-slide:hover .view-link{text-decoration:underline}
+    .live-cross{font-size:12px;color:var(--t);margin-top:6px}
+    .live-cross a{color:var(--t);font-weight:600;text-decoration:underline;position:relative;z-index:2}
+    .live-cross a:hover{color:var(--o)}
     .popular-badge{position:absolute;top:-1px;right:16px;background:var(--o);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:0 0 6px 6px}
-    .tl-stop .popular-badge{top:30px;right:8px;font-size:10px;padding:3px 10px;border-radius:4px}
+    .tl-stop .popular-badge{position:static;float:right;background-color:#f6911b;font-size:10px;padding:3px 10px;border-radius:4px;margin-top:4px}
     .slider-nav{display:flex;gap:12px;justify-content:center;margin-top:28px}
     .slider-btn{width:40px;height:40px;border-radius:50%;border:2px solid var(--tl);background:#fff;color:var(--t);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s}
     .slider-btn:hover{border-color:var(--o);color:var(--o)}
     .slider-btn:disabled{opacity:.3;cursor:default}
     .tl-wrap{position:relative;padding:0 28px;margin-bottom:40px}
-    .tl-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 0 8px;outline:none}
+    .tl-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:12px 0 8px;outline:none}
     .tl-track::-webkit-scrollbar{display:none}
     .tl-stop{flex:0 0 auto;min-width:280px;scroll-snap-align:start;position:relative;padding:40px 48px 0 0}
     .tl-stop::before{content:'';position:absolute;top:6px;left:0;right:0;height:3px;background:var(--t)}
@@ -519,6 +522,7 @@
     <div class="sl">Live Training</div>
     <h2 class="st">Learn live, online, from PECB Platinum Trainers.</h2>
     <p class="ss">Fixed dates. Real-time instruction. The full course, delivered live.</p>
+    <p style="font-size:15px;color:#444;line-height:1.75;max-width:720px;margin-bottom:36px">Instructor-led sessions on fixed dates, delivered online in real time by PECB Platinum Trainers. You attend live, ask questions as they come up, and sit the certification exam as part of the course.</p>
 
     <!-- Live Training Timeline (navigation-only) -->
     <div class="tl-wrap">
@@ -562,17 +566,19 @@
     <div class="sl">Self-Paced</div>
     <h2 class="st">Or study entirely on your own schedule.</h2>
     <p class="ss">Real certification you build alongside full-time work, at your own pace.</p>
+    <p style="font-size:15px;color:#444;line-height:1.75;max-width:720px;margin-bottom:36px">The same PECB certification, studied on your own schedule. Self-Study gives you the full course materials to work through independently. e-Learning adds guided video instruction on top of the same content. Exam and certificate included either way.</p>
 
     <!-- Self-Paced Course Carousel -->
     <div class="course-slider">
       <div class="course-track" id="courseTrack">
 
-        <a href="/self/iso-27001-lead-implementer.html" class="course-slide recommended">
+        <div class="course-slide recommended" onclick="if(event.target.tagName!=='A')window.location='/self/iso-27001-lead-implementer.html'" style="cursor:pointer">
           <span class="popular-badge">Most Popular</span>
           <div class="chip">ISO/IEC 27001</div>
           <h3>ISO 27001 Lead Implementer</h3>
+          <div class="live-cross">Also available as <a href="/live/iso-27001-lead-implementer.html">live instructor-led training</a></div>
           <div class="view-link">View course &rarr;</div>
-        </a>
+        </div>
 
         <a href="/self/nis2-lead-implementer.html" class="course-slide recommended">
           <span class="popular-badge">Most Popular</span>
