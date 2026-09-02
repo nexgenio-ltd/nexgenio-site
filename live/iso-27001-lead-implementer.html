@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISO/IEC 27001 Lead Implementer — Live Training &mdash; NexGenio</title>
+  <meta name="description" content="ISO/IEC 27001 Lead Implementer live-online training with PECB Platinum Trainer. 4 training days, exam and certification included. Upcoming cohorts: 21 Sep and 4 Oct 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/tokens/tokens.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
+    .brand-divider{width:1px;height:36px;background:#e0e8ed}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    .breadcrumb{max-width:1140px;margin:0 auto;padding:16px 32px;font-size:var(--label-fs,11px);color:var(--lg)}
+    .breadcrumb a{color:var(--t);text-decoration:none}
+    .breadcrumb a:hover{color:var(--o)}
+
+    .course-hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px}
+    .course-hero .inn{max-width:1140px;margin:0 auto}
+    .hero-badges{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .chip{display:inline-block;font-size:var(--label-fs,11px);font-weight:700;background:rgba(255,255,255,.12);color:#fff;padding:4px 14px;border-radius:10px;letter-spacing:.6px;text-transform:uppercase}
+    .chip-orange{background:var(--o);color:#fff}
+    .course-hero h1{font-size:var(--h1-fs,clamp(24px,3.5vw,42px));font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
+    .credential-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .course-hero .credential{font-size:var(--body-fs,15px);color:rgba(255,255,255,.75)}
+    .pecb-hero-logo{height:22px;width:auto;opacity:.8}
+
+    .intro-frame{padding:48px 32px}
+    .intro-frame .inn{max-width:1140px;margin:0 auto}
+    .intro-card{background:#fff;border:1px solid #e4e9ed;border-left:4px solid var(--o);border-radius:6px;padding:32px 36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;box-shadow:0 2px 12px rgba(33,86,117,.05)}
+    .intro-card p{font-size:var(--body-fs,15px);color:#333;line-height:1.85;flex:1;min-width:280px;margin:0;font-weight:600}
+    .intro-card .pecb-red-logo{height:32px;width:auto;flex-shrink:0}
+
+    .inn{max-width:1140px;margin:0 auto}
+    section{padding:64px 32px}
+    .alt{background:var(--bg)}
+    .sl{font-size:var(--label-fs,11px);font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:var(--body-fs,15px);color:var(--lg);max-width:640px;margin-bottom:36px;line-height:1.75}
+
+    /* SELECTABLE TIMELINE */
+    .tl-wrap{position:relative;padding:0 28px}
+    .tl-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 0 8px;outline:none}
+    .tl-track::-webkit-scrollbar{display:none}
+    .tl-stop{flex:0 0 auto;min-width:280px;scroll-snap-align:start;position:relative;padding:40px 48px 0 0;cursor:pointer;user-select:none}
+    .tl-stop::before{content:'';position:absolute;top:6px;left:0;right:0;height:3px;background:var(--t)}
+    .tl-stop::after{content:'';position:absolute;top:-2px;left:24px;width:18px;height:18px;background:#fff;border:3px solid var(--t);border-radius:50%;z-index:1;transition:background .2s,transform .2s,border-color .2s}
+    .tl-stop.selected::after{background:var(--o);border-color:var(--o);transform:scale(1.3)}
+    .tl-tail{flex:0 0 140px;position:relative;padding-top:40px}
+    .tl-tail::before{content:'';position:absolute;top:6px;left:0;right:0;height:3px;background:repeating-linear-gradient(to right,rgba(33,86,117,.25) 0,rgba(33,86,117,.25) 8px,transparent 8px,transparent 18px)}
+    .tl-stem{width:3px;height:24px;background:var(--t);margin:0 0 0 32px}
+    .tl-date{margin-bottom:8px;padding-left:8px}
+    .tl-date .tl-weekday{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lg)}
+    .tl-date .tl-day{font-size:42px;font-weight:900;color:var(--t);line-height:1}
+    .tl-date .tl-monthyear{font-size:15px;font-weight:700;color:var(--t);text-transform:uppercase;letter-spacing:1px}
+    .tl-label{font-size:13px;font-weight:600;color:var(--t);padding-left:8px}
+    .tl-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:2px solid var(--t);background:#fff;color:var(--t);font-size:20px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(33,86,117,.12);z-index:2;transition:background .15s,color .15s}
+    .tl-btn:hover{background:var(--t);color:#fff}
+    .tl-btn.prev{left:-14px}
+    .tl-btn.next{right:-14px}
+
+    .reserve-row{margin-top:24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .reserve-row .price{font-size:var(--price-fs,28px);font-weight:900;color:var(--t)}
+    .reserve-row .price small{font-size:13px;font-weight:400;color:#888}
+    .reserve-row .price-note{font-size:12px;color:#888}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:var(--body-fs,15px);font-weight:bold;padding:14px 36px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;text-align:center}
+    .btn:hover{background:#d97a0f}
+
+    .format-chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .format-chip{font-size:13px;color:var(--t);background:var(--tl);padding:6px 16px;border-radius:20px;font-weight:600}
+
+    /* ACCORDION */
+    .accordion{padding:0 32px 64px}
+    .accordion .inn{max-width:1140px;margin:0 auto}
+    details.acc{border:1px solid #e4e9ed;border-radius:6px;margin-bottom:12px;background:#fff;overflow:hidden}
+    details.acc + details.acc{margin-top:0}
+    details.acc summary{padding:18px 24px;font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .15s}
+    details.acc summary:hover{background:var(--bg)}
+    details.acc summary::-webkit-details-marker{display:none}
+    details.acc summary::after{content:"+";font-size:var(--heading-fs,20px);font-weight:300;color:var(--lg);flex-shrink:0;margin-left:16px;transition:transform .2s}
+    details.acc[open] summary::after{content:"\2212"}
+    details.acc[open] summary{border-bottom:1px solid #e4e9ed}
+    .acc-body{padding:24px;font-size:var(--body-fs,15px);color:#444;line-height:1.8}
+    .acc-body p{margin-bottom:14px}
+    .acc-body p:last-child{margin-bottom:0}
+    .acc-body ul{margin:0 0 14px 0;padding:0;list-style:none;font-size:var(--body-fs,15px)}
+    .acc-body ul li{padding:6px 0;display:flex;gap:10px}
+    .acc-body ul li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .acc-body .curriculum li::before{content:"\25B6";color:var(--o);font-size:var(--label-fs,11px);margin-top:4px}
+    .acc-body a{color:var(--t);text-decoration:underline}
+    .acc-body a:hover{color:var(--o)}
+    .acc-body h4{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin:20px 0 8px}
+    .acc-body h4:first-child{margin-top:0}
+    .acc-body .steps{list-style:none;padding:0;margin:0;counter-reset:step}
+    .acc-body .steps li{padding:8px 0;display:flex;gap:12px;counter-increment:step}
+    .acc-body .steps li::before{content:counter(step);background:var(--t);color:#fff;font-size:var(--label-fs,11px);font-weight:bold;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+    .cred-intro{display:flex;align-items:flex-start;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+    .cred-badge{width:120px;height:auto;flex-shrink:0;border-radius:6px}
+    .cred-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:var(--body-fs,15px)}
+    .cred-table th{background:var(--t);color:#fff;text-align:left;padding:10px 14px;font-weight:600;font-size:var(--body-fs,15px);letter-spacing:.3px}
+    .cred-table td{padding:10px 14px;border-bottom:1px solid #eee;color:#444}
+    .cred-table tr:last-child td{border-bottom:none}
+    .cred-table tr:nth-child(even){background:var(--bg)}
+    @media(max-width:600px){
+      .cred-table thead{display:none}
+      .cred-table,.cred-table tbody,.cred-table tr,.cred-table td{display:block;width:100%}
+      .cred-table tr{background:#fff;border:1px solid var(--tl);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+      .cred-table tr:nth-child(even){background:#fff}
+      .cred-table td{padding:3px 0;border-bottom:none;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+      .cred-table td:first-child{font-weight:700;color:var(--t);font-size:15px;padding-bottom:8px;display:block}
+      .cred-table td:not(:first-child)::before{content:attr(data-label);font-weight:600;color:var(--t);font-size:13px;flex-shrink:0}
+      .cred-table tr:last-child td{border-bottom:none}
+    }
+    .cred-closing{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.7;margin-top:16px}
+
+    .related{padding:48px 32px 56px}
+    .related .inn{max-width:1140px;margin:0 auto}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px}
+    .related-card{background:#fff;border:1px solid #e4e9ed;border-top:3px solid var(--t);border-radius:6px;padding:24px 28px;text-decoration:none;display:block;transition:box-shadow .15s,border-color .15s}
+    .related-card:hover{box-shadow:0 4px 20px rgba(33,86,117,.1);border-top-color:var(--o)}
+    .related-card .rc-title{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin-bottom:8px}
+    .related-card .rc-reason{font-size:13px;color:var(--lg);line-height:1.6}
+
+    footer{background:var(--t);border-top:3px solid var(--o)}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
+    .footer-brand{display:flex;align-items:center;gap:16px}
+    .footer-brand-text .fn{font-size:14px;font-weight:bold;color:#fff}
+    .footer-brand-text .ft{font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+    .footer-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:7px}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+    .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
+    .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+
+    @media(max-width:900px){nav{display:none}}
+    @media(max-width:600px){
+      section{padding:40px 20px}
+      .course-hero{padding:40px 20px 36px}
+      .hi{padding:0 20px}
+      .breadcrumb{padding:12px 20px}
+      .intro-frame{padding:32px 20px}
+      .intro-card{padding:24px 20px}
+      .accordion{padding:0 20px 40px}
+      .related{padding:32px 20px 40px}
+      .tl-wrap{padding:0 20px}
+      .tl-stop{min-width:220px;padding-right:32px}
+      .tl-date .tl-day{font-size:34px}
+      .tl-btn.prev{left:-6px}
+      .tl-btn.next{right:-6px}
+      .tl-btn{width:34px;height:34px;font-size:18px}
+    }
+  </style>
+  <link rel="canonical" href="https://nexgenio.com/live/iso-27001-lead-implementer.html">
+  <!-- OG -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NexGenio">
+  <meta property="og:title" content="ISO/IEC 27001 Lead Implementer — Live Training — NexGenio">
+  <meta property="og:description" content="ISO/IEC 27001 Lead Implementer live-online training with PECB Platinum Trainer. 4 training days, exam and certification included.">
+  <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <meta property="og:url" content="https://nexgenio.com/live/iso-27001-lead-implementer.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ISO/IEC 27001 Lead Implementer — Live Training — NexGenio">
+  <meta name="twitter:description" content="ISO/IEC 27001 Lead Implementer live-online training with PECB Platinum Trainer. 4 training days, exam and certification included.">
+  <meta name="twitter:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <!-- /OG -->
+</head>
+<body>
+
+<!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+      <div class="brand-divider"></div>
+      <img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite_Tagline@2x.png" alt="PECB — Where Excellence Meets Recognition" class="pecb-mark" height="35">
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/training/index.html">Academy</a>
+      <a href="/blog/index.html">Insights</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/training/index.html">Academy</a>
+    <a href="/blog/index.html">Insights</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'},{name:'_clck'},{name:'_clsk'},{name:'CLID'},{name:'ANONCHK'},{name:'MR'},{name:'MUID'},{name:'SM'}]},services:{ga4:{},clarity:{}}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'en',
+      translations:{
+        en:{
+          consentModal:{
+            title:'We value your privacy',
+            description:'This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href="/legal/privacy.html">Privacy Policy</a>.',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            showPreferencesBtn:'Cookie Settings'
+          },
+          preferencesModal:{
+            title:'Cookie Preferences',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            savePreferencesBtn:'Save Preferences',
+            sections:[
+              {title:'Cookie Usage',description:'We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out.'},
+              {title:'Necessary',description:'These cookies are essential for the website to function. They cannot be disabled.',linkedCategory:'necessary'},
+              {title:'Analytics',description:'We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.',linkedCategory:'analytics'},
+              {title:'Marketing',description:'Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.',linkedCategory:'marketing'},
+              {title:'More information',description:'For questions about our cookie policy, please <a href="/#contact">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer.'}
+            ]
+          }
+        }
+      }
+    }
+  });
+  function _nxgLoadAnalytics(){
+    if(window._nxgAnalyticsLoaded)return;
+    if(!CookieConsent.acceptedService('ga4','analytics'))return;
+    window._nxgAnalyticsLoaded=true;
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-R6WRM25278';document.head.appendChild(gs);
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
+    if(CookieConsent.acceptedService('clarity','analytics')){
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+    }
+  }
+  window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
+  window.addEventListener('cc:onChange',_nxgLoadAnalytics);
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent='Cookie Settings';a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><!-- /NAV -->
+
+<div class="breadcrumb">
+  <a href="/">Home</a> &rsaquo; <a href="/training/index.html">Academy</a> &rsaquo; <a href="/live/index.html">Live Training</a> &rsaquo; ISO/IEC 27001 Lead Implementer
+</div>
+
+<!-- HERO -->
+<div class="course-hero">
+  <div class="inn">
+    <div class="hero-badges">
+      <span class="chip">PECB Certified</span>
+      <span class="chip chip-orange">Live-Online</span>
+    </div>
+    <h1>ISO/IEC 27001 Lead Implementer</h1>
+    <div class="credential-line">
+      <span class="credential">PECB Credential: Certified ISO/IEC 27001 Lead Implementer</span>
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_White.svg" alt="PECB" class="pecb-hero-logo">
+    </div>
+  </div>
+</div>
+
+<!-- INTRO FRAME -->
+<div class="intro-frame">
+  <div class="inn">
+    <div class="intro-card">
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_RedWhite.svg" alt="PECB" class="pecb-red-logo">
+      <p>Master the implementation and management of an information security management system aligned with ISO/IEC 27001 &mdash; from risk assessment and policy through control implementation and continual improvement. A practical path to the skills organizations now need as information security certification becomes the baseline expectation across regulated and customer-facing sectors.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SELECTABLE TIMELINE & BOOKING -->
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Choose your cohort</div>
+    <div class="st">Select a Start Date</div>
+
+    <div class="tl-wrap" id="booking-timeline">
+      <button class="tl-btn prev" aria-label="Previous cohort">&lsaquo;</button>
+      <div class="tl-track" tabindex="0" role="listbox" aria-label="Select a training date">
+
+        <div class="tl-stop selected" role="option" aria-selected="true" data-cohort="a" data-date="21 September 2026" tabindex="0">
+          <div class="tl-stem"></div>
+          <div class="tl-date">
+            <span class="tl-weekday">Monday</span>
+            <span class="tl-day">21</span>
+            <span class="tl-monthyear">September 2026</span>
+          </div>
+          <div class="tl-label">Cohort A</div>
+        </div>
+
+        <div class="tl-stop" role="option" aria-selected="false" data-cohort="b" data-date="4 October 2026" tabindex="-1">
+          <div class="tl-stem"></div>
+          <div class="tl-date">
+            <span class="tl-weekday">Sunday</span>
+            <span class="tl-day">4</span>
+            <span class="tl-monthyear">October 2026</span>
+          </div>
+          <div class="tl-label">Cohort B</div>
+        </div>
+
+        <div class="tl-tail" aria-hidden="true"></div>
+      </div>
+      <button class="tl-btn next" aria-label="Next cohort">&rsaquo;</button>
+    </div>
+
+    <div class="format-chips">
+      <span class="format-chip">Live-Online</span>
+      <span class="format-chip">4 training days</span>
+      <span class="format-chip">English</span>
+      <span class="format-chip">PECB Platinum Trainer</span>
+    </div>
+
+    <div class="reserve-row">
+      <div>
+        <div class="price">&euro;2,222 <small>per seat</small></div>
+        <div class="price-note">Exam and PECB certification included</div>
+      </div>
+      <a href="/#contact" class="btn" id="reserve-btn">Reserve your seat &mdash; <span id="reserve-date">21 September 2026</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ACCORDION -->
+<div class="accordion">
+  <div class="inn">
+
+  <details class="acc">
+    <summary>What is ISO/IEC 27001?</summary>
+    <div class="acc-body">
+      <p>ISO/IEC 27001 is the internationally recognized standard for information security management systems (ISMS) &mdash; a structured framework for identifying information security risks and putting the right controls in place to manage them. It has become the default reference point customers, regulators, and business partners expect when they ask an organization to prove it takes information security seriously, and it underpins compliance obligations across a wide range of other frameworks, including NIS2 and DORA.</p>
+      <p>Organizations building or maturing an ISMS need people who can do more than quote the standard&rsquo;s clauses &mdash; they need someone who can actually implement it. This course builds that competency directly: you learn how to scope an ISMS, run risk assessments, select and implement controls, and prepare an organization for third-party certification audit &mdash; the same practical skills employers and certification bodies expect from an ISO/IEC 27001 implementer.</p>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary>About this course</summary>
+    <div class="acc-body">
+      <h4>Who it&rsquo;s for</h4>
+      <ul>
+        <li>Managers and consultants implementing an ISMS</li>
+        <li>Project managers and expert advisers responsible for ISMS conformity</li>
+        <li>Members of the ISMS implementation team</li>
+      </ul>
+
+      <h4>What&rsquo;s covered</h4>
+      <ul class="curriculum">
+        <li><strong>Days 1&ndash;2:</strong>&nbsp; ISO/IEC 27001 fundamentals and ISMS implementation plan</li>
+        <li><strong>Day 3:</strong>&nbsp; Implementation of ISMS controls</li>
+        <li><strong>Day 4:</strong>&nbsp; ISMS monitoring, continual improvement, audit preparation</li>
+        <li><strong>Day 5:</strong>&nbsp; Certification exam (3 hours, 7 competency domains)</li>
+      </ul>
+
+      <p><a href="https://assets.nexgenio.com/training/pecb/brochures/iso-27001-lead-implementer.pdf">View PECB course brochure (PDF) &rarr;</a></p>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary>Which credential will I earn?</summary>
+    <div class="acc-body">
+      <div class="cred-intro">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-implementer.png" alt="PECB Certified ISO/IEC 27001 Lead Implementer" class="cred-badge">
+        <p style="flex:1;min-width:260px">Everyone who attends this course sits the same exam &mdash; the PECB Certified ISO/IEC 27001 Lead Implementer exam. What differs is which credential you can apply for afterward, based on your prior professional experience. There&rsquo;s no separate exam or extra study required for a higher tier &mdash; it&rsquo;s the same certification, recognized at a level that matches your background.</p>
+      </div>
+
+      <table class="cred-table">
+        <thead>
+          <tr>
+            <th>Credential</th>
+            <th>Experience required</th>
+            <th>ISMS project experience</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Provisional Implementer</td><td data-label="Experience">None</td><td data-label="ISMS project">None</td></tr>
+          <tr><td>Implementer</td><td data-label="Experience">2 years (1 in information security mgmt)</td><td data-label="ISMS project">200+ hours</td></tr>
+          <tr><td>Lead Implementer</td><td data-label="Experience">5 years (2 in information security mgmt)</td><td data-label="ISMS project">300+ hours</td></tr>
+          <tr><td>Senior Lead Implementer</td><td data-label="Experience">10 years (7 in information security mgmt)</td><td data-label="ISMS project">1,000+ hours</td></tr>
+        </tbody>
+      </table>
+
+      <p class="cred-closing">New to the field? You&rsquo;ll qualify for Provisional Implementer immediately after passing &mdash; a fully valid PECB credential &mdash; and can apply for a higher tier later as your experience grows, without retaking the course.</p>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary>How it works</summary>
+    <div class="acc-body">
+      <ol class="steps">
+        <li>Select your preferred cohort date above and reserve your seat</li>
+        <li>Receive your booking confirmation and joining instructions by email</li>
+        <li>Attend 4 days of live-online instructor-led training</li>
+        <li>Sit the PECB certification exam on Day 5</li>
+        <li>Receive your PECB credential upon passing</li>
+      </ol>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary>What&rsquo;s in the price</summary>
+    <div class="acc-body">
+      <ul>
+        <li>4 days of live instructor-led training</li>
+        <li>Certification exam and PECB registration fees included</li>
+        <li>Free exam retake within 12 months if unsuccessful</li>
+        <li>31 CPD credits awarded on completion</li>
+        <li>Course materials and exercises</li>
+      </ul>
+    </div>
+  </details>
+
+  </div>
+</div>
+
+<!-- RELATED COURSES -->
+<div class="related alt">
+  <div class="inn">
+    <div class="sl">Continue your journey</div>
+    <div class="st">Related courses</div>
+    <div class="related-grid">
+      <a href="/self/nis2-lead-implementer.html" class="related-card">
+        <div class="rc-title">NIS2 Directive Lead Implementer</div>
+        <div class="rc-reason">Apply your ISMS expertise to NIS2 compliance across critical sectors</div>
+      </a>
+      <a href="/self/iso-42001-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO/IEC 42001 Lead Implementer</div>
+        <div class="rc-reason">Extend your management-system skills into AI governance</div>
+      </a>
+      <a href="/self/iso-27001-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO/IEC 27001 Lead Implementer — Self-Paced</div>
+        <div class="rc-reason">Same certification, study at your own pace with Self-Study or eLearning</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-text">
+          <div class="fn">NexGenio LTD</div>
+          <div class="ft">Compliance by design.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Training</h5><a href="/training/index.html">All courses</a><a href="/live/index.html">Live schedule</a></div>
+        <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var wrap=document.getElementById('booking-timeline');
+  var track=wrap.querySelector('.tl-track');
+  var stops=Array.from(track.querySelectorAll('.tl-stop'));
+  var reserveDate=document.getElementById('reserve-date');
+  var cur=0;
+
+  function select(i){
+    if(i<0||i>=stops.length)return;
+    stops.forEach(function(s,j){
+      s.classList.toggle('selected',j===i);
+      s.setAttribute('aria-selected',j===i?'true':'false');
+      s.tabIndex=j===i?0:-1;
+    });
+    cur=i;
+    reserveDate.textContent=stops[i].getAttribute('data-date');
+    stops[i].scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'});
+  }
+
+  stops.forEach(function(s,i){
+    s.addEventListener('click',function(){select(i)});
+  });
+
+  wrap.querySelector('.tl-btn.prev').addEventListener('click',function(){select(cur-1)});
+  wrap.querySelector('.tl-btn.next').addEventListener('click',function(){select(cur+1)});
+
+  track.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){e.preventDefault();select(cur+1)}
+    if(e.key==='ArrowLeft'){e.preventDefault();select(cur-1)}
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();select(cur)}
+  });
+
+  var t;track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(function(){
+    var sl=track.scrollLeft,best=0,bd=Infinity;
+    stops.forEach(function(s,i){var d=Math.abs(s.offsetLeft-sl);if(d<bd){bd=d;best=i}});
+    cur=best;
+  },120)});
+})();
+</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com","logo":"https://assets.nexgenio.com/brand/logo.png","address":{"@type":"PostalAddress","streetAddress":"36 St Dminika Street","addressLocality":"Victoria, Gozo","postalCode":"VCT 9030","addressCountry":"MT"},"vatID":"MT25941925","taxID":"C 88842","sameAs":["https://www.linkedin.com/company/nexgenio"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"ISO/IEC 27001 Lead Implementer — Live Training","description":"Master the implementation and management of an information security management system aligned with ISO/IEC 27001. Live-online instructor-led training over 4 days with PECB certification exam included.","provider":{"@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com"},"hasCourseInstance":[{"@type":"CourseInstance","courseMode":"online","startDate":"2026-09-21","endDate":"2026-09-25","name":"Cohort A","offers":{"@type":"Offer","price":"2222","priceCurrency":"EUR","availability":"https://schema.org/InStock"}},{"@type":"CourseInstance","courseMode":"online","startDate":"2026-10-04","endDate":"2026-10-08","name":"Cohort B","offers":{"@type":"Offer","price":"2222","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}],"areaServed":{"@type":"Place","name":"Europe"},"url":"https://nexgenio.com/live/iso-27001-lead-implementer.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is ISO/IEC 27001?","acceptedAnswer":{"@type":"Answer","text":"ISO/IEC 27001 is the internationally recognized standard for information security management systems (ISMS) — a structured framework for identifying information security risks and putting the right controls in place to manage them. It has become the default reference point customers, regulators, and business partners expect when they ask an organization to prove it takes information security seriously, and it underpins compliance obligations across a wide range of other frameworks, including NIS2 and DORA. Organizations building or maturing an ISMS need people who can do more than quote the standard's clauses — they need someone who can actually implement it. This course builds that competency directly: you learn how to scope an ISMS, run risk assessments, select and implement controls, and prepare an organization for third-party certification audit — the same practical skills employers and certification bodies expect from an ISO/IEC 27001 implementer."}},{"@type":"Question","name":"About this course","acceptedAnswer":{"@type":"Answer","text":"Who it's for: Managers and consultants implementing an ISMS, project managers and expert advisers responsible for ISMS conformity, members of the ISMS implementation team. What's covered: Days 1–2 — ISO/IEC 27001 fundamentals and ISMS implementation plan. Day 3 — Implementation of ISMS controls. Day 4 — ISMS monitoring, continual improvement, audit preparation. Day 5 — Certification exam (3 hours, 7 competency domains)."}},{"@type":"Question","name":"Which credential will I earn?","acceptedAnswer":{"@type":"Answer","text":"Everyone who attends this course sits the same exam — the PECB Certified ISO/IEC 27001 Lead Implementer exam. What differs is which credential you can apply for afterward, based on your prior professional experience. Provisional Implementer: no experience required. Implementer: 2 years (1 in information security mgmt), 200+ hours ISMS project experience. Lead Implementer: 5 years (2 in information security mgmt), 300+ hours. Senior Lead Implementer: 10 years (7 in information security mgmt), 1,000+ hours. New to the field? You'll qualify for Provisional Implementer immediately after passing."}},{"@type":"Question","name":"How it works","acceptedAnswer":{"@type":"Answer","text":"1. Select your preferred cohort date and reserve your seat. 2. Receive your booking confirmation and joining instructions by email. 3. Attend 4 days of live-online instructor-led training. 4. Sit the PECB certification exam on Day 5. 5. Receive your PECB credential upon passing."}},{"@type":"Question","name":"What's in the price","acceptedAnswer":{"@type":"Answer","text":"4 days of live instructor-led training. Certification exam and PECB registration fees included. Free exam retake within 12 months if unsuccessful. 31 CPD credits awarded on completion. Course materials and exercises."}}]}</script>
+</body>
+</html>

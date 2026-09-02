@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Live Training &mdash; NexGenio</title>
   <meta name="description" content="Scheduled live training courses from NexGenio. Classroom and online formats with PECB certification.">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="/tokens/tokens.css">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -23,8 +23,6 @@
     .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
     .brand img{width:var(--logo-w,230px);height:auto;display:block}
     .brand-divider{width:1px;height:36px;background:#e0e8ed}
-    .brand-sub{font-size:var(--sub-fs,16px);color:var(--lg);line-height:1.35}
-    .brand-sub strong{display:block;font-size:var(--tag-fs,17px);color:var(--t)}
     nav{display:flex;gap:32px}
     nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
     nav a:hover{color:var(--o)}
@@ -35,12 +33,37 @@
 
     .inn{max-width:1140px;margin:0 auto}
     section{padding:64px 32px}
+    section.alt{background:var(--bg)}
     .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
-    .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:24px;line-height:1.2}
 
-    .empty-state{background:var(--bg);border-radius:6px;padding:48px 32px;text-align:center;color:var(--lg);font-size:16px;line-height:1.7;margin-bottom:48px}
+    /* NAV-ONLY TIMELINE */
+    .tl-wrap{position:relative;padding:0 28px}
+    .tl-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 0 8px;outline:none}
+    .tl-track::-webkit-scrollbar{display:none}
+    .tl-stop{flex:0 0 auto;min-width:280px;scroll-snap-align:start;position:relative;padding:40px 48px 0 0}
+    .tl-stop::before{content:'';position:absolute;top:6px;left:0;right:0;height:3px;background:var(--t)}
+    .tl-stop::after{content:'';position:absolute;top:-2px;left:24px;width:18px;height:18px;background:var(--o);border:3px solid var(--t);border-radius:50%;z-index:1}
+    .tl-tail{flex:0 0 140px;position:relative;padding-top:40px}
+    .tl-tail::before{content:'';position:absolute;top:6px;left:0;right:0;height:3px;background:repeating-linear-gradient(to right,rgba(33,86,117,.25) 0,rgba(33,86,117,.25) 8px,transparent 8px,transparent 18px)}
+    .tl-stem{width:3px;height:24px;background:var(--t);margin:0 0 0 32px}
+    .tl-date{margin-bottom:8px;padding-left:8px}
+    .tl-date .tl-weekday{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lg)}
+    .tl-date .tl-day{font-size:42px;font-weight:900;color:var(--t);line-height:1}
+    .tl-date .tl-monthyear{font-size:15px;font-weight:700;color:var(--t);text-transform:uppercase;letter-spacing:1px}
+    .tl-details{padding-left:8px}
+    .tl-details h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:4px;line-height:1.3}
+    .tl-details h3 a{color:inherit;text-decoration:none}
+    .tl-details h3 a:hover{color:var(--o)}
+    .tl-details .tl-label{font-size:13px;color:#666;margin-bottom:4px}
+    .tl-details .tl-link{font-size:13px;font-weight:600;color:var(--o);text-decoration:none;display:inline-block;margin-top:4px}
+    .tl-details .tl-link:hover{text-decoration:underline}
+    .tl-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:2px solid var(--t);background:#fff;color:var(--t);font-size:20px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(33,86,117,.12);z-index:2;transition:background .15s,color .15s}
+    .tl-btn:hover{background:var(--t);color:#fff}
+    .tl-btn.prev{left:-14px}
+    .tl-btn.next{right:-14px}
 
-    .self-pointer{background:#fff;border-radius:6px;border-left:3px solid var(--o);padding:24px 28px;box-shadow:0 2px 8px rgba(33,86,117,.05)}
+    .self-pointer{background:#fff;border-radius:6px;border-left:3px solid var(--o);padding:24px 28px;box-shadow:0 2px 8px rgba(33,86,117,.05);margin-top:36px}
     .self-pointer p{font-size:15px;color:#444;line-height:1.7;margin-bottom:12px}
     .self-pointer a{color:var(--t);font-weight:600;text-decoration:none}
     .self-pointer a:hover{color:var(--o)}
@@ -61,9 +84,19 @@
     .footer-bottom a:hover{color:rgba(255,255,255,.8)}
 
     @media(max-width:900px){nav{display:none}}
-    @media(max-width:520px){section{padding:40px 20px}.hero{padding:40px 20px 36px}.hi{padding:0 20px}}
+    @media(max-width:600px){
+      section{padding:40px 20px}
+      .hero{padding:40px 20px 36px}
+      .hi{padding:0 20px}
+      .tl-wrap{padding:0 20px}
+      .tl-stop{min-width:220px;padding-right:32px}
+      .tl-date .tl-day{font-size:34px}
+      .tl-btn.prev{left:-6px}
+      .tl-btn.next{right:-6px}
+      .tl-btn{width:34px;height:34px;font-size:18px}
+    }
   </style>
-  <link rel="canonical" href="https://nexgenio.com/live/index.html"
+  <link rel="canonical" href="https://nexgenio.com/live/index.html">
   <!-- OG -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NexGenio">
@@ -75,7 +108,7 @@
   <meta name="twitter:title" content="Live Training — NexGenio">
   <meta name="twitter:description" content="Scheduled live training courses from NexGenio. Classroom and online formats with PECB certification.">
   <meta name="twitter:image" content="https://assets.nexgenio.com/brand/logo.png">
-  <!-- /OG -->>
+  <!-- /OG -->
 </head>
 <body>
 
@@ -166,15 +199,49 @@
 <section>
   <div class="inn">
     <div class="sl">Upcoming courses</div>
-    <div class="st">Schedule</div>
+    <div class="st">ISO/IEC 27001 Lead Implementer &mdash; Live-Online</div>
 
-    <div class="empty-state">
-      We&rsquo;re building our live training program &mdash; instructor-led Classroom and Live-Online sessions with hand-selected trainers, tailored for you and your organisation. Check back soon, or get started today with our self-paced courses below.
+    <div class="tl-wrap">
+      <button class="tl-btn prev" aria-label="Previous cohort">&lsaquo;</button>
+      <div class="tl-track" tabindex="0" role="list" aria-label="Training timeline">
+
+        <div class="tl-stop" role="listitem">
+          <div class="tl-stem"></div>
+          <div class="tl-date">
+            <span class="tl-weekday">Monday</span>
+            <span class="tl-day">21</span>
+            <span class="tl-monthyear">September 2026</span>
+          </div>
+          <div class="tl-details">
+            <h3><a href="/live/iso-27001-lead-implementer.html">Cohort A &mdash; ISO/IEC 27001 Lead Implementer</a></h3>
+            <div class="tl-label">Live-Online &middot; 4 training days &middot; English</div>
+            <a href="/live/iso-27001-lead-implementer.html" class="tl-link">View details &rarr;</a>
+          </div>
+        </div>
+
+        <div class="tl-stop" role="listitem">
+          <div class="tl-stem"></div>
+          <div class="tl-date">
+            <span class="tl-weekday">Sunday</span>
+            <span class="tl-day">4</span>
+            <span class="tl-monthyear">October 2026</span>
+          </div>
+          <div class="tl-details">
+            <h3><a href="/live/iso-27001-lead-implementer.html">Cohort B &mdash; ISO/IEC 27001 Lead Implementer</a></h3>
+            <div class="tl-label">Live-Online &middot; 4 training days &middot; English</div>
+            <a href="/live/iso-27001-lead-implementer.html" class="tl-link">View details &rarr;</a>
+          </div>
+        </div>
+
+        <div class="tl-tail" aria-hidden="true"></div>
+
+      </div>
+      <button class="tl-btn next" aria-label="Next cohort">&rsaquo;</button>
     </div>
 
     <div class="self-pointer">
-      <p>Looking to start right away? Our self-paced courses are available now &mdash; study on your own schedule with exam and certificate included.</p>
-      <a href="/self/index.html">View self-paced courses &rarr;</a>
+      <p>Prefer to study at your own pace? Our self-paced courses are available now &mdash; with exam and certificate included.</p>
+      <a href="/training/index.html">View all courses &rarr;</a>
     </div>
   </div>
 </section>
@@ -189,9 +256,9 @@
         </div>
       </div>
       <div class="footer-cols">
-        <div class="footer-col"><h5>Training</h5><a href="/self/index.html">Self-paced courses</a><a href="/live/index.html">Live schedule</a></div>
+        <div class="footer-col"><h5>Training</h5><a href="/training/index.html">All courses</a><a href="/live/index.html">Live schedule</a></div>
         <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
-        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -199,6 +266,32 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.tl-wrap').forEach(function(wrap){
+    var track=wrap.querySelector('.tl-track');
+    var stops=Array.from(track.querySelectorAll('.tl-stop'));
+    var cur=0;
+    function go(i){
+      if(i<0)i=0;if(i>=stops.length)i=stops.length-1;
+      cur=i;
+      stops[i].scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'});
+    }
+    wrap.querySelector('.tl-btn.prev').addEventListener('click',function(){go(cur-1)});
+    wrap.querySelector('.tl-btn.next').addEventListener('click',function(){go(cur+1)});
+    track.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}
+      if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}
+    });
+    var t;track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(function(){
+      var sl=track.scrollLeft,best=0,bd=Infinity;
+      stops.forEach(function(s,i){var d=Math.abs(s.offsetLeft-sl);if(d<bd){bd=d;best=i}});
+      cur=best;
+    },120)});
+  });
+})();
+</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com","logo":"https://assets.nexgenio.com/brand/logo.png","address":{"@type":"PostalAddress","streetAddress":"36 St Dminika Street","addressLocality":"Victoria, Gozo","postalCode":"VCT 9030","addressCountry":"MT"},"vatID":"MT25941925","taxID":"C 88842","sameAs":["https://www.linkedin.com/company/nexgenio"]}</script>
 </body>
