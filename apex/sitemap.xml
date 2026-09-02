@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://nexgenio.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://nexgenio.com/training/index.html</loc><priority>0.8</priority></url>
-  <url><loc>https://nexgenio.com/live/iso-27001-lead-implementer.html</loc><priority>0.8</priority></url>
+  <url><loc>https://nexgenio.com/training/index.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
+  <url><loc>https://nexgenio.com/apex/index.html</loc><lastmod>2026-09-02</lastmod><priority>0.7</priority></url>
+  <url><loc>https://nexgenio.com/live/iso-27001-lead-implementer.html</loc><lastmod>2026-09-02</lastmod><priority>0.8</priority></url>
   <url><loc>https://nexgenio.com/self/iso-27001-lead-implementer.html</loc></url>
   <url><loc>https://nexgenio.com/self/nis2-lead-implementer.html</loc></url>
   <url><loc>https://nexgenio.com/self/dora-lead-manager.html</loc></url>
@@ -13,7 +14,7 @@
   <url><loc>https://nexgenio.com/self/nis2-foundation.html</loc></url>
   <url><loc>https://nexgenio.com/self/dora-foundation.html</loc></url>
   <url><loc>https://nexgenio.com/self/caim.html</loc></url>
-  <url><loc>https://nexgenio.com/live/index.html</loc><priority>0.6</priority></url>
+  <url><loc>https://nexgenio.com/live/index.html</loc><lastmod>2026-09-02</lastmod><priority>0.6</priority></url>
   <url><loc>https://nexgenio.com/blog/index.html</loc><priority>0.7</priority></url>
   <url><loc>https://nexgenio.com/legal/privacy.html</loc><priority>0.3</priority></url>
   <url><loc>https://nexgenio.com/legal/terms.html</loc><priority>0.3</priority></url>

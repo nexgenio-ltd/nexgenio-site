@@ -4,14 +4,13 @@
 ## Pages
 
 - [Home](https://nexgenio.com/) — ISO & regulatory compliance programmes for essential entities, financial entities, and organisations across Europe
-- [Training Hub](https://nexgenio.com/training/index.html) — PECB-certified training courses overview (self-paced and live)
-- [Self-Paced Courses](https://nexgenio.com/training/index.html) — All PECB certification courses (self-paced and live), with exam and certificate included
+- [Training Hub](https://nexgenio.com/training/index.html) — All PECB-certified training courses (self-paced and live), with exam and certificate included
 - [Live Courses](https://nexgenio.com/live/index.html) — Live instructor-led training schedule; next course: ISO/IEC 27001 Lead Implementer, starts 21 September 2026
 - [Blog](https://nexgenio.com/blog/index.html) — Insights and updates on compliance, cybersecurity, and AI governance
 
 ## Live Courses
 
-- [ISO/IEC 27001 Lead Implementer — Live Training](https://nexgenio.com/live/iso-27001-lead-implementer.html) — 5-day live-online course with PECB certification exam, two dates open (Sep and Oct 2026), €2,222/seat
+- [ISO/IEC 27001 Lead Implementer - Live-Online](https://nexgenio.com/live/iso-27001-lead-implementer.html) — 5-day live-online course with PECB certification exam, two dates open (Sep and Oct 2026), €2,222/seat
 
 ## Self-Paced Courses
 
