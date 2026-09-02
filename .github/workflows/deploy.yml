@@ -31,6 +31,8 @@ jobs:
               - 'tokens/**'
               - 'partials/**'
               - 'scripts/inject-nav.mjs'
+              - 'data/**'
+              - 'scripts/generate-og-images.mjs'
             admin:
               - 'admin/**'
               - 'tokens/**'
@@ -45,6 +47,14 @@ jobs:
 
       - name: Inject shared nav into all pages
         run: node scripts/inject-nav.mjs
+
+      - name: Install Playwright for OG image generation
+        run: |
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Generate OG images
+        run: node scripts/generate-og-images.mjs --force
 
       - name: Configure AWS credentials (S3/CF role)
         uses: aws-actions/configure-aws-credentials@v4
@@ -93,6 +103,13 @@ jobs:
           aws s3 sync legal/ s3://nxg-web-public/legal/ \
             --delete --region eu-central-1 \
             --exclude ".gitkeep"
+
+      - name: Sync OG images → S3 /og/
+        run: |
+          aws s3 sync og-images/ s3://nxg-web-public/og/ \
+            --delete --region eu-central-1 \
+            --exclude ".og-hash" \
+            --exclude "*.html"
 
       - name: Deploy IndexNow key file to S3 root
         env:
