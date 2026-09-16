@@ -29,6 +29,7 @@ const TRAINING_PATHS = new Set([
   "self/iso-27701-lead-implementer.html",
   "self/iso-31000-risk-manager.html",
   "self/caim.html",
+  "self/isa-iec-62443-lead-implementer.html",
 ]);
 
 const DIRS = ["apex", "self", "training", "live", "legal"];

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISA/IEC 62443 Lead Implementer &mdash; NexGenio Training</title>
+  <meta name="description" content="ISA/IEC 62443 Lead Implementer self-paced training. Secure industrial automation and control systems. Self-Study and eLearning options with PECB certification exam included.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/tokens/tokens.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+
+    /* HEADER */
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
+    .brand-divider{width:1px;height:36px;background:#e0e8ed}
+    .brand-sub{font-size:var(--sub-fs,16px);color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:var(--tag-fs,17px);color:var(--t)}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    /* BREADCRUMB */
+    .breadcrumb{max-width:1140px;margin:0 auto;padding:16px 32px;font-size:var(--label-fs,11px);color:var(--lg)}
+    .breadcrumb a{color:var(--t);text-decoration:none}
+    .breadcrumb a:hover{color:var(--o)}
+
+    /* COURSE HERO */
+    .course-hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px}
+    .course-hero .inn{max-width:1140px;margin:0 auto}
+    .hero-badges{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .chip{display:inline-block;font-size:var(--label-fs,11px);font-weight:700;background:rgba(255,255,255,.12);color:#fff;padding:4px 14px;border-radius:10px;letter-spacing:.6px;text-transform:uppercase}
+    .chip-orange{background:var(--o);color:#fff}
+    .course-hero h1{font-size:var(--h1-fs,clamp(24px,3.5vw,42px));font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
+    .credential-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .course-hero .credential{font-size:var(--body-fs,15px);color:rgba(255,255,255,.75)}
+    .pecb-hero-logo{height:22px;width:auto;opacity:.8}
+
+    /* INTRO FRAME — width matched to .inn (same as pricing cards container) */
+    .intro-frame{padding:48px 32px}
+    .intro-frame .inn{max-width:1140px;margin:0 auto}
+    .intro-card{background:#fff;border:1px solid #e4e9ed;border-left:4px solid var(--o);border-radius:6px;padding:32px 36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;box-shadow:0 2px 12px rgba(33,86,117,.05)}
+    .intro-card p{font-size:var(--body-fs,15px);color:#333;line-height:1.85;flex:1;min-width:280px;margin:0;font-weight:600}
+    .intro-card .pecb-red-logo{height:32px;width:auto;flex-shrink:0}
+
+    /* SECTIONS */
+    .inn{max-width:1140px;margin:0 auto}
+    section{padding:64px 32px}
+    .alt{background:var(--bg)}
+    .sl{font-size:var(--label-fs,11px);font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:var(--body-fs,15px);color:var(--lg);max-width:640px;margin-bottom:36px;line-height:1.75}
+
+    /* TIER CARDS */
+    .tiers{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:16px}
+    .tier-card{background:#fff;border-radius:8px;border-top:4px solid var(--t);box-shadow:0 2px 16px rgba(33,86,117,.08);padding:36px 32px;display:flex;flex-direction:column}
+    .tier-card.elearning{border-top-color:var(--o)}
+    .tier-label{display:inline-block;font-size:var(--heading-fs,20px);font-weight:700;letter-spacing:.4px;padding:6px 18px;border-radius:10px;margin-bottom:12px;background:var(--tl);color:var(--t)}
+    .tier-card.elearning .tier-label{background:rgba(246,145,27,.12);color:#b86800}
+    .tier-desc{font-size:var(--body-fs,15px);color:#555;line-height:1.7;margin-bottom:20px}
+    .tier-desc .only{font-size:var(--body-fs,15px);font-weight:bold;letter-spacing:.5px;color:#333}
+    .tier-includes{list-style:none;padding:0;margin:0 0 28px}
+    .tier-includes li{font-size:var(--body-fs,15px);color:#555;padding:7px 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px}
+    .tier-includes li:last-child{border-bottom:none}
+    .tier-includes li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .tier-price{font-size:var(--label-fs,11px);color:var(--lg);margin-bottom:16px;margin-top:auto}
+    .tier-price .amount{font-size:var(--price-fs,28px);font-weight:bold;color:var(--t);display:block;margin-top:4px}
+    .tier-card.elearning .tier-price .amount{color:var(--tm)}
+    .vat-note{display:block;font-size:var(--label-fs,11px);color:var(--lg);font-weight:normal;margin-top:2px}
+    .tier-cta{}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:var(--body-fs,15px);font-weight:bold;padding:14px 36px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;text-align:center;width:100%}
+    .btn:hover{background:#d97a0f}
+
+    /* ACCORDION */
+    .accordion{padding:0 32px 64px}
+    .accordion .inn{max-width:1140px;margin:0 auto}
+    details.acc{border:1px solid #e4e9ed;border-radius:6px;margin-bottom:12px;background:#fff;overflow:hidden}
+    details.acc + details.acc{margin-top:0}
+    details.acc summary{padding:18px 24px;font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .15s}
+    details.acc summary:hover{background:var(--bg)}
+    details.acc summary::-webkit-details-marker{display:none}
+    details.acc summary::after{content:"+";font-size:var(--heading-fs,20px);font-weight:300;color:var(--lg);flex-shrink:0;margin-left:16px;transition:transform .2s}
+    details.acc[open] summary::after{content:"\2212"}
+    details.acc[open] summary{border-bottom:1px solid #e4e9ed}
+    .acc-body{padding:24px;font-size:var(--body-fs,15px);color:#444;line-height:1.8}
+    .acc-body p{margin-bottom:14px}
+    .acc-body p:last-child{margin-bottom:0}
+    .acc-body ul{margin:0 0 14px 0;padding:0;list-style:none;font-size:var(--body-fs,15px)}
+    .acc-body ul li{padding:6px 0;display:flex;gap:10px}
+    .acc-body ul li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .acc-body .curriculum li::before{content:"\25B6";color:var(--o);font-size:var(--label-fs,11px);margin-top:4px}
+    .acc-body a{color:var(--t);text-decoration:underline}
+    .acc-body a:hover{color:var(--o)}
+    .acc-body h4{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin:20px 0 8px}
+    .acc-body h4:first-child{margin-top:0}
+    .acc-body .steps{list-style:none;padding:0;margin:0;counter-reset:step}
+    .acc-body .steps li{padding:8px 0;display:flex;gap:12px;counter-increment:step}
+    .acc-body .steps li::before{content:counter(step);background:var(--t);color:#fff;font-size:var(--label-fs,11px);font-weight:bold;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .acc-body .placeholder{background:#fff3e0;border:2px dashed var(--o);border-radius:4px;padding:10px 16px;color:#b86800;font-size:var(--body-fs,15px);font-style:italic;margin:8px 0}
+
+    /* CREDENTIAL TABLE */
+    .cred-intro{display:flex;align-items:flex-start;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+    .cred-badge{width:120px;height:auto;flex-shrink:0;border-radius:6px}
+    .cred-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:var(--body-fs,15px)}
+    .cred-table th{background:var(--t);color:#fff;text-align:left;padding:10px 14px;font-weight:600;font-size:var(--body-fs,15px);letter-spacing:.3px}
+    .cred-table td{padding:10px 14px;border-bottom:1px solid #eee;color:#444}
+    .cred-table tr:last-child td{border-bottom:none}
+    .cred-table tr:nth-child(even){background:var(--bg)}
+    @media(max-width:600px){
+      .cred-table thead{display:none}
+      .cred-table,.cred-table tbody,.cred-table tr,.cred-table td{display:block;width:100%}
+      .cred-table tr{background:#fff;border:1px solid var(--tl);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+      .cred-table tr:nth-child(even){background:#fff}
+      .cred-table td{padding:3px 0;border-bottom:none;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+      .cred-table td:first-child{font-weight:700;color:var(--t);font-size:15px;padding-bottom:8px;display:block}
+      .cred-table td:not(:first-child)::before{content:attr(data-label);font-weight:600;color:var(--t);font-size:13px;flex-shrink:0}
+      .cred-table tr:last-child td{border-bottom:none}
+    }
+    .cred-closing{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.7;margin-top:16px}
+
+    /* RELATED COURSES */
+    .related{padding:48px 32px 56px}
+    .related .inn{max-width:1140px;margin:0 auto}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px}
+    .related-card{background:#fff;border:1px solid #e4e9ed;border-top:3px solid var(--t);border-radius:6px;padding:24px 28px;text-decoration:none;display:block;transition:box-shadow .15s,border-color .15s}
+    .related-card:hover{box-shadow:0 4px 20px rgba(33,86,117,.1);border-top-color:var(--o)}
+    .related-card .rc-title{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin-bottom:8px}
+    .related-card .rc-reason{font-size:13px;color:var(--lg);line-height:1.6}
+
+    /* FOOTER */
+    footer{background:var(--t);border-top:3px solid var(--o)}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
+    .footer-brand{display:flex;align-items:center;gap:16px}
+    .footer-brand-text .fn{font-size:14px;font-weight:bold;color:#fff}
+    .footer-brand-text .ft{font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+    .footer-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:7px}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+    .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
+    .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+
+    @media(max-width:900px){
+      .tiers{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    @media(max-width:520px){
+      section{padding:40px 20px}
+      .course-hero{padding:40px 20px 36px}
+      .hi{padding:0 20px}
+      .breadcrumb{padding:12px 20px}
+      .intro-frame{padding:32px 20px}
+      .intro-card{padding:24px 20px}
+      .accordion{padding:0 20px 40px}
+      .related{padding:32px 20px 40px}
+    }
+  </style>
+  <link rel="canonical" href="https://nexgenio.com/self/isa-iec-62443-lead-implementer.html">
+  <!-- OG -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NexGenio">
+  <meta property="og:title" content="ISA/IEC 62443 Lead Implementer — NexGenio Training">
+  <meta property="og:description" content="ISA/IEC 62443 Lead Implementer self-paced training. Secure industrial automation and control systems. Self-Study and eLearning options with PECB certification exam included.">
+  <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <meta property="og:url" content="https://nexgenio.com/self/isa-iec-62443-lead-implementer.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ISA/IEC 62443 Lead Implementer — NexGenio Training">
+  <meta name="twitter:description" content="ISA/IEC 62443 Lead Implementer self-paced training. Secure industrial automation and control systems. Self-Study and eLearning options with PECB certification exam included.">
+  <meta name="twitter:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <!-- /OG -->
+</head>
+<body>
+
+<!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+      <div class="brand-divider"></div>
+      <img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite_Tagline@2x.png" alt="PECB — Where Excellence Meets Recognition" class="pecb-mark" height="35">
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/training/index.html">Academy</a>
+      <a href="/blog/index.html">Insights</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/training/index.html">Academy</a>
+    <a href="/blog/index.html">Insights</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'},{name:'_clck'},{name:'_clsk'},{name:'CLID'},{name:'ANONCHK'},{name:'MR'},{name:'MUID'},{name:'SM'}]},services:{ga4:{},clarity:{}}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'en',
+      translations:{
+        en:{
+          consentModal:{
+            title:'We value your privacy',
+            description:'This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href="/legal/privacy.html">Privacy Policy</a>.',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            showPreferencesBtn:'Cookie Settings'
+          },
+          preferencesModal:{
+            title:'Cookie Preferences',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            savePreferencesBtn:'Save Preferences',
+            sections:[
+              {title:'Cookie Usage',description:'We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out.'},
+              {title:'Necessary',description:'These cookies are essential for the website to function. They cannot be disabled.',linkedCategory:'necessary'},
+              {title:'Analytics',description:'We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.',linkedCategory:'analytics'},
+              {title:'Marketing',description:'Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.',linkedCategory:'marketing'},
+              {title:'More information',description:'For questions about our cookie policy, please <a href="/#contact">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer.'}
+            ]
+          }
+        }
+      }
+    }
+  });
+  function _nxgLoadAnalytics(){
+    if(window._nxgAnalyticsLoaded)return;
+    if(!CookieConsent.acceptedService('ga4','analytics'))return;
+    window._nxgAnalyticsLoaded=true;
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-R6WRM25278';document.head.appendChild(gs);
+    /* gtag must be global: gtag.js never defines it, and nxg-events.js calls it
+       from its own scope. Declaring it with "function gtag(){}" here would trap
+       it inside _nxgLoadAnalytics and silently drop every conversion event. */
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
+    if(CookieConsent.acceptedService('clarity','analytics')){
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+    }
+  }
+  window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
+  window.addEventListener('cc:onChange',_nxgLoadAnalytics);
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent='Cookie Settings';a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
+
+<div class="breadcrumb">
+  <a href="/">Home</a> &rsaquo; <a href="/self/index.html">Self-Paced Courses</a> &rsaquo; ISA/IEC 62443 Lead Implementer
+</div>
+
+<!-- PART 1: HERO -->
+<div class="course-hero">
+  <div class="inn">
+    <div class="hero-badges">
+      <span class="chip">PECB Certified</span>
+      <span class="chip chip-orange">Self-Paced</span>
+    </div>
+    <h1>ISA/IEC 62443 Lead Implementer</h1>
+    <div class="credential-line">
+      <span class="credential">PECB Credential: Certified ISA/IEC 62443 Lead Implementer</span>
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_White.svg" alt="PECB" class="pecb-hero-logo">
+    </div>
+  </div>
+</div>
+
+<!-- INTRO FRAME -->
+<div class="intro-frame">
+  <div class="inn">
+    <div class="intro-card">
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_RedWhite.svg" alt="PECB" class="pecb-red-logo">
+      <p>Build and run an industrial cybersecurity program that holds up in a working plant. This course covers the ISA/IEC 62443 series end to end &mdash; segmentation, security levels, risk assessment, supply chain, patching, monitoring and incident response &mdash; so you can protect the control systems that run a physical process without interrupting the process itself.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING / BUY -->
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Self-paced training options</div>
+    <div class="st">Your Choice</div>
+
+    <div class="tiers">
+
+      <!-- SELF-STUDY -->
+      <div class="tier-card">
+        <div class="tier-label">Self-Study</div>
+        <div class="tier-desc">Course slides and exercise/quiz materials for self-paced reading and study. Work through the material at your own speed.</div>
+        <ul class="tier-includes">
+          <li><strong>No video recordings &mdash; slides only</strong></li>
+          <li>Course slides (full curriculum)</li>
+          <li>Exercises and quizzes</li>
+          <li>PECB certification exam included</li>
+          <li>Certificate included at no extra cost</li>
+        </ul>
+        <div class="tier-price">
+          Price
+          <span class="amount">&euro;699</span>
+          <span class="vat-note">excl. VAT</span>
+        </div>
+        <div class="tier-cta">
+          <a href="https://buy.stripe.com/aFa14fgZX0j64WJ5eh0Ba0m" class="btn" data-course="ISA/IEC 62443 Lead Implementer" data-format="self-study" data-price="699">Buy Self-Study</a>
+        </div>
+      </div>
+
+      <!-- eLEARNING -->
+      <div class="tier-card elearning">
+        <div class="tier-label">eLearning</div>
+        <div class="tier-desc">Pre-recorded video sessions plus course materials. Watch, pause, and revisit lessons at your own pace.</div>
+        <ul class="tier-includes">
+          <li><strong>Pre-recorded video sessions</strong></li>
+          <li>Course slides (full curriculum)</li>
+          <li>Exercises and quizzes</li>
+          <li>PECB certification exam included</li>
+          <li>Certificate included at no extra cost</li>
+        </ul>
+        <div class="tier-price">
+          Price
+          <span class="amount">&euro;839</span>
+          <span class="vat-note">excl. VAT</span>
+        </div>
+        <div class="tier-cta">
+          <a href="https://buy.stripe.com/bJe14f253gi474RdKN0Ba0n" class="btn" data-course="ISA/IEC 62443 Lead Implementer" data-format="e-learning" data-price="839">Buy eLearning</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PART 2: ACCORDION SECTIONS -->
+<div class="accordion">
+  <div class="inn">
+
+  <!-- 1. What is ISA/IEC 62443? -->
+  <details class="acc">
+    <summary>What is ISA/IEC 62443?</summary>
+    <div class="acc-body">
+      <p>ISA/IEC 62443 is the international series of standards for the cybersecurity of industrial automation and control systems &mdash; the PLCs, distributed control systems, SCADA platforms, engineering workstations and safety systems that run physical processes in energy, water, manufacturing, transport and pharmaceuticals. It was developed jointly by the ISA99 committee and IEC Technical Committee 65, and is organised into four groups covering general concepts, policies and procedures, system design, and component development.</p>
+      <p>What separates the series from IT security frameworks is that it is written around the realities of an operating plant. Safety and availability come first, and a control system cannot simply be rebooted to apply a patch. The standards answer that with zones and conduits for segmentation, seven foundational requirements, and security levels that let you specify how much protection each zone genuinely needs instead of applying a single standard everywhere.</p>
+      <p>Industrial cybersecurity has moved from an engineering concern to a board-level and regulatory one. Operators across critical sectors are now expected to secure their industrial systems to the same standard as their corporate IT, and ISA/IEC 62443 is the framework most widely adopted to do it. People who can lead that work are genuinely scarce, and this course is built to close that gap.</p>
+    </div>
+  </details>
+
+  <!-- 2. About this course -->
+  <details class="acc">
+    <summary>About this course</summary>
+    <div class="acc-body">
+      <h4>Who it&rsquo;s for</h4>
+      <ul>
+        <li>Engineers and OT managers responsible for plant control systems</li>
+        <li>IT security professionals taking on industrial environments</li>
+        <li>Consultants and system integrators delivering IACS security projects</li>
+        <li>Risk and compliance leads covering critical infrastructure obligations</li>
+      </ul>
+
+      <h4>What&rsquo;s covered</h4>
+      <ul class="curriculum">
+        <li><strong>Day 1:</strong>&nbsp; ISA/IEC 62443 foundations &mdash; terminology, key concepts, IACS networks, scope</li>
+        <li><strong>Day 2:</strong>&nbsp; System security requirements, maturity models, security levels, threat landscape, access control, supply chain, patching</li>
+        <li><strong>Day 3:</strong>&nbsp; Establishing the IACS security program &mdash; risk assessment, policy development, organisation and roles</li>
+        <li><strong>Day 4:</strong>&nbsp; Awareness and training, monitoring, security testing, incident response, related sector standards</li>
+        <li><strong>Day 5:</strong>&nbsp; Certification exam (3 hours, 2 competency domains)</li>
+      </ul>
+
+      <p><a href="https://assets.nexgenio.com/training/pecb/brochures/isa-iec-62443-lead-implementer.pdf">View PECB course brochure (PDF) &rarr;</a></p>
+    </div>
+  </details>
+
+  <!-- 3. Which credential will I earn? -->
+  <!-- No Credly badge exists for this course, so the badge image is omitted
+       rather than substituted, following the same pattern as self/caim.html. -->
+  <details class="acc">
+    <summary>Which credential will I earn?</summary>
+    <div class="acc-body">
+      <p>Everyone who takes this course sits the same exam &mdash; the PECB Certified ISA/IEC 62443 Lead Implementer exam. What differs is which credential you can apply for afterwards, based on the experience you can evidence. There is no separate exam or extra study for a higher tier; it is the same certification, recognised at a level that matches your background.</p>
+
+      <table class="cred-table">
+        <thead>
+          <tr>
+            <th>Credential</th>
+            <th>Professional experience</th>
+            <th>IACS project experience</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Provisional Implementer</td><td data-label="Experience">None</td><td data-label="Project work">None</td></tr>
+          <tr><td>Implementer</td><td data-label="Experience">2 years (1 in industrial automation and control management)</td><td data-label="Project work">200+ hours of project activity</td></tr>
+          <tr><td>Lead Implementer</td><td data-label="Experience">5 years (2 in industrial automation and control management)</td><td data-label="Project work">300+ hours of project activity</td></tr>
+          <tr><td>Senior Lead Implementer</td><td data-label="Experience">10 years (7 in industrial automation and control management)</td><td data-label="Project work">1,000+ hours of project activity</td></tr>
+        </tbody>
+      </table>
+
+      <h4>What counts as industrial automation and control experience?</h4>
+      <p>IACS stands for Industrial Automation and Control Systems &mdash; the operational technology that makes a physical process happen, as opposed to the IT that moves data around. Time spent designing, operating, maintaining, securing or managing PLCs, DCS, SCADA, HMIs, safety instrumented systems and the networks they sit on all counts.</p>
+      <p>Each tier sets two bars rather than one. Lead Implementer, for example, asks for five years of general professional experience, of which two must be specifically in industrial automation and control management, plus 300 documented project hours. Every tier also requires signing the PECB Code of Ethics.</p>
+
+      <p class="cred-closing">Coming from an IT security background with no plant time yet? You will qualify for Provisional Implementer immediately after passing &mdash; a fully valid PECB credential &mdash; and can apply for a higher tier later as your industrial experience builds, without retaking the course.</p>
+    </div>
+  </details>
+
+  <!-- 4. How it works -->
+  <details class="acc">
+    <summary>How it works</summary>
+    <div class="acc-body">
+      <ol class="steps">
+        <li>Complete checkout and receive your order confirmation</li>
+        <li>We register your enrollment directly with PECB</li>
+        <li>You receive access to your course materials by email within 24 hours of your enrollment being registered with PECB (business days)</li>
+        <li>Study at your own pace, using the materials included in your chosen format</li>
+        <li>Book your certification exam directly through PECB when you&rsquo;re ready</li>
+      </ol>
+    </div>
+  </details>
+
+  <!-- 5. What's in the price -->
+  <details class="acc">
+    <summary>What&rsquo;s in the price</summary>
+    <div class="acc-body">
+      <ul>
+        <li>Certification and exam fees included in course price</li>
+        <li>Free exam retake within 12 months if unsuccessful</li>
+        <li>Over 400 pages of course material, exercises and quizzes</li>
+        <li>31 CPD credits awarded on completion</li>
+        <li>Access to course materials for 12 months</li>
+      </ul>
+    </div>
+  </details>
+
+  </div>
+</div>
+
+<!-- RELATED COURSES -->
+<div class="related alt">
+  <div class="inn">
+    <div class="sl">Continue your journey</div>
+    <div class="st">Related courses</div>
+    <div class="related-grid">
+      <a href="/self/nis2-lead-implementer.html" class="related-card">
+        <div class="rc-title">NIS2 Directive Lead Implementer</div>
+        <div class="rc-reason">Connect your industrial security work to the EU regulatory obligations driving it</div>
+      </a>
+      <a href="/self/iso-27001-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO/IEC 27001 Lead Implementer</div>
+        <div class="rc-reason">Build the corporate ISMS that sits alongside your IACS security program</div>
+      </a>
+      <a href="/self/iso-22301-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO 22301 Lead Implementer</div>
+        <div class="rc-reason">Add business continuity management for when a plant incident does happen</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-text">
+          <div class="fn">NexGenio LTD</div>
+          <div class="ft">Compliance by design.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Training</h5><a href="/self/index.html">All courses</a></div>
+        <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nexgenio.com/"},{"@type":"ListItem","position":2,"name":"Academy","item":"https://nexgenio.com/training/index.html"},{"@type":"ListItem","position":3,"name":"ISA/IEC 62443 Lead Implementer","item":"https://nexgenio.com/self/isa-iec-62443-lead-implementer.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com","logo":"https://assets.nexgenio.com/brand/logo.png","address":{"@type":"PostalAddress","streetAddress":"36 St Dminika Street","addressLocality":"Victoria, Gozo","postalCode":"VCT 9030","addressCountry":"MT"},"vatID":"MT25941925","taxID":"C 88842","sameAs":["https://www.linkedin.com/company/nexgenio"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"ISA/IEC 62443 Lead Implementer","description":"Build and run an industrial cybersecurity program that holds up in a working plant. This course covers the ISA/IEC 62443 series end to end — segmentation, security levels, risk assessment, supply chain, patching, monitoring and incident response — so you can protect the control systems that run a physical process without interrupting the process itself.","provider":{"@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"Self-paced"},"areaServed":{"@type":"Place","name":"Europe"},"url":"https://nexgenio.com/self/isa-iec-62443-lead-implementer.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is ISA/IEC 62443?","acceptedAnswer":{"@type":"Answer","text":"ISA/IEC 62443 is the international series of standards for the cybersecurity of industrial automation and control systems — the PLCs, distributed control systems, SCADA platforms, engineering workstations and safety systems that run physical processes in energy, water, manufacturing, transport and pharmaceuticals. It was developed jointly by the ISA99 committee and IEC Technical Committee 65, and is organised into four groups covering general concepts, policies and procedures, system design, and component development. What separates the series from IT security frameworks is that it is written around the realities of an operating plant. Safety and availability come first, and a control system cannot simply be rebooted to apply a patch. The standards answer that with zones and conduits for segmentation, seven foundational requirements, and security levels that let you specify how much protection each zone genuinely needs instead of applying a single standard everywhere."}},{"@type":"Question","name":"Who is this course for and what does it cover?","acceptedAnswer":{"@type":"Answer","text":"Who it's for: engineers and OT managers responsible for plant control systems; IT security professionals taking on industrial environments; consultants and system integrators delivering IACS security projects; risk and compliance leads covering critical infrastructure obligations. What's covered: Day 1 ISA/IEC 62443 foundations — terminology, key concepts, IACS networks, scope. Day 2 System security requirements, maturity models, security levels, threat landscape, access control, supply chain, patching. Day 3 Establishing the IACS security program — risk assessment, policy development, organisation and roles. Day 4 Awareness and training, monitoring, security testing, incident response, related sector standards. Day 5 Certification exam (3 hours, 2 competency domains)."}},{"@type":"Question","name":"What counts as industrial automation and control experience?","acceptedAnswer":{"@type":"Answer","text":"IACS stands for Industrial Automation and Control Systems — the operational technology that makes a physical process happen, as opposed to the IT that moves data around. Time spent designing, operating, maintaining, securing or managing PLCs, DCS, SCADA, HMIs, safety instrumented systems and the networks they sit on all counts. Each credential tier sets two bars rather than one. Lead Implementer asks for five years of general professional experience, of which two must be specifically in industrial automation and control management, plus 300 documented project hours. Every tier also requires signing the PECB Code of Ethics."}},{"@type":"Question","name":"Which credential will I earn?","acceptedAnswer":{"@type":"Answer","text":"Everyone who takes this course sits the same exam — the PECB Certified ISA/IEC 62443 Lead Implementer exam. What differs is which credential you can apply for afterwards, based on the experience you can evidence. Provisional Implementer requires no experience. Implementer requires 2 years (1 in industrial automation and control management) and 200+ project hours. Lead Implementer requires 5 years (2 in industrial automation and control management) and 300+ project hours. Senior Lead Implementer requires 10 years (7 in industrial automation and control management) and 1,000+ project hours. Coming from an IT security background with no plant time yet? You will qualify for Provisional Implementer immediately after passing — a fully valid PECB credential — and can apply for a higher tier later as your industrial experience builds, without retaking the course."}},{"@type":"Question","name":"How does enrollment and course delivery work?","acceptedAnswer":{"@type":"Answer","text":"Complete checkout and receive your order confirmation. We register your enrollment directly with PECB. You receive access to your course materials by email within 24 hours of your enrollment being registered with PECB (business days). Study at your own pace, using the materials included in your chosen format. Book your certification exam directly through PECB when you're ready."}},{"@type":"Question","name":"What's in the price?","acceptedAnswer":{"@type":"Answer","text":"Certification and exam fees included in course price. Free exam retake within 12 months if unsuccessful. Over 400 pages of course material, exercises and quizzes. 31 CPD credits awarded on completion. Access to course materials for 12 months."}}]}</script>
+<script src="/tokens/nxg-events.js"></script>
+</body>
+</html>
