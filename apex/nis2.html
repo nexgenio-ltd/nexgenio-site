@@ -31,8 +31,9 @@
     nav a:hover{color:var(--o)}
 
     .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:100px 32px 92px;text-align:center}
-    .hero h1{font-size:clamp(28px,4vw,50px);font-weight:bold;color:#fff;line-height:1.18;margin-bottom:20px;max-width:880px;margin-inline:auto}
-    .hero h1 em{color:var(--o);font-style:normal}
+    .hero h1{font-size:clamp(28px,4vw,50px);font-weight:bold;color:#fff;line-height:1.18;margin-bottom:20px;max-width:880px;margin-inline:auto;text-wrap:balance}
+    /* keep the highlighted phrase on one line so the colour never splits across a break */
+    .hero h1 em{color:var(--o);font-style:normal;white-space:nowrap}
     .hero p{font-size:18px;color:rgba(255,255,255,.85);max-width:680px;margin:0 auto 36px;line-height:1.7}
     .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:44px}
     .tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:12px;font-weight:600;padding:5px 18px;border-radius:20px;letter-spacing:.4px}
@@ -185,7 +186,7 @@
 </script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
 
 <div class="hero">
-  <h1>NIS2 is in force. The question is <em>what it asks of you</em></h1>
+  <h1>NIS2 is in force. Everything starts with <em>scope</em>.</h1>
   <p>Scope determination, Article 21 risk management measures, and the accountability the directive places directly on your management body. Established in a fixed-scope, fixed-price Baseline Check.</p>
   <div class="tags">
     <span class="tag">Essential entities</span>
