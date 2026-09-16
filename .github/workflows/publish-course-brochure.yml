@@ -1,0 +1,77 @@
+name: Publish Course Brochure
+
+# Pulls a PECB course brochure from PECB's own brochure library and self-hosts
+# it on the assets CDN. Self-hosting rather than hotlinking is what PECB's Brand
+# Resource Center asks for, and it is how the existing 10 brochures were placed
+# (Jira PDM-41). Source library: https://pecb.com/en/brochures
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Target filename without extension, e.g. isa-iec-62443-lead-implementer'
+        required: true
+      source_url:
+        description: 'Full PDF URL from pecb.com/en/brochures'
+        required: true
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  SLUG: ${{ inputs.slug }}
+  SOURCE_URL: ${{ inputs.source_url }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate inputs
+        run: |
+          # The slug becomes an S3 key, so constrain it rather than trusting it.
+          case "$SLUG" in
+            *[!a-z0-9-]*|"") echo "slug must be lowercase alphanumeric and hyphens only"; exit 1 ;;
+          esac
+          case "$SOURCE_URL" in
+            https://pecb.com/*|https://www.pecb.com/*) ;;
+            *) echo "source_url must be on pecb.com"; exit 1 ;;
+          esac
+
+      - name: Download brochure from PECB
+        run: |
+          curl -sS -L --fail -A "Mozilla/5.0" "$SOURCE_URL" -o "$SLUG.pdf"
+          # Gate A of the course-copy pipeline: halt on a bad file rather than
+          # publishing something that later extracts as garbage.
+          file "$SLUG.pdf" | grep -q 'PDF document' || { echo "not a PDF"; exit 1; }
+          ls -la "$SLUG.pdf"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::124971231536:role/NexgenioPublicDeployRole
+          aws-region: eu-central-1
+
+      - name: Upload to assets CDN
+        run: |
+          aws s3 cp "$SLUG.pdf" "s3://nxg-assets/training/pecb/brochures/$SLUG.pdf" \
+            --region eu-central-1 \
+            --cache-control "public, max-age=86400" \
+            --content-type application/pdf
+
+      - name: Invalidate assets CDN
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E2CAYG5EO6VM6Q \
+            --paths "/training/pecb/brochures/$SLUG.pdf"
+
+      - name: Verify it is live
+        run: |
+          for i in 1 2 3 4 5; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' \
+              "https://assets.nexgenio.com/training/pecb/brochures/$SLUG.pdf")
+            [ "$code" = "200" ] && { echo "live: $code"; exit 0; }
+            echo "attempt $i returned $code"
+            sleep 10
+          done
+          echo "brochure did not become reachable"; exit 1
