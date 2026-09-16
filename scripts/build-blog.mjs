@@ -218,6 +218,7 @@ function buildIndex(articles) {
     .join("\n");
 
   const indexOg = [
+    `<link rel="canonical" href="${BLOG_URL}/index.html">`,
     `<meta property="og:type" content="website">`,
     `<meta property="og:site_name" content="NexGenio">`,
     `<meta property="og:title" content="Insights | NexGenio">`,
@@ -290,6 +291,7 @@ function buildArticle(a) {
     ogImg = a.featuredImage.replace(/-article-(og|insta-portrait|insta-square)\./, '-social-$1.');
   }
   const ogMeta = [
+    `<link rel="canonical" href="${BLOG_URL}/${a.slug}.html">`,
     `<meta property="og:type" content="article">`,
     `<meta property="og:site_name" content="NexGenio">`,
     `<meta property="og:title" content="${esc(a.metaTitle)}">`,
