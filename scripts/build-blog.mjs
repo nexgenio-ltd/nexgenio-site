@@ -258,8 +258,31 @@ ${footer}
 }
 
 // ── Article page ────────────────────────────────────────────────────
-function buildArticle(a) {
+function buildArticle(a, all = []) {
   const bodyHtml = marked.parse(a.body || "");
+  const related = all.filter((x) => x.slug !== a.slug).slice(0, 3);
+  const relatedHtml = related.length
+    ? `
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Related</div>
+    <div class="st">Continue reading</div>
+    <div class="article-grid">${related
+      .map(
+        (r) => `
+      <a href="/blog/${esc(r.slug)}.html" class="article-card">
+        <div class="card-date">${fmtDate(r.publishedDate)}</div>
+        <h3>${esc(r.title)}</h3>
+        <p>${esc(r.excerpt)}</p>
+        <span class="view-link">Read article &rarr;</span>
+      </a>`
+      )
+      .join("")}
+    </div>
+  </div>
+</section>
+`
+    : "";
   const articleJsonLd = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
@@ -320,7 +343,7 @@ ${bodyHtml}
     </div>
   </div>
 </section>
-
+${relatedHtml}
 ${footer}
 
 <script type="application/ld+json">${articleJsonLd}</script>
@@ -387,7 +410,7 @@ async function main() {
 
   // Article pages
   for (const a of articles) {
-    writeFileSync(join(OUT, `${a.slug}.html`), buildArticle(a));
+    writeFileSync(join(OUT, `${a.slug}.html`), buildArticle(a, articles));
     console.log(`  blog/${a.slug}.html`);
   }
 
