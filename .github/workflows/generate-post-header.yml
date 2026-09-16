@@ -1,0 +1,86 @@
+name: Generate Blog Post Header
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Post slug — used as the filename prefix (e.g. opening-the-netherlands-cyberbeveiligingswet)'
+        required: true
+      title:
+        description: 'Post title — baked into the social variants'
+        required: true
+      content:
+        description: 'Summary or first paragraph — drives the illustration prompt'
+        required: true
+      kicker:
+        description: 'Optional category label'
+        required: false
+        default: ''
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  SLUG: ${{ inputs.slug }}
+  TITLE: ${{ inputs.title }}
+  CONTENT: ${{ inputs.content }}
+  KICKER: ${{ inputs.kicker }}
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Generate header images
+        env:
+          RECRAFT_API_KEY: ${{ secrets.RECRAFT_API_KEY }}
+        run: |
+          node scripts/generate-header.mjs \
+            --title "$TITLE" \
+            --content "$CONTENT" \
+            --kicker "$KICKER" \
+            --out-prefix "$SLUG"
+          ls -la "$SLUG"-*.png
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::124971231536:role/NexgenioPublicDeployRole
+          aws-region: eu-central-1
+
+      - name: Upload to assets CDN
+        run: |
+          for f in "$SLUG"-*.png; do
+            aws s3 cp "$f" "s3://nxg-assets/blog/headers/$f" \
+              --region eu-central-1 \
+              --cache-control "public, max-age=31536000, immutable" \
+              --content-type image/png
+          done
+
+      - name: Invalidate assets CDN
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E2CAYG5EO6VM6Q \
+            --paths "/blog/headers/$SLUG-*"
+
+      - name: Attach featured image to the Strapi post
+        env:
+          STRAPI_URL: https://nexgenio.com/cms
+          STRAPI_WRITE_TOKEN: ${{ secrets.STRAPI_WRITE_TOKEN }}
+        run: node scripts/attach-header.mjs
+
+      - name: Trigger blog build and deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run blog-build.yml --repo ${{ github.repository }}
