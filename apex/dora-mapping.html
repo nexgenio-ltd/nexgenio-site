@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DORA Mapping — All 41 RTS Articles to ISO 27001, ISO 22301 and PCI DSS | NexGenio</title>
+  <meta name="description" content="Every article of Commission Delegated Regulation (EU) 2024/1774, the DORA RTS on ICT risk management, mapped to ISO/IEC 27001:2022, ISO 22301:2019 and PCI DSS v4.0.1. Both regimes side by side — the full framework under DORA Article 15 and the simplified framework under Article 16 — showing exactly which full-framework articles the simplified regime collapses and which it drops entirely.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nexgenio.com/dora-mapping.html">
+  <meta property="og:title" content="Every DORA RTS article, mapped — and what the simplified framework actually drops">
+  <meta property="og:description" content="All 41 substantive articles of the DORA ICT risk management RTS against ISO 27001, ISO 22301 and PCI DSS v4.0.1, with the full and simplified regimes set side by side.">
+  <meta property="og:url" content="https://nexgenio.com/dora-mapping.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Every DORA RTS article, mapped — and what the simplified framework actually drops">
+  <meta name="twitter:description" content="All 41 substantive articles of the DORA ICT risk management RTS against ISO 27001, ISO 22301 and PCI DSS v4.0.1, with the full and simplified regimes set side by side.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+<style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+    :root{--t:#215675;--o:#f6911b;--g:#3c9a00;--tm:#2d6e94;--tl:#e6eef3;--bg:#f8f9fb;--lg:#666}
+
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:88px 32px 80px;text-align:center}
+    .hero h1{font-size:clamp(28px,4vw,50px);font-weight:bold;color:#fff;line-height:1.18;margin-bottom:20px;max-width:900px;margin-inline:auto;text-wrap:balance}
+    .hero h1 em{color:var(--o);font-style:normal;white-space:nowrap}
+    .hero p{font-size:18px;color:rgba(255,255,255,.85);max-width:760px;margin:0 auto 36px;line-height:1.7}
+    .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:40px}
+    .tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:12px;font-weight:600;padding:5px 18px;border-radius:20px;letter-spacing:.4px}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:15px;font-weight:bold;padding:15px 40px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;font-family:inherit;line-height:1.4}
+    .btn:hover{background:#d97a0f}
+    .btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.5);margin-left:10px}
+    .btn.ghost:hover{background:rgba(255,255,255,.12)}
+
+    section{padding:80px 32px}
+    .inn{max-width:1140px;margin:0 auto}
+    .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:clamp(22px,3vw,36px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:16px;color:var(--lg);max-width:760px;margin-bottom:44px;line-height:1.75}
+    .alt{background:var(--bg)}
+    .prose{font-size:16px;color:#444;line-height:1.85;max-width:820px}
+    .prose p{margin-bottom:16px}
+    .prose a{color:var(--t);font-weight:600}
+    .prose ul{margin:0 0 18px 20px}
+    .prose li{margin-bottom:8px}
+
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:22px;margin:0 0 46px}
+    .stat{border-top:2px solid var(--tl);padding-top:14px}
+    .stat .k{font-size:30px;font-weight:bold;color:var(--t);line-height:1.1;margin-bottom:4px}
+    .stat .v{font-size:13px;color:var(--lg);line-height:1.55}
+
+    .srcbox{background:#fff;border-left:3px solid var(--o);border-radius:6px;padding:30px 30px;box-shadow:0 2px 12px rgba(33,86,117,.06);margin-bottom:44px}
+    .srcbox h3{font-size:17px;color:var(--t);font-weight:bold;margin-bottom:10px}
+    .srcbox p{font-size:14.5px;color:#444;line-height:1.8;margin-bottom:12px}
+    .srcbox p:last-child{margin-bottom:0}
+    .srcbox a{color:var(--t);font-weight:600}
+    .sub-h{font-size:22px;color:var(--t);font-weight:bold;margin:8px 0 12px;padding-bottom:10px;border-bottom:2px solid var(--o)}
+    .srcbox blockquote{border-left:2px solid var(--tl);padding-left:16px;margin:14px 0;font-size:14px;color:#555;font-style:italic;line-height:1.75}
+
+    /* framework legend */
+    .fwgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:26px}
+    .fwd{background:#fff;border-radius:6px;padding:18px 20px;border-left:3px solid var(--t);box-shadow:0 1px 8px rgba(33,86,117,.06)}
+    .fwd.ot,.fwd.bcm{border-left-color:var(--o);background:#fffaf3}
+    .fwd-n{font-size:14px;font-weight:bold;color:var(--t);margin-bottom:5px}
+    .fwd-d{font-size:13px;color:#555;line-height:1.65}
+
+    /* controls */
+    .tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:30px;position:sticky;top:var(--nav-h,92px);background:var(--bg);padding:16px 0 14px;z-index:50;border-bottom:1px solid var(--tl)}
+    .tools input{flex:1;min-width:240px;font-family:inherit;font-size:15px;padding:12px 16px;border:1.5px solid var(--tl);border-radius:4px;color:#333;background:#fff}
+    .tools input:focus{outline:none;border-color:var(--tm)}
+    .tools .hint{font-size:13px;color:var(--lg)}
+    .fwbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;width:100%}
+    .fwl{font-size:12px;font-weight:700;color:var(--t);margin-right:2px}
+    .fw{font-family:inherit;font-size:12.5px;font-weight:600;padding:6px 12px 6px 28px;border-radius:16px;border:1.5px solid #cbd7e0;background:#fff;color:#55616b;cursor:pointer;line-height:1.4;position:relative}
+    .fw::before{content:"";position:absolute;left:9px;top:50%;transform:translateY(-50%);width:12px;height:12px;border:1.5px solid #b3c2cd;border-radius:3px;background:#fff}
+    .fw:hover{border-color:var(--tm);color:var(--t)}
+    .fw.on{background:var(--t);border-color:var(--t);color:#fff}
+    .fw.on::before{background:#fff;border-color:#fff}
+    .fw.on::after{content:"";position:absolute;left:13px;top:46%;width:4px;height:8px;border:solid var(--t);border-width:0 2px 2px 0;transform:translateY(-50%) rotate(45deg)}
+    .fw.ot,.fw.bcm{border-color:var(--o);color:#b86800}
+    .fw.ot.on,.fw.bcm.on{background:var(--o);border-color:var(--o);color:#fff}
+    .fw.ot.on::after,.fw.bcm.on::after{border-color:var(--o)}
+    .fw.lk{padding:6px 14px;border-style:dashed}
+    .fw.lk::before,.fw.lk::after{display:none}
+    .ob{font-size:9px;font-weight:700;background:var(--o);color:#fff;padding:1px 6px;border-radius:8px;letter-spacing:.4px;text-transform:uppercase;vertical-align:middle;margin-left:3px}
+    .fw.ot.on .ob,.fw.bcm.on .ob{background:#fff;color:#b86800}
+
+    .sec-block{margin-bottom:38px}
+    .sec-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-size:19px;color:var(--t);font-weight:bold;padding-bottom:10px;border-bottom:2px solid var(--tl);margin-bottom:18px}
+    .sec-n{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 8px;background:var(--t);color:#fff;border-radius:4px;font-size:14px;flex-shrink:0}
+    .art{margin-left:auto;font-size:12px;font-weight:700;color:#b86800;background:#fff3e0;padding:4px 12px;border-radius:12px;letter-spacing:.3px;white-space:nowrap}
+
+    .req{background:#fff;border-radius:6px;padding:20px 22px;margin-bottom:12px;box-shadow:0 1px 8px rgba(33,86,117,.06);border-left:3px solid var(--tl)}
+    .req:target{border-left-color:var(--o);box-shadow:0 2px 16px rgba(246,145,27,.22)}
+    .req-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+    .req-n{font-size:14px;font-weight:bold;color:#fff;background:var(--tm);padding:3px 10px;border-radius:3px;text-decoration:none;flex-shrink:0}
+    .req-n:hover{background:var(--o)}
+    .req-t{font-size:16px;font-weight:bold;color:var(--t)}
+    .pt{margin-left:auto;font-size:11px;font-weight:700;color:var(--lg);white-space:nowrap}
+    .req-g{font-size:14px;color:#555;line-height:1.7;margin-bottom:14px}
+    .refs{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;padding:9px 0;border-top:1px solid #f1f1f1}
+    .refs.ours{background:#fffaf3;margin:0 -22px;padding:9px 22px;border-top:1px solid #f4e2cb}
+    .refs.ours+.refs.ours{border-top-color:#f7e9d8}
+    .refs.ours:last-child{margin-bottom:-20px;padding-bottom:12px;border-radius:0 0 6px 6px}
+    .refs.ours .gc{background:#fdf0dd;color:#8a5200}
+    .refs.ours .gk{color:#c08b4a}
+    .rl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--lg);width:118px;flex-shrink:0;padding-top:4px}
+    .rb{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+    .gl{display:flex;flex-wrap:wrap;gap:5px;align-items:baseline}
+    .gk{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#9aa4ad;min-width:62px}
+    .gc{font-size:12.5px;background:#f2f4f7;color:#3f4b55;padding:3px 10px;border-radius:3px;font-weight:500;line-height:1.55}
+    .cl{font-size:12.5px;background:var(--tl);color:var(--t);padding:3px 10px;border-radius:3px;font-weight:600}
+    .ct{font-size:12.5px;background:#eef6ea;color:#2e6b16;padding:3px 10px;border-radius:3px;text-decoration:none;font-weight:500}
+    .ct b{font-weight:700}
+    .ct:hover{background:var(--o);color:#fff}
+    .none{font-size:12.5px;color:#999;font-style:italic}
+
+    .revgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:34px}
+    .rv{background:#fff;border-radius:5px;padding:13px 15px;box-shadow:0 1px 6px rgba(33,86,117,.06);border-left:3px solid var(--g)}
+    .rv.off{border-left-color:#ddd;background:#fbfbfb}
+    .rv:target{border-left-color:var(--o);box-shadow:0 2px 14px rgba(246,145,27,.22)}
+    .rv-c{font-size:13px;font-weight:bold;color:var(--t);margin-bottom:2px}
+    .rv-t{font-size:12.5px;color:#555;line-height:1.5;margin-bottom:7px}
+    .rv-m{display:flex;flex-wrap:wrap;gap:5px}
+    .rv-m a{font-size:11.5px;font-weight:700;background:var(--tl);color:var(--t);padding:2px 8px;border-radius:3px;text-decoration:none}
+    .rv-m a:hover{background:var(--o);color:#fff}
+    .nw{font-size:9.5px;font-weight:700;background:#fff3e0;color:#b86800;padding:1px 7px;border-radius:8px;letter-spacing:.3px;text-transform:uppercase;vertical-align:middle}
+
+    .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+    .card{background:#fff;border-radius:6px;padding:30px 28px;border-top:3px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06)}
+    .card.c{border-top-color:var(--o)}
+    .card h3{font-size:17px;color:var(--t);font-weight:bold;margin-bottom:10px}
+    .card p{font-size:14px;color:#555;line-height:1.7}
+    .card ul{margin-top:14px;list-style:none;padding:0}
+    .card ul li{font-size:13.5px;color:#555;padding:7px 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px}
+    .card ul li:last-child{border-bottom:none}
+    .card ul li::before{content:"▸";color:var(--t);flex-shrink:0}
+    .chip{display:inline-block;font-size:10px;font-weight:700;background:var(--tl);color:var(--t);padding:3px 10px;border-radius:10px;margin-bottom:12px;letter-spacing:.4px;text-transform:uppercase}
+    .chip.c{background:#fff3e0;color:#b86800}
+
+    .artlist{list-style:none;padding:0;columns:2;column-gap:40px;max-width:900px}
+    .artlist li{font-size:14px;color:#444;padding:9px 0;border-bottom:1px solid var(--tl);break-inside:avoid;line-height:1.65}
+    .artlist li b{color:var(--t)}
+    @media(max-width:700px){.artlist{columns:1}}
+
+    .faq-item{border-bottom:1px solid var(--tl)}
+    .faq-item summary{font-size:16px;font-weight:600;color:var(--t);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:"+";font-size:22px;color:var(--o);flex-shrink:0}
+    .faq-item[open] summary::after{content:"−"}
+    .faq-item .faq-a{font-size:15px;color:#444;line-height:1.8;padding:0 0 22px}
+    .faq-item .faq-a a{color:var(--t);font-weight:600}
+
+    .cta-band{background:var(--t);text-align:center;padding:74px 32px}
+    .cta-band h2{font-size:clamp(22px,3vw,32px);color:#fff;font-weight:bold;margin-bottom:16px}
+    .cta-band p{font-size:16px;color:rgba(255,255,255,.75);max-width:660px;margin:0 auto 32px;line-height:1.75}
+
+    footer{background:#162f40;padding:56px 32px 28px}
+    .footer-inner{max-width:1140px;margin:0 auto}
+    .footer-top{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap;margin-bottom:40px}
+    .fn{font-size:18px;font-weight:bold;color:#fff;margin-bottom:4px}
+    .ft{font-size:13px;color:rgba(255,255,255,.55)}
+    .footer-cols{display:flex;gap:56px;flex-wrap:wrap}
+    .footer-col h5{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--o);margin-bottom:14px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;padding:5px 0}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.45)}
+    @media(max-width:520px){section{padding:52px 20px}.hero{padding:60px 20px 54px}.rl{width:100%}.tools{position:static}}
+  
+    /* DORA-specific */
+    .regbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;width:100%}
+    .rg{font-family:inherit;font-size:13px;font-weight:700;padding:8px 18px;border-radius:4px;border:1.5px solid var(--t);background:#fff;color:var(--t);cursor:pointer;line-height:1.4}
+    .rg.on{background:var(--t);color:#fff}
+    .rg:hover{background:var(--tl)}
+    .rg.on:hover{background:var(--tm)}
+    .ti{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 9px;border-radius:10px;vertical-align:middle;margin-left:6px}
+    .ti.full{background:#e6eef3;color:#215675}
+    .ti.simp{background:#eaf5e4;color:#2e6b16}
+    .ti.both{background:#f6eddf;color:#8a5a12}
+    .corr{background:#f4f9f1;border-left:3px solid var(--g);border-radius:0 4px 4px 0;padding:9px 14px;margin:10px 0 2px;font-size:13px;color:#3a4a33;line-height:1.7}
+    .corr b{color:#2e6b16}
+    .corr a{color:#2e6b16;font-weight:700;text-decoration:none;border-bottom:1px solid #b9d9a8}
+    .corr.none{background:#fff7f0;border-left-color:var(--o);color:#6b4a22}
+    .corr.none b{color:#b86800}
+    .dropgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-bottom:30px}
+    .drop{background:#fff;border-radius:6px;padding:15px 17px;box-shadow:0 1px 8px rgba(33,86,117,.07);border-left:3px solid var(--o)}
+    .drop-n{font-size:12px;font-weight:700;color:var(--o);letter-spacing:.5px;margin-bottom:3px}
+    .drop-t{font-size:14.5px;font-weight:bold;color:var(--t);margin-bottom:6px;line-height:1.4}
+    .drop-d{font-size:13px;color:#5a6670;line-height:1.65}
+    .pci{font-size:12.5px;background:#eef2fa;color:#2f4272;padding:3px 10px;border-radius:3px;font-weight:500;line-height:1.55}
+    .pci b{font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/training/index.html">Academy</a>
+      <a href="/blog/index.html">Insights</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/training/index.html">Academy</a>
+    <a href="/blog/index.html">Insights</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'},{name:'_clck'},{name:'_clsk'},{name:'CLID'},{name:'ANONCHK'},{name:'MR'},{name:'MUID'},{name:'SM'}]},services:{ga4:{},clarity:{}}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'en',
+      translations:{
+        en:{
+          consentModal:{
+            title:'We value your privacy',
+            description:'This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href="/legal/privacy.html">Privacy Policy</a>.',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            showPreferencesBtn:'Cookie Settings'
+          },
+          preferencesModal:{
+            title:'Cookie Preferences',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            savePreferencesBtn:'Save Preferences',
+            sections:[
+              {title:'Cookie Usage',description:'We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out.'},
+              {title:'Necessary',description:'These cookies are essential for the website to function. They cannot be disabled.',linkedCategory:'necessary'},
+              {title:'Analytics',description:'We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.',linkedCategory:'analytics'},
+              {title:'Marketing',description:'Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.',linkedCategory:'marketing'},
+              {title:'More information',description:'For questions about our cookie policy, please <a href="/#contact">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer.'}
+            ]
+          }
+        }
+      }
+    }
+  });
+  function _nxgLoadAnalytics(){
+    if(window._nxgAnalyticsLoaded)return;
+    if(!CookieConsent.acceptedService('ga4','analytics'))return;
+    window._nxgAnalyticsLoaded=true;
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-R6WRM25278';document.head.appendChild(gs);
+    /* gtag must be global: gtag.js never defines it, and nxg-events.js calls it
+       from its own scope. Declaring it with "function gtag(){}" here would trap
+       it inside _nxgLoadAnalytics and silently drop every conversion event. */
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
+    if(CookieConsent.acceptedService('clarity','analytics')){
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+    }
+  }
+  window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
+  window.addEventListener('cc:onChange',_nxgLoadAnalytics);
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent='Cookie Settings';a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
+
+<div class="hero">
+  <h1>Every DORA RTS article, mapped — <em>both regimes</em></h1>
+  <p>All 41 substantive articles of Commission Delegated Regulation (EU) 2024/1774 set against ISO/IEC 27001:2022, ISO 22301:2019 and PCI DSS v4.0.1. The full framework under DORA Article 15 and the simplified framework under Article 16, side by side, with the correspondence between them shown article by article.</p>
+  <div class="tags">
+    <span class="tag">41 articles</span>
+    <span class="tag">26 full framework</span>
+    <span class="tag">14 simplified</span>
+    <span class="tag">3 frameworks</span>
+    <span class="tag">Free, no signup</span>
+  </div>
+  <a class="btn" href="#table">Open the mapping</a>
+  <a class="btn ghost" href="#simplified">What the simplified regime drops</a>
+</div>
+
+<section class="alt">
+  <div class="inn">
+    <div class="sl">In brief</div>
+    <h2 class="st">Which half of this regulation applies to you?</h2>
+    <div class="prose">
+      <p>Commission Delegated Regulation (EU) 2024/1774 is the regulatory technical standard that turns DORA's ICT risk management obligations into concrete articles. It has two operative halves, and <b>no financial entity is subject to both</b>.</p>
+      <p><b>Title II, Articles 2 to 27</b>, is the full ICT risk management framework, adopted under DORA Article 15. <b>Title III, Articles 28 to 41</b>, is the simplified framework for the entities listed in DORA Article 16(1). Article 1 applies to both and makes everything proportionate to your size, risk profile and complexity.</p>
+      <p>The interesting part is the relationship between the two. Title III is not a separate regime invented from scratch — it is a compression of Title II. 7 of its articles each absorb several full-framework articles, and <b>3 Title II articles have no Title III counterpart at all</b>. Those are set out <a href="#simplified">below</a>, because that is the difference people actually want to know.</p>
+      <p>Which regime you fall under is not something you can read off a public register, and this page does not tell you. It depends on your authorisation type, your size and your interconnectedness, and it is a determination to make deliberately rather than assume. What this page does is show you what each regime actually requires once you know.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inn">
+    <div class="sl">Provenance</div>
+    <h2 class="st">Where this mapping comes from, and who wrote it</h2>
+    <div class="stats">
+      <div class="stat"><div class="k">41</div><div class="v">substantive articles in the RTS, all reproduced here</div></div>
+      <div class="stat"><div class="k">26/14</div><div class="v">articles in the full framework versus the simplified framework</div></div>
+      <div class="stat"><div class="k">3</div><div class="v">full-framework articles with no counterpart in Title III</div></div>
+      <div class="stat"><div class="k">3</div><div class="v">frameworks mapped — ISO 27001, ISO 22301, PCI DSS</div></div>
+    </div>
+    <div class="srcbox">
+      <h3>The regulation is a regulator's. The mapping is ours.</h3>
+      <p>This is the opposite of our <a href="/nis2-iso-27001-mapping.html">NIS2 mapping page</a>, and the difference matters. There, ENISA had published an official correlation between the NIS2 implementing regulation and nine frameworks, and our job was to reproduce it faithfully. <b>For DORA, we have found no equivalent.</b> Not from the European Supervisory Authorities — neither the final report on this RTS (JC 2023 86) nor the consultation paper before it (JC 2023 39) contains a standards concordance — not from ENISA, whose only mapping product is scoped to NIS2, not from any national competent authority we checked, and not from ISO, NIST or the PCI Security Standards Council. If one is published, we will say so and reconcile this page against it.</p>
+      <p>The article structure, numbering and titles on this page come directly from the published text of <a href="https://eur-lex.europa.eu/eli/reg_del/2024/1774/oj" rel="noopener" target="_blank">Commission Delegated Regulation (EU) 2024/1774</a> on EUR-Lex, parsed article by article rather than transcribed by hand. Everything in the three framework columns is <b>NexGenio's own analysis</b>. It carries no regulatory authority whatsoever. It carries our reasoning, which you can check against the standards and disagree with specifically.</p>
+      <p>One claim worth retiring while we are here: it is often repeated that this RTS was <i>drafted in alignment with ISO 27001</i>. ISO 27001 is not cited in the regulation, in the consultation paper or in the final report. The resemblance is structural — risk assessment, treatment, controls, review — and structural resemblance is a reason a mapping is possible, not evidence that one is official.</p>
+      <p>Read it as a navigation aid between documents, not as a compliance claim, and certainly not as a statement that holding any of these certificates satisfies DORA. It does not, and the <a href="#gaps">gaps section</a> says exactly where.</p>
+    </div>
+    <div class="srcbox">
+      <h3>A claim worth being careful about</h3>
+      <p>You will read that the RTS was "aligned with ISO 27001" or "based on international standards". The recitals to the RTS do refer to international standards in general terms. That is not the same as a published concordance, and we have not found one from the European Supervisory Authorities, from ENISA, from any national competent authority, or from ISO.</p>
+      <p>So where the columns below line up neatly, that is our reading of two texts that were written independently. Where they do not line up, we say so rather than force a reference into the cell.</p>
+    </div>
+    <h3 class="st" style="font-size:22px;margin-bottom:10px">The three frameworks, and why these three</h3>
+    <p class="ss" style="margin-bottom:24px">All three columns are ours. None is a reproduction of anyone else's work.</p>
+    <div class="fwgrid">
+      <div class="fwd bcm"><div class="fwd-n">ISO/IEC 27001:2022 <span class="ob">ours</span></div><div class="fwd-d">The information security management system standard, mapped at both management-system clause and Annex A control level. It is the framework most financial entities already hold, and it carries the largest share of the RTS — but not the continuity chapters, and not the reporting duties.</div></div>
+      <div class="fwd bcm"><div class="fwd-n">ISO 22301:2019 <span class="ob">ours</span></div><div class="fwd-d">The business continuity management system standard, mapped at clause level. ICT business continuity is an entire chapter in <i>both</i> halves of the RTS — Title II Chapter IV and Title III Chapter III — and the business impact analysis the regulation repeatedly relies on is a clause 8.2 artefact, not an ISO 27001 one.</div></div>
+      <div class="fwd bcm"><div class="fwd-n">PCI DSS v4.0.1 <span class="ob">ours</span></div><div class="fwd-d">The card payment security standard, mapped at the level of its twelve requirements. Read the scope caveat below before using this column: PCI DSS is a card-brand contract rather than law, and it binds you only if you handle cardholder data.</div></div>
+    </div>
+    <div class="srcbox" style="margin-bottom:0">
+      <h3>The PCI DSS column applies to some of you, not all of you</h3>
+      <p>PCI DSS is not legislation. It is a contractual scheme administered by the payment card brands and enforced through acquirers. Its own applicability text is explicit that it covers entities that "store, process, or transmit cardholder data and/or sensitive authentication data, or could impact the security of" that data.</p>
+      <p>That is a completely different scoping trigger from DORA's. A card issuer, an acquiring bank, a payment institution or a processor in a card flow will be in scope of both. <b>An investment firm, an IORP or a fund manager that never touches card data has no PCI DSS obligation at all</b>, and for those entities the PCI column is context rather than a requirement. We have mapped it because the overlap is real for part of the sector, not because it applies across the sector.</p>
+      <p>The current version is <b>v4.0.1</b>, published June 2024. Version 3.2.1 was retired on 31 March 2024, and the future-dated requirements introduced in v4.0 became mandatory on 31 March 2025 — two separate dates that are frequently conflated. The standard is available from the <a href="https://www.pcisecuritystandards.org/document_library/" rel="noopener" target="_blank">PCI Security Standards Council document library</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="table">
+  <div class="inn">
+    <div class="sl">The mapping</div>
+    <h2 class="st">All 41 articles, across three frameworks</h2>
+    <p class="ss">Grouped by the Titles and Chapters of the regulation. Start by choosing your regime — the two are alternatives, so showing one at a time is usually what you want. Each article carries its correspondence to the other regime, and each has its own anchor link so you can cite a single article.</p>
+    <div class="tools">
+      <div class="regbar">
+        <span class="fwl">Regime:</span>
+        <button type="button" class="rg on" data-reg="all">Both</button>
+        <button type="button" class="rg" data-reg="full">Full framework &mdash; DORA Art. 15</button>
+        <button type="button" class="rg" data-reg="simp">Simplified &mdash; DORA Art. 16</button>
+      </div>
+      <div class="fwbar" id="fwbar">
+        <span class="fwl">Show columns:</span>
+<button type="button" class="fw on" data-fw="iso" title="ISO/IEC 27001:2022 clauses and Annex A controls. NexGenio&#x27;s own mapping — no regulator has published one.">ISO 27001 <span class="ob">ours</span></button><button type="button" class="fw on" data-fw="bcm" title="ISO 22301:2019 business continuity clauses. NexGenio&#x27;s own mapping.">ISO 22301 <span class="ob">ours</span></button><button type="button" class="fw on" data-fw="pci" title="PCI DSS v4.0.1 requirements. Applies only where you handle cardholder data. NexGenio&#x27;s own mapping.">PCI DSS <span class="ob">ours</span></button>
+        <button type="button" class="fw lk" id="fwall">Select all</button>
+      </div>
+      <input type="search" id="q" placeholder="Filter &mdash; try &quot;backup&quot;, &quot;encryption&quot;, &quot;A.8.13&quot;, &quot;continuity&quot;" aria-label="Filter articles">
+      <span class="hint" id="qc"></span>
+    </div>
+<div class="sec-block" id="cI">
+<h3 class="sec-h"><span class="sec-n">General provision</span>Proportionality — the article that governs how every other article is read<span class="art">Title I · General provision</span></h3>
+<div class="req" id="a1" data-reg="both">
+  <div class="req-h"><a class="req-n" href="#a1">Art. 1</a>
+    <span class="req-t">Overall risk profile and complexity</span>
+    <span class="ti both">Both regimes</span></div>
+  <p class="req-g">Proportionality. Everything in both Titles is read against your size, risk profile and the complexity of what you do — this is the article that makes the rest scalable.</p>
+  <div class="corr">Applies to <b>both regimes</b>. Title I sits above the split, so proportionality qualifies every article in Title II and Title III alike — including the ones the simplified framework already compresses.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Understanding the organization and its context">4.1 Understanding the organization and its context</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>4.1</b> Understanding the organization and its context</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><span class="none">No PCI DSS equivalent — PCI DSS does not address this area</span></div></div>
+</div>
+</div>
+<div class="sec-block" id="cII-1">
+<h3 class="sec-h"><span class="sec-n">I</span>ICT security policies, procedures, protocols and tools<span class="art">Title II · Chapter I</span></h3>
+<div class="req" id="a2" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a2">Art. 2</a>
+    <span class="req-t">General elements of ICT security policies, procedures, protocols, and tools</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">The umbrella article. Your ICT security policies must sit inside the ICT risk management framework, be approved, be reviewed, and assign owners.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a28">Art. 28</a>, <a href="#a29">Art. 29</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Policy">5.2 Policy</span><span class="cl" title="Roles, responsibilities and authorities">5.3 Roles, responsibilities and authorities</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Policies for information security"><b>A.5.1</b> Policies for information security</span><span class="ct" title="Information security roles and responsibilities"><b>A.5.2</b> Information security roles and responsibilities</span><span class="ct" title="Management responsibilities"><b>A.5.4</b> Management responsibilities</span><span class="ct" title="Compliance with policies, rules and standards for information security"><b>A.5.36</b> Compliance with policies, rules and standards for information security</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>5.2</b> Policy</span><span class="gc"><b>5.3</b> Roles, responsibilities and authorities</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a3" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a3">Art. 3</a>
+    <span class="req-t">ICT risk management</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Documented ICT risk management policies and procedures, including an approved risk tolerance and the method by which ICT risk is identified and treated.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a28">Art. 28</a>, <a href="#a31">Art. 31</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Information security risk assessment">6.1.2 Information security risk assessment</span><span class="cl" title="Information security risk treatment">6.1.3 Information security risk treatment</span><span class="cl" title="Information security risk assessment">8.2 Information security risk assessment</span><span class="cl" title="Information security risk treatment">8.3 Information security risk treatment</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Threat intelligence"><b>A.5.7</b> Threat intelligence</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>6.1</b> Actions to address risks and opportunities</span><span class="gc"><b>8.2</b> Business impact analysis and risk assessment</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a4" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a4">Art. 4</a>
+    <span class="req-t">ICT asset management policy</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">A policy for managing ICT assets, covering criticality, ownership and the treatment of assets supporting critical or important functions.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a30">Art. 30</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Inventory of information and other associated assets"><b>A.5.9</b> Inventory of information and other associated assets</span><span class="ct" title="Acceptable use of information and other associated assets"><b>A.5.10</b> Acceptable use of information and other associated assets</span><span class="ct" title="Classification of information"><b>A.5.12</b> Classification of information</span><span class="ct" title="Labelling of information"><b>A.5.13</b> Labelling of information</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.2</b> Business impact analysis and risk assessment</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a5" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a5">Art. 5</a>
+    <span class="req-t">ICT asset management procedure</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">The operating procedure behind that policy, including how you assess asset criticality and maintain records of ICT assets and their dependencies.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a30">Art. 30</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Inventory of information and other associated assets"><b>A.5.9</b> Inventory of information and other associated assets</span><span class="ct" title="Classification of information"><b>A.5.12</b> Classification of information</span><span class="ct" title="Documented operating procedures"><b>A.5.37</b> Documented operating procedures</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.2</b> Business impact analysis and risk assessment</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a6" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a6">Art. 6</a>
+    <span class="req-t">Encryption and cryptographic controls</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">A policy on encryption and cryptographic controls, including where encryption is applied at rest, in transit and in use.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a35">Art. 35</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Use of cryptography"><b>A.8.24</b> Use of cryptography</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 3</b> Protect Stored Account Data</span><span class="pci"><b>Req 4</b> Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks</span></div></div></div>
+</div>
+<div class="req" id="a7" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a7">Art. 7</a>
+    <span class="req-t">Cryptographic key management</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Key management across the full lifecycle — generation, renewal, storage, backup, archiving, retrieval, destruction and compromise handling.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a35">Art. 35</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Use of cryptography"><b>A.8.24</b> Use of cryptography</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 3</b> Protect Stored Account Data</span></div></div></div>
+</div>
+<div class="req" id="a8" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a8">Art. 8</a>
+    <span class="req-t">Policies and procedures for ICT operations</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Documented ICT operations procedures, covering how systems are run day to day, and how operational changes are controlled.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a34">Art. 34</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Documented operating procedures"><b>A.5.37</b> Documented operating procedures</span><span class="ct" title="Configuration management"><b>A.8.9</b> Configuration management</span><span class="ct" title="Installation of software on operational systems"><b>A.8.19</b> Installation of software on operational systems</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.1</b> Operational planning and control</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 2</b> Apply Secure Configurations to All System Components</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a9" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a9">Art. 9</a>
+    <span class="req-t">Capacity and performance management</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Capacity and performance management, so that resources are monitored and provisioned before shortfalls affect service.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a34">Art. 34</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Capacity management"><b>A.8.6</b> Capacity management</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.3</b> Business continuity strategies and solutions</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><span class="none">No PCI DSS equivalent — PCI DSS does not address this area</span></div></div>
+</div>
+<div class="req" id="a10" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a10">Art. 10</a>
+    <span class="req-t">Vulnerability and patch management</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Vulnerability management and patching, including scanning frequency, prioritisation, and tracking third-party components.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a34">Art. 34</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Management of technical vulnerabilities"><b>A.8.8</b> Management of technical vulnerabilities</span><span class="ct" title="Change management"><b>A.8.32</b> Change management</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 6</b> Develop and Maintain Secure Systems and Software</span><span class="pci"><b>Req 11</b> Test Security of Systems and Networks Regularly</span></div></div></div>
+</div>
+<div class="req" id="a11" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a11">Art. 11</a>
+    <span class="req-t">Data and system security</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Data and system security measures — access restrictions, secure configuration, and protection of data at rest.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a35">Art. 35</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="User endpoint devices"><b>A.8.1</b> User endpoint devices</span><span class="ct" title="Information access restriction"><b>A.8.3</b> Information access restriction</span><span class="ct" title="Configuration management"><b>A.8.9</b> Configuration management</span><span class="ct" title="Use of cryptography"><b>A.8.24</b> Use of cryptography</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 2</b> Apply Secure Configurations to All System Components</span><span class="pci"><b>Req 3</b> Protect Stored Account Data</span></div></div></div>
+</div>
+<div class="req" id="a12" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a12">Art. 12</a>
+    <span class="req-t">Logging</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Logging procedures, protocols and tools: what is logged, how long it is retained, how it is protected, and clock synchronisation.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a35">Art. 35</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Logging"><b>A.8.15</b> Logging</span><span class="ct" title="Monitoring activities"><b>A.8.16</b> Monitoring activities</span><span class="ct" title="Clock synchronization"><b>A.8.17</b> Clock synchronization</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 10</b> Log and Monitor All Access to System Components and Cardholder Data</span></div></div></div>
+</div>
+<div class="req" id="a13" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a13">Art. 13</a>
+    <span class="req-t">Network security management</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Network security management, including segmentation, filtering and the design of network architecture.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a35">Art. 35</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Networks security"><b>A.8.20</b> Networks security</span><span class="ct" title="Security of network services"><b>A.8.21</b> Security of network services</span><span class="ct" title="Segregation of networks"><b>A.8.22</b> Segregation of networks</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 1</b> Install and Maintain Network Security Controls</span></div></div></div>
+</div>
+<div class="req" id="a14" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a14">Art. 14</a>
+    <span class="req-t">Securing information in transit</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Protecting information in transit, including the confidentiality, integrity and authenticity of data moving across networks.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a35">Art. 35</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information transfer"><b>A.5.14</b> Information transfer</span><span class="ct" title="Use of cryptography"><b>A.8.24</b> Use of cryptography</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 4</b> Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks</span></div></div></div>
+</div>
+<div class="req" id="a15" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a15">Art. 15</a>
+    <span class="req-t">ICT project management</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">An ICT project management policy covering how projects are governed and how security is built in from the start.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a38">Art. 38</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information security in project management"><b>A.5.8</b> Information security in project management</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 6</b> Develop and Maintain Secure Systems and Software</span></div></div></div>
+</div>
+<div class="req" id="a16" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a16">Art. 16</a>
+    <span class="req-t">ICT systems acquisition, development, and maintenance</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">A policy governing acquisition, development and maintenance of ICT systems, including secure development and separation of environments.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a37">Art. 37</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Secure development life cycle"><b>A.8.25</b> Secure development life cycle</span><span class="ct" title="Application security requirements"><b>A.8.26</b> Application security requirements</span><span class="ct" title="Secure system architecture and engineering principles"><b>A.8.27</b> Secure system architecture and engineering principles</span><span class="ct" title="Secure coding"><b>A.8.28</b> Secure coding</span><span class="ct" title="Security testing in development and acceptance"><b>A.8.29</b> Security testing in development and acceptance</span><span class="ct" title="Separation of development, test and production environments"><b>A.8.31</b> Separation of development, test and production environments</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 6</b> Develop and Maintain Secure Systems and Software</span></div></div></div>
+</div>
+<div class="req" id="a17" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a17">Art. 17</a>
+    <span class="req-t">ICT change management</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">ICT change management — how changes are requested, tested, approved, documented and rolled back.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a38">Art. 38</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Planning of changes">6.3 Planning of changes</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Change management"><b>A.8.32</b> Change management</span><span class="ct" title="Separation of development, test and production environments"><b>A.8.31</b> Separation of development, test and production environments</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>6.3</b> Planning of changes</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 6</b> Develop and Maintain Secure Systems and Software</span></div></div></div>
+</div>
+<div class="req" id="a18" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a18">Art. 18</a>
+    <span class="req-t">Physical and environmental security</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">A physical and environmental security policy protecting premises, data centres and equipment against physical and environmental threats.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a32">Art. 32</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Physical security perimeters"><b>A.7.1</b> Physical security perimeters</span><span class="ct" title="Physical entry"><b>A.7.2</b> Physical entry</span><span class="ct" title="Securing offices, rooms and facilities"><b>A.7.3</b> Securing offices, rooms and facilities</span><span class="ct" title="Physical security monitoring"><b>A.7.4</b> Physical security monitoring</span><span class="ct" title="Protecting against physical and environmental threats"><b>A.7.5</b> Protecting against physical and environmental threats</span><span class="ct" title="Equipment siting and protection"><b>A.7.8</b> Equipment siting and protection</span><span class="ct" title="Supporting utilities"><b>A.7.11</b> Supporting utilities</span><span class="ct" title="Cabling security"><b>A.7.12</b> Cabling security</span><span class="ct" title="Equipment maintenance"><b>A.7.13</b> Equipment maintenance</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.3</b> Business continuity strategies and solutions</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 9</b> Restrict Physical Access to Cardholder Data</span></div></div></div>
+</div>
+</div>
+<div class="sec-block" id="cII-2">
+<h3 class="sec-h"><span class="sec-n">II</span>Human resources policy and access control<span class="art">Title II · Chapter II</span></h3>
+<div class="req" id="a19" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a19">Art. 19</a>
+    <span class="req-t">Human resources policy</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">ICT security elements of the human resources policy: responsibilities, awareness, conditions of employment and termination.</p>
+  <div class="corr none"><b>No counterpart in the simplified framework.</b> Title III does not elaborate this area.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Competence">7.2 Competence</span><span class="cl" title="Awareness">7.3 Awareness</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Screening"><b>A.6.1</b> Screening</span><span class="ct" title="Terms and conditions of employment"><b>A.6.2</b> Terms and conditions of employment</span><span class="ct" title="Information security awareness, education and training"><b>A.6.3</b> Information security awareness, education and training</span><span class="ct" title="Disciplinary process"><b>A.6.4</b> Disciplinary process</span><span class="ct" title="Responsibilities after termination or change of employment"><b>A.6.5</b> Responsibilities after termination or change of employment</span><span class="ct" title="Confidentiality or non-disclosure agreements"><b>A.6.6</b> Confidentiality or non-disclosure agreements</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>7.2</b> Competence</span><span class="gc"><b>7.3</b> Awareness</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a20" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a20">Art. 20</a>
+    <span class="req-t">Identity management</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Identity management — unique identification and authentication of every person and system accessing your ICT assets.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a33">Art. 33</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Identity management"><b>A.5.16</b> Identity management</span><span class="ct" title="Authentication information"><b>A.5.17</b> Authentication information</span><span class="ct" title="Secure authentication"><b>A.8.5</b> Secure authentication</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 8</b> Identify Users and Authenticate Access to System Components</span></div></div></div>
+</div>
+<div class="req" id="a21" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a21">Art. 21</a>
+    <span class="req-t">Access control</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Access control on need-to-know, need-to-use and least privilege, including privileged accounts, review and revocation.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a33">Art. 33</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Access control"><b>A.5.15</b> Access control</span><span class="ct" title="Access rights"><b>A.5.18</b> Access rights</span><span class="ct" title="Privileged access rights"><b>A.8.2</b> Privileged access rights</span><span class="ct" title="Information access restriction"><b>A.8.3</b> Information access restriction</span><span class="ct" title="Access to source code"><b>A.8.4</b> Access to source code</span><span class="ct" title="Use of privileged utility programs"><b>A.8.18</b> Use of privileged utility programs</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 7</b> Restrict Access to System Components and Cardholder Data by Business Need to Know</span><span class="pci"><b>Req 8</b> Identify Users and Authenticate Access to System Components</span></div></div></div>
+</div>
+</div>
+<div class="sec-block" id="cII-3">
+<h3 class="sec-h"><span class="sec-n">III</span>ICT-related incident detection and response<span class="art">Title II · Chapter III</span></h3>
+<div class="req" id="a22" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a22">Art. 22</a>
+    <span class="req-t">ICT-related incident management policy</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">An ICT-related incident management policy: how incidents are recorded, classified, escalated, communicated and closed.</p>
+  <div class="corr none"><b>No counterpart in the simplified framework.</b> Title III does not elaborate this area.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information security incident management planning and preparation"><b>A.5.24</b> Information security incident management planning and preparation</span><span class="ct" title="Assessment and decision on information security events"><b>A.5.25</b> Assessment and decision on information security events</span><span class="ct" title="Response to information security incidents"><b>A.5.26</b> Response to information security incidents</span><span class="ct" title="Learning from information security incidents"><b>A.5.27</b> Learning from information security incidents</span><span class="ct" title="Information security event reporting"><b>A.6.8</b> Information security event reporting</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.4</b> Business continuity plans and procedures</span><span class="gc"><b>7.4</b> Communication</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a23" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a23">Art. 23</a>
+    <span class="req-t">Anomalous activities detection and criteria for ICT-related incidents detection and response</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Detection of anomalous activity, with defined roles, triggers and criteria for declaring and responding to an ICT-related incident.</p>
+  <div class="corr none"><b>No counterpart in the simplified framework.</b> Title III does not elaborate this area.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Threat intelligence"><b>A.5.7</b> Threat intelligence</span><span class="ct" title="Logging"><b>A.8.15</b> Logging</span><span class="ct" title="Monitoring activities"><b>A.8.16</b> Monitoring activities</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 10</b> Log and Monitor All Access to System Components and Cardholder Data</span><span class="pci"><b>Req 11</b> Test Security of Systems and Networks Regularly</span></div></div></div>
+</div>
+</div>
+<div class="sec-block" id="cII-4">
+<h3 class="sec-h"><span class="sec-n">IV</span>ICT business continuity management<span class="art">Title II · Chapter IV</span></h3>
+<div class="req" id="a24" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a24">Art. 24</a>
+    <span class="req-t">Components of the ICT business continuity policy</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">What the ICT business continuity policy must contain, including objectives, scope, and the link to your business impact analysis.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a39">Art. 39</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Policy">5.2 Policy</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information security during disruption"><b>A.5.29</b> Information security during disruption</span><span class="ct" title="ICT readiness for business continuity"><b>A.5.30</b> ICT readiness for business continuity</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>5.2</b> Policy</span><span class="gc"><b>8.1</b> Operational planning and control</span><span class="gc"><b>8.2</b> Business impact analysis and risk assessment</span><span class="gc"><b>8.3</b> Business continuity strategies and solutions</span><span class="gc"><b>8.4</b> Business continuity plans and procedures</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><span class="none">No PCI DSS equivalent — PCI DSS does not address this area</span></div></div>
+</div>
+<div class="req" id="a25" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a25">Art. 25</a>
+    <span class="req-t">Testing of the ICT business continuity plans</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">Testing of ICT business continuity plans against the business impact analysis and the ICT risk assessment, with results acted on.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a40">Art. 40</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information security during disruption"><b>A.5.29</b> Information security during disruption</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.2</b> Business impact analysis and risk assessment</span><span class="gc"><b>8.5</b> Exercise programme</span><span class="gc"><b>8.6</b> Evaluation of business continuity documentation and capabilities</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><span class="none">No PCI DSS equivalent — PCI DSS does not address this area</span></div></div>
+</div>
+<div class="req" id="a26" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a26">Art. 26</a>
+    <span class="req-t">ICT response and recovery plans</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">ICT response and recovery plans built on the results of the business impact analysis, with recovery objectives and communication.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a39">Art. 39</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information security during disruption"><b>A.5.29</b> Information security during disruption</span><span class="ct" title="ICT readiness for business continuity"><b>A.5.30</b> ICT readiness for business continuity</span><span class="ct" title="Information backup"><b>A.8.13</b> Information backup</span><span class="ct" title="Redundancy of information processing facilities"><b>A.8.14</b> Redundancy of information processing facilities</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.2</b> Business impact analysis and risk assessment</span><span class="gc"><b>8.3</b> Business continuity strategies and solutions</span><span class="gc"><b>8.4</b> Business continuity plans and procedures</span><span class="gc"><b>7.4</b> Communication</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+</div>
+<div class="sec-block" id="cII-5">
+<h3 class="sec-h"><span class="sec-n">V</span>Report on the ICT risk management framework review<span class="art">Title II · Chapter V</span></h3>
+<div class="req" id="a27" data-reg="full">
+  <div class="req-h"><a class="req-n" href="#a27">Art. 27</a>
+    <span class="req-t">Format and content of the report on the review of the ICT risk management framework</span>
+    <span class="ti full">Full</span></div>
+  <p class="req-g">The format and content of the report on the review of the ICT risk management framework, submitted in a searchable electronic format.</p>
+  <div class="corr">Simplified framework counterpart: <a href="#a41">Art. 41</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Monitoring, measurement, analysis and evaluation">9.1 Monitoring, measurement, analysis and evaluation</span><span class="cl" title="Internal audit">9.2 Internal audit</span><span class="cl" title="Management review">9.3 Management review</span><span class="cl" title="Continual improvement">10.1 Continual improvement</span><span class="cl" title="Nonconformity and corrective action">10.2 Nonconformity and corrective action</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Independent review of information security"><b>A.5.35</b> Independent review of information security</span><span class="ct" title="Compliance with policies, rules and standards for information security"><b>A.5.36</b> Compliance with policies, rules and standards for information security</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>9.1</b> Monitoring, measurement, analysis and evaluation</span><span class="gc"><b>9.2</b> Internal audit</span><span class="gc"><b>9.3</b> Management review</span><span class="gc"><b>10.1</b> Nonconformity and corrective action</span><span class="gc"><b>10.2</b> Continual improvement</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+</div>
+<div class="sec-block" id="cIII-1">
+<h3 class="sec-h"><span class="sec-n">I</span>Simplified ICT risk management framework<span class="art">Title III · Chapter I</span></h3>
+<div class="req" id="a28" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a28">Art. 28</a>
+    <span class="req-t">Governance and organisation</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">Internal governance and control framework for entities on the simplified regime — clear responsibilities and management body involvement.</p>
+  <div class="corr">In the full framework this is <b>2 articles</b>: <a href="#a2">Art. 2</a>, <a href="#a3">Art. 3</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Leadership and commitment">5.1 Leadership and commitment</span><span class="cl" title="Roles, responsibilities and authorities">5.3 Roles, responsibilities and authorities</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information security roles and responsibilities"><b>A.5.2</b> Information security roles and responsibilities</span><span class="ct" title="Management responsibilities"><b>A.5.4</b> Management responsibilities</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>5.1</b> Leadership and commitment</span><span class="gc"><b>5.3</b> Roles, responsibilities and authorities</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a29" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a29">Art. 29</a>
+    <span class="req-t">Information security policy and measures</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">An information security policy setting high-level principles for confidentiality, integrity, availability and authenticity.</p>
+  <div class="corr">In the full framework this is <b>1 article</b>: <a href="#a2">Art. 2</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Policy">5.2 Policy</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Policies for information security"><b>A.5.1</b> Policies for information security</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>5.2</b> Policy</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a30" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a30">Art. 30</a>
+    <span class="req-t">Classification of information assets and ICT assets</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">Identify, classify and document critical or important functions, the information assets supporting them, and their ICT assets.</p>
+  <div class="corr">In the full framework this is <b>2 articles</b>: <a href="#a4">Art. 4</a>, <a href="#a5">Art. 5</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Inventory of information and other associated assets"><b>A.5.9</b> Inventory of information and other associated assets</span><span class="ct" title="Classification of information"><b>A.5.12</b> Classification of information</span><span class="ct" title="Labelling of information"><b>A.5.13</b> Labelling of information</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.2</b> Business impact analysis and risk assessment</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+<div class="req" id="a31" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a31">Art. 31</a>
+    <span class="req-t">ICT risk management</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">The simplified ICT risk management framework itself: risk tolerance, identification, assessment, treatment and monitoring.</p>
+  <div class="corr">In the full framework this is <b>1 article</b>: <a href="#a3">Art. 3</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Information security risk assessment">6.1.2 Information security risk assessment</span><span class="cl" title="Information security risk treatment">6.1.3 Information security risk treatment</span><span class="cl" title="Information security risk assessment">8.2 Information security risk assessment</span><span class="cl" title="Information security risk treatment">8.3 Information security risk treatment</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>6.1</b> Actions to address risks and opportunities</span><span class="gc"><b>6.2</b> Business continuity objectives and planning to achieve them</span><span class="gc"><b>8.2</b> Business impact analysis and risk assessment</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+</div>
+<div class="sec-block" id="cIII-2">
+<h3 class="sec-h"><span class="sec-n">II</span>Further elements of systems, protocols and tools to minimise the impact of ICT risk<span class="art">Title III · Chapter II</span></h3>
+<div class="req" id="a32" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a32">Art. 32</a>
+    <span class="req-t">Physical and environmental security</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">Physical security measures based on the threat landscape and the classification carried out under Article 30.</p>
+  <div class="corr">In the full framework this is <b>1 article</b>: <a href="#a18">Art. 18</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Physical security perimeters"><b>A.7.1</b> Physical security perimeters</span><span class="ct" title="Physical entry"><b>A.7.2</b> Physical entry</span><span class="ct" title="Physical security monitoring"><b>A.7.4</b> Physical security monitoring</span><span class="ct" title="Protecting against physical and environmental threats"><b>A.7.5</b> Protecting against physical and environmental threats</span><span class="ct" title="Supporting utilities"><b>A.7.11</b> Supporting utilities</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.3</b> Business continuity strategies and solutions</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 9</b> Restrict Physical Access to Cardholder Data</span></div></div></div>
+</div>
+<div class="req" id="a33" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a33">Art. 33</a>
+    <span class="req-t">Access Control</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">Procedures for logical and physical access control, enforced, monitored and periodically reviewed.</p>
+  <div class="corr">In the full framework this is <b>2 articles</b>: <a href="#a20">Art. 20</a>, <a href="#a21">Art. 21</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Access control"><b>A.5.15</b> Access control</span><span class="ct" title="Identity management"><b>A.5.16</b> Identity management</span><span class="ct" title="Authentication information"><b>A.5.17</b> Authentication information</span><span class="ct" title="Access rights"><b>A.5.18</b> Access rights</span><span class="ct" title="Privileged access rights"><b>A.8.2</b> Privileged access rights</span><span class="ct" title="Information access restriction"><b>A.8.3</b> Information access restriction</span><span class="ct" title="Secure authentication"><b>A.8.5</b> Secure authentication</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 7</b> Restrict Access to System Components and Cardholder Data by Business Need to Know</span><span class="pci"><b>Req 8</b> Identify Users and Authenticate Access to System Components</span><span class="pci"><b>Req 9</b> Restrict Physical Access to Cardholder Data</span></div></div></div>
+</div>
+<div class="req" id="a34" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a34">Art. 34</a>
+    <span class="req-t">ICT operations security</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">ICT operations security — asset lifecycle, supported versions, capacity, backups, vulnerability and patch handling in one article.</p>
+  <div class="corr">In the full framework this is <b>3 articles</b>: <a href="#a8">Art. 8</a>, <a href="#a9">Art. 9</a>, <a href="#a10">Art. 10</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Inventory of information and other associated assets"><b>A.5.9</b> Inventory of information and other associated assets</span><span class="ct" title="Protection against malware"><b>A.8.7</b> Protection against malware</span><span class="ct" title="Management of technical vulnerabilities"><b>A.8.8</b> Management of technical vulnerabilities</span><span class="ct" title="Configuration management"><b>A.8.9</b> Configuration management</span><span class="ct" title="Information backup"><b>A.8.13</b> Information backup</span><span class="ct" title="Installation of software on operational systems"><b>A.8.19</b> Installation of software on operational systems</span><span class="ct" title="Change management"><b>A.8.32</b> Change management</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.3</b> Business continuity strategies and solutions</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 2</b> Apply Secure Configurations to All System Components</span><span class="pci"><b>Req 5</b> Protect All Systems and Networks from Malicious Software</span><span class="pci"><b>Req 6</b> Develop and Maintain Secure Systems and Software</span></div></div></div>
+</div>
+<div class="req" id="a35" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a35">Art. 35</a>
+    <span class="req-t">Data, system and network security</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">Data, system and network security in one article: network safeguards, encryption, and protection of data at rest and in transit.</p>
+  <div class="corr">In the full framework this is <b>6 articles</b>: <a href="#a6">Art. 6</a>, <a href="#a7">Art. 7</a>, <a href="#a11">Art. 11</a>, <a href="#a12">Art. 12</a>, <a href="#a13">Art. 13</a>, <a href="#a14">Art. 14</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information transfer"><b>A.5.14</b> Information transfer</span><span class="ct" title="Data leakage prevention"><b>A.8.12</b> Data leakage prevention</span><span class="ct" title="Networks security"><b>A.8.20</b> Networks security</span><span class="ct" title="Security of network services"><b>A.8.21</b> Security of network services</span><span class="ct" title="Segregation of networks"><b>A.8.22</b> Segregation of networks</span><span class="ct" title="Use of cryptography"><b>A.8.24</b> Use of cryptography</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 1</b> Install and Maintain Network Security Controls</span><span class="pci"><b>Req 3</b> Protect Stored Account Data</span><span class="pci"><b>Req 4</b> Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks</span></div></div></div>
+</div>
+<div class="req" id="a36" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a36">Art. 36</a>
+    <span class="req-t">ICT security testing</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">An ICT security testing plan validating that the measures under Articles 33 to 35 actually work.</p>
+  <div class="corr none">No single counterpart in the full framework — <b>this duty is expressed only in Title III</b>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Management of technical vulnerabilities"><b>A.8.8</b> Management of technical vulnerabilities</span><span class="ct" title="Security testing in development and acceptance"><b>A.8.29</b> Security testing in development and acceptance</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 11</b> Test Security of Systems and Networks Regularly</span></div></div></div>
+</div>
+<div class="req" id="a37" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a37">Art. 37</a>
+    <span class="req-t">ICT systems acquisition, development, and maintenance</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">A risk-based procedure for acquiring, developing and maintaining ICT systems, including testing before deployment.</p>
+  <div class="corr">In the full framework this is <b>1 article</b>: <a href="#a16">Art. 16</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Secure development life cycle"><b>A.8.25</b> Secure development life cycle</span><span class="ct" title="Application security requirements"><b>A.8.26</b> Application security requirements</span><span class="ct" title="Secure coding"><b>A.8.28</b> Secure coding</span><span class="ct" title="Separation of development, test and production environments"><b>A.8.31</b> Separation of development, test and production environments</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><span class="none">No ISO 22301 equivalent — outside the scope of a business continuity management system</span></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 6</b> Develop and Maintain Secure Systems and Software</span></div></div></div>
+</div>
+<div class="req" id="a38" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a38">Art. 38</a>
+    <span class="req-t">ICT project and change management</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">ICT project and change management combined — roles, documentation, approval and testing of changes.</p>
+  <div class="corr">In the full framework this is <b>2 articles</b>: <a href="#a15">Art. 15</a>, <a href="#a17">Art. 17</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Planning of changes">6.3 Planning of changes</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information security in project management"><b>A.5.8</b> Information security in project management</span><span class="ct" title="Change management"><b>A.8.32</b> Change management</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>6.3</b> Planning of changes</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 6</b> Develop and Maintain Secure Systems and Software</span></div></div></div>
+</div>
+</div>
+<div class="sec-block" id="cIII-3">
+<h3 class="sec-h"><span class="sec-n">III</span>ICT business continuity management<span class="art">Title III · Chapter III</span></h3>
+<div class="req" id="a39" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a39">Art. 39</a>
+    <span class="req-t">Components of the ICT business continuity plan</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">What the ICT business continuity plan must contain, built on analysis of exposure to severe business disruption including a cyber-attack scenario.</p>
+  <div class="corr">In the full framework this is <b>2 articles</b>: <a href="#a24">Art. 24</a>, <a href="#a26">Art. 26</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information security during disruption"><b>A.5.29</b> Information security during disruption</span><span class="ct" title="ICT readiness for business continuity"><b>A.5.30</b> ICT readiness for business continuity</span><span class="ct" title="Information backup"><b>A.8.13</b> Information backup</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.2</b> Business impact analysis and risk assessment</span><span class="gc"><b>8.3</b> Business continuity strategies and solutions</span><span class="gc"><b>8.4</b> Business continuity plans and procedures</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><span class="none">No PCI DSS equivalent — PCI DSS does not address this area</span></div></div>
+</div>
+<div class="req" id="a40" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a40">Art. 40</a>
+    <span class="req-t">Testing of business continuity plans</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">Annual testing of business continuity plans, including the scenarios identified under Article 39.</p>
+  <div class="corr">In the full framework this is <b>1 article</b>: <a href="#a25">Art. 25</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Information security during disruption"><b>A.5.29</b> Information security during disruption</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>8.5</b> Exercise programme</span><span class="gc"><b>8.6</b> Evaluation of business continuity documentation and capabilities</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><span class="none">No PCI DSS equivalent — PCI DSS does not address this area</span></div></div>
+</div>
+</div>
+<div class="sec-block" id="cIII-4">
+<h3 class="sec-h"><span class="sec-n">IV</span>Report on the review of the simplified ICT risk management framework<span class="art">Title III · Chapter IV</span></h3>
+<div class="req" id="a41" data-reg="simp">
+  <div class="req-h"><a class="req-n" href="#a41">Art. 41</a>
+    <span class="req-t">Format and content of the report on the review of the simplified ICT risk management framework</span>
+    <span class="ti simp">Simplified</span></div>
+  <p class="req-g">Format and content of the report on the review of the simplified ICT risk management framework.</p>
+  <div class="corr">In the full framework this is <b>1 article</b>: <a href="#a27">Art. 27</a>.</div>
+<div class="refs ours" data-fw="iso"><span class="rl">ISO 27001 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="cl" title="Monitoring, measurement, analysis and evaluation">9.1 Monitoring, measurement, analysis and evaluation</span><span class="cl" title="Management review">9.3 Management review</span><span class="cl" title="Nonconformity and corrective action">10.2 Nonconformity and corrective action</span></div><div class="gl"><span class="gk">Annex A</span><span class="ct" title="Independent review of information security"><b>A.5.35</b> Independent review of information security</span></div></div></div><div class="refs ours" data-fw="bcm"><span class="rl">ISO 22301 <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Clauses</span><span class="gc"><b>9.1</b> Monitoring, measurement, analysis and evaluation</span><span class="gc"><b>9.3</b> Management review</span><span class="gc"><b>10.2</b> Continual improvement</span></div></div></div><div class="refs ours" data-fw="pci"><span class="rl">PCI DSS <span class="ob">ours</span></span><div class="rb"><div class="gl"><span class="gk">Requirements</span><span class="pci"><b>Req 12</b> Support Information Security with Organizational Policies and Programs</span></div></div></div>
+</div>
+</div>
+  </div>
+</section>
+
+<section id="simplified">
+  <div class="inn">
+    <div class="sl">The difference</div>
+    <h2 class="st">What the simplified framework actually drops</h2>
+    <p class="ss">This is the question every entity that might fall under DORA Article 16 asks first, and the answer is derivable from the regulation's own structure rather than from anyone's opinion. Title III is a compression of Title II. Some articles are merged, some disappear.</p>
+
+    <h3 class="sub-h">Merged: where one simplified article absorbs several</h3>
+    <div class="prose">
+      <p>7 of the fourteen Title III articles each cover ground that Title II spreads across multiple articles. The obligation is not removed — it is stated once, at a higher level, with less prescription about how you meet it.</p>
+      <ul>
+<li><a href="#a35"><b>Article 35</b> Data, system and network security</a> &larr; 6 full-framework articles (<a href="#a6">6</a>, <a href="#a7">7</a>, <a href="#a11">11</a>, <a href="#a12">12</a>, <a href="#a13">13</a>, <a href="#a14">14</a>)</li>
+<li><a href="#a34"><b>Article 34</b> ICT operations security</a> &larr; 3 full-framework articles (<a href="#a8">8</a>, <a href="#a9">9</a>, <a href="#a10">10</a>)</li>
+<li><a href="#a28"><b>Article 28</b> Governance and organisation</a> &larr; 2 full-framework articles (<a href="#a2">2</a>, <a href="#a3">3</a>)</li>
+<li><a href="#a30"><b>Article 30</b> Classification of information assets and ICT assets</a> &larr; 2 full-framework articles (<a href="#a4">4</a>, <a href="#a5">5</a>)</li>
+<li><a href="#a33"><b>Article 33</b> Access Control</a> &larr; 2 full-framework articles (<a href="#a20">20</a>, <a href="#a21">21</a>)</li>
+<li><a href="#a38"><b>Article 38</b> ICT project and change management</a> &larr; 2 full-framework articles (<a href="#a15">15</a>, <a href="#a17">17</a>)</li>
+<li><a href="#a39"><b>Article 39</b> Components of the ICT business continuity plan</a> &larr; 2 full-framework articles (<a href="#a24">24</a>, <a href="#a26">26</a>)</li>
+      </ul>
+      <p>Article 35 is the clearest example. In the full framework, encryption, key management, data and system security, logging, network security management and securing information in transit are six separate articles with their own detailed paragraphs. In the simplified framework they are one article. That is a genuine reduction in prescription, and it is also where entities most often under-build, because a single article invites a single thin control set where six articles did not.</p>
+    </div>
+
+    <h3 class="sub-h">Dropped: full-framework articles with no Title III counterpart</h3>
+    <p class="ss" style="margin-bottom:26px">3 articles in Title II have no corresponding article in Title III. Read these carefully — in most cases the underlying duty still exists somewhere in DORA itself, and only the RTS-level elaboration falls away.</p>
+    <div class="dropgrid">
+<div class="drop"><div class="drop-n">Article 19</div><div class="drop-t">Human resources policy</div><div class="drop-d">The simplified framework has no human resources article. The duty does not vanish — DORA Article 5(2) still puts ICT risk on the management body — but the RTS does not elaborate screening, terms of employment or the disciplinary process for Article 16 entities.</div></div>
+<div class="drop"><div class="drop-n">Article 22</div><div class="drop-t">ICT-related incident management policy</div><div class="drop-d">There is no incident management policy article in Title III. Incident handling for Article 16 entities is governed directly by DORA Articles 17 to 23, which apply to every financial entity, rather than being elaborated in the RTS.</div></div>
+<div class="drop"><div class="drop-n">Article 23</div><div class="drop-t">Anomalous activities detection and criteria for ICT-related incidents detection and response</div><div class="drop-d">No anomalous activity detection article. The detection duty sits in DORA Article 10 and in the general obligation under Article 16(1), without the RTS setting out roles, triggers and criteria.</div></div>
+    </div>
+    <div class="srcbox" style="margin-bottom:0">
+      <h3>"No article" does not mean "no obligation"</h3>
+      <p>This is the single most important caveat on this page, and it is where simplified-framework programmes go wrong. The RTS elaborates DORA. It does not replace it. Where Title III is silent, the parent regulation still speaks.</p>
+      <p>Incident handling is the clearest case. There is no incident management policy article in Title III, but DORA Articles 17 to 23 — the classification of ICT-related incidents and the initial, intermediate and final reporting obligations — apply to financial entities regardless of which framework they are on. An entity that reads the silence in Title III as an exemption from incident reporting has misread the instrument badly.</p>
+      <p>The same holds for the management body. Title III has no human resources article, but DORA Article 5(2) still places ultimate responsibility for ICT risk on the management body, and Article 13(6) still requires ICT security awareness and training.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="gaps">
+  <div class="inn">
+    <div class="sl">The gaps</div>
+    <h2 class="st">What none of these three frameworks gives you</h2>
+    <p class="ss">Every honest mapping needs this section. There are DORA duties that no certificate closes, because they are not control objectives — they are obligations owed to a supervisor, and to your counterparties.</p>
+    <div class="prose">
+      <ul>
+        <li><b>The register of information.</b> DORA Article 28(3) requires a register of all contractual arrangements for the use of ICT services from third-party providers, maintained in a prescribed format and reported to your competent authority. No ISO or PCI control produces it.</li>
+        <li><b>Major incident reporting.</b> The classification criteria and the initial, intermediate and final report cascade to your competent authority under DORA Articles 18 to 20. ISO 27001 A.5.24 to A.5.27 give you incident management. They do not give you a regulator's deadline.</li>
+        <li><b>Contractual content for ICT third parties.</b> DORA Article 30 sets out mandatory contractual provisions — access, audit and inspection rights, exit strategies, service level descriptions, sub-contracting conditions. A.5.20 requires agreements to address information security; it does not prescribe these terms.</li>
+        <li><b>Threat-led penetration testing.</b> Advanced testing under DORA Articles 26 and 27, for entities identified by their competent authority, following TIBER-EU style methodology. A.8.29 security testing is a different animal at a different scale.</li>
+        <li><b>The oversight framework for critical ICT third-party providers.</b> Titles V and the CTPP designation regime create obligations that sit outside any entity's own management system.</li>
+        <li><b>Management body accountability.</b> DORA Article 5(2) makes the management body ultimately responsible for ICT risk, with defined duties and a training obligation. ISO 27001 clause 5.1 requires leadership commitment; it does not create personal regulatory accountability.</li>
+      </ul>
+      <p>None of that is a criticism of the standards. They were written to manage risk, not to satisfy a European supervisory regime. The practical shape of a DORA programme is the management system as the engine, with the regulatory duties bolted on as a defined, separately evidenced layer.</p>
+    </div>
+    <div class="srcbox" style="margin-bottom:0">
+      <h3>On percentages</h3>
+      <p>We publish no coverage percentage for DORA, for the same reason we publish none for NIS2. There is no reproducible method behind the figures that circulate, no regulator has endorsed one, and a number invites exactly the false comfort this page is trying to prevent. A list of what is missing is less satisfying and considerably more useful.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inn">
+    <div class="sl">Editor's notes</div>
+    <h2 class="st">How this page was built, and where the judgement calls are</h2>
+    <div class="prose">
+      <p>Reproducing a regulation and adding analysis to it means separating the two clearly.</p>
+      <ul>
+        <li><b>Article numbers and titles are the regulation's.</b> They were parsed directly from the EUR-Lex HTML of Regulation (EU) 2024/1774 rather than retyped, so the titles here are the published ones. The regulation has 42 articles; Article 42 is entry into force and is not mapped, which is why this page shows 41.</li>
+        <li><b>The plain-language line under each article title is ours</b>, and is a summary rather than a substitute for the article text. Where a summary and the regulation differ, the regulation wins — it is linked at the top of the page.</li>
+        <li><b>The correspondence between Title III and Title II is our derivation</b>, based on the two Titles' subject matter article by article. The regulation does not publish a concordance between its own halves. It is the most interpretive thing on this page and the most useful, so it is marked visually in every article rather than buried.</li>
+        <li><b>PCI DSS is mapped at the level of its twelve requirements</b>, not at sub-requirement level. That is deliberate. The twelve titles here are the official v4.0.1 wording; the sub-requirement text is a copyrighted document we are not going to paraphrase from memory. A coarser mapping that is correct beats a granular one decorated with plausible fiction.</li>
+        <li><b>ISO 22301 is mapped at clause x.y</b> and no deeper, on the same principle, and consistently with our NIS2 page.</li>
+        <li><b>Control and clause titles are the standards' own short titles</b>, added so the table can be read without three standards open beside you. No standard's requirement text is reproduced.</li>
+      </ul>
+      <p>Found something wrong, or disagree with a row? <a href="/#contact">Tell us</a> and we will correct it and say so here. A mapping nobody argues with is usually a mapping nobody has checked.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Questions</div>
+    <h2 class="st">Common questions about DORA and these frameworks</h2>
+    <div style="max-width:820px">
+      <details class="faq-item">
+        <summary>Does ISO 27001 certification make us DORA compliant?</summary>
+        <div class="faq-a">No. It covers a substantial part of the RTS — most of Title II Chapters I to III map onto Annex A controls and the management-system clauses — and it produces much of the evidence a supervisor will ask to see. It does not produce the register of information, the major incident reporting cascade, the mandatory contractual terms for ICT third-party providers, threat-led penetration testing, or the management body accountability DORA Article 5(2) creates. Those are set out in <a href="#gaps">the gaps section</a>. Treat the ISMS as the engine and the regulatory duties as a separate, evidenced layer.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What is Commission Delegated Regulation (EU) 2024/1774?</summary>
+        <div class="faq-a">It is the regulatory technical standard specifying ICT risk management tools, methods, processes and policies under DORA. It was adopted on 13 March 2024 and published in the Official Journal on 25 June 2024. It has 42 articles: Article 1 on proportionality, Articles 2 to 27 setting out the full ICT risk management framework under DORA Article 15, Articles 28 to 41 setting out the simplified framework for entities under DORA Article 16(1), and Article 42 on entry into force. It is directly applicable law, not guidance.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do we know whether we are on the full or the simplified framework?</summary>
+        <div class="faq-a">You work it out from DORA Article 16(1), and it is not something you can look up on a public register. The categories it points to include small and non-interconnected investment firms, payment institutions and electronic money institutions that are exempted under their own sectoral directives, small institutions for occupational retirement provision, and certain microenterprises. Each of those has its own defined test, and the interconnectedness limb in particular is a judgement about your operations rather than a fact about your licence. It is worth establishing deliberately and documenting the reasoning, because your whole programme scope follows from it. <a href="/dora-article-16.html">More on the Article 16 framework</a>.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is there an official mapping between DORA and ISO 27001?</summary>
+        <div class="faq-a">We have not found one. Unlike NIS2 — where ENISA published a mapping table correlating the implementing regulation to nine frameworks, which we <a href="/nis2-iso-27001-mapping.html">reproduce in full here</a> — no equivalent exists from the European Supervisory Authorities, ENISA, a national competent authority, or ISO. Everything in the three columns on this page is therefore NexGenio's own analysis and is marked as such. If an official mapping is published we will say so and reconcile this page against it.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Why is ISO 22301 on this page rather than just ISO 27001?</summary>
+        <div class="faq-a">Because ICT business continuity is an entire chapter in both halves of the RTS, and because the regulation repeatedly relies on the business impact analysis. Articles 25, 26 and 39 all require plans and testing to be built on the results of a BIA. The BIA is an ISO 22301 clause 8.2 artefact. ISO 27001 addresses continuity through three Annex A controls — A.5.29, A.5.30 and A.8.13 — which tell you to plan ICT readiness against continuity objectives without telling you how those objectives were derived. For DORA, that derivation is exactly what a supervisor will ask about.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does PCI DSS apply to us as a financial entity?</summary>
+        <div class="faq-a">Only if you handle cardholder data. PCI DSS is a card-brand contractual scheme rather than law, and its scope is triggered by storing, processing or transmitting cardholder data or sensitive authentication data, or by being able to affect the security of that data. Card issuers, acquirers, payment institutions and processors in a card flow are typically in scope. An investment firm, an IORP or a fund manager with no card touchpoints has no PCI DSS obligation at all. The column is on this page because the overlap is real for part of the sector, not because it applies to the whole of it.</div>
+      </details>
+      <details class="faq-item">
+        <summary>If Title III has no incident management article, do Article 16 entities avoid incident reporting?</summary>
+        <div class="faq-a">No, and this is the most consequential misreading of the simplified framework we see. The RTS elaborates DORA; it does not replace it. DORA Articles 17 to 23 govern ICT-related incident management, classification and the initial, intermediate and final reporting cascade to the competent authority, and they apply to financial entities irrespective of which framework they are on. The absence of an elaborating article in Title III means less prescription about how you build the capability, not an exemption from the duty.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can we show this page to our supervisor as evidence?</summary>
+        <div class="faq-a">Use it as a navigation aid, not as evidence. It is one consultancy's reading of how three voluntary frameworks relate to a directly applicable regulation, and it carries no regulatory authority. What a supervisor will want is your own assessment against the articles that apply to your regime, with the evidence behind each one, and a clear account of the duties that sit outside any framework. This page is a reasonable place to start that work and a poor place to end it.</div>
+      </details>
+    </div>
+    <p style="margin-top:34px;font-size:14px;color:#666;max-width:820px">Article structure and titles sourced from Commission Delegated Regulation (EU) 2024/1774 as published in the Official Journal. Framework references are NexGenio analysis. PCI DSS facts verified against PCI DSS v4.0.1 (June 2024). This page is reviewed when any source is revised. <strong>Last reviewed 17 September 2026.</strong></p>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Knowing which regime applies is the first decision, not the last</h2>
+  <p>A short call establishes which framework you fall under, what your existing certifications already cover, and which of the duties outside them you still need to build. From there you get something you can take to your board.</p>
+  <a class="btn" href="/#contact">Book a scoping call</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-brand-text"><div class="fn">NexGenio LTD</div><div class="ft">Compliance by design.</div></div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Services</h5><a href="/#services">ISO 27001</a><a href="/#services">ISO 22301</a><a href="/#services">ISO 42001</a><a href="/nis2.html">NIS2</a><a href="/dora-article-16.html">DORA Article 16</a></div>
+        <div class="footer-col"><h5>Free tools</h5><a href="/nis2-iso-27001-mapping.html">NIS2 framework mapping</a><a href="/dora-mapping.html">DORA framework mapping</a><a href="/nis2-board-training.html">Board training</a></div>
+        <div class="footer-col"><h5>Training</h5><a href="/training/index.html">All courses</a><a href="/live/index.html">Live schedule</a></div>
+        <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#approach">Approach</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reqs=[].slice.call(document.querySelectorAll('.req'));
+  var refs=[].slice.call(document.querySelectorAll('.refs'));
+  var bar=document.getElementById('fwbar');
+  var btns=bar?[].slice.call(bar.querySelectorAll('.fw[data-fw]')):[];
+  var regBtns=[].slice.call(document.querySelectorAll('.rg[data-reg]'));
+  var q=document.getElementById('q'), qc=document.getElementById('qc');
+  var reg='all';
+
+  function applyFw(){
+    if(!btns.length)return;
+    var on={};
+    btns.forEach(function(b){if(b.classList.contains('on'))on[b.getAttribute('data-fw')]=1;});
+    refs.forEach(function(r){r.style.display=on[r.getAttribute('data-fw')]?'':'none';});
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){b.classList.toggle('on');applyFw();});
+  });
+  var all=document.getElementById('fwall');
+  if(all){all.addEventListener('click',function(){
+    var every=btns.every(function(b){return b.classList.contains('on');});
+    btns.forEach(function(b){b.classList.toggle('on',!every);});
+    all.textContent=every?'Select all':'Clear all';
+    applyFw();
+  });}
+
+  function applyFilter(){
+    var t=(q&&q.value||'').toLowerCase().trim();
+    var shown=0;
+    reqs.forEach(function(r){
+      var dr=r.getAttribute('data-reg');
+      var okReg=(reg==='all')||(dr==='both')||(dr===reg);
+      var okTxt=!t||r.textContent.toLowerCase().indexOf(t)>-1;
+      var vis=okReg&&okTxt;
+      r.style.display=vis?'':'none';
+      if(vis)shown++;
+    });
+    [].slice.call(document.querySelectorAll('.sec-block')).forEach(function(b){
+      var any=[].slice.call(b.querySelectorAll('.req')).some(function(r){return r.style.display!=='none';});
+      b.style.display=any?'':'none';
+    });
+    if(qc)qc.textContent=(t||reg!=='all')?(shown+' of '+reqs.length+' articles'):'';
+  }
+  regBtns.forEach(function(b){
+    b.addEventListener('click',function(){
+      regBtns.forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      reg=b.getAttribute('data-reg');
+      applyFilter();
+    });
+  });
+  if(q)q.addEventListener('input',applyFilter);
+  applyFw();applyFilter();
+})();
+</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://nexgenio.com/dora-mapping.html","name":"DORA framework mapping — every article of Commission Delegated Regulation (EU) 2024/1774 against ISO 27001, ISO 22301 and PCI DSS","description":"All 41 substantive articles of the DORA regulatory technical standard on ICT risk management, mapped to ISO/IEC 27001:2022, ISO 22301:2019 and PCI DSS v4.0.1, with the full framework under DORA Article 15 and the simplified framework under Article 16 set side by side. NexGenio original analysis; no regulator has published a DORA crosswalk.","dateModified":"2026-09-16","datePublished":"2026-09-16","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"NexGenio","url":"https://nexgenio.com"},"about":[{"@type":"Legislation","name":"Regulation (EU) 2022/2554 (DORA)","legislationIdentifier":"32022R2554","url":"https://eur-lex.europa.eu/eli/reg/2022/2554/oj"},{"@type":"Legislation","name":"Commission Delegated Regulation (EU) 2024/1774","legislationIdentifier":"32024R1774","url":"https://eur-lex.europa.eu/eli/reg_del/2024/1774/oj"}],"citation":["https://eur-lex.europa.eu/eli/reg/2022/2554/oj","https://eur-lex.europa.eu/eli/reg_del/2024/1774/oj","https://www.pcisecuritystandards.org/document_library/"],"publisher":{"@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com"}}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nexgenio.com/"},{"@type":"ListItem","position":2,"name":"DORA","item":"https://nexgenio.com/dora-article-16.html"},{"@type":"ListItem","position":3,"name":"DORA framework mapping","item":"https://nexgenio.com/dora-mapping.html"}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does ISO 27001 certification make us DORA compliant?","acceptedAnswer":{"@type":"Answer","text":"No. ISO/IEC 27001:2022 covers a substantial part of Commission Delegated Regulation (EU) 2024/1774 and produces much of the evidence a supervisor will ask to see, but it does not produce the register of information required by DORA Article 28(3), the major incident reporting cascade under DORA Articles 18 to 20, the mandatory contractual provisions for ICT third-party providers under DORA Article 30, threat-led penetration testing under DORA Articles 26 and 27, or the management body accountability created by DORA Article 5(2)."}},{"@type":"Question","name":"What is Commission Delegated Regulation (EU) 2024/1774?","acceptedAnswer":{"@type":"Answer","text":"It is the regulatory technical standard specifying ICT risk management tools, methods, processes and policies under DORA. Adopted 13 March 2024 and published in the Official Journal on 25 June 2024, it contains 42 articles: Article 1 on proportionality, Articles 2 to 27 setting out the full ICT risk management framework under DORA Article 15, Articles 28 to 41 setting out the simplified ICT risk management framework for the financial entities referred to in DORA Article 16(1), and Article 42 on entry into force."}},{"@type":"Question","name":"Is there an official mapping between DORA and ISO 27001?","acceptedAnswer":{"@type":"Answer","text":"No official mapping has been found. Unlike NIS2, where ENISA published a mapping table correlating Commission Implementing Regulation (EU) 2024/2690 to nine frameworks, no equivalent crosswalk has been published for DORA by the European Supervisory Authorities, ENISA, a national competent authority, or ISO. Mappings between DORA and ISO 27001 currently available are consultancy analysis rather than regulatory material."}},{"@type":"Question","name":"If Title III has no incident management article, are DORA Article 16 entities exempt from incident reporting?","acceptedAnswer":{"@type":"Answer","text":"No. The regulatory technical standard elaborates DORA; it does not replace it. DORA Articles 17 to 23 govern ICT-related incident management, classification and the initial, intermediate and final reporting cascade to the competent authority, and they apply to financial entities irrespective of whether they follow the full ICT risk management framework or the simplified framework. The absence of an elaborating article in Title III of Commission Delegated Regulation (EU) 2024/1774 means less prescription about how the capability is built, not an exemption from the duty."}},{"@type":"Question","name":"Does PCI DSS apply to financial entities under DORA?","acceptedAnswer":{"@type":"Answer","text":"Only where the entity handles cardholder data. PCI DSS is a payment card brand contractual scheme rather than law, and its scope is triggered by storing, processing or transmitting cardholder data or sensitive authentication data, or by being able to affect the security of that data. Card issuers, acquirers, payment institutions and processors in a card transaction flow are typically in scope. An investment firm, an institution for occupational retirement provision, or a fund manager with no card data touchpoints has no PCI DSS obligation. The current version is PCI DSS v4.0.1, published June 2024."}},{"@type":"Question","name":"Why map DORA to ISO 22301 as well as ISO 27001?","acceptedAnswer":{"@type":"Answer","text":"Because ICT business continuity is a full chapter in both halves of the regulatory technical standard — Title II Chapter IV and Title III Chapter III — and because Articles 25, 26 and 39 require business continuity plans, testing and recovery plans to be built on the results of a business impact analysis. The business impact analysis is an ISO 22301:2019 clause 8.2 artefact. ISO/IEC 27001:2022 addresses continuity through three Annex A controls, A.5.29, A.5.30 and A.8.13, which require ICT readiness to be planned against business continuity objectives without specifying how those objectives are derived."}}]}</script>
+
+</body>
+</html>
