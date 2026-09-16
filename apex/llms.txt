@@ -8,6 +8,10 @@
 - [Live Courses](https://nexgenio.com/live/index.html) — Live instructor-led training schedule; next course: ISO/IEC 27001 Lead Implementer, starts 21 September 2026
 - [Blog](https://nexgenio.com/blog/index.html) — Insights and updates on compliance, cybersecurity, and AI governance
 
+## Reference Tables
+
+- [NIS2 to ISO 27001 mapping](https://nexgenio.com/nis2-iso-27001-mapping.html) — All 49 requirements of the Annex to Commission Implementing Regulation (EU) 2024/2690 mapped to ISO/IEC 27001:2022 clauses and Annex A controls, reproduced from ENISA's own mapping table version 1.1 (10 July 2025). Includes a reverse index from each of the 93 Annex A controls to the NIS2 requirements it serves, the Article 21(2) linkage for every requirement, and a list of the NIS2 obligations that have no ISO 27001 equivalent — registration with the national authority, the 24-hour/72-hour/one-month incident reporting cascade, and the Article 20 management body accountability and training duty. 69 of the 93 Annex A controls are referenced by the mapping. Free, no signup
+
 ## Regulatory Services
 
 - [NIS2 compliance](https://nexgenio.com/nis2.html) — Scope determination for essential and important entities, the ten Article 21 risk management measures, Article 20 board accountability, incident reporting timelines and supply chain security. Covers the Dutch Cyberbeveiligingswet, in force 15 August 2026. Entry point is the fixed-scope, fixed-price NIS2 Baseline Check
