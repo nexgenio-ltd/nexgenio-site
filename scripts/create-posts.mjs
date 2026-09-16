@@ -309,6 +309,68 @@ To talk it through, [book a scoping call](https://calendly.com/toby-nexgenio/sco
 For teams building the competence in-house, the [NIS2 Lead Implementer](/self/nis2-lead-implementer.html) and [NIS2 Foundation](/self/nis2-foundation.html) pathways develop exactly this capability, and the [DORA Lead Manager](/self/dora-lead-manager.html) programme covers the financial-sector obligations that run alongside it.
 
 The law is in force and the register is open. The organisations that move first get to set their own scope position rather than have one set for them.`
+  },
+  {
+    title: "Your patch policy says 30 days. The turbine says no.",
+    slug: "patch-policy-30-days-turbine-says-no",
+    publishedDate: "2026-09-16",
+    excerpt: "The IT security playbook assumes systems can be patched, rebooted, and restored. Industrial control systems run physical processes where none of those assumptions hold. ISA/IEC 62443 is the standards series built for that difference.",
+    metaTitle: "Your patch policy says 30 days. The turbine says no.",
+    metaDescription: "Why IT security controls do not transfer to industrial automation and control systems, and how ISA/IEC 62443 closes the gap between corporate policy and the plant floor.",
+    featuredImageUrl: `${ASSETS}/post-10-patch-policy-turbine-article-og.png`,
+
+    body: `A security team finishes a strong year. The ISMS is certified, the corporate estate is patched inside thirty days, MFA is everywhere, and the board is satisfied. Then the same policy is extended to the operational side of the business, and it meets a turbine.
+
+The turbine runs a control system from 2011. The vendor will void the support contract if anything is patched outside their validated release. The maintenance window is one weekend in March. A reboot takes the line down, and taking the line down costs more per hour than the entire security budget for the quarter.
+
+The security team is not wrong. The policy is not wrong. It was simply written for a world where systems can be restarted.
+
+## Why the IT playbook does not transfer
+
+Corporate IT optimises for confidentiality first. A compromised laptop gets isolated, wiped, and rebuilt, and the cost is one person's afternoon.
+
+Industrial automation and control systems invert that order. Availability and safety come first, because the system is not processing records, it is holding pressure, moving current, or keeping something at temperature. An automated isolation response that would be prudent on a laptop can trip a process on a plant floor. The safety instrumented system exists precisely so that nothing else gets to make that call.
+
+This produces a set of constraints that most security policies never anticipate:
+
+- **Equipment lifecycles measured in decades.** A control system commissioned in 2011 has another fifteen years to run. "Upgrade to a supported version" is a capital project, not a change ticket.
+- **Vendor validation.** Patching outside a vendor's tested release can void support on equipment the business cannot operate without.
+- **Protocols without security primitives.** Much of the industrial estate speaks protocols designed when the network was assumed to be physically isolated. They carry no authentication to enable.
+- **Change windows measured in hours per year.** Not per month.
+
+None of this makes the estate unsecurable. It makes it unsecurable *by that method*.
+
+## What ISA/IEC 62443 does differently
+
+ISA/IEC 62443 is the international series of standards for the cybersecurity of industrial automation and control systems, developed jointly by the ISA99 committee and IEC Technical Committee 65. It was written from the plant outward rather than from the data centre inward, and three ideas do most of the work.
+
+**Zones and conduits.** Rather than treating the industrial network as one flat thing to be hardened uniformly, the estate is divided into zones of assets with a shared security requirement, connected by defined conduits. The question stops being "is the plant secure" and becomes "what crosses this boundary, and what is allowed to."
+
+**Security levels.** Each zone is assigned a target security level according to the capability of the adversary it needs to withstand, from casual misuse through to a well-resourced attacker with specific knowledge of industrial systems. That allows a safety zone to carry heavy protection while a zone with no safety consequence does not, instead of applying one standard everywhere and failing to fund it.
+
+**Foundational requirements.** Seven of them, covering identification and authentication, use control, system integrity, data confidentiality, restricted data flow, timely response to events, and resource availability. Controls are derived from these rather than borrowed from an IT framework and reinterpreted.
+
+The result is a defensible answer to the turbine. Not "patch it in thirty days," but "this asset sits in a zone at a defined security level, the compensating controls on its conduit are these, and here is the reasoning."
+
+## Where this meets NIS2
+
+The sectors NIS2 covers are not abstract. Energy, drinking water, waste water, transport and manufacturing all sit in scope, and all of them run physical processes. A scope determination that quietly covers only the corporate network has not covered the entity.
+
+That matters for the management body specifically. Under Article 20 the board approves the risk-management measures and answers for them. If the industrial estate was assessed with a framework that assumes systems can be rebooted, the approval rests on an assessment that does not describe the asset. The gap does not show up until a supervisor or an incident asks the question.
+
+This is the same translation problem NexGenio works on everywhere else, with a shorter fuse. Regulatory obligation has to become an operational specification, and on the industrial side the specification has to survive contact with equipment that was commissioned before the obligation existed.
+
+## Where to start
+
+We have added the [ISA/IEC 62443 Lead Implementer](/self/isa-iec-62443-lead-implementer.html) programme to the self-paced catalogue. It covers the series end to end: terminology and IACS networks, system security requirements, maturity models and security levels, risk assessment, supply chain, patching strategy, monitoring, security testing, and incident response for industrial environments.
+
+One thing worth knowing before you enrol. PECB awards the credential tier your evidenced experience supports, so the Lead Implementer credential asks for five years of professional experience with two of them specifically in industrial automation and control management, plus 300 project hours. Coming from IT security with no plant time yet, you qualify for Provisional Implementer on passing and move up as the industrial experience accumulates. Same exam, same course, no retake.
+
+For the regulatory side that sits above it, the [NIS2 Lead Implementer](/self/nis2-lead-implementer.html) pathway covers the directive itself, and the [NIS2 page](/nis2.html) sets out the scope question and the ten Article 21 measures.
+
+If the question is which side of the scope line your industrial estate sits on, [book a scoping call](https://calendly.com/toby-nexgenio/scope_check). Thirty minutes.
+
+The policy was written for machines that can be restarted. The next one needs to be written for the ones that cannot.`
   }
 ];
 
