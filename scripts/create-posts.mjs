@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * One-time script: creates blog posts 2-9 in Strapi and publishes them.
+ * Creates blog posts in Strapi and publishes them.
+ * Idempotent: posts that already exist (matched on slug) are skipped.
  * Run via .github/workflows/create-strapi-posts.yml
  */
 
@@ -254,6 +255,60 @@ NexGenio builds the governance architecture that closes this gap. Risk is restru
 The result is a leadership team that meets its Article 20(2) obligations with substance. Directors see cybersecurity risk in terms they can govern. CISOs present to an audience that engages with the content. And the organisation replaces ceremonial approval with informed decision-making at the highest level.
 
 Personal liability demands personal understanding. NexGenio delivers the structure that makes both possible.`
+  },
+  {
+    title: "The Cyberbeveiligingswet is live. We are opening the Netherlands.",
+    slug: "opening-the-netherlands-cyberbeveiligingswet",
+    publishedDate: "2026-09-16",
+    excerpt: "The Dutch NIS2 implementation entered into force on 15 August 2026. More than 8,000 organisations are now in scope, each with a register entry to maintain and a management body that signs for it. NexGenio is now serving the Dutch market.",
+    metaTitle: "The Cyberbeveiligingswet is live. We are opening the Netherlands.",
+    metaDescription: "The Cyberbeveiligingswet entered into force on 15 August 2026, bringing 8,000+ Dutch organisations into NIS2 scope. NexGenio is now serving the Netherlands with governance architecture and a technical partner bench.",
+
+    body: `On 15 August 2026 the Cyberbeveiligingswet entered into force, and the Netherlands moved NIS2 from a directive discussed in advisory notes to national law with a supervisor attached. More than 8,000 Dutch organisations are now in scope.
+
+NexGenio is opening the Netherlands. This post sets out what the law asks for, how we work, and where an organisation can usefully start.
+
+## What the Cyberbeveiligingswet puts in place
+
+The Dutch implementation gives NIS2 a concrete operating shape:
+
+- **A mandatory entity register.** In-scope organisations register through MijnNCSC. The entry is a living record: material changes are reportable within 14 days.
+- **A named CSIRT.** NCSC-NL receives incident notifications and provides assistance.
+- **A named supervisor.** RDI supervises the majority of sectors. Financial entities answer to DNB and AFM, and personal data obligations remain with the Autoriteit Persoonsgegevens.
+- **Board accountability.** Management bodies approve the risk measures, keep themselves trained, and answer for the outcome.
+
+The register entry is the visible part. The substance sits in Article 21, which names ten categories of risk-management measure, and Article 20, which puts the management body's signature on them.
+
+## What we see in the Dutch market
+
+Dutch organisations already run good security engineering. Amsterdam, Rotterdam and Eindhoven have deep benches in pentesting, threat intelligence, OT security and managed detection. The work is strong and the market knows it.
+
+What the Cyberbeveiligingswet adds is a governance question on top of that engineering: who decided this was enough, on what basis, and can the board explain the reasoning to RDI. That is a translation exercise between technical reality and the language a supervisor and a management body use. It is the layer NexGenio builds.
+
+## How we work here
+
+We work as an orchestrator, not a single-vendor stack.
+
+1. **NexGenio provides the governance read.** A structured intake against Article 21 and Article 20, producing a position the board can hold and defend.
+2. **A specialist partner provides the technical read.** An independent external assessment from a firm that does that work every day.
+3. **Both reads are delivered co-branded.** The client sees two named organisations and two lines of reasoning, which is exactly what makes the conclusion worth something.
+4. **Scope is fixed before we start.** The organisation knows the boundary, the deliverable and the fee in advance.
+
+Three independent reads carry more weight with a supervisor than one vendor assessing its own recommendations.
+
+Our delivery model is built around this. Under the EU Services Directive and the Dutch Dienstenwet, advisory services are delivered across the internal market without a separate Netherlands establishment, so a Dutch client works with the same team and the same partner bench from day one. Our scope is governance, NIS2 and DORA: we advise on regulatory obligations and the management systems that satisfy them, which sits outside the licensed perimeter of the Wft.
+
+## Where to start
+
+The **NIS2 Baseline Check** is the entry point. It is a fixed-scope discovery engagement: a governance intake session, an independent technical read from the partner bench, and a written position covering scope determination, the Article 21 measures, the register obligation, and what the board needs to be able to say.
+
+Full detail on scope, the ten measures and the Dutch specifics is on the [NIS2 page](/nis2.html).
+
+To talk it through, [book a scoping call](https://calendly.com/toby-nexgenio/scope_check). Thirty minutes, and you leave it knowing which side of the scope line you sit on.
+
+For teams building the competence in-house, the [NIS2 Lead Implementer](/self/nis2-lead-implementer.html) and [NIS2 Foundation](/self/nis2-foundation.html) pathways develop exactly this capability, and the [DORA Lead Manager](/self/dora-lead-manager.html) programme covers the financial-sector obligations that run alongside it.
+
+The law is in force and the register is open. The organisations that move first get to set their own scope position rather than have one set for them.`
   }
 ];
 
