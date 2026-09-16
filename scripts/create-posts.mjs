@@ -371,6 +371,71 @@ For the regulatory side that sits above it, the [NIS2 Lead Implementer](/self/ni
 If the question is which side of the scope line your industrial estate sits on, [book a scoping call](https://calendly.com/toby-nexgenio/scope_check). Thirty minutes.
 
 The policy was written for machines that can be restarted. The next one needs to be written for the ones that cannot.`
+  },
+
+  {
+    title: "Your DORA scope may include four obligations you do not have.",
+    slug: "dora-article-16-four-obligations-you-may-not-have",
+    publishedDate: "2026-09-16",
+    excerpt: "DORA contains a simplified regime in Article 16 under which four of the framework obligations fall away entirely. Whether a firm sits inside it is decided by figures that appear on no public register, which is why almost every proposal quotes the full regime by default.",
+    metaTitle: "Your DORA scope may include four obligations you do not have.",
+    metaDescription: "DORA Article 16 removes four ICT risk management obligations for small and non-interconnected financial entities. The eligibility tests are internal figures, not public data, so the only way to establish the answer is to check.",
+    featuredImageUrl: `${ASSETS}/post-11-dora-art16-article-og.png`,
+
+    body: `A twelve-person investment firm receives a DORA proposal. It is a good proposal. It is thorough, it is well structured, and it prices out a full ICT risk management framework: governance, an internal audit cycle over the framework, business continuity testing that includes cyber-attack scenarios, a recurring risk analysis on legacy systems, and a named role monitoring ICT third-party arrangements.
+
+Every line is a genuine DORA obligation. Four of them may not be this firm's obligations.
+
+## Article 16 is a different regime, not a discount
+
+DORA sets out its full ICT risk management framework in Articles 5 to 15. Article 16 then sets out a simplified framework, written into the regulation itself and confirmed in supervisory guidance, that applies to a defined set of smaller entities.
+
+It is worth being precise about what it does. It is not a lighter interpretation of the same duties, and it is not a grace period. It is a narrower set of obligations, and four things drop out of scope entirely:
+
+- **Internal audit of the ICT framework.** No requirement for a regular internal audit cycle over the ICT risk management framework.
+- **Cyber-attack scenario testing.** No mandatory inclusion of cyber-attack scenarios in business continuity and recovery testing.
+- **Legacy system risk analysis.** No requirement for regular risk analysis on legacy ICT systems.
+- **A dedicated third-party role.** No requirement to staff a role specifically monitoring ICT third-party arrangements.
+
+For a firm of twelve people, those four are not marginal. The internal audit requirement alone usually means bringing in a second party, because auditing your own framework does not produce the independence the obligation is asking for.
+
+Everything else still applies. Article 16 entities still need a proportionate framework, still identify and document their ICT assets and dependencies, still run continuity and recovery arrangements, still report major ICT-related incidents on the regulatory timelines, and still manage third-party risk. The simplified regime shortens the list. It does not end the conversation.
+
+## Six categories can fall inside it
+
+The regulation names them: small and non-interconnected investment firms, exempted payment institutions, exempted electronic money institutions, institutions exempted under the Capital Requirements Directive, small institutions for occupational retirement provision, and microenterprises.
+
+Reading that list, a lot of firms recognise themselves. Recognising yourself in the category is not the same as meeting the test.
+
+## The reason nobody has told you either way
+
+Here is the structural problem, and it is worth understanding because it explains almost everything about how this market behaves.
+
+The tests that decide Article 16 eligibility are built from figures only the firm holds. Assets under management. Assets held and administered. Client money held. Daily trading flow. Balance sheet total. Annual revenue. None of it appears on a public register, and several of the tests are not asking whether a figure is small. They are asking whether it is **zero**. A single exercised permission, used once, can change the answer.
+
+Group membership adds a second layer. Belonging to a group does not remove Article 16 on its own, but it changes the basis of calculation, because several tests are assessed on a combined basis across the group. A subsidiary can still qualify. It simply takes a closer look to establish.
+
+So no list can tell you. No register can tell you. Your regulator will not proactively write to you and confirm it. And an adviser pricing a proposal without that information has one safe assumption available, which is the full regime.
+
+That assumption is reasonable. It is also worth testing before it becomes the scope of a programme.
+
+## What this is worth establishing before, not after
+
+The pattern we see is that the question gets asked late. A firm scopes to the full framework, builds it, and only when a supervisor or an auditor asks a proportionality question does anyone go back to Article 16.
+
+Asking first is cheaper and it produces a better artefact. A firm that has run the tests and documented the outcome holds a written, reasoned scope determination. If it qualifies, the programme is scoped correctly from the start. If it does not, it has a defensible record of why the full regime applies, which is exactly what a supervisor wants to see at the front of a framework anyway.
+
+Either answer is useful. Only the unasked question costs anything.
+
+## How to find out
+
+We built a page setting out [the Article 16 simplified regime](/dora-article-16.html) in full, including what falls away, who it can cover, and why the tests are harder to apply than they look.
+
+If you want the answer for your own firm, [book a scoping call](https://calendly.com/toby-nexgenio/scope_check). Thirty minutes, no preparation needed, and you leave with a clear view of which side of the line you are on and what the resulting obligations actually are.
+
+For teams building the capability in-house, the [DORA Lead Manager](/self/dora-lead-manager.html) programme covers the regulation end to end, and the [DORA Foundation](/self/dora-foundation.html) course covers the structure and the terminology for people who need to follow the work rather than lead it.
+
+Four obligations is a meaningful difference for a small firm. It takes one conversation to find out whether they are yours.`
   }
 ];
 
