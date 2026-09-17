@@ -435,7 +435,99 @@ If you want the answer for your own firm, [book a scoping call](https://calendly
 
 For teams building the capability in-house, the [DORA Lead Manager](/self/dora-lead-manager.html) programme covers the regulation end to end, and the [DORA Foundation](/self/dora-foundation.html) course covers the structure and the terminology for people who need to follow the work rather than lead it.
 
-Four obligations is a meaningful difference for a small firm. It takes one conversation to find out whether they are yours.`
+Four obligations is a meaningful difference for a small firm. It takes one conversation to find out whether they are yours.`  },
+  {
+    title: "DORA gates 22 of its 41 articles on criticality. It never says how to measure it.",
+    slug: "dora-criticality-the-measurement-nobody-defines",
+    publishedDate: "2026-09-17",
+    excerpt: "Twenty-two of the forty-one substantive articles of the DORA technical standard change depending on whether a function is critical or important. The regulation specifies no method for deciding that, and the same is true of the risk tolerance level two further articles are built on.",
+    metaTitle: "DORA gates 22 of its 41 articles on criticality. It never says how to measure it.",
+    metaDescription: "More than half the DORA ICT risk management technical standard is scoped by criticality, and the regulation gives no method for determining it. Nor for the risk tolerance level Articles 3 and 31 require. Both are business measurements, not technical ones.",
+    featuredImageUrl: `${ASSETS}/post-12-dora-criticality-article-og.png`,
+
+    body: `A DORA gap assessment lands on the desk. It is forty-one rows long, one per article of the regulatory technical standard, each with a status and an owner. Somewhere in the middle is a list headed *critical or important functions*.
+
+Ask where that list came from and the answer is usually one of two things. Either the IT function drew it up from the systems it considers important, or someone took the activities the firm is authorised to carry out and assumed those were the answer.
+
+Neither is a measurement. And the list is doing more work than almost anything else in the document.
+
+## Twenty-two of forty-one articles change depending on that list
+
+Commission Delegated Regulation (EU) 2024/1774 is the technical standard sitting under DORA's ICT risk management requirements. It has forty-two articles, forty-one of which impose substantive obligations.
+
+We ran the regulation's own wording against itself. Twenty-two of those forty-one articles condition what they require on whether something is *critical or important*, or on its *criticality*. Not as background colour — as the thing that decides the obligation. The scope of your vulnerability scanning, how you segment your networks, which systems get tested and how often, what your recovery arrangements have to achieve, which third-party arrangements carry which contractual terms, what your logging retains, which changes need which approvals.
+
+More than half the standard is configured by one input.
+
+## The standard never says how to produce it
+
+Here is the part that catches people. Having made criticality the hinge, the regulation declines to say how it is determined. There is no method, no test, no threshold, no worked example.
+
+The phrase *business impact analysis* appears in four of the forty-one articles. It is present in the continuity articles, where you would expect it. It is absent from the twenty-two articles that depend on its output.
+
+So the regulation asks for a measurement in half its provisions, names the instrument that produces it in a tenth of them, and never joins the two together. Firms fill that gap however they can, which is why the same twelve-person firm can be shown two gap assessments a fortnight apart with materially different scope.
+
+## It is a different question from the one security teams are trained to ask
+
+This is not a drafting oversight so much as a difference in discipline, and it is worth naming precisely.
+
+An information security risk assessment reasons **from cause**. It starts with a threat, asks how likely it is and what it could do, and works forward to a control. It is a good instrument and DORA requires it — Article 3 sets out exactly that process, down to the indicators used to measure impact and likelihood.
+
+A business impact analysis reasons **from consequence**. It asks what happens to this organisation if this activity stops, how that worsens over time, and at what point the damage becomes unacceptable. It is deliberately indifferent to cause. Whether the outage came from ransomware, a failed change, a provider going under or a digger through a duct does not alter the answer.
+
+Criticality is a consequence question. It is not asking what might go wrong. It is asking what it costs when it does, and to whom.
+
+ISO 22301:2019 puts that in clause 8.2. The analysis defines the impact types relevant to the organisation, assesses impact over time, identifies the point at which not resuming becomes unacceptable, sets recovery time objectives inside that point, and — clause 8.2.2(h) — determines the dependencies, *including partners and suppliers*, of the activities it has prioritised.
+
+That last sub-clause is the reason procurement belongs in this conversation. The standard makes supplier dependency a mandated output of the analysis, and clause 8.3.4 then makes *partners and suppliers* a resource category the continuity strategy has to account for alongside people, premises and technology. Clause 8.1 carries its own sentence on the point: the organisation shall ensure that outsourced processes and the supply chain are controlled.
+
+## There is a second measurement the standard also leaves open, and this one is the board's
+
+Criticality is not the only undefined number. Article 3 builds an entire accountability loop on a second one, and it is worth reading in order, because very few DORA programmes have all of it.
+
+The ICT risk management policy must record **an indication of the approval of the risk tolerance level** for ICT risk. Risk treatment must be determined so as to bring ICT risk **within that tolerance level**. Where risk remains above it, a named role must be assigned to **accept** it. Those accepted risks go into an inventory, each with a justification. The inventory is reviewed at least annually, and the review asks specifically whether the reasons that justified acceptance are **still valid at the date of the review**. And the policy must contain provisions on a process ensuring that any changes to the **business strategy** are taken into account.
+
+Article 31, the simplified-framework counterpart, states the origin of the threshold plainly: a determination of risk tolerance levels **in accordance with the risk appetite of the financial entity**.
+
+So the standard requires the number to be approved, to gate treatment decisions, to be exceeded only by a named person on the record, to be re-justified every year, and to move when the business strategy moves. It defines no method for setting it.
+
+This is not a technical control. A risk appetite is a statement by the governing body about how much of what kind of risk the organisation will carry in pursuit of its objectives, and it is the board's to make — which is precisely why the regulation puts approval, acceptance and annual re-justification where it does. Treated as a security artefact it becomes a heat map nobody signed. Treated as a governance artefact it becomes the thing that makes every downstream treatment decision defensible, because the person who accepted the residual risk is named and the reasoning is written down.
+
+There is a wrinkle worth knowing if you go looking for help with the number. ISO 31000:2018 is the principal risk management standard, and it does not define *risk appetite* either. Its terms and definitions clause carries eight entries — risk, risk management, stakeholder, risk source, event, consequence, likelihood and control — and risk appetite is not one of them. The standard uses **risk criteria** instead, and gives the subject its own clause, 6.3.4 *Defining risk criteria*, sitting inside clause 6.3 *Scope, context and criteria* — that is, criteria are set as part of establishing what you are doing and why, before any risk is identified in clause 6.4.
+
+That placement is the answer to the question. Risk criteria come from objectives and context. They are not an output of the risk process; they are an input to it, settled first, by the people who own the objectives.
+
+Two practical notes. ISO 31000 is written as guidance rather than as auditable requirements — it is *should* throughout, with no conformity assessment clause — so it informs the determination rather than certifying it. And the companion document for technique selection is **IEC 31010:2019**, *Risk management — Risk assessment techniques*, which is where the methods live once the criteria exist.
+
+Whatever framework a firm uses, the point holds: risk tolerance is derived from what the business is trying to achieve. It cannot be read off the state of the estate, and it cannot be delegated to the people running it.
+
+## The direction of travel is downward, and the regulation says so
+
+Both measurements share a property. They are measurements of the business, not of the technology.
+
+An asset inventory can tell you what you run. Only the business can tell you what it costs when it stops. So criticality is derived downward — from strategy and risk appetite, through a consequence analysis, into a criticality determination, out into recovery objectives, and from there into controls and contract terms. It is not read upward off a list of servers.
+
+The regulation assumes this sequence in its own text. Article 28(2)(a) makes the management body responsible for ensuring the framework allows for the achievement of the firm's business strategy *in accordance with the risk appetite of that financial entity*. Four points later, the same body has to approve the business impact analysis and related policies. And DORA itself, at Article 5(2), places ultimate responsibility for ICT risk on the management body rather than on a technology function.
+
+None of that is novel as governance goes. It has been the settled position for years that ICT risk is a category of enterprise risk rather than a technical domain beside it, and that it aggregates upward into business risk and board oversight. What is new is that DORA codifies it, which means a supervisor can now ask to see the aggregation and expect it to be demonstrable.
+
+## Which is why this is an integration problem
+
+A firm can hold an ISO 27001 certificate, run a competent security function, and still not be able to answer the question the regulation actually asks — because the answer does not live in the security function. It lives in the space between business strategy, continuity, risk and technology, and the work is joining them up.
+
+The same logic reappears wherever consequence drives a security decision. In operational technology, ISA/IEC 62443-3-2 sets its target security levels from a consequence analysis whose definition of consequence explicitly includes business interruption cost — and then stops there, because it produces a security level and never a recovery time. The continuity discipline is what carries the answer the rest of the way, into a recovery objective and into a contract.
+
+## Where to see the working
+
+We publish the full article-by-article table free, with no signup. The [DORA framework mapping](/dora-mapping.html) sets all forty-one articles against ISO/IEC 27001, ISO 22301 and PCI DSS, shows both the full and the simplified regime side by side, and marks every article whose obligation is scoped by criticality so you can see which parts of your programme move when the list changes.
+
+For NIS2 entities the equivalent is the [NIS2 framework mapping](/nis2-iso-27001-mapping.html), which adds a continuity column and an operational technology column that no regulator has published.
+
+If you want the answer for your own firm rather than the general shape of it, [book a scoping call](https://calendly.com/toby-nexgenio/scope_check). Thirty minutes, no preparation needed.
+
+For teams building the capability in-house, [ISO 22301 Lead Implementer](/self/iso-22301-lead-implementer.html) covers the continuity management system and the business impact analysis inside it, [ISO 31000 Risk Manager](/self/iso-31000-risk-manager.html) covers risk criteria and the wider risk management process, and [DORA Lead Manager](/self/dora-lead-manager.html) covers the regulation end to end.
+
+Twenty-two articles are waiting on a number. It is worth knowing where yours came from.`
   }
 ];
 
