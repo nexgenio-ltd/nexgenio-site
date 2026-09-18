@@ -18,6 +18,16 @@
       "Effect": "Allow",
       "Action": "cloudfront:ListFunctions",
       "Resource": "*"
+    },
+    {
+      "Sid": "AssociateTheFunctionWithThePublicDistribution",
+      "Effect": "Allow",
+      "Action": [
+        "cloudfront:GetDistribution",
+        "cloudfront:GetDistributionConfig",
+        "cloudfront:UpdateDistribution"
+      ],
+      "Resource": "arn:aws:cloudfront::124971231536:distribution/E2WWYNB9MTIF3N"
     }
   ]
 }
