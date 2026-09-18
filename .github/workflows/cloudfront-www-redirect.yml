@@ -1,5 +1,16 @@
 name: CloudFront www to apex redirect
 
+# Updates the single viewer-request function on the public distribution.
+#
+# CloudFront allows one viewer-request function per cache behavior, and
+# `nexgenio-directory-index` already holds that slot. So the redirect is merged
+# into that function rather than attached alongside it. This workflow therefore
+# modifies an existing production function — it does not create a new one.
+#
+# Safety: the live code is compared against the committed revert target before
+# anything is written, the new code is tested in DEVELOPMENT against five cases
+# before publish, and the distribution itself is never modified.
+
 on:
   workflow_dispatch:
 
@@ -9,7 +20,9 @@ permissions:
 
 env:
   DIST_ID: E2WWYNB9MTIF3N
-  FN_NAME: nxg-www-to-apex
+  FN_NAME: nexgenio-directory-index
+  SRC: infra/cloudfront/directory-index.js
+  REVERT_TARGET: infra/cloudfront/directory-index.original.js
 
 jobs:
   publish:
@@ -23,128 +36,146 @@ jobs:
           role-to-assume: arn:aws:iam::124971231536:role/NexgenioPublicDeployRole
           aws-region: us-east-1
 
-      - name: Create or update the function
+      - name: Confirm the revert target still matches what is live
         run: |
           set -euo pipefail
-          SRC=infra/cloudfront/www-to-apex.js
-          CFG='{"Comment":"Redirect www.nexgenio.com to the apex","Runtime":"cloudfront-js-2.0"}'
+          aws cloudfront get-function \
+            --name "$FN_NAME" --stage LIVE --region us-east-1 /tmp/live.js
 
-          if aws cloudfront describe-function --name "$FN_NAME" --region us-east-1 >/tmp/fn.json 2>/dev/null; then
-            ETAG=$(jq -r '.ETag' /tmp/fn.json)
-            echo "Function exists, updating (ETag $ETAG)"
-            aws cloudfront update-function \
-              --name "$FN_NAME" \
-              --function-config "$CFG" \
-              --function-code "fileb://$SRC" \
-              --if-match "$ETAG" \
-              --region us-east-1 > /tmp/fn-new.json
-          else
-            echo "Function does not exist, creating"
-            aws cloudfront create-function \
-              --name "$FN_NAME" \
-              --function-config "$CFG" \
-              --function-code "fileb://$SRC" \
-              --region us-east-1 > /tmp/fn-new.json
+          # Compare code only — the committed copy carries an explanatory header.
+          strip () { grep -v '^\s*//' "$1" | grep -v '^\s*$'; }
+          if ! diff <(strip /tmp/live.js) <(strip "$REVERT_TARGET"); then
+            echo "Live function does not match $REVERT_TARGET."
+            echo "Someone changed it outside this workflow. Refusing to overwrite"
+            echo "a version we cannot roll back to. Update the revert target first."
+            exit 1
           fi
+          echo "Live code matches the revert target. Safe to proceed."
 
-          jq -r '.FunctionSummary.FunctionMetadata.FunctionARN' /tmp/fn-new.json
-
-      - name: Test the function before publishing
+      - name: Update the function in DEVELOPMENT
         run: |
           set -euo pipefail
-          ETAG=$(aws cloudfront describe-function --name "$FN_NAME" --stage DEVELOPMENT --region us-east-1 | jq -r '.ETag')
+          aws cloudfront describe-function --name "$FN_NAME" --region us-east-1 > /tmp/fn.json
+          ETAG=$(jq -r '.ETag' /tmp/fn.json)
+          RUNTIME=$(jq -r '.FunctionSummary.FunctionConfig.Runtime' /tmp/fn.json)
+          COMMENT=$(jq -r '.FunctionSummary.FunctionConfig.Comment' /tmp/fn.json)
+          echo "Updating $FN_NAME (runtime $RUNTIME, ETag $ETAG)"
+
+          aws cloudfront update-function \
+            --name "$FN_NAME" \
+            --function-config "$(jq -nc --arg c "$COMMENT" --arg r "$RUNTIME" \
+                 '{Comment:$c, Runtime:$r}')" \
+            --function-code "fileb://$SRC" \
+            --if-match "$ETAG" \
+            --region us-east-1 > /dev/null
+          echo "DEVELOPMENT stage updated. Not live yet."
+
+      - name: Test five cases before publishing
+        run: |
+          set -euo pipefail
+          ETAG=$(aws cloudfront describe-function --name "$FN_NAME" --stage DEVELOPMENT \
+                 --region us-east-1 | jq -r '.ETag')
 
           run_case () {
-            local label="$1" host="$2"
-            cat > /tmp/event.json <<EOF
-          { "version": "1.0",
-            "context": { "eventType": "viewer-request" },
-            "viewer": { "ip": "1.2.3.4" },
-            "request": {
-              "method": "GET",
-              "uri": "/self/iso-27001-lead-implementer/",
-              "querystring": { "utm_source": { "value": "li" } },
-              "headers": { "host": { "value": "$host" } },
-              "cookies": {}
-            } }
-          EOF
+            local label="$1" host="$2" uri="$3" qs="$4"
+            jq -nc --arg h "$host" --arg u "$uri" --argjson q "$qs" '{
+              version: "1.0",
+              context: { eventType: "viewer-request" },
+              viewer: { ip: "1.2.3.4" },
+              request: {
+                method: "GET", uri: $u, querystring: $q,
+                headers: { host: { value: $h } }, cookies: {}
+              }
+            }' > /tmp/event.json
+
             aws cloudfront test-function \
               --name "$FN_NAME" --stage DEVELOPMENT --if-match "$ETAG" \
               --event-object fileb:///tmp/event.json --region us-east-1 \
               | jq -r '.TestResult.FunctionOutput' > /tmp/out.json
-            echo "--- $label ($host)"
+            echo "--- $label"
             cat /tmp/out.json
           }
 
-          run_case "www must redirect" "www.nexgenio.com"
+          run_case "1. www redirects, querystring preserved" \
+                   "www.nexgenio.com" "/self/iso-27001-lead-implementer/" \
+                   '{"utm_source":{"value":"li"}}'
           jq -e '.response.statusCode == 301' /tmp/out.json > /dev/null
-          jq -e '.response.headers.location.value == "https://nexgenio.com/self/iso-27001-lead-implementer/?utm_source=li"' /tmp/out.json > /dev/null
+          jq -e '.response.headers.location.value ==
+                 "https://nexgenio.com/self/iso-27001-lead-implementer/?utm_source=li"' /tmp/out.json > /dev/null
 
-          run_case "apex must pass through" "nexgenio.com"
-          jq -e '.request.headers.host.value == "nexgenio.com"' /tmp/out.json > /dev/null
+          run_case "2. www root redirects with no stray question mark" \
+                   "www.nexgenio.com" "/" '{}'
+          jq -e '.response.headers.location.value == "https://nexgenio.com/"' /tmp/out.json > /dev/null
+
+          run_case "3. apex directory still gets index.html appended" \
+                   "nexgenio.com" "/self/iso-27001-lead-implementer/" '{}'
           jq -e 'has("response") | not' /tmp/out.json > /dev/null
+          jq -e '.request.uri == "/self/iso-27001-lead-implementer/index.html"' /tmp/out.json > /dev/null
 
-          echo "Both cases pass."
+          run_case "4. apex file path is left alone" \
+                   "nexgenio.com" "/blog/some-post.html" '{}'
+          jq -e 'has("response") | not' /tmp/out.json > /dev/null
+          jq -e '.request.uri == "/blog/some-post.html"' /tmp/out.json > /dev/null
+
+          run_case "5. any other host keeps the original behaviour" \
+                   "d1234.cloudfront.net" "/training/" '{}'
+          jq -e 'has("response") | not' /tmp/out.json > /dev/null
+          jq -e '.request.uri == "/training/index.html"' /tmp/out.json > /dev/null
+
+          echo "All five cases pass."
+
+      - name: Confirm this function is the one already attached
+        run: |
+          set -euo pipefail
+          ARN=$(aws cloudfront describe-function --name "$FN_NAME" --stage LIVE --region us-east-1 \
+                | jq -r '.FunctionSummary.FunctionMetadata.FunctionARN')
+          aws cloudfront get-distribution-config --id "$DIST_ID" --region us-east-1 \
+            | jq '.DistributionConfig' > /tmp/config.json
+
+          ATTACHED=$(jq -r --arg arn "$ARN" '
+            [ (.DefaultCacheBehavior.FunctionAssociations.Items // [])[]
+              | select(.EventType == "viewer-request")
+              | select(.FunctionARN == $arn) ] | length' /tmp/config.json)
+
+          if [ "$ATTACHED" != "1" ]; then
+            echo "$FN_NAME is not the attached viewer-request function. Stopping."
+            jq '.DefaultCacheBehavior.FunctionAssociations' /tmp/config.json
+            exit 1
+          fi
+          echo "Already attached. Publishing will take effect without touching the distribution."
 
       - name: Publish to LIVE
         run: |
           set -euo pipefail
-          ETAG=$(aws cloudfront describe-function --name "$FN_NAME" --stage DEVELOPMENT --region us-east-1 | jq -r '.ETag')
-          aws cloudfront publish-function --name "$FN_NAME" --if-match "$ETAG" --region us-east-1
+          ETAG=$(aws cloudfront describe-function --name "$FN_NAME" --stage DEVELOPMENT \
+                 --region us-east-1 | jq -r '.ETag')
+          aws cloudfront publish-function --name "$FN_NAME" --if-match "$ETAG" --region us-east-1 > /dev/null
+          echo "Published. Propagation takes a few minutes."
 
-      - name: Associate with the default cache behavior
+      - name: Verify against the live site
         run: |
           set -euo pipefail
-          aws cloudfront get-distribution-config --id "$DIST_ID" --region us-east-1 > /tmp/dist.json
-          ETAG=$(jq -r '.ETag' /tmp/dist.json)
-          jq '.DistributionConfig' /tmp/dist.json > /tmp/config.json
+          for i in $(seq 1 20); do
+            CODE=$(curl -s -o /dev/null -w '%{http_code}' https://www.nexgenio.com/)
+            [ "$CODE" = "301" ] && break
+            echo "attempt $i: www still returns $CODE, waiting"
+            sleep 15
+          done
 
-          ARN=$(aws cloudfront describe-function --name "$FN_NAME" --stage LIVE --region us-east-1 \
-                | jq -r '.FunctionSummary.FunctionMetadata.FunctionARN')
-          echo "Live function: $ARN"
-
-          # Refuse to clobber a viewer-request association that is not ours.
-          EXISTING=$(jq -r --arg arn "$ARN" '
-            [ (.DefaultCacheBehavior.FunctionAssociations.Items // [])[]
-              | select(.EventType == "viewer-request") | select(.FunctionARN != $arn) ] | length' /tmp/config.json)
-          if [ "$EXISTING" != "0" ]; then
-            echo "A different viewer-request function is already attached. Stopping."
-            jq '.DefaultCacheBehavior.FunctionAssociations' /tmp/config.json
-            exit 1
-          fi
-          if [ "$(jq -r '(.DefaultCacheBehavior.LambdaFunctionAssociations.Quantity // 0)' /tmp/config.json)" != "0" ]; then
-            echo "Lambda@Edge associations present on the default behavior. Stopping."
-            exit 1
-          fi
-
-          jq --arg arn "$ARN" '.DefaultCacheBehavior.FunctionAssociations = {
-            "Quantity": 1,
-            "Items": [ { "FunctionARN": $arn, "EventType": "viewer-request" } ]
-          }' /tmp/config.json > /tmp/config-updated.json
-
-          aws cloudfront update-distribution \
-            --id "$DIST_ID" \
-            --distribution-config file:///tmp/config-updated.json \
-            --if-match "$ETAG" \
-            --region us-east-1 > /dev/null
-
-          echo "Association applied. Propagation takes a few minutes."
-
-      - name: Wait for deployment and verify live
-        run: |
-          set -euo pipefail
-          aws cloudfront wait distribution-deployed --id "$DIST_ID" --region us-east-1
-
-          echo "--- www.nexgenio.com"
+          echo "--- www.nexgenio.com/"
           curl -sSI https://www.nexgenio.com/ | tee /tmp/www.txt
           grep -qi '^HTTP/2 301' /tmp/www.txt
           grep -qi '^location: https://nexgenio.com/' /tmp/www.txt
 
-          echo "--- nexgenio.com"
+          echo "--- nexgenio.com/ must still serve the page"
           curl -sSI https://nexgenio.com/ | tee /tmp/apex.txt
           grep -qi '^HTTP/2 200' /tmp/apex.txt
 
-          echo "--- deep path with query"
+          echo "--- a directory URL must still resolve, not 404"
+          curl -sSI https://nexgenio.com/training/ | tee /tmp/dir.txt
+          grep -qi '^HTTP/2 200' /tmp/dir.txt
+
+          echo "--- deep www path keeps its querystring"
           curl -sSI "https://www.nexgenio.com/training/?utm_source=li" | tee /tmp/deep.txt
           grep -qi '^location: https://nexgenio.com/training/?utm_source=li' /tmp/deep.txt
 

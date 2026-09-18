@@ -2,30 +2,23 @@
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "ManageTheWwwRedirectFunction",
+      "Sid": "ManageTheSingleViewerRequestFunction",
       "Effect": "Allow",
       "Action": [
-        "cloudfront:CreateFunction",
         "cloudfront:UpdateFunction",
         "cloudfront:DescribeFunction",
+        "cloudfront:GetFunction",
         "cloudfront:PublishFunction",
         "cloudfront:TestFunction"
       ],
-      "Resource": "arn:aws:cloudfront::124971231536:function/nxg-www-to-apex"
+      "Resource": "arn:aws:cloudfront::124971231536:function/nexgenio-directory-index"
     },
     {
-      "Sid": "ListFunctionsIsNotResourceScoped",
-      "Effect": "Allow",
-      "Action": "cloudfront:ListFunctions",
-      "Resource": "*"
-    },
-    {
-      "Sid": "AssociateTheFunctionWithThePublicDistribution",
+      "Sid": "ReadTheDistributionToConfirmTheAssociation",
       "Effect": "Allow",
       "Action": [
         "cloudfront:GetDistribution",
-        "cloudfront:GetDistributionConfig",
-        "cloudfront:UpdateDistribution"
+        "cloudfront:GetDistributionConfig"
       ],
       "Resource": "arn:aws:cloudfront::124971231536:distribution/E2WWYNB9MTIF3N"
     }
