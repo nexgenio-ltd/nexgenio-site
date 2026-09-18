@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ManageTheWwwRedirectFunction",
+      "Effect": "Allow",
+      "Action": [
+        "cloudfront:CreateFunction",
+        "cloudfront:UpdateFunction",
+        "cloudfront:DescribeFunction",
+        "cloudfront:PublishFunction",
+        "cloudfront:TestFunction"
+      ],
+      "Resource": "arn:aws:cloudfront::124971231536:function/nxg-www-to-apex"
+    },
+    {
+      "Sid": "ListFunctionsIsNotResourceScoped",
+      "Effect": "Allow",
+      "Action": "cloudfront:ListFunctions",
+      "Resource": "*"
+    }
+  ]
+}
