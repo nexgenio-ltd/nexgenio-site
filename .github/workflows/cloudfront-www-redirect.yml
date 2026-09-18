@@ -1,0 +1,151 @@
+name: CloudFront www to apex redirect
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  DIST_ID: E2WWYNB9MTIF3N
+  FN_NAME: nxg-www-to-apex
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::124971231536:role/NexgenioPublicDeployRole
+          aws-region: us-east-1
+
+      - name: Create or update the function
+        run: |
+          set -euo pipefail
+          SRC=infra/cloudfront/www-to-apex.js
+          CFG='{"Comment":"Redirect www.nexgenio.com to the apex","Runtime":"cloudfront-js-2.0"}'
+
+          if aws cloudfront describe-function --name "$FN_NAME" --region us-east-1 >/tmp/fn.json 2>/dev/null; then
+            ETAG=$(jq -r '.ETag' /tmp/fn.json)
+            echo "Function exists, updating (ETag $ETAG)"
+            aws cloudfront update-function \
+              --name "$FN_NAME" \
+              --function-config "$CFG" \
+              --function-code "fileb://$SRC" \
+              --if-match "$ETAG" \
+              --region us-east-1 > /tmp/fn-new.json
+          else
+            echo "Function does not exist, creating"
+            aws cloudfront create-function \
+              --name "$FN_NAME" \
+              --function-config "$CFG" \
+              --function-code "fileb://$SRC" \
+              --region us-east-1 > /tmp/fn-new.json
+          fi
+
+          jq -r '.FunctionSummary.FunctionMetadata.FunctionARN' /tmp/fn-new.json
+
+      - name: Test the function before publishing
+        run: |
+          set -euo pipefail
+          ETAG=$(aws cloudfront describe-function --name "$FN_NAME" --stage DEVELOPMENT --region us-east-1 | jq -r '.ETag')
+
+          run_case () {
+            local label="$1" host="$2"
+            cat > /tmp/event.json <<EOF
+          { "version": "1.0",
+            "context": { "eventType": "viewer-request" },
+            "viewer": { "ip": "1.2.3.4" },
+            "request": {
+              "method": "GET",
+              "uri": "/self/iso-27001-lead-implementer/",
+              "querystring": { "utm_source": { "value": "li" } },
+              "headers": { "host": { "value": "$host" } },
+              "cookies": {}
+            } }
+          EOF
+            aws cloudfront test-function \
+              --name "$FN_NAME" --stage DEVELOPMENT --if-match "$ETAG" \
+              --event-object fileb:///tmp/event.json --region us-east-1 \
+              | jq -r '.TestResult.FunctionOutput' > /tmp/out.json
+            echo "--- $label ($host)"
+            cat /tmp/out.json
+          }
+
+          run_case "www must redirect" "www.nexgenio.com"
+          jq -e '.response.statusCode == 301' /tmp/out.json > /dev/null
+          jq -e '.response.headers.location.value == "https://nexgenio.com/self/iso-27001-lead-implementer/?utm_source=li"' /tmp/out.json > /dev/null
+
+          run_case "apex must pass through" "nexgenio.com"
+          jq -e '.request.headers.host.value == "nexgenio.com"' /tmp/out.json > /dev/null
+          jq -e 'has("response") | not' /tmp/out.json > /dev/null
+
+          echo "Both cases pass."
+
+      - name: Publish to LIVE
+        run: |
+          set -euo pipefail
+          ETAG=$(aws cloudfront describe-function --name "$FN_NAME" --stage DEVELOPMENT --region us-east-1 | jq -r '.ETag')
+          aws cloudfront publish-function --name "$FN_NAME" --if-match "$ETAG" --region us-east-1
+
+      - name: Associate with the default cache behavior
+        run: |
+          set -euo pipefail
+          aws cloudfront get-distribution-config --id "$DIST_ID" --region us-east-1 > /tmp/dist.json
+          ETAG=$(jq -r '.ETag' /tmp/dist.json)
+          jq '.DistributionConfig' /tmp/dist.json > /tmp/config.json
+
+          ARN=$(aws cloudfront describe-function --name "$FN_NAME" --stage LIVE --region us-east-1 \
+                | jq -r '.FunctionSummary.FunctionMetadata.FunctionARN')
+          echo "Live function: $ARN"
+
+          # Refuse to clobber a viewer-request association that is not ours.
+          EXISTING=$(jq -r --arg arn "$ARN" '
+            [ (.DefaultCacheBehavior.FunctionAssociations.Items // [])[]
+              | select(.EventType == "viewer-request") | select(.FunctionARN != $arn) ] | length' /tmp/config.json)
+          if [ "$EXISTING" != "0" ]; then
+            echo "A different viewer-request function is already attached. Stopping."
+            jq '.DefaultCacheBehavior.FunctionAssociations' /tmp/config.json
+            exit 1
+          fi
+          if [ "$(jq -r '(.DefaultCacheBehavior.LambdaFunctionAssociations.Quantity // 0)' /tmp/config.json)" != "0" ]; then
+            echo "Lambda@Edge associations present on the default behavior. Stopping."
+            exit 1
+          fi
+
+          jq --arg arn "$ARN" '.DefaultCacheBehavior.FunctionAssociations = {
+            "Quantity": 1,
+            "Items": [ { "FunctionARN": $arn, "EventType": "viewer-request" } ]
+          }' /tmp/config.json > /tmp/config-updated.json
+
+          aws cloudfront update-distribution \
+            --id "$DIST_ID" \
+            --distribution-config file:///tmp/config-updated.json \
+            --if-match "$ETAG" \
+            --region us-east-1 > /dev/null
+
+          echo "Association applied. Propagation takes a few minutes."
+
+      - name: Wait for deployment and verify live
+        run: |
+          set -euo pipefail
+          aws cloudfront wait distribution-deployed --id "$DIST_ID" --region us-east-1
+
+          echo "--- www.nexgenio.com"
+          curl -sSI https://www.nexgenio.com/ | tee /tmp/www.txt
+          grep -qi '^HTTP/2 301' /tmp/www.txt
+          grep -qi '^location: https://nexgenio.com/' /tmp/www.txt
+
+          echo "--- nexgenio.com"
+          curl -sSI https://nexgenio.com/ | tee /tmp/apex.txt
+          grep -qi '^HTTP/2 200' /tmp/apex.txt
+
+          echo "--- deep path with query"
+          curl -sSI "https://www.nexgenio.com/training/?utm_source=li" | tee /tmp/deep.txt
+          grep -qi '^location: https://nexgenio.com/training/?utm_source=li' /tmp/deep.txt
+
+          echo "Verified."
