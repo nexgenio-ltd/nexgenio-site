@@ -38,8 +38,18 @@ if (!force && existsSync(HASH_FILE)) {
 
 const courses = JSON.parse(dataSrc);
 
+const MONTH = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'];
+
+function cohortLabel(start) {
+  const d = new Date(start + 'T00:00:00Z');
+  return `${d.getUTCDate()} ${MONTH[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
 function buildHtml(course) {
-  const dates = course.dates.map(d => `<div class="date">${d}</div>`).join('');
+  const dates = course.cohorts
+    .map(h => `<div class="date">${cohortLabel(h.start)}</div>`)
+    .join('');
   const promoHtml = course.promoLabel
     ? `<div class="promo-badge">${course.promoLabel}</div>`
     : '';

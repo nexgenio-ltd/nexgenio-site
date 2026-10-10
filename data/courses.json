@@ -5,18 +5,67 @@
     "format": "live-online",
     "duration": "5 days",
     "language": "English",
+    "trainerCredential": "PECB Platinum Trainer",
     "price": "2,222",
     "priceRaw": "2222",
     "currency": "EUR",
+    "vatNote": "excl. VAT",
     "badge": "https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-implementer.png",
-    "dates": [
-      "21 September 2026",
-      "5 October 2026"
-    ],
     "promoLabel": "LAUNCH PRICE",
-    "stripeLinks": [
-      "https://buy.stripe.com/14A8wHbFD8PC60N5eh0Ba0k",
-      "https://buy.stripe.com/8x27sD7pn7Ly4WJ2250Ba0l"
-    ]
+    "cohorts": [
+      {
+        "start": "2026-11-02",
+        "end": "2026-11-06",
+        "stripeLink": "https://buy.stripe.com/fZu6oz8tr2re74RgWZ0Ba0o"
+      }
+    ],
+    "cpdCredits": "31",
+    "examNote": "PECB certification exam included (3 hours, 7 domains)"
+  },
+  {
+    "slug": "dora-lead-manager",
+    "name": "DORA Lead Manager",
+    "format": "live-online",
+    "duration": "5 days",
+    "language": "English",
+    "trainerCredential": "PECB Platinum Trainer",
+    "price": "2,777",
+    "priceRaw": "2777",
+    "currency": "EUR",
+    "vatNote": "excl. VAT",
+    "badge": "https://assets.nexgenio.com/PECB/course-badges/dora-lead-manager.png",
+    "promoLabel": "LAUNCH PRICE",
+    "cohorts": [
+      {
+        "start": "2026-12-14",
+        "end": "2026-12-18",
+        "stripeLink": "https://buy.stripe.com/9B67sD5hf8PC74R7mp0Ba0p"
+      }
+    ],
+    "cpdCredits": "31",
+    "examNote": "PECB certification exam included (3 hours, 5 domains)"
+  },
+  {
+    "slug": "iso-42001-lead-implementer",
+    "name": "ISO/IEC 42001 Lead Implementer",
+    "format": "live-online",
+    "duration": "5 days",
+    "language": "English",
+    "trainerCredential": "PECB Platinum Trainer",
+    "price": "2,222",
+    "priceRaw": "2222",
+    "currency": "EUR",
+    "vatNote": "excl. VAT",
+    "badge": "https://assets.nexgenio.com/PECB/course-badges/iso-42001-lead-implementer.png",
+    "promoLabel": "LAUNCH PRICE",
+    "cohorts": [
+      {
+        "start": "2026-11-23",
+        "end": "2026-11-27",
+        "stripeLink": "https://buy.stripe.com/bJe3cn5hf0j6ah3cGJ0Ba0q"
+      }
+    ],
+    "cpdCredits": "31",
+    "examNote": "PECB certification exam included (3 hours, 6 domains)"
   }
 ]

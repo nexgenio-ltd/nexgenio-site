@@ -33,6 +33,7 @@ jobs:
               - 'scripts/inject-nav.mjs'
               - 'data/**'
               - 'scripts/generate-og-images.mjs'
+              - 'scripts/render-courses.mjs'
             admin:
               - 'admin/**'
               - 'tokens/**'
@@ -44,6 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Render course schedule from data/courses.json
+        run: node scripts/render-courses.mjs
 
       - name: Inject shared nav into all pages
         run: node scripts/inject-nav.mjs
