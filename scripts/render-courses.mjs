@@ -119,6 +119,18 @@ function longDate(iso) {
   return `${WEEKDAY[d.getUTCDay()]} ${d.getUTCDate()} ${MONTH[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 }
 
+/**
+ * House date format for a cohort shown on one line: 02.11. – 06.11.2026.
+ * Numeric throughout with the year once at the end, so two cohorts compare
+ * at a glance without parsing a weekday or a month name.
+ */
+function numRange(start, end) {
+  const a = new Date(start + 'T00:00:00Z');
+  const b = new Date(end + 'T00:00:00Z');
+  return `${pad(a.getUTCDate())}.${pad(a.getUTCMonth() + 1)}. &ndash; ` +
+    `${pad(b.getUTCDate())}.${pad(b.getUTCMonth() + 1)}.${b.getUTCFullYear()}`;
+}
+
 /** Cohort card on a course page. */
 function bookingCard(course, cohort) {
   const includes = [
@@ -131,9 +143,9 @@ function bookingCard(course, cohort) {
   ].filter(Boolean).map(t => `          <li>${t}</li>`).join('\n');
 
   return `      <div class="tier-card">
-        <div class="tier-label">${longDate(cohort.start)}</div>
+        <div class="tier-label">${numRange(cohort.start, cohort.end)}</div>
         ${course.promoLabel ? `<span class="tier-badge">${course.promoLabel}</span>` : ''}
-        <div class="tier-desc">Instructor-led, delivered live-online in real time by a ${course.trainerCredential}, finishing ${longDate(cohort.end)}.</div>
+        <div class="tier-desc">Instructor-led, delivered live-online in real time by a ${course.trainerCredential} across ${course.duration}.</div>
         <img src="${course.badge}" alt="PECB ${course.name}" style="width:72px;height:72px;object-fit:contain;border-radius:4px;margin-bottom:16px">
         <ul class="tier-includes">
 ${includes}
