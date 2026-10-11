@@ -86,7 +86,7 @@ function row(course, cohort) {
 }
 
 /** Group-pricing note. Rendered once under the schedule list on every hub. */
-const GROUP_NOTE = `    <p class="sched-meta">Companies booking several seats for their team are quoted a bespoke price. Ask at <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a>.</p>`;
+const GROUP_NOTE = `    <p class="sched-group">Companies booking several seats for their team are quoted a bespoke price. Ask at <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a>.</p>`;
 
 function scheduleHtml() {
   const rows = courses
@@ -132,7 +132,6 @@ function bookingCard(course, cohort) {
 
   return `      <div class="tier-card">
         <div class="tier-label">${numRange(cohort.start, cohort.end)}</div>
-        ${stamp(course, cohort)}
         <div class="tier-desc">Instructor-led, delivered live-online in real time by a ${course.trainerCredential} across ${course.duration}.</div>
         <img src="${course.badge}" alt="PECB ${course.name}" style="width:72px;height:72px;object-fit:contain;border-radius:4px;margin-bottom:16px">
         <ul class="tier-includes">
@@ -143,6 +142,7 @@ ${includes}
           <span class="amount">&euro;${course.price}</span>
           <span class="vat-note">${course.vatNote}</span>
           <span class="vat-note">Several seats for one organization are quoted at a bespoke price.</span>
+          ${stamp(course, cohort)}
         </div>
         <div class="tier-cta">
           <a href="${cohort.stripeLink}" class="btn" data-course="${course.name}" data-format="${course.format}" data-price="${course.priceRaw}" data-date="${cohort.start}">Reserve your seat</a>
