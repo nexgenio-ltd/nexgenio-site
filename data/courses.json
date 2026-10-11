@@ -52,13 +52,19 @@
     "duration": "5 days",
     "language": "English",
     "trainerCredential": "PECB Platinum Trainer",
-    "price": "2,222",
-    "priceRaw": "2222",
+    "price": "2,333",
+    "priceRaw": "2333",
     "currency": "EUR",
     "vatNote": "excl. VAT",
     "badge": "https://assets.nexgenio.com/PECB/course-badges/iso-42001-lead-implementer.png",
     "promoLabel": "LAUNCH PRICE",
-    "cohorts": [],
+    "cohorts": [
+      {
+        "start": "2026-11-30",
+        "end": "2026-12-04",
+        "stripeLink": "https://buy.stripe.com/aFaaEP3978PCdtf7mp0Ba0r"
+      }
+    ],
     "cpdCredits": "31",
     "examNote": "PECB certification exam included (3 hours, 6 domains)"
   },
