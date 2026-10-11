@@ -25,6 +25,9 @@ const TARGETS = [
   ...courses.map(c => `live/${c.slug}.html`),
 ];
 
+/** The launch-price stamp appears on this page only. Every other target renders without it. */
+const STAMP_TARGETS = new Set(['training/index.html']);
+
 const DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTH = ['January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'];
@@ -44,19 +47,50 @@ function modeLabel(format) {
   return format === 'live-online' ? 'Live-Online' : format;
 }
 
+const MON3 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+  'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+const pad = n => String(n).padStart(2, '0');
+
+/**
+ * Schedule-row date. Month and year sit on their own line, the day range below it
+ * in two digits, so one row never wraps and two rows compare against a calendar
+ * at a glance. A cohort spanning two months carries the month on each day.
+ */
+function schedWhen(start, end) {
+  const a = new Date(start + 'T00:00:00Z');
+  const b = new Date(end + 'T00:00:00Z');
+  const am = a.getUTCMonth();
+  const bm = b.getUTCMonth();
+  const month = am === bm
+    ? `${MON3[am]} ${b.getUTCFullYear()}`
+    : `${MON3[am]} &ndash; ${MON3[bm]} ${b.getUTCFullYear()}`;
+  const days = am === bm
+    ? `${pad(a.getUTCDate())} &ndash; ${pad(b.getUTCDate())}`
+    : `${pad(a.getUTCDate())}.${pad(am + 1)} &ndash; ${pad(b.getUTCDate())}.${pad(bm + 1)}`;
+  return `<span class="when-mon">${month}</span><span class="when-day">${days}</span>`;
+}
+
+/** Launch-price stamp. The year comes off the cohort, so nothing needs maintaining. */
+function stamp(course, cohort) {
+  if (!course.promoLabel) return '';
+  return `<span class="stamp xs" aria-hidden="true"><span class="s1">${course.promoLabel}</span><span class="s2">${cohort.start.slice(0, 4)} only</span></span>`;
+}
+
 /** One session row. The CTA goes to Stripe where a link exists, to the course page otherwise. */
-function row(course, cohort) {
+function row(course, cohort, withStamp) {
   const href = cohort.stripeLink || `/live/${course.slug}.html`;
   const cta = cohort.stripeLink ? 'Reserve your seat' : 'View dates and reserve';
+  const mark = withStamp ? stamp(course, cohort) : '';
   return `      <div class="sched-row" role="listitem">
-        <div class="sched-when">${dateRange(cohort.start, cohort.end)}</div>
+        <div class="sched-when">${schedWhen(cohort.start, cohort.end)}</div>
         <img class="sched-badge" src="${course.badge}" alt="PECB ${course.name}">
         <div class="sched-main">
           <h3><a href="/live/${course.slug}.html">${course.name}</a></h3>
           <div class="sched-meta">${modeLabel(course.format)} &middot; ${course.duration} &middot; ${course.language}</div>
           <div class="sched-trainer">${course.trainerCredential}</div>
         </div>
-        <div class="sched-price">&euro;${course.price}<span>${course.vatNote}</span></div>
+        <div class="sched-price">&euro;${course.price}<span>${course.vatNote}</span>${mark}</div>
         <a class="sched-cta" href="${href}"
            data-course="${course.name}" data-format="${course.format}"
            data-price="${course.priceRaw}" data-date="${cohort.start}">${cta}</a>
@@ -66,11 +100,11 @@ function row(course, cohort) {
 /** Group-pricing note. Rendered once under the schedule list on every hub. */
 const GROUP_NOTE = `    <p class="sched-meta">Companies booking several seats for their team are quoted a bespoke price. Ask at <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a>.</p>`;
 
-function scheduleHtml() {
+function scheduleHtml(withStamp) {
   const rows = courses
     .flatMap(c => c.cohorts.map(h => ({ c, h })))
     .sort((x, y) => x.h.start.localeCompare(y.h.start))
-    .map(({ c, h }) => row(c, h));
+    .map(({ c, h }) => row(c, h, withStamp));
 
   if (!rows.length) {
     return `      <p class="sched-empty">The next cohort dates are being scheduled. <a href="/training/index.html">Self-paced courses are available now.</a></p>`;
@@ -178,7 +212,7 @@ for (const rel of TARGETS) {
   const before = src;
   const course = courses.find(c => rel === `live/${c.slug}.html`);
   const tag = course ? `COURSES:BOOKING:${course.slug}` : 'COURSES:SCHEDULE';
-  const body = '\n' + (course ? bookingHtml(course) : scheduleHtml()) + '\n';
+  const body = '\n' + (course ? bookingHtml(course) : scheduleHtml(STAMP_TARGETS.has(rel))) + '\n';
 
   let hit = false;
   const next = replaceRegion(src, tag, body);
