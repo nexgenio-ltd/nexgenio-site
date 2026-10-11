@@ -47,28 +47,19 @@ function modeLabel(format) {
   return format === 'live-online' ? 'Live-Online' : format;
 }
 
-const MON3 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
-  'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-
 const pad = n => String(n).padStart(2, '0');
 
 /**
- * Schedule-row date. Month and year sit on their own line, the day range below it
- * in two digits, so one row never wraps and two rows compare against a calendar
- * at a glance. A cohort spanning two months carries the month on each day.
+ * Schedule-row date. The year sits on its own line with the day range below it
+ * as 02.11. &ndash; 06.11., so every row holds the same shape whether or not the
+ * cohort crosses a month boundary, and two rows compare at a glance.
  */
 function schedWhen(start, end) {
   const a = new Date(start + 'T00:00:00Z');
   const b = new Date(end + 'T00:00:00Z');
-  const am = a.getUTCMonth();
-  const bm = b.getUTCMonth();
-  const month = am === bm
-    ? `${MON3[am]} ${b.getUTCFullYear()}`
-    : `${MON3[am]} &ndash; ${MON3[bm]} ${b.getUTCFullYear()}`;
-  const days = am === bm
-    ? `${pad(a.getUTCDate())} &ndash; ${pad(b.getUTCDate())}`
-    : `${pad(a.getUTCDate())}.${pad(am + 1)} &ndash; ${pad(b.getUTCDate())}.${pad(bm + 1)}`;
-  return `<span class="when-mon">${month}</span><span class="when-day">${days}</span>`;
+  const days = `${pad(a.getUTCDate())}.${pad(a.getUTCMonth() + 1)}. &ndash; ` +
+    `${pad(b.getUTCDate())}.${pad(b.getUTCMonth() + 1)}.`;
+  return `<span class="when-mon">${b.getUTCFullYear()}</span><span class="when-day">${days}</span>`;
 }
 
 /** Launch-price stamp. The year comes off the cohort, so nothing needs maintaining. */
