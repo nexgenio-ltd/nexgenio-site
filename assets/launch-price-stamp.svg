@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" width="480" height="200" role="img" aria-label="Launch price, 2026 only">
+  <title>Launch price 2026 only</title>
+  <g transform="rotate(-11 240 100)" opacity="0.82">
+    <rect x="76" y="52" width="328" height="96" rx="6" fill="none" stroke="#a11e29" stroke-width="5"/>
+    <rect x="66" y="42" width="348" height="116" rx="8" fill="none" stroke="#a11e29" stroke-width="2.5"/>
+    <text x="240" y="106" fill="#a11e29" text-anchor="middle"
+          font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+          font-size="34" font-weight="800" letter-spacing="3.5">LAUNCH PRICE</text>
+    <text x="240" y="134" fill="#a11e29" text-anchor="middle"
+          font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+          font-size="17" font-weight="700" letter-spacing="7">2026 ONLY</text>
+  </g>
+</svg>
