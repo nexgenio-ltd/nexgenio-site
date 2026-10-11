@@ -67,14 +67,14 @@ function stamp(course, cohort) {
 
 /** One session row. The CTA goes to Stripe where a link exists, to the course page otherwise. */
 function row(course, cohort) {
-  const href = cohort.stripeLink || `/live/${course.slug}.html`;
+  const href = cohort.stripeLink || `/training/${course.slug}.html`;
   const cta = cohort.stripeLink ? 'Reserve your seat' : 'View dates and reserve';
   const mark = stamp(course, cohort);
   return `      <div class="sched-row" role="listitem">
         <div class="sched-when">${schedWhen(cohort.start, cohort.end)}</div>
         <img class="sched-badge" src="${course.badge}" alt="PECB ${course.name}">
         <div class="sched-main">
-          <h3><a href="/live/${course.slug}.html">${course.name}</a></h3>
+          <h3><a href="/training/${course.slug}.html">${course.name}</a></h3>
           <div class="sched-meta">${modeLabel(course.format)} &middot; ${course.duration} &middot; ${course.language}</div>
           <div class="sched-trainer">${course.trainerCredential}</div>
         </div>

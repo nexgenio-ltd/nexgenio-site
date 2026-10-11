@@ -163,7 +163,7 @@ const footer = `
     <div class="footer-top">
       <div class="footer-brand"><div class="footer-brand-text"><div class="fn">NexGenio LTD</div><div class="ft">Compliance by design.</div></div></div>
       <div class="footer-cols">
-        <div class="footer-col"><h5>Training</h5><a href="/self/index.html">Self-paced courses</a><a href="/live/index.html">Live schedule</a></div>
+        <div class="footer-col"><h5>Training</h5><a href="/training/index.html">Courses</a><a href="/training/index.html#schedule">Live schedule</a></div>
         <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
         <div class="footer-col"><h5>Legal</h5><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
       </div>

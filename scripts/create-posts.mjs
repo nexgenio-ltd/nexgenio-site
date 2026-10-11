@@ -31,7 +31,7 @@ This is the default outcome when certification is treated as a project with a fi
 
 The consultants delivered exactly what they were paid to deliver: documentation that satisfies the standard. The problem is that documentation is only one layer. Beneath it sits something harder to purchase. The knowledge to interpret the policies. The habits that turn procedures into reflexes. The ownership that makes a risk register a living tool rather than a static spreadsheet.
 
-This is the culture and adoption gap. It sits between what an organisation possesses on paper and what it can actually execute on a Tuesday morning when something goes wrong. Closing that gap requires people inside the organisation who understand the management system deeply enough to run it, challenge it, and improve it. It requires competence, and competence is built through structured development like the [ISO 27001 Lead Implementer](/self/iso-27001-lead-implementer.html) pathway, where practitioners learn to design, build, and sustain an ISMS from the inside.
+This is the culture and adoption gap. It sits between what an organisation possesses on paper and what it can actually execute on a Tuesday morning when something goes wrong. Closing that gap requires people inside the organisation who understand the management system deeply enough to run it, challenge it, and improve it. It requires competence, and competence is built through structured development like the [ISO 27001 Lead Implementer](/training/iso-27001-lead-implementer.html) pathway, where practitioners learn to design, build, and sustain an ISMS from the inside.
 
 ## Documentation is a starting point
 
@@ -76,7 +76,7 @@ NexGenio builds governance architecture around the translation layer itself. The
 
 This is what distinguishes a governance system that survives regulatory change from one that requires periodic demolition. The translation competence is the architecture.
 
-Building that competence across frameworks requires specific, structured training. NexGenio's programmes in [NIS2 Lead Implementer](/self/nis2-lead-implementer.html), [DORA Lead Manager](/self/dora-lead-manager.html), [ISO 27001 Lead Implementer](/self/iso-27001-lead-implementer.html), and [ISO 42001 Lead Implementer](/self/iso-42001-lead-implementer.html) develop practitioners who can operate across regulatory boundaries, translating obligations into implementation regardless of the source framework.
+Building that competence across frameworks requires specific, structured training. NexGenio's programmes in [NIS2 Lead Implementer](/training/nis2-lead-implementer.html), [DORA Lead Manager](/training/dora-lead-manager.html), [ISO 27001 Lead Implementer](/training/iso-27001-lead-implementer.html), and [ISO 42001 Lead Implementer](/training/iso-42001-lead-implementer.html) develop practitioners who can operate across regulatory boundaries, translating obligations into implementation regardless of the source framework.
 
 The organisation that stops redesigning is the one that built the translation right the first time.`
   },
@@ -97,7 +97,7 @@ The regulation itself is precise. It defines ICT risk management frameworks, inc
 
 This is where the language barrier becomes expensive. Auditors arrive and ask for evidence. The organisation scrambles to assemble artefacts from five different systems, reconcile conflicting terminology, and construct a narrative that looks coherent. The preparation alone consumes weeks. Gaps appear that were invisible when each team assessed itself in isolation. Remediation becomes urgent rather than planned.
 
-Closing this gap requires more than regulatory awareness. It requires the ability to architect governance structures that connect policy to operations to evidence in one continuous thread. Professionals who hold a [NIS2 Lead Implementer](/self/nis2-lead-implementer.html) credential bring exactly this competence: the ability to decompose regulatory frameworks into implementable specifications and map them to organisational infrastructure. That skill transfers directly to DORA, where the challenge is the same. Turn legal obligations into operational controls, and make compliance observable.
+Closing this gap requires more than regulatory awareness. It requires the ability to architect governance structures that connect policy to operations to evidence in one continuous thread. Professionals who hold a [NIS2 Lead Implementer](/training/nis2-lead-implementer.html) credential bring exactly this competence: the ability to decompose regulatory frameworks into implementable specifications and map them to organisational infrastructure. That skill transfers directly to DORA, where the challenge is the same. Turn legal obligations into operational controls, and make compliance observable.
 
 NexGenio builds governance architecture that does precisely this. Regulatory text becomes infrastructure specification. Controls produce evidence continuously, as a byproduct of normal operations. Every stakeholder, from the CISO to the board, works from the same structured language. Compliance status is visible in real time, across every domain DORA touches: ICT risk, incident management, third-party oversight, resilience testing.
 
@@ -120,7 +120,7 @@ The instinct is to throw more people at it. Hire another GRC analyst. Add a repo
 
 The cost curve only bends when evidence generation becomes a byproduct of normal operations. When ICT risk management, incident classification, and third-party monitoring produce their own audit trails as part of daily workflow, the overhead collapses. A well-architected governance framework reduces evidence gathering from hours per week to minutes, because the evidence already exists in the format the regulator expects.
 
-This is where competence becomes the critical variable. Tools and templates can automate collection, but someone has to design the operating rhythm, calibrate the thresholds, and maintain alignment as the regulatory landscape shifts. Organisations that invest in a [DORA Lead Manager](/self/dora-lead-manager.html) with the authority and skill to own the governance architecture see measurably different outcomes: 40% to 60% reduction in recurring compliance effort within the first operating cycle.
+This is where competence becomes the critical variable. Tools and templates can automate collection, but someone has to design the operating rhythm, calibrate the thresholds, and maintain alignment as the regulatory landscape shifts. Organisations that invest in a [DORA Lead Manager](/training/dora-lead-manager.html) with the authority and skill to own the governance architecture see measurably different outcomes: 40% to 60% reduction in recurring compliance effort within the first operating cycle.
 
 NexGenio builds governance architecture where compliance is an operating condition, sustained through a rhythm that teams can maintain indefinitely. Evidence pipelines are embedded into existing processes. Accountability structures map to real roles, with clear escalation paths that survive staff changes. Resilience testing follows a cadence that keeps the organisation perpetually audit-ready, with no surge effort required when the regulator calls.
 
@@ -157,7 +157,7 @@ The fix is a single governance architecture that treats all frameworks as parall
 
 NexGenio builds exactly this. A unified compliance architecture where NIS2, DORA, ISO 27001, ISO 42001, and the EU AI Act sit inside one coherent structure. Obligations are cross-mapped at the control level. Evidence pipelines feed every framework simultaneously. The spreadsheet becomes unnecessary because the architecture itself holds the logic.
 
-This requires people who understand each framework deeply enough to see where they converge. That cross-framework competence is the foundation: professionals trained as [NIS2 Lead Implementer](/self/nis2-lead-implementer.html), [DORA Lead Manager](/self/dora-lead-manager.html), [ISO 27001 Lead Implementer](/self/iso-27001-lead-implementer.html), and [ISO 42001 Lead Implementer](/self/iso-42001-lead-implementer.html), with the operational AI literacy a [Certified AI Manager](/self/caim.html) brings to the table. That combination is what turns five separate compliance projects into one governed system.
+This requires people who understand each framework deeply enough to see where they converge. That cross-framework competence is the foundation: professionals trained as [NIS2 Lead Implementer](/training/nis2-lead-implementer.html), [DORA Lead Manager](/training/dora-lead-manager.html), [ISO 27001 Lead Implementer](/training/iso-27001-lead-implementer.html), and [ISO 42001 Lead Implementer](/training/iso-42001-lead-implementer.html), with the operational AI literacy a [Certified AI Manager](/training/caim.html) brings to the table. That combination is what turns five separate compliance projects into one governed system.
 
 One structure. One evidence base. All frameworks. No spreadsheet required.`
   },
@@ -184,7 +184,7 @@ The cost of that gap compounds. A minor nonconformity triggers corrective action
 
 NexGenio closes this gap by translating compliance specifications into operational infrastructure that produces evidence continuously. Every control requirement becomes a process with defined inputs, outputs, and retention rules. Evidence generation is embedded into daily operations, so the artefacts exist as a byproduct of the work itself. When the auditor asks for proof, the proof is already there.
 
-This approach draws on deep fluency in the standards themselves. NexGenio's [ISO 27001 Lead Implementer](/self/iso-27001-lead-implementer.html) expertise ensures that information security controls are mapped precisely to evidence requirements, while [ISO 22301 Lead Implementer](/self/iso-22301-lead-implementer.html) capability brings the same rigour to business continuity, where exercise records and recovery test outputs must demonstrate readiness across every planning cycle.
+This approach draws on deep fluency in the standards themselves. NexGenio's [ISO 27001 Lead Implementer](/training/iso-27001-lead-implementer.html) expertise ensures that information security controls are mapped precisely to evidence requirements, while [ISO 22301 Lead Implementer](/training/iso-22301-lead-implementer.html) capability brings the same rigour to business continuity, where exercise records and recovery test outputs must demonstrate readiness across every planning cycle.
 
 The system was built correctly. The next step is making sure the evidence proves it, every single time.`
   },
@@ -217,7 +217,7 @@ Second, board-level independent visibility. Leadership needs direct access to pe
 
 Third, accountability for value delivery. Controls cost money. They consume time. They impose constraints on how teams work. Governance holds the organisation accountable for ensuring those costs produce outcomes: reduced exposure, faster incident response, measurable resilience. A certificate confirms the system exists. Governance confirms the system works toward something.
 
-This is where structured capability matters. Professionals trained through an [ISO 27001 Lead Implementer](/self/iso-27001-lead-implementer.html) programme understand how to build a management system. They also understand where the management system ends and governance begins. That boundary is where most organisations stall.
+This is where structured capability matters. Professionals trained through an [ISO 27001 Lead Implementer](/training/iso-27001-lead-implementer.html) programme understand how to build a management system. They also understand where the management system ends and governance begins. That boundary is where most organisations stall.
 
 They pass the audit. They renew the certificate. They never build the oversight layer that turns compliance activity into business steering.
 
@@ -246,7 +246,7 @@ This pattern repeats in organisations across every sector now falling under NIS2
 
 That gap is where liability accumulates.
 
-When a regulator investigates after an incident, the question will be straightforward: did the management body exercise effective oversight? Approving a slide deck the board could not meaningfully interrogate does not meet that threshold. Personal liability under Article 20(2) demands demonstrable competence and genuine engagement with the risk landscape. A [NIS2 Lead Implementer](/self/nis2-lead-implementer.html) programme builds exactly this competence, equipping leaders to bridge the distance between technical controls and governance accountability.
+When a regulator investigates after an incident, the question will be straightforward: did the management body exercise effective oversight? Approving a slide deck the board could not meaningfully interrogate does not meet that threshold. Personal liability under Article 20(2) demands demonstrable competence and genuine engagement with the risk landscape. A [NIS2 Lead Implementer](/training/nis2-lead-implementer.html) programme builds exactly this competence, equipping leaders to bridge the distance between technical controls and governance accountability.
 
 The missing piece in most organisations is a translation layer. Technical teams understand the risk in granular detail. The board understands strategic consequence, financial exposure, and operational continuity. These two languages describe the same reality from different positions. Without architecture that connects them, the board governs blind, and the CISO presents into a vacuum.
 
@@ -306,7 +306,7 @@ Full detail on scope, the ten measures and the Dutch specifics is on the [NIS2 p
 
 To talk it through, [book a scoping call](https://calendly.com/toby-nexgenio/scope_check). Thirty minutes, and you leave it knowing which side of the scope line you sit on.
 
-For teams building the competence in-house, the [NIS2 Lead Implementer](/self/nis2-lead-implementer.html) and [NIS2 Foundation](/self/nis2-foundation.html) pathways develop exactly this capability, and the [DORA Lead Manager](/self/dora-lead-manager.html) programme covers the financial-sector obligations that run alongside it.
+For teams building the competence in-house, the [NIS2 Lead Implementer](/training/nis2-lead-implementer.html) and [NIS2 Foundation](/training/nis2-foundation.html) pathways develop exactly this capability, and the [DORA Lead Manager](/training/dora-lead-manager.html) programme covers the financial-sector obligations that run alongside it.
 
 The law is in force and the register is open. The organisations that move first get to set their own scope position rather than have one set for them.`
   },
@@ -362,11 +362,11 @@ This is the same translation problem NexGenio works on everywhere else, with a s
 
 ## Where to start
 
-We have added the [ISA/IEC 62443 Lead Implementer](/self/isa-iec-62443-lead-implementer.html) programme to the self-paced catalogue. It covers the series end to end: terminology and IACS networks, system security requirements, maturity models and security levels, risk assessment, supply chain, patching strategy, monitoring, security testing, and incident response for industrial environments.
+We have added the [ISA/IEC 62443 Lead Implementer](/training/isa-iec-62443-lead-implementer.html) programme to the self-paced catalogue. It covers the series end to end: terminology and IACS networks, system security requirements, maturity models and security levels, risk assessment, supply chain, patching strategy, monitoring, security testing, and incident response for industrial environments.
 
 One thing worth knowing before you enrol. PECB awards the credential tier your evidenced experience supports, so the Lead Implementer credential asks for five years of professional experience with two of them specifically in industrial automation and control management, plus 300 project hours. Coming from IT security with no plant time yet, you qualify for Provisional Implementer on passing and move up as the industrial experience accumulates. Same exam, same course, no retake.
 
-For the regulatory side that sits above it, the [NIS2 Lead Implementer](/self/nis2-lead-implementer.html) pathway covers the directive itself, and the [NIS2 page](/nis2.html) sets out the scope question and the ten Article 21 measures.
+For the regulatory side that sits above it, the [NIS2 Lead Implementer](/training/nis2-lead-implementer.html) pathway covers the directive itself, and the [NIS2 page](/nis2.html) sets out the scope question and the ten Article 21 measures.
 
 If the question is which side of the scope line your industrial estate sits on, [book a scoping call](https://calendly.com/toby-nexgenio/scope_check). Thirty minutes.
 
@@ -433,7 +433,7 @@ We built a page setting out [the Article 16 simplified regime](/dora-article-16.
 
 If you want the answer for your own firm, [book a scoping call](https://calendly.com/toby-nexgenio/scope_check). Thirty minutes, no preparation needed, and you leave with a clear view of which side of the line you are on and what the resulting obligations actually are.
 
-For teams building the capability in-house, the [DORA Lead Manager](/self/dora-lead-manager.html) programme covers the regulation end to end, and the [DORA Foundation](/self/dora-foundation.html) course covers the structure and the terminology for people who need to follow the work rather than lead it.
+For teams building the capability in-house, the [DORA Lead Manager](/training/dora-lead-manager.html) programme covers the regulation end to end, and the [DORA Foundation](/training/dora-foundation.html) course covers the structure and the terminology for people who need to follow the work rather than lead it.
 
 Four obligations is a meaningful difference for a small firm. It takes one conversation to find out whether they are yours.`  },
   {
@@ -525,7 +525,7 @@ For NIS2 entities the equivalent is the [NIS2 framework mapping](/nis2-iso-27001
 
 If you want the answer for your own firm rather than the general shape of it, [book a scoping call](https://calendly.com/toby-nexgenio/scope_check). Thirty minutes, no preparation needed.
 
-For teams building the capability in-house, [ISO 22301 Lead Implementer](/self/iso-22301-lead-implementer.html) covers the continuity management system and the business impact analysis inside it, [ISO 31000 Risk Manager](/self/iso-31000-risk-manager.html) covers risk criteria and the wider risk management process, and [DORA Lead Manager](/self/dora-lead-manager.html) covers the regulation end to end.
+For teams building the capability in-house, [ISO 22301 Lead Implementer](/training/iso-22301-lead-implementer.html) covers the continuity management system and the business impact analysis inside it, [ISO 31000 Risk Manager](/training/iso-31000-risk-manager.html) covers risk criteria and the wider risk management process, and [DORA Lead Manager](/training/dora-lead-manager.html) covers the regulation end to end.
 
 Twenty-two articles are waiting on a number. It is worth knowing where yours came from.`
   }
