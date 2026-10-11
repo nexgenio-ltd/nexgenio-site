@@ -63,6 +63,9 @@ function row(course, cohort) {
       </div>`;
 }
 
+/** Group-pricing note. Rendered once under the schedule list on every hub. */
+const GROUP_NOTE = `    <p class="sched-meta">Companies booking several seats for their team are quoted a bespoke price. Ask at <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a>.</p>`;
+
 function scheduleHtml() {
   const rows = courses
     .flatMap(c => c.cohorts.map(h => ({ c, h })))
@@ -72,7 +75,7 @@ function scheduleHtml() {
   if (!rows.length) {
     return `      <p class="sched-empty">The next cohort dates are being scheduled. <a href="/training/index.html">Self-paced courses are available now.</a></p>`;
   }
-  return `    <div class="sched-list" role="list">\n${rows.join('\n')}\n    </div>`;
+  return `    <div class="sched-list" role="list">\n${rows.join('\n')}\n    </div>\n${GROUP_NOTE}`;
 }
 
 const WEEKDAY = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -105,6 +108,7 @@ ${includes}
           Price
           <span class="amount">&euro;${course.price}</span>
           <span class="vat-note">${course.vatNote}</span>
+          <span class="vat-note">Several seats for one organization are quoted at a bespoke price.</span>
         </div>
         <div class="tier-cta">
           <a href="${cohort.stripeLink}" class="btn" data-course="${course.name}" data-format="${course.format}" data-price="${course.priceRaw}" data-date="${cohort.start}">Reserve your seat</a>
