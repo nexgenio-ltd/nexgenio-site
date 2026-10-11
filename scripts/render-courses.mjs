@@ -25,9 +25,6 @@ const TARGETS = [
   ...courses.map(c => `live/${c.slug}.html`),
 ];
 
-/** The launch-price stamp appears on this page only. Every other target renders without it. */
-const STAMP_TARGETS = new Set(['training/index.html']);
-
 const DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTH = ['January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'];
@@ -69,10 +66,10 @@ function stamp(course, cohort) {
 }
 
 /** One session row. The CTA goes to Stripe where a link exists, to the course page otherwise. */
-function row(course, cohort, withStamp) {
+function row(course, cohort) {
   const href = cohort.stripeLink || `/live/${course.slug}.html`;
   const cta = cohort.stripeLink ? 'Reserve your seat' : 'View dates and reserve';
-  const mark = withStamp ? stamp(course, cohort) : '';
+  const mark = stamp(course, cohort);
   return `      <div class="sched-row" role="listitem">
         <div class="sched-when">${schedWhen(cohort.start, cohort.end)}</div>
         <img class="sched-badge" src="${course.badge}" alt="PECB ${course.name}">
@@ -91,11 +88,11 @@ function row(course, cohort, withStamp) {
 /** Group-pricing note. Rendered once under the schedule list on every hub. */
 const GROUP_NOTE = `    <p class="sched-meta">Companies booking several seats for their team are quoted a bespoke price. Ask at <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a>.</p>`;
 
-function scheduleHtml(withStamp) {
+function scheduleHtml() {
   const rows = courses
     .flatMap(c => c.cohorts.map(h => ({ c, h })))
     .sort((x, y) => x.h.start.localeCompare(y.h.start))
-    .map(({ c, h }) => row(c, h, withStamp));
+    .map(({ c, h }) => row(c, h));
 
   if (!rows.length) {
     return `      <p class="sched-empty">The next cohort dates are being scheduled. <a href="/training/index.html">Self-paced courses are available now.</a></p>`;
@@ -135,7 +132,7 @@ function bookingCard(course, cohort) {
 
   return `      <div class="tier-card">
         <div class="tier-label">${numRange(cohort.start, cohort.end)}</div>
-        ${course.promoLabel ? `<span class="tier-badge">${course.promoLabel}</span>` : ''}
+        ${stamp(course, cohort)}
         <div class="tier-desc">Instructor-led, delivered live-online in real time by a ${course.trainerCredential} across ${course.duration}.</div>
         <img src="${course.badge}" alt="PECB ${course.name}" style="width:72px;height:72px;object-fit:contain;border-radius:4px;margin-bottom:16px">
         <ul class="tier-includes">
@@ -215,7 +212,7 @@ for (const rel of TARGETS) {
   const before = src;
   const course = courses.find(c => rel === `live/${c.slug}.html`);
   const tag = course ? `COURSES:BOOKING:${course.slug}` : 'COURSES:SCHEDULE';
-  const body = '\n' + (course ? bookingHtml(course) : scheduleHtml(STAMP_TARGETS.has(rel))) + '\n';
+  const body = '\n' + (course ? bookingHtml(course) : scheduleHtml()) + '\n';
 
   let hit = false;
   const next = replaceRegion(src, tag, body);
