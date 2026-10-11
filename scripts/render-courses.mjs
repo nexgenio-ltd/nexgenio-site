@@ -22,7 +22,7 @@ const TARGETS = [
   'live/index.html',
   'training/index.html',
   'apex/index.html',
-  ...courses.map(c => `live/${c.slug}.html`),
+  ...courses.map(c => `training/${c.slug}.html`),
 ];
 
 const DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -181,7 +181,7 @@ function courseInstances(course) {
     startDate: h.start,
     endDate: h.end,
     name: dateRange(h.start, h.end).replace(/&mdash;/g, '—'),
-    location: { '@type': 'VirtualLocation', url: `https://nexgenio.com/live/${course.slug}.html` },
+    location: { '@type': 'VirtualLocation', url: `https://nexgenio.com/training/${course.slug}.html` },
     offers: {
       '@type': 'Offer', price: course.priceRaw, priceCurrency: course.currency,
       availability: 'https://schema.org/InStock',
@@ -210,13 +210,18 @@ for (const rel of TARGETS) {
     continue;
   }
   const before = src;
-  const course = courses.find(c => rel === `live/${c.slug}.html`);
+  const course = courses.find(c => rel === `training/${c.slug}.html`);
   const tag = course ? `COURSES:BOOKING:${course.slug}` : 'COURSES:SCHEDULE';
   const body = '\n' + (course ? bookingHtml(course) : scheduleHtml()) + '\n';
 
   let hit = false;
   const next = replaceRegion(src, tag, body);
   if (next !== null) { src = next; hit = true; }
+  if (course && course.cohorts.length) {
+    const when = replaceRegion(src, `COURSES:WHEN:${course.slug}`,
+      numRange(course.cohorts[0].start, course.cohorts[0].end));
+    if (when !== null) { src = when; hit = true; }
+  }
   if (course) {
     const ld = rewriteCourseInstances(src, course);
     if (ld !== null) { src = ld; hit = true; }

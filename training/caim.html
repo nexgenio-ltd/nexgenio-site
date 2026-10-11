@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certified Artificial Intelligence Manager (CAIM) &mdash; NexGenio Training</title>
+  <meta name="description" content="Certified Artificial Intelligence Manager (CAIM) self-paced training. Self-Study and eLearning options with PECB certification exam included.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/tokens/tokens.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+
+    /* HEADER */
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
+    .brand-divider{width:1px;height:36px;background:#e0e8ed}
+    .brand-sub{font-size:var(--sub-fs,16px);color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:var(--tag-fs,17px);color:var(--t)}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    /* BREADCRUMB */
+    .breadcrumb{max-width:1140px;margin:0 auto;padding:16px 32px;font-size:var(--label-fs,11px);color:var(--lg)}
+    .breadcrumb a{color:var(--t);text-decoration:none}
+    .breadcrumb a:hover{color:var(--o)}
+
+    /* COURSE HERO */
+    .course-hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px}
+    .course-hero .inn{max-width:1140px;margin:0 auto}
+    .hero-badges{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .chip{display:inline-block;font-size:var(--label-fs,11px);font-weight:700;background:rgba(255,255,255,.12);color:#fff;padding:4px 14px;border-radius:10px;letter-spacing:.6px;text-transform:uppercase}
+    .chip-orange{background:var(--o);color:#fff}
+    .course-hero h1{font-size:var(--h1-fs,clamp(24px,3.5vw,42px));font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
+    .credential-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .course-hero .credential{font-size:var(--body-fs,15px);color:rgba(255,255,255,.75)}
+    .pecb-hero-logo{height:22px;width:auto;opacity:.8}
+
+    /* INTRO FRAME */
+    .intro-frame{padding:48px 32px}
+    .intro-frame .inn{max-width:1140px;margin:0 auto}
+    .intro-card{background:#fff;border:1px solid #e4e9ed;border-left:4px solid var(--o);border-radius:6px;padding:32px 36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;box-shadow:0 2px 12px rgba(33,86,117,.05)}
+    .intro-card p{font-size:var(--body-fs,15px);color:#333;line-height:1.85;flex:1;min-width:280px;margin:0;font-weight:600}
+    .intro-card .pecb-red-logo{height:32px;width:auto;flex-shrink:0}
+
+    /* SECTIONS */
+    .inn{max-width:1140px;margin:0 auto}
+    section{padding:64px 32px}
+    .alt{background:var(--bg)}
+    .sl{font-size:var(--label-fs,11px);font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:var(--body-fs,15px);color:var(--lg);max-width:640px;margin-bottom:36px;line-height:1.75}
+
+    /* TIER CARDS */
+    .tiers{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:16px}
+    .tier-card{background:#fff;border-radius:8px;border-top:4px solid var(--t);box-shadow:0 2px 16px rgba(33,86,117,.08);padding:36px 32px;display:flex;flex-direction:column}
+    .tier-card.elearning{border-top-color:var(--o)}
+    .tier-label{display:inline-block;font-size:var(--heading-fs,20px);font-weight:700;letter-spacing:.4px;padding:6px 18px;border-radius:10px;margin-bottom:12px;background:var(--tl);color:var(--t)}
+    .tier-card.elearning .tier-label{background:rgba(246,145,27,.12);color:#b86800}
+    .tier-desc{font-size:var(--body-fs,15px);color:#555;line-height:1.7;margin-bottom:20px}
+    .tier-desc .only{font-size:var(--body-fs,15px);font-weight:bold;letter-spacing:.5px;color:#333}
+    .tier-includes{list-style:none;padding:0;margin:0 0 28px}
+    .tier-includes li{font-size:var(--body-fs,15px);color:#555;padding:7px 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px}
+    .tier-includes li:last-child{border-bottom:none}
+    .tier-includes li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .tier-price{font-size:var(--label-fs,11px);color:var(--lg);margin-bottom:16px;margin-top:auto}
+    .tier-price .amount{font-size:var(--price-fs,28px);font-weight:bold;color:var(--t);display:block;margin-top:4px}
+    .tier-card.elearning .tier-price .amount{color:var(--tm)}
+    .vat-note{display:block;font-size:var(--label-fs,11px);color:var(--lg);font-weight:normal;margin-top:2px}
+    .tier-cta{}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:var(--body-fs,15px);font-weight:bold;padding:14px 36px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;text-align:center;width:100%}
+    .btn:hover{background:#d97a0f}
+
+    /* ACCORDION */
+    .accordion{padding:0 32px 64px}
+    .accordion .inn{max-width:1140px;margin:0 auto}
+    details.acc{border:1px solid #e4e9ed;border-radius:6px;margin-bottom:12px;background:#fff;overflow:hidden}
+    details.acc + details.acc{margin-top:0}
+    details.acc summary{padding:18px 24px;font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .15s}
+    details.acc summary:hover{background:var(--bg)}
+    details.acc summary::-webkit-details-marker{display:none}
+    details.acc summary::after{content:"+";font-size:var(--heading-fs,20px);font-weight:300;color:var(--lg);flex-shrink:0;margin-left:16px;transition:transform .2s}
+    details.acc[open] summary::after{content:"\2212"}
+    details.acc[open] summary{border-bottom:1px solid #e4e9ed}
+    .acc-body{padding:24px;font-size:var(--body-fs,15px);color:#444;line-height:1.8}
+    .acc-body p{margin-bottom:14px}
+    .acc-body p:last-child{margin-bottom:0}
+    .acc-body ul{margin:0 0 14px 0;padding:0;list-style:none;font-size:var(--body-fs,15px)}
+    .acc-body ul li{padding:6px 0;display:flex;gap:10px}
+    .acc-body ul li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .acc-body .curriculum li::before{content:"\25B6";color:var(--o);font-size:var(--label-fs,11px);margin-top:4px}
+    .acc-body a{color:var(--t);text-decoration:underline}
+    .acc-body a:hover{color:var(--o)}
+    .acc-body h4{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin:20px 0 8px}
+    .acc-body h4:first-child{margin-top:0}
+    .acc-body .steps{list-style:none;padding:0;margin:0;counter-reset:step}
+    .acc-body .steps li{padding:8px 0;display:flex;gap:12px;counter-increment:step}
+    .acc-body .steps li::before{content:counter(step);background:var(--t);color:#fff;font-size:var(--label-fs,11px);font-weight:bold;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .acc-body .placeholder{background:#fff3e0;border:2px dashed var(--o);border-radius:4px;padding:10px 16px;color:#b86800;font-size:var(--body-fs,15px);font-style:italic;margin:8px 0}
+
+    /* CREDENTIAL TABLE */
+    .cred-intro{display:flex;align-items:flex-start;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+    .cred-badge{width:120px;height:auto;flex-shrink:0;border-radius:6px}
+    .cred-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:var(--body-fs,15px)}
+    .cred-table th{background:var(--t);color:#fff;text-align:left;padding:10px 14px;font-weight:600;font-size:var(--body-fs,15px);letter-spacing:.3px}
+    .cred-table td{padding:10px 14px;border-bottom:1px solid #eee;color:#444}
+    .cred-table tr:last-child td{border-bottom:none}
+    .cred-table tr:nth-child(even){background:var(--bg)}
+    .cred-closing{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.7;margin-top:16px}
+
+    /* RELATED COURSES */
+    .related{padding:48px 32px 56px}
+    .related .inn{max-width:1140px;margin:0 auto}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px}
+    .related-card{background:#fff;border:1px solid #e4e9ed;border-top:3px solid var(--t);border-radius:6px;padding:24px 28px;text-decoration:none;display:block;transition:box-shadow .15s,border-color .15s}
+    .related-card:hover{box-shadow:0 4px 20px rgba(33,86,117,.1);border-top-color:var(--o)}
+    .related-card .rc-title{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin-bottom:8px}
+    .related-card .rc-reason{font-size:13px;color:var(--lg);line-height:1.6}
+
+    /* FOOTER */
+    footer{background:var(--t);border-top:3px solid var(--o)}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
+    .footer-brand{display:flex;align-items:center;gap:16px}
+    .footer-brand-text .fn{font-size:14px;font-weight:bold;color:#fff}
+    .footer-brand-text .ft{font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+    .footer-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:7px}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+    .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
+    .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+
+    @media(max-width:900px){
+      .tiers{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    @media(max-width:520px){
+      section{padding:40px 20px}
+      .course-hero{padding:40px 20px 36px}
+      .hi{padding:0 20px}
+      .breadcrumb{padding:12px 20px}
+      .intro-frame{padding:32px 20px}
+      .intro-card{padding:24px 20px}
+      .accordion{padding:0 20px 40px}
+      .related{padding:32px 20px 40px}
+    }
+
+  </style>
+  <link rel="canonical" href="https://nexgenio.com/training/caim.html">
+  <!-- OG -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NexGenio">
+  <meta property="og:title" content="Certified Artificial Intelligence Manager (CAIM) — NexGenio Training">
+  <meta property="og:description" content="Certified Artificial Intelligence Manager (CAIM) self-paced training. Self-Study and eLearning options with PECB certification exam included.">
+  <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <meta property="og:url" content="https://nexgenio.com/training/caim.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Certified Artificial Intelligence Manager (CAIM) — NexGenio Training">
+  <meta name="twitter:description" content="Certified Artificial Intelligence Manager (CAIM) self-paced training. Self-Study and eLearning options with PECB certification exam included.">
+  <meta name="twitter:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <!-- /OG -->
+</head>
+<body>
+
+<!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+      <div class="brand-divider"></div>
+      <img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite_Tagline@2x.png" alt="PECB — Where Excellence Meets Recognition" class="pecb-mark" height="35">
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/training/index.html">Academy</a>
+      <a href="/blog/index.html">Insights</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/training/index.html">Academy</a>
+    <a href="/blog/index.html">Insights</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'},{name:'_clck'},{name:'_clsk'},{name:'CLID'},{name:'ANONCHK'},{name:'MR'},{name:'MUID'},{name:'SM'}]},services:{ga4:{},clarity:{}}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'en',
+      translations:{
+        en:{
+          consentModal:{
+            title:'We value your privacy',
+            description:'This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href="/legal/privacy.html">Privacy Policy</a>.',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            showPreferencesBtn:'Cookie Settings'
+          },
+          preferencesModal:{
+            title:'Cookie Preferences',
+            acceptAllBtn:'Accept All',
+            acceptNecessaryBtn:'Reject All',
+            savePreferencesBtn:'Save Preferences',
+            sections:[
+              {title:'Cookie Usage',description:'We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out.'},
+              {title:'Necessary',description:'These cookies are essential for the website to function. They cannot be disabled.',linkedCategory:'necessary'},
+              {title:'Analytics',description:'We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.',linkedCategory:'analytics'},
+              {title:'Marketing',description:'Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.',linkedCategory:'marketing'},
+              {title:'More information',description:'For questions about our cookie policy, please <a href="/#contact">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer.'}
+            ]
+          }
+        }
+      }
+    }
+  });
+  function _nxgLoadAnalytics(){
+    if(window._nxgAnalyticsLoaded)return;
+    if(!CookieConsent.acceptedService('ga4','analytics'))return;
+    window._nxgAnalyticsLoaded=true;
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-R6WRM25278';document.head.appendChild(gs);
+    /* gtag must be global: gtag.js never defines it, and nxg-events.js calls it
+       from its own scope. Declaring it with "function gtag(){}" here would trap
+       it inside _nxgLoadAnalytics and silently drop every conversion event. */
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
+    if(CookieConsent.acceptedService('clarity','analytics')){
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+    }
+  }
+  window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
+  window.addEventListener('cc:onChange',_nxgLoadAnalytics);
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent='Cookie Settings';a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
+
+<div class="breadcrumb">
+  <a href="/">Home</a> &rsaquo; <a href="/training/index.html#self-paced">Academy</a> &rsaquo; Certified Artificial Intelligence Manager (CAIM)
+</div>
+
+<!-- HERO -->
+<div class="course-hero">
+  <div class="inn">
+    <div class="hero-badges">
+      <span class="chip">PECB Certified</span>
+      <span class="chip chip-orange">Self-Paced</span>
+    </div>
+    <h1>Certified Artificial Intelligence Manager (CAIM)</h1>
+    <div class="credential-line">
+      <span class="credential">PECB Credential: Certified Artificial Intelligence Manager</span>
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_White.svg" alt="PECB" class="pecb-hero-logo">
+    </div>
+  </div>
+</div>
+
+<!-- INTRO FRAME -->
+<div class="intro-frame">
+  <div class="inn">
+    <div class="intro-card">
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_RedWhite.svg" alt="PECB" class="pecb-red-logo">
+      <p>Master the management and governance of AI initiatives aligned with recognized frameworks and business objectives &mdash; from opportunity assessment and governance through data-driven decision-making and automation. A practical path to the skills organizations now need as AI adoption becomes a board-level priority across every sector.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Self-paced training options</div>
+    <div class="st">Your Choice</div>
+
+    <div class="tiers">
+
+      <!-- SELF-STUDY -->
+      <div class="tier-card">
+        <div class="tier-label">Self-Study</div>
+        <div class="tier-desc">Course slides and exercise/quiz materials for self-paced reading and study. Work through the material at your own speed.</div>
+        <ul class="tier-includes">
+          <li><strong>No video recordings &mdash; slides only</strong></li>
+          <li>Course slides (full curriculum)</li>
+          <li>Exercises and quizzes</li>
+          <li>PECB certification exam included</li>
+          <li>Certificate included at no extra cost</li>
+        </ul>
+        <div class="tier-price">
+          Price
+          <span class="amount">&euro;699</span>
+          <span class="vat-note">excl. VAT</span>
+        </div>
+        <div class="tier-cta">
+          <a href="https://buy.stripe.com/bJe9AL9xv1na0Gt7mp0Ba0c" class="btn" data-course="Certified Artificial Intelligence Manager (CAIM)" data-format="self-study" data-price="699">Buy Self-Study</a>
+        </div>
+      </div>
+
+      <!-- eLEARNING -->
+      <div class="tier-card elearning">
+        <div class="tier-label">eLearning</div>
+        <div class="tier-desc">Pre-recorded video sessions plus course materials. Watch, pause, and revisit lessons at your own pace.</div>
+        <ul class="tier-includes">
+          <li><strong>Pre-recorded video sessions</strong></li>
+          <li>Course slides (full curriculum)</li>
+          <li>Exercises and quizzes</li>
+          <li>PECB certification exam included</li>
+          <li>Certificate included at no extra cost</li>
+        </ul>
+        <div class="tier-price">
+          Price
+          <span class="amount">&euro;839</span>
+          <span class="vat-note">excl. VAT</span>
+        </div>
+        <div class="tier-cta">
+          <a href="https://buy.stripe.com/14A00b2534zmgFrdKN0Ba0d" class="btn" data-course="Certified Artificial Intelligence Manager (CAIM)" data-format="e-learning" data-price="839">Buy eLearning</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACCORDION -->
+<div class="accordion">
+  <div class="inn">
+
+  <!-- 1. What is X? -->
+  <details class="acc">
+    <summary>What is CAIM?</summary>
+    <div class="acc-body">
+      <p>CAIM equips professionals to manage AI initiatives as a governed business discipline, not just a technical project &mdash; covering AI strategy and opportunity assessment, governance, risk and fairness, data-driven decision-making, and practical automation using tools like Power BI and n8n. Unlike a standards-based certification, CAIM is built around the actual skills a manager needs to turn AI&rsquo;s technical potential into governed, measurable outcomes &mdash; the gap that shows up when organizations run AI pilots but have no one accountable for running them responsibly.</p>
+      <p>Organizations scaling AI need people who can bridge strategy and execution, not just one or the other. This course builds that competency directly: you learn how to align AI initiatives with business goals, govern AI projects for risk and fairness, build interactive reporting, and automate workflows with AI agents &mdash; the same practical skills employers now expect from someone responsible for managing AI initiatives.</p>
+    </div>
+  </details>
+
+  <!-- 2. About this course -->
+  <details class="acc">
+    <summary>About this course</summary>
+    <div class="acc-body">
+      <h4>Who it&rsquo;s for</h4>
+      <ul>
+        <li>AI project and product managers responsible for delivering AI initiatives</li>
+        <li>Business leaders and program directors overseeing AI across teams</li>
+        <li>Risk, compliance, and governance officers reviewing AI use cases</li>
+      </ul>
+
+      <h4>What&rsquo;s covered</h4>
+      <ul class="curriculum">
+        <li><strong>Day 1:</strong>&nbsp; Foundations of AI, strategy, and opportunity assessment</li>
+        <li><strong>Day 2:</strong>&nbsp; AI governance, policy, and risk management</li>
+        <li><strong>Day 3:</strong>&nbsp; Data-driven decision-making and Power BI</li>
+        <li><strong>Day 4:</strong>&nbsp; AI automation with n8n</li>
+        <li><strong>Certification exam:</strong>&nbsp; 3 hours, 5 competency domains, scheduled with PECB after the course</li>
+      </ul>
+
+      <p><a href="https://assets.nexgenio.com/training/pecb/brochures/caim.pdf">View PECB course brochure (PDF) &rarr;</a></p>
+    </div>
+  </details>
+
+  <!-- 3. Credential -->
+  <details class="acc">
+    <summary>Which credential will I earn?</summary>
+    <div class="acc-body">
+      <p>Unlike other PECB certifications with a multi-level credential ladder, CAIM has exactly one credential:</p>
+      <p><strong>&ldquo;PECB Certified Artificial Intelligence Manager&rdquo;</strong> &mdash; requires 2 years of AI management experience (no project-hour requirement, PECB Code of Ethics signature required). There is no reduced-experience entry option for this credential.</p>
+    </div>
+  </details>
+
+  <!-- 4. How it works -->
+  <details class="acc">
+    <summary>How it works</summary>
+    <div class="acc-body">
+      <ol class="steps">
+        <li>Complete checkout and receive your order confirmation</li>
+        <li>We register your enrollment directly with PECB</li>
+        <li>You receive access to your course materials by email within 24 hours of your enrollment being registered with PECB (business days)</li>
+        <li>Study at your own pace, using the materials included in your chosen format</li>
+        <li>Book your certification exam directly through PECB when you&rsquo;re ready</li>
+      </ol>
+    </div>
+  </details>
+
+  <!-- 5. What's in the price -->
+  <details class="acc">
+    <summary>What&rsquo;s in the price</summary>
+    <div class="acc-body">
+      <ul>
+        <li>Certification and exam fees included in course price</li>
+        <li>Free exam retake within 12 months if unsuccessful</li>
+        <li>31 CPD credits awarded on completion</li>
+        <li>Access to course materials for 12 months</li>
+      </ul>
+    </div>
+  </details>
+
+  </div>
+</div>
+
+<!-- RELATED COURSES -->
+<div class="related alt">
+  <div class="inn">
+    <div class="sl">Continue your journey</div>
+    <div class="st">Related courses</div>
+    <div class="related-grid">
+      <a href="/training/iso-42001-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO/IEC 42001 Lead Implementer</div>
+        <div class="rc-reason">Formalise AI governance with the international standard for AI management systems</div>
+      </a>
+      <a href="/training/nis2-lead-implementer.html" class="related-card">
+        <div class="rc-title">NIS2 Directive Lead Implementer</div>
+        <div class="rc-reason">Understand the cybersecurity directive that shapes AI deployment in critical sectors</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-text">
+          <div class="fn">NexGenio LTD</div>
+          <div class="ft">Compliance by design.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Training</h5><a href="/training/index.html">All courses</a></div>
+        <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nexgenio.com/"},{"@type":"ListItem","position":2,"name":"Academy","item":"https://nexgenio.com/training/index.html"},{"@type":"ListItem","position":3,"name":"Certified AI Manager (CAIM)","item":"https://nexgenio.com/training/caim.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com","logo":"https://assets.nexgenio.com/brand/logo.png","address":{"@type":"PostalAddress","streetAddress":"36 St Dminika Street","addressLocality":"Victoria, Gozo","postalCode":"VCT 9030","addressCountry":"MT"},"vatID":"MT25941925","taxID":"C 88842","sameAs":["https://www.linkedin.com/company/nexgenio"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Certified Artificial Intelligence Manager (CAIM)","description":"Master the management and governance of AI initiatives aligned with recognized frameworks and business objectives — from opportunity assessment and governance through data-driven decision-making and automation. A practical path to the skills organizations now need as AI adoption becomes a board-level priority across every sector.","provider":{"@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"Self-paced"},"areaServed":{"@type":"Place","name":"Europe"},"url":"https://nexgenio.com/training/caim.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CAIM?","acceptedAnswer":{"@type":"Answer","text":"CAIM equips professionals to manage AI initiatives as a governed business discipline, not just a technical project — covering AI strategy and opportunity assessment, governance, risk and fairness, data-driven decision-making, and practical automation using tools like Power BI and n8n. Unlike a standards-based certification, CAIM is built around the actual skills a manager needs to turn AI's technical potential into governed, measurable outcomes — the gap that shows up when organizations run AI pilots but have no one accountable for running them responsibly. Organizations scaling AI need people who can bridge strategy and execution, not just one or the other. This course builds that competency directly: you learn how to align AI initiatives with business goals, govern AI projects for risk and fairness, build interactive reporting, and automate workflows with AI agents — the same practical skills employers now expect from someone responsible for managing AI initiatives."}},{"@type":"Question","name":"Who is this course for and what does it cover?","acceptedAnswer":{"@type":"Answer","text":"Who it's for AI project and product managers responsible for delivering AI initiatives Business leaders and program directors overseeing AI across teams Risk, compliance, and governance officers reviewing AI use cases What's covered Day 1: &nbsp; Foundations of AI, strategy, and opportunity assessment Day 2: &nbsp; AI governance, policy, and risk management Day 3: &nbsp; Data-driven decision-making and Power BI Day 4: &nbsp; AI automation with n8n Certification exam, 3 hours, 5 competency domains, scheduled with PECB after the course View PECB course brochure (PDF) →"}},{"@type":"Question","name":"Which credential will I earn?","acceptedAnswer":{"@type":"Answer","text":"Unlike other PECB certifications with a multi-level credential ladder, CAIM has exactly one credential: \"PECB Certified Artificial Intelligence Manager\" — requires 2 years of AI management experience (no project-hour requirement, PECB Code of Ethics signature required). There is no reduced-experience entry option for this credential."}},{"@type":"Question","name":"How does enrollment and course delivery work?","acceptedAnswer":{"@type":"Answer","text":"Complete checkout and receive your order confirmation We register your enrollment directly with PECB You receive access to your course materials by email within 24 hours of your enrollment being registered with PECB (business days) Study at your own pace, using the materials included in your chosen format Book your certification exam directly through PECB when you're ready"}},{"@type":"Question","name":"What's in the price?","acceptedAnswer":{"@type":"Answer","text":"Certification and exam fees included in course price Free exam retake within 12 months if unsuccessful 31 CPD credits awarded on completion Access to course materials for 12 months"}}]}</script>
+<script src="/tokens/nxg-events.js"></script>
+</body>
+</html>
