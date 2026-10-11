@@ -21,6 +21,8 @@ const TRAINING_PATHS = new Set([
   "live/index.html",
   "training/iso-27001-lead-implementer.html",
   "training/nis2-lead-implementer.html",
+  "training/dora-lead-manager.html",
+  "training/iso-42001-lead-implementer.html",
   "self/nis2-lead-implementer.html",
   "self/nis2-foundation.html",
   "self/dora-lead-manager.html",
