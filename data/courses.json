@@ -58,6 +58,23 @@
     "vatNote": "excl. VAT",
     "badge": "https://assets.nexgenio.com/PECB/course-badges/iso-42001-lead-implementer.png",
     "promoLabel": "LAUNCH PRICE",
+    "cohorts": [],
+    "cpdCredits": "31",
+    "examNote": "PECB certification exam included (3 hours, 6 domains)"
+  },
+  {
+    "slug": "nis2-lead-implementer",
+    "name": "NIS 2 Directive Lead Implementer",
+    "format": "live-online",
+    "duration": "5 days",
+    "language": "English",
+    "trainerCredential": "PECB Platinum Trainer",
+    "price": "2,222",
+    "priceRaw": "2222",
+    "currency": "EUR",
+    "vatNote": "excl. VAT",
+    "badge": "https://assets.nexgenio.com/PECB/course-badges/nis-2-directive-lead-implementer.png",
+    "promoLabel": "LAUNCH PRICE",
     "cohorts": [
       {
         "start": "2026-11-23",
