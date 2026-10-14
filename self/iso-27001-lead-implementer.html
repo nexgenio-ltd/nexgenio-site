@@ -225,30 +225,7 @@
     },
     language:{
       default:'en',
-      translations:{
-        en:{
-          consentModal:{
-            title:'We value your privacy',
-            description:'This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href="/legal/privacy.html">Privacy Policy</a>.',
-            acceptAllBtn:'Accept All',
-            acceptNecessaryBtn:'Reject All',
-            showPreferencesBtn:'Cookie Settings'
-          },
-          preferencesModal:{
-            title:'Cookie Preferences',
-            acceptAllBtn:'Accept All',
-            acceptNecessaryBtn:'Reject All',
-            savePreferencesBtn:'Save Preferences',
-            sections:[
-              {title:'Cookie Usage',description:'We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out.'},
-              {title:'Necessary',description:'These cookies are essential for the website to function. They cannot be disabled.',linkedCategory:'necessary'},
-              {title:'Analytics',description:'We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.',linkedCategory:'analytics'},
-              {title:'Marketing',description:'Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.',linkedCategory:'marketing'},
-              {title:'More information',description:'For questions about our cookie policy, please <a href="/#contact">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer.'}
-            ]
-          }
-        }
-      }
+      translations:{"en":{"consentModal":{"title":"We value your privacy","description":"This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href=\"/legal/privacy.html\">Privacy Policy</a>.","acceptAllBtn":"Accept All","acceptNecessaryBtn":"Reject All","showPreferencesBtn":"Cookie Settings"},"preferencesModal":{"title":"Cookie Preferences","acceptAllBtn":"Accept All","acceptNecessaryBtn":"Reject All","savePreferencesBtn":"Save Preferences","sections":[{"title":"Cookie Usage","description":"We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out."},{"title":"Necessary","description":"These cookies are essential for the website to function. They cannot be disabled.","linkedCategory":"necessary"},{"title":"Analytics","description":"We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.","linkedCategory":"analytics"},{"title":"Marketing","description":"Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.","linkedCategory":"marketing"},{"title":"More information","description":"For questions about our cookie policy, please <a href=\"/#contact\">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer."}]}}}
     }
   });
   function _nxgLoadAnalytics(){
@@ -266,7 +243,7 @@
   }
   window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
   window.addEventListener('cc:onChange',_nxgLoadAnalytics);
-  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent='Cookie Settings';a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent="Cookie Settings";a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
 </script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
 
 <div class="breadcrumb">

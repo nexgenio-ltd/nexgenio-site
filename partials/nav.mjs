@@ -14,7 +14,58 @@ const navAlignCss = `<style id="nav-align">header{padding:0 32px}.hi{padding-lef
 
 const mobileMenuJs = `<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script>`;
 
-const cookieConsentBlock = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+/* Consent copy per locale. Kept as real objects and JSON.stringify'd into the
+   page, so French apostrophes and quotes need no hand-escaping. */
+const ccLang = {
+  en: {
+    consentModal: {
+      title: 'We value your privacy',
+      description: 'This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href="/legal/privacy.html">Privacy Policy</a>.',
+      acceptAllBtn: 'Accept All',
+      acceptNecessaryBtn: 'Reject All',
+      showPreferencesBtn: 'Cookie Settings',
+    },
+    preferencesModal: {
+      title: 'Cookie Preferences',
+      acceptAllBtn: 'Accept All',
+      acceptNecessaryBtn: 'Reject All',
+      savePreferencesBtn: 'Save Preferences',
+      sections: [
+        { title: 'Cookie Usage', description: 'We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out.' },
+        { title: 'Necessary', description: 'These cookies are essential for the website to function. They cannot be disabled.', linkedCategory: 'necessary' },
+        { title: 'Analytics', description: 'We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.', linkedCategory: 'analytics' },
+        { title: 'Marketing', description: 'Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.', linkedCategory: 'marketing' },
+        { title: 'More information', description: 'For questions about our cookie policy, please <a href="/#contact">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer.' },
+      ],
+    },
+  },
+  fr: {
+    consentModal: {
+      title: 'Nous respectons votre vie privée',
+      description: 'Ce site utilise des cookies afin de mesurer ses performances et d’améliorer votre expérience. Vous pouvez choisir les catégories que vous autorisez. Pour en savoir plus, consultez notre <a href="/legal/privacy.html">politique de confidentialité</a>.',
+      acceptAllBtn: 'Tout accepter',
+      acceptNecessaryBtn: 'Tout refuser',
+      showPreferencesBtn: 'Paramètres des cookies',
+    },
+    preferencesModal: {
+      title: 'Préférences relatives aux cookies',
+      acceptAllBtn: 'Tout accepter',
+      acceptNecessaryBtn: 'Tout refuser',
+      savePreferencesBtn: 'Enregistrer mes préférences',
+      sections: [
+        { title: 'Utilisation des cookies', description: 'Nous utilisons des cookies pour assurer le fonctionnement de base du site et améliorer votre expérience. Vous pouvez accepter ou refuser chaque catégorie.' },
+        { title: 'Nécessaires', description: 'Ces cookies sont indispensables au fonctionnement du site. Ils ne peuvent pas être désactivés.', linkedCategory: 'necessary' },
+        { title: 'Mesure d’audience', description: 'Nous utilisons Google Analytics 4 et Microsoft Clarity pour comprendre comment les visiteurs utilisent le site. Ces outils collectent des données d’usage anonymisées (pages vues, clics, profondeur de défilement) afin d’améliorer le contenu et la structure du site. Ils ne s’activent qu’après votre consentement.', linkedCategory: 'analytics' },
+        { title: 'Marketing', description: 'Les cookies marketing servent à suivre les visiteurs d’un site à l’autre afin d’afficher des publicités pertinentes. Aucun outil marketing n’est actuellement actif.', linkedCategory: 'marketing' },
+        { title: 'Plus d’informations', description: 'Pour toute question sur notre politique en matière de cookies, <a href="/#contact">contactez-nous</a>. Vous pouvez modifier vos préférences à tout moment via le lien Paramètres des cookies en pied de page.' },
+      ],
+    },
+  },
+};
+
+const ccFooterLabel = { en: 'Cookie Settings', fr: 'Paramètres des cookies' };
+
+const cookieConsent = (lang) => `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
 <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
 <script>
   CookieConsent.run({
@@ -28,31 +79,8 @@ const cookieConsentBlock = `<link rel="stylesheet" href="https://cdn.jsdelivr.ne
       marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
     },
     language:{
-      default:'en',
-      translations:{
-        en:{
-          consentModal:{
-            title:'We value your privacy',
-            description:'This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href="/legal/privacy.html">Privacy Policy</a>.',
-            acceptAllBtn:'Accept All',
-            acceptNecessaryBtn:'Reject All',
-            showPreferencesBtn:'Cookie Settings'
-          },
-          preferencesModal:{
-            title:'Cookie Preferences',
-            acceptAllBtn:'Accept All',
-            acceptNecessaryBtn:'Reject All',
-            savePreferencesBtn:'Save Preferences',
-            sections:[
-              {title:'Cookie Usage',description:'We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out.'},
-              {title:'Necessary',description:'These cookies are essential for the website to function. They cannot be disabled.',linkedCategory:'necessary'},
-              {title:'Analytics',description:'We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.',linkedCategory:'analytics'},
-              {title:'Marketing',description:'Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.',linkedCategory:'marketing'},
-              {title:'More information',description:'For questions about our cookie policy, please <a href="/#contact">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer.'}
-            ]
-          }
-        }
-      }
+      default:'${lang}',
+      translations:${JSON.stringify({ [lang]: ccLang[lang] })}
     }
   });
   function _nxgLoadAnalytics(){
@@ -70,8 +98,10 @@ const cookieConsentBlock = `<link rel="stylesheet" href="https://cdn.jsdelivr.ne
   }
   window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
   window.addEventListener('cc:onChange',_nxgLoadAnalytics);
-  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent='Cookie Settings';a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent=${JSON.stringify(ccFooterLabel[lang])};a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
 </script>`;
+
+const cookieConsentBlock = cookieConsent('en');
 
 export const baseNav = `<!-- NAV -->${navAlignCss}
 <header>
@@ -120,3 +150,30 @@ export const trainingNav = `<!-- NAV -->${navAlignCss}
   </div>
 </header>
 ${mobileMenuJs}${cookieConsentBlock}<script src="/tokens/nxg-events.js"></script><!-- /NAV -->`;
+
+/* French training pages. The labels and the consent copy are French; the hrefs
+   stay English on purpose, because the catalogue behind them is English. */
+export const trainingNavFr = `<!-- NAV -->${navAlignCss}
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+      <div class="brand-divider"></div>
+      <img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite_Tagline@2x.png" alt="PECB — Where Excellence Meets Recognition" class="pecb-mark" height="35">
+    </a>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/training/index.html">Catalogue</a>
+      <a href="/blog/index.html">Analyses</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Accueil</a>
+    <a href="/training/index.html">Catalogue</a>
+    <a href="/blog/index.html">Analyses</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+${mobileMenuJs}${cookieConsent('fr')}<script src="/tokens/nxg-events.js"></script><!-- /NAV -->`;
