@@ -8,3 +8,11 @@ blog/*.txt
 
 # Generated OG images (built in CI, synced to S3)
 og-images/
+
+# Lead and contact data — THIS REPOSITORY IS PUBLIC.
+# Research describing where to find a register is fine to commit.
+# Files holding actual target addresses are not. They stay local.
+research/*_addresses_*.md
+research/*_leads_*.md
+research/*_contacts_*.md
+research/*_reveals_*.md
