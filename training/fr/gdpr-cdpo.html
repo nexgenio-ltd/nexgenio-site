@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DPO &mdash; RGPD CDPO en fran&ccedil;ais &mdash; Formation NexGenio</title>
+  <meta name="description" content="Formation RGPD CDPO (d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es) en e-Learning fran&ccedil;ais. Au choix&nbsp;: examen PECB Certified Data Protection Officer ou examen du r&eacute;f&eacute;rentiel CNIL. Examen et certification inclus.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/tokens/tokens.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+
+    /* HEADER */
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
+    .brand-divider{width:1px;height:36px;background:#e0e8ed}
+    .brand-sub{font-size:var(--sub-fs,16px);color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:var(--tag-fs,17px);color:var(--t)}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    /* BREADCRUMB */
+    .breadcrumb{max-width:1140px;margin:0 auto;padding:16px 32px;font-size:var(--label-fs,11px);color:var(--lg)}
+    .breadcrumb a{color:var(--t);text-decoration:none}
+    .breadcrumb a:hover{color:var(--o)}
+
+    /* COURSE HERO */
+    .course-hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px}
+    .course-hero .inn{max-width:1140px;margin:0 auto}
+    .hero-badges{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .chip{display:inline-block;font-size:var(--label-fs,11px);font-weight:700;background:rgba(255,255,255,.12);color:#fff;padding:4px 14px;border-radius:10px;letter-spacing:.6px;text-transform:uppercase}
+    .chip-orange{background:var(--o);color:#fff}
+    .course-hero h1{font-size:var(--h1-fs,clamp(24px,3.5vw,42px));font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
+    .credential-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .course-hero .credential{font-size:var(--body-fs,15px);color:rgba(255,255,255,.75)}
+    .pecb-hero-logo{height:22px;width:auto;opacity:.8}
+
+    /* INTRO FRAME */
+    .intro-frame{padding:48px 32px}
+    .intro-frame .inn{max-width:1140px;margin:0 auto}
+    .intro-card{background:#fff;border:1px solid #e4e9ed;border-left:4px solid var(--o);border-radius:6px;padding:32px 36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;box-shadow:0 2px 12px rgba(33,86,117,.05)}
+    .intro-card p{font-size:var(--body-fs,15px);color:#333;line-height:1.85;flex:1;min-width:280px;margin:0;font-weight:600}
+    .intro-card .pecb-red-logo{height:32px;width:auto;flex-shrink:0}
+
+    /* SECTIONS */
+    .inn{max-width:1140px;margin:0 auto}
+    section{padding:64px 32px}
+    .alt{background:var(--bg)}
+    .sl{font-size:var(--label-fs,11px);font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:var(--body-fs,15px);color:var(--lg);max-width:640px;margin-bottom:36px;line-height:1.75}
+
+    /* TIER CARDS */
+    .tiers{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:16px}
+    .tier-card{background:#fff;border-radius:8px;border-top:4px solid var(--t);box-shadow:0 2px 16px rgba(33,86,117,.08);padding:36px 32px;display:flex;flex-direction:column}
+    .tier-card.elearning{border-top-color:var(--o)}
+    .tier-label{display:inline-block;font-size:var(--heading-fs,20px);font-weight:700;letter-spacing:.4px;padding:6px 18px;border-radius:10px;margin-bottom:12px;background:var(--tl);color:var(--t)}
+    .tier-card.elearning .tier-label{background:rgba(246,145,27,.12);color:#b86800}
+    .tier-desc{font-size:var(--body-fs,15px);color:#555;line-height:1.7;margin-bottom:20px}
+    .tier-desc .only{font-size:var(--body-fs,15px);font-weight:bold;letter-spacing:.5px;color:#333}
+    .tier-includes{list-style:none;padding:0;margin:0 0 28px}
+    .tier-includes li{font-size:var(--body-fs,15px);color:#555;padding:7px 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px}
+    .tier-includes li:last-child{border-bottom:none}
+    .tier-includes li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .tier-price{font-size:var(--label-fs,11px);color:var(--lg);margin-bottom:16px;margin-top:auto}
+    .tier-price .amount{font-size:var(--price-fs,28px);font-weight:bold;color:var(--t);display:block;margin-top:4px}
+    .tier-card.elearning .tier-price .amount{color:var(--tm)}
+    .vat-note{display:block;font-size:var(--label-fs,11px);color:var(--lg);font-weight:normal;margin-top:2px}
+    .tier-cta{}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:var(--body-fs,15px);font-weight:bold;padding:14px 36px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;text-align:center;width:100%}
+    .btn:hover{background:#d97a0f}
+
+    /* ACCORDION */
+    .accordion{padding:0 32px 64px}
+    .accordion .inn{max-width:1140px;margin:0 auto}
+    details.acc{border:1px solid #e4e9ed;border-radius:6px;margin-bottom:12px;background:#fff;overflow:hidden}
+    details.acc + details.acc{margin-top:0}
+    details.acc summary{padding:18px 24px;font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .15s}
+    details.acc summary:hover{background:var(--bg)}
+    details.acc summary::-webkit-details-marker{display:none}
+    details.acc summary::after{content:"+";font-size:var(--heading-fs,20px);font-weight:300;color:var(--lg);flex-shrink:0;margin-left:16px;transition:transform .2s}
+    details.acc[open] summary::after{content:"\2212"}
+    details.acc[open] summary{border-bottom:1px solid #e4e9ed}
+    .acc-body{padding:24px;font-size:var(--body-fs,15px);color:#444;line-height:1.8}
+    .acc-body p{margin-bottom:14px}
+    .acc-body p:last-child{margin-bottom:0}
+    .acc-body ul{margin:0 0 14px 0;padding:0;list-style:none;font-size:var(--body-fs,15px)}
+    .acc-body ul li{padding:6px 0;display:flex;gap:10px}
+    .acc-body ul li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .acc-body .curriculum li::before{content:"\25B6";color:var(--o);font-size:var(--label-fs,11px);margin-top:4px}
+    .acc-body a{color:var(--t);text-decoration:underline}
+    .acc-body a:hover{color:var(--o)}
+    .acc-body h4{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin:20px 0 8px}
+    .acc-body h4:first-child{margin-top:0}
+    .acc-body .steps{list-style:none;padding:0;margin:0;counter-reset:step}
+    .acc-body .steps li{padding:8px 0;display:flex;gap:12px;counter-increment:step}
+    .acc-body .steps li::before{content:counter(step);background:var(--t);color:#fff;font-size:var(--label-fs,11px);font-weight:bold;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .acc-body .placeholder{background:#fff3e0;border:2px dashed var(--o);border-radius:4px;padding:10px 16px;color:#b86800;font-size:var(--body-fs,15px);font-style:italic;margin:8px 0}
+
+    /* CREDENTIAL TABLE */
+    .cred-intro{display:flex;align-items:flex-start;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+    .cred-badge{width:120px;height:auto;flex-shrink:0;border-radius:6px}
+    .cred-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:var(--body-fs,15px)}
+    .cred-table th{background:var(--t);color:#fff;text-align:left;padding:10px 14px;font-weight:600;font-size:var(--body-fs,15px);letter-spacing:.3px}
+    .cred-table td{padding:10px 14px;border-bottom:1px solid #eee;color:#444}
+    .cred-table tr:last-child td{border-bottom:none}
+    .cred-table tr:nth-child(even){background:var(--bg)}
+    @media(max-width:600px){
+      .cred-table thead{display:none}
+      .cred-table,.cred-table tbody,.cred-table tr,.cred-table td{display:block;width:100%}
+      .cred-table tr{background:#fff;border:1px solid var(--tl);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+      .cred-table tr:nth-child(even){background:#fff}
+      .cred-table td{padding:3px 0;border-bottom:none;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+      .cred-table td:first-child{font-weight:700;color:var(--t);font-size:15px;padding-bottom:8px;display:block}
+      .cred-table td:not(:first-child)::before{content:attr(data-label);font-weight:600;color:var(--t);font-size:13px;flex-shrink:0}
+      .cred-table tr:last-child td{border-bottom:none}
+    }
+    .cred-closing{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.7;margin-top:16px}
+
+    /* RELATED COURSES */
+    .related{padding:48px 32px 56px}
+    .related .inn{max-width:1140px;margin:0 auto}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px}
+    .related-card{background:#fff;border:1px solid #e4e9ed;border-top:3px solid var(--t);border-radius:6px;padding:24px 28px;text-decoration:none;display:block;transition:box-shadow .15s,border-color .15s}
+    .related-card:hover{box-shadow:0 4px 20px rgba(33,86,117,.1);border-top-color:var(--o)}
+    .related-card .rc-title{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin-bottom:8px}
+    .related-card .rc-reason{font-size:13px;color:var(--lg);line-height:1.6}
+    .lang-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:var(--tl);color:var(--t);padding:2px 8px;border-radius:8px;margin-left:8px;vertical-align:middle}
+
+    /* FOOTER */
+    footer{background:var(--t);border-top:3px solid var(--o)}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
+    .footer-brand{display:flex;align-items:center;gap:16px}
+    .footer-brand-text .fn{font-size:14px;font-weight:bold;color:#fff}
+    .footer-brand-text .ft{font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+    .footer-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:7px}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+    .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
+    .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+
+    @media(max-width:900px){
+      .tiers{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    @media(max-width:520px){
+      section{padding:40px 20px}
+      .course-hero{padding:40px 20px 36px}
+      .hi{padding:0 20px}
+      .breadcrumb{padding:12px 20px}
+      .intro-frame{padding:32px 20px}
+      .intro-card{padding:24px 20px}
+      .accordion{padding:0 20px 40px}
+      .related{padding:32px 20px 40px}
+    }
+
+  </style>
+  <link rel="canonical" href="https://nexgenio.com/training/fr/gdpr-cdpo.html">
+  <link rel="alternate" hreflang="fr" href="https://nexgenio.com/training/fr/gdpr-cdpo.html">
+  <link rel="alternate" hreflang="x-default" href="https://nexgenio.com/training/fr/gdpr-cdpo.html">
+  <!-- OG -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NexGenio">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:title" content="DPO — RGPD CDPO en français — Formation NexGenio">
+  <meta property="og:description" content="Formation RGPD CDPO (délégué à la protection des données) en e-Learning français. Au choix : examen PECB Certified Data Protection Officer ou examen du référentiel CNIL. Examen et certification inclus.">
+  <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <meta property="og:url" content="https://nexgenio.com/training/fr/gdpr-cdpo.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DPO — RGPD CDPO en français — Formation NexGenio">
+  <meta name="twitter:description" content="Formation RGPD CDPO (délégué à la protection des données) en e-Learning français. Au choix : examen PECB Certified Data Protection Officer ou examen du référentiel CNIL. Examen et certification inclus.">
+  <meta name="twitter:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <!-- /OG -->
+</head>
+<body>
+
+<!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+      <div class="brand-divider"></div>
+      <img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite_Tagline@2x.png" alt="PECB — Where Excellence Meets Recognition" class="pecb-mark" height="35">
+    </a>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/training/fr/index.html">Catalogue</a>
+      <a href="/blog/index.html">Analyses</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Accueil</a>
+    <a href="/training/fr/index.html">Catalogue</a>
+    <a href="/blog/index.html">Analyses</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'},{name:'_clck'},{name:'_clsk'},{name:'CLID'},{name:'ANONCHK'},{name:'MR'},{name:'MUID'},{name:'SM'}]},services:{ga4:{},clarity:{}}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'fr',
+      translations:{"fr":{"consentModal":{"title":"Nous respectons votre vie privée","description":"Ce site utilise des cookies afin de mesurer ses performances et d’améliorer votre expérience. Vous pouvez choisir les catégories que vous autorisez. Pour en savoir plus, consultez notre <a href=\"/legal/privacy.html\">politique de confidentialité</a>.","acceptAllBtn":"Tout accepter","acceptNecessaryBtn":"Tout refuser","showPreferencesBtn":"Paramètres des cookies"},"preferencesModal":{"title":"Préférences relatives aux cookies","acceptAllBtn":"Tout accepter","acceptNecessaryBtn":"Tout refuser","savePreferencesBtn":"Enregistrer mes préférences","sections":[{"title":"Utilisation des cookies","description":"Nous utilisons des cookies pour assurer le fonctionnement de base du site et améliorer votre expérience. Vous pouvez accepter ou refuser chaque catégorie."},{"title":"Nécessaires","description":"Ces cookies sont indispensables au fonctionnement du site. Ils ne peuvent pas être désactivés.","linkedCategory":"necessary"},{"title":"Mesure d’audience","description":"Nous utilisons Google Analytics 4 et Microsoft Clarity pour comprendre comment les visiteurs utilisent le site. Ces outils collectent des données d’usage anonymisées (pages vues, clics, profondeur de défilement) afin d’améliorer le contenu et la structure du site. Ils ne s’activent qu’après votre consentement.","linkedCategory":"analytics"},{"title":"Marketing","description":"Les cookies marketing servent à suivre les visiteurs d’un site à l’autre afin d’afficher des publicités pertinentes. Aucun outil marketing n’est actuellement actif.","linkedCategory":"marketing"},{"title":"Plus d’informations","description":"Pour toute question sur notre politique en matière de cookies, <a href=\"/#contact\">contactez-nous</a>. Vous pouvez modifier vos préférences à tout moment via le lien Paramètres des cookies en pied de page."}]}}}
+    }
+  });
+  function _nxgLoadAnalytics(){
+    if(window._nxgAnalyticsLoaded)return;
+    if(!CookieConsent.acceptedService('ga4','analytics'))return;
+    window._nxgAnalyticsLoaded=true;
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-R6WRM25278';document.head.appendChild(gs);
+    /* gtag must be global: gtag.js never defines it, and nxg-events.js calls it
+       from its own scope. Declaring it with "function gtag(){}" here would trap
+       it inside _nxgLoadAnalytics and silently drop every conversion event. */
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
+    if(CookieConsent.acceptedService('clarity','analytics')){
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+    }
+  }
+  window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
+  window.addEventListener('cc:onChange',_nxgLoadAnalytics);
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent="Paramètres des cookies";a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
+
+<div class="breadcrumb">
+  <a href="/">Accueil</a> &rsaquo; <a href="/training/index.html#self-paced">Catalogue</a> &rsaquo; RGPD CDPO
+</div>
+
+<!-- HERO -->
+<div class="course-hero">
+  <div class="inn">
+    <div class="hero-badges">
+      <span class="chip">Certifi&eacute; PECB</span>
+      <span class="chip chip-orange">Formation en fran&ccedil;ais</span>
+      <span class="chip">e-Learning, &agrave; votre rythme</span>
+      <span class="chip chip-orange">Examen CNIL au choix</span>
+    </div>
+    <h1>RGPD &mdash; D&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es (CDPO)</h1>
+    <div class="credential-line">
+      <span class="credential">Deux examens au choix&nbsp;: PECB Certified Data Protection Officer ou r&eacute;f&eacute;rentiel CNIL</span>
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_White.svg" alt="PECB" class="pecb-hero-logo">
+    </div>
+  </div>
+</div>
+
+<!-- INTRO FRAME -->
+<div class="intro-frame">
+  <div class="inn">
+    <div class="intro-card">
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_RedWhite.svg" alt="PECB" class="pecb-red-logo">
+      <p>Exercer la fonction de d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es, ce n&rsquo;est pas conna&icirc;tre le RGPD&nbsp;: c&rsquo;est savoir d&eacute;signer un DPO, tenir un registre des activit&eacute;s de traitement, conduire une analyse d&rsquo;impact, g&eacute;rer une violation de donn&eacute;es et rendre compte &agrave; l&rsquo;autorit&eacute; de contr&ocirc;le. NexGenio propose cette formation en e-Learning fran&ccedil;ais, en vingt sections que vous suivez &agrave; votre rythme. Vous choisissez votre examen au moment de l&rsquo;achat&nbsp;: celui de PECB, reconnu &agrave; l&rsquo;international, ou celui align&eacute; sur le r&eacute;f&eacute;rentiel de certification des comp&eacute;tences du DPO de la CNIL, propre au march&eacute; fran&ccedil;ais.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Une seule formation, deux examens</div>
+    <div class="st">Choisissez votre certification</div>
+    <div class="ss">Le contenu de la formation est identique dans les deux cas&nbsp;: les m&ecirc;mes 20 sections en e-Learning fran&ccedil;ais. Vous choisissez ici l&rsquo;examen que vous passerez &agrave; l&rsquo;issue du parcours, car c&rsquo;est lui qui d&eacute;termine le titre que vous pourrez demander.</div>
+
+    <div class="tiers">
+
+      <!-- PARCOURS PECB -->
+      <div class="tier-card elearning">
+        <div class="tier-label">eLearning + examen PECB</div>
+        <div class="tier-desc">Le parcours international. D&eacute;bouche sur le titre PECB Certified Data Protection Officer, reconnu hors de France.</div>
+        <ul class="tier-includes">
+          <li><strong>20 sections vid&eacute;o pr&eacute;enregistr&eacute;es</strong></li>
+          <li>Supports de cours (programme complet), au format modifiable</li>
+          <li>Exercices et quiz int&eacute;gr&eacute;s</li>
+          <li><strong>Examen &laquo;&nbsp;PECB Certified Data Protection Officer&nbsp;&raquo;</strong></li>
+          <li>Examen et frais de certification inclus</li>
+        </ul>
+        <div class="tier-price">
+          Prix
+          <span class="amount">839&nbsp;&euro;</span>
+          <span class="vat-note">hors taxes</span>
+        </div>
+        <div class="tier-cta">
+          <a href="https://buy.stripe.com/14A3cn253fe074RgWZ0Ba0v" class="btn" data-course="RGPD CDPO &mdash; examen PECB (FR)" data-format="e-learning" data-price="839">Acheter &mdash; examen PECB</a>
+        </div>
+      </div>
+
+      <!-- PARCOURS CNIL -->
+      <div class="tier-card elearning">
+        <div class="tier-label">eLearning + examen CNIL</div>
+        <div class="tier-desc">Le parcours fran&ccedil;ais. D&eacute;bouche sur la certification des comp&eacute;tences du DPO align&eacute;e sur le r&eacute;f&eacute;rentiel de la CNIL, largement reconnue par les employeurs en France.</div>
+        <ul class="tier-includes">
+          <li><strong>20 sections vid&eacute;o pr&eacute;enregistr&eacute;es</strong></li>
+          <li>Supports de cours (programme complet), au format modifiable</li>
+          <li>Exercices et quiz int&eacute;gr&eacute;s</li>
+          <li><strong>Examen align&eacute; sur le r&eacute;f&eacute;rentiel de la CNIL</strong></li>
+          <li>Examen et frais de certification inclus</li>
+        </ul>
+        <div class="tier-price">
+          Prix
+          <span class="amount">839&nbsp;&euro;</span>
+          <span class="vat-note">hors taxes</span>
+        </div>
+        <div class="tier-cta">
+          <a href="https://buy.stripe.com/3cI5kv5hfe9WfBnbCF0Ba0w" class="btn" data-course="RGPD CDPO &mdash; examen CNIL (FR)" data-format="e-learning" data-price="839">Acheter &mdash; examen CNIL</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="max-width:1140px;margin:24px auto 0;font-size:14px;color:var(--lg);text-align:center">Vous h&eacute;sitez&nbsp;? Le d&eacute;tail des deux examens figure plus bas. <a href="/#contact" style="color:var(--t)">Contactez-nous</a> avant d&rsquo;acheter si vous n&rsquo;&ecirc;tes pas s&ucirc;r du parcours qui correspond &agrave; votre situation.</p>
+  </div>
+</section>
+
+<!-- ACCORDION -->
+<div class="accordion">
+  <div class="inn">
+
+  <!-- 1. Le rôle -->
+  <details class="acc">
+    <summary>Que fait un d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es&nbsp;?</summary>
+    <div class="acc-body">
+      <p>Le RGPD &mdash; r&egrave;glement g&eacute;n&eacute;ral sur la protection des donn&eacute;es, r&egrave;glement (UE) 2016/679 &mdash; impose &agrave; de nombreux organismes de d&eacute;signer un d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es. Le DPO informe et conseille le responsable de traitement et le sous-traitant, contr&ocirc;le le respect du r&egrave;glement, et coop&egrave;re avec l&rsquo;autorit&eacute; de contr&ocirc;le &mdash; en France, la CNIL.</p>
+      <p>C&rsquo;est une fonction op&eacute;rationnelle, pas th&eacute;orique. Elle suppose de savoir tenir un registre des activit&eacute;s de traitement, &eacute;crire une politique de protection des donn&eacute;es, conduire une analyse d&rsquo;impact relative &agrave; la protection des donn&eacute;es, instruire une violation de donn&eacute;es &agrave; caract&egrave;re personnel dans les d&eacute;lais, mener un audit interne et rendre compte. La formation couvre ce m&eacute;tier dans son ensemble, en vingt sections, et le relie aux cadres connexes que sont l&rsquo;ISO/IEC 27701 et l&rsquo;ISO/IEC 29134.</p>
+    </div>
+  </details>
+
+  <!-- 2. À propos de cette formation -->
+  <details class="acc">
+    <summary>&Agrave; propos de cette formation</summary>
+    <div class="acc-body">
+      <h4>&Agrave; qui elle s&rsquo;adresse</h4>
+      <ul>
+        <li>Gestionnaires et consultants qui accompagnent un organisme dans la mise en place et le maintien d&rsquo;un programme de conformit&eacute; au RGPD</li>
+        <li>DPO en poste et personnes charg&eacute;es du maintien de la conformit&eacute;</li>
+        <li>Membres d&rsquo;une &eacute;quipe s&eacute;curit&eacute; de l&rsquo;information, gestion des incidents ou continuit&eacute; d&rsquo;activit&eacute;</li>
+        <li>Experts techniques et experts conformit&eacute; qui envisagent un poste de DPO</li>
+      </ul>
+
+      <h4>Programme &mdash; 20 sections</h4>
+      <p>La formation est structur&eacute;e en sections vid&eacute;o et non en journ&eacute;es de classe. Chaque section dure au plus une vingtaine de minutes.</p>
+      <ul class="curriculum">
+        <li><strong>Sections 1 &agrave; 4&nbsp;:</strong>&nbsp; objectifs et structure de la formation, le RGPD, consid&eacute;rations fondamentales, d&eacute;signation du DPO</li>
+        <li><strong>Sections 5 &agrave; 8&nbsp;:</strong>&nbsp; analyse du programme de conformit&eacute;, relations avec la direction, politique de protection des donn&eacute;es, registre des activit&eacute;s de traitement</li>
+        <li><strong>Sections 9 &agrave; 12&nbsp;:</strong>&nbsp; processus de gestion des risques, analyse d&rsquo;impact relative &agrave; la protection des donn&eacute;es, gestion de la documentation, &eacute;valuation des mesures de protection</li>
+        <li><strong>Sections 13 &agrave; 16&nbsp;:</strong>&nbsp; protection des donn&eacute;es et technologies, sensibilisation, formation et communication, gestion des incidents et violations de donn&eacute;es, surveillance et mesure de la conformit&eacute;</li>
+        <li><strong>Sections 17 &agrave; 20&nbsp;:</strong>&nbsp; audit interne de la protection des donn&eacute;es, traitement des non-conformit&eacute;s, am&eacute;lioration continue, cl&ocirc;ture</li>
+      </ul>
+
+      <h4>Modalit&eacute;s</h4>
+      <ul>
+        <li>Formation enti&egrave;rement en ligne, sur la plateforme myPECB, accessible 24&nbsp;h/24</li>
+        <li>Supports compl&eacute;mentaires t&eacute;l&eacute;chargeables au format modifiable</li>
+        <li>Acc&egrave;s illimit&eacute; aux sections pendant la dur&eacute;e de votre acc&egrave;s&nbsp;: vous pouvez revenir sur n&rsquo;importe laquelle</li>
+        <li>L&rsquo;examen se passe s&eacute;par&eacute;ment via PECB Exams, &agrave; la date, l&rsquo;heure et au lieu qui vous conviennent</li>
+      </ul>
+
+      <h4>Langue</h4>
+      <ul>
+        <li>La formation et les supports sont en fran&ccedil;ais</li>
+        <li>L&rsquo;intitul&eacute; de la certification PECB reste en anglais, car c&rsquo;est la d&eacute;nomination officielle port&eacute;e par le certificat&nbsp;; celui du parcours CNIL est en fran&ccedil;ais</li>
+      </ul>
+
+      <p><a href="https://assets.nexgenio.com/training/pecb/brochures/fr/gdpr-cdpo-cnil.pdf">Consulter la brochure PECB de la formation (PDF, en fran&ccedil;ais) &rarr;</a></p>
+    </div>
+  </details>
+
+  <!-- 3. Les deux examens -->
+  <details class="acc">
+    <summary>Deux examens au choix &mdash; lequel passer&nbsp;?</summary>
+    <div class="acc-body">
+      <p>Il s&rsquo;agit d&rsquo;une seule et m&ecirc;me formation&nbsp;: m&ecirc;mes sections, m&ecirc;mes supports, m&ecirc;me plateforme. Ce que vous choisissez au moment de l&rsquo;achat, c&rsquo;est l&rsquo;examen que vous passerez &mdash; et donc le titre auquel vous pourrez pr&eacute;tendre. Les deux satisfont pleinement au programme d&rsquo;examen et de certification de PECB&nbsp;; ils diff&egrave;rent par le r&eacute;f&eacute;rentiel auquel ils se rattachent et donc par la reconnaissance qu&rsquo;ils apportent.</p>
+
+      <h4>Examen &laquo;&nbsp;PECB Certified Data Protection Officer&nbsp;&raquo;</h4>
+      <p>Le choix habituel pour une carri&egrave;re internationale ou un employeur hors de France. Trois domaines de comp&eacute;tence&nbsp;:</p>
+      <ul>
+        <li>Concepts de protection des donn&eacute;es, RGPD et mesures de conformit&eacute;</li>
+        <li>R&ocirc;les et responsabilit&eacute;s des parties responsables de la conformit&eacute; au RGPD</li>
+        <li>Mesures techniques et organisationnelles pour la protection des donn&eacute;es</li>
+      </ul>
+
+      <h4>Examen align&eacute; sur le r&eacute;f&eacute;rentiel de la CNIL</h4>
+      <p>Le choix pertinent sur le march&eacute; fran&ccedil;ais, o&ugrave; la certification des comp&eacute;tences du DPO selon le r&eacute;f&eacute;rentiel de la CNIL est largement reconnue par les employeurs. Trois domaines de comp&eacute;tence&nbsp;:</p>
+      <ul>
+        <li>R&eacute;glementation g&eacute;n&eacute;rale en mati&egrave;re de protection des donn&eacute;es et mesures prises pour la mise en conformit&eacute;</li>
+        <li>Responsabilit&eacute;</li>
+        <li>Mesures techniques et organisationnelles pour la s&eacute;curit&eacute; des donn&eacute;es au regard des risques</li>
+      </ul>
+
+      <p class="cred-closing">La CNIL &mdash; Commission nationale de l&rsquo;informatique et des libert&eacute;s &mdash; est l&rsquo;autorit&eacute; fran&ccedil;aise de protection des donn&eacute;es. Elle publie le r&eacute;f&eacute;rentiel de certification des comp&eacute;tences du DPO et agr&eacute;e les organismes habilit&eacute;s &agrave; certifier selon ce r&eacute;f&eacute;rentiel&nbsp;; la certification est d&eacute;livr&eacute;e par l&rsquo;organisme certificateur, non par la CNIL, et non par NexGenio.</p>
+    </div>
+  </details>
+
+  <!-- 4. Certifications -->
+  <details class="acc">
+    <summary>Quelle certification vais-je obtenir&nbsp;?</summary>
+    <div class="acc-body">
+      <p><strong>Vous obtenez un seul titre&nbsp;: celui qui correspond &agrave; la formule que vous avez achet&eacute;e.</strong> L&rsquo;achat d&eacute;termine l&rsquo;examen, et l&rsquo;examen d&eacute;termine le titre. Les deux tableaux ci-dessous d&eacute;crivent les deux parcours&nbsp;; seul celui de votre formule vous concerne. Un certificat vous est d&eacute;livr&eacute; si vous remplissez l&rsquo;ensemble des exigences du titre vis&eacute;.</p>
+
+      <div class="cred-intro">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/gdpr-cdpo.png" alt="PECB Certified Data Protection Officer" class="cred-badge">
+        <p style="flex:1;min-width:260px"><strong>Si vous avez achet&eacute; &laquo;&nbsp;eLearning + examen PECB&nbsp;&raquo;.</strong> Deux niveaux, selon votre exp&eacute;rience. Le niveau Provisional s&rsquo;obtient sans exp&eacute;rience&nbsp;; le titre complet demande cinq ans de carri&egrave;re dont deux en protection des donn&eacute;es.</p>
+      </div>
+
+      <table class="cred-table">
+        <thead>
+          <tr>
+            <th>Certification</th>
+            <th>Exp&eacute;rience professionnelle</th>
+            <th>Exp&eacute;rience en protection des donn&eacute;es</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>PECB Certified Provisional Data Protection Officer</td><td data-label="Exp&eacute;rience professionnelle">Aucune</td><td data-label="Protection des donn&eacute;es">Aucune</td></tr>
+          <tr><td>PECB Certified Data Protection Officer</td><td data-label="Exp&eacute;rience professionnelle">5 ans (dont 2 en protection des donn&eacute;es)</td><td data-label="Protection des donn&eacute;es">300 heures au total</td></tr>
+        </tbody>
+      </table>
+
+      <div class="cred-intro" style="margin-top:32px">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/gdpr-cdpo-cnil.png" alt="D&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es certifi&eacute; conform&eacute;ment au r&eacute;f&eacute;rentiel de la CNIL" class="cred-badge">
+        <p style="flex:1;min-width:260px"><strong>Si vous avez achet&eacute; &laquo;&nbsp;eLearning + examen CNIL&nbsp;&raquo;.</strong> Un seul titre, et <strong>deux voies d&rsquo;acc&egrave;s</strong>. Dans les deux cas, le socle est le m&ecirc;me&nbsp;: au moins deux ans d&rsquo;exp&eacute;rience professionnelle. <em>Voie 1</em>&nbsp;&mdash; ces deux ans portent sur des projets, activit&eacute;s ou t&acirc;ches li&eacute;s aux missions du DPO, et aucune formation suppl&eacute;mentaire n&rsquo;est exig&eacute;e. <em>Voie 2</em>&nbsp;&mdash; ces deux ans rel&egrave;vent de tout autre domaine, et s&rsquo;y <strong>ajoutent</strong> 35 heures de formation en protection des donn&eacute;es personnelles re&ccedil;ues aupr&egrave;s d&rsquo;un organisme de formation. Les 35 heures ne remplacent pas l&rsquo;exp&eacute;rience&nbsp;: elles compl&egrave;tent la voie non sp&eacute;cialis&eacute;e.</p>
+      </div>
+
+      <table class="cred-table">
+        <thead>
+          <tr>
+            <th>Certification</th>
+            <th>Exp&eacute;rience professionnelle</th>
+            <th>Exp&eacute;rience en protection des donn&eacute;es</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>D&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es certifi&eacute; conform&eacute;ment au r&eacute;f&eacute;rentiel de certification des comp&eacute;tences du DPO de la CNIL</td><td data-label="Exp&eacute;rience professionnelle">Minimum 2 ans</td><td data-label="Protection des donn&eacute;es"><strong>Voie 1</strong>&nbsp;&mdash; ces 2 ans portent sur des projets, activit&eacute;s ou t&acirc;ches li&eacute;s aux missions du DPO.<br><strong>Voie 2</strong>&nbsp;&mdash; ces 2 ans rel&egrave;vent de tout autre domaine, et s&rsquo;y ajoutent 35 heures de formation en protection des donn&eacute;es personnelles re&ccedil;ues aupr&egrave;s d&rsquo;un organisme de formation.</td></tr>
+        </tbody>
+      </table>
+
+      <p class="cred-closing">Les deux parcours supposent la signature du code de d&eacute;ontologie de PECB. Les titres ne sont pas cumulables par un seul achat&nbsp;: obtenir les deux suppose de passer les deux examens, donc d&rsquo;acheter les deux formules. Le candidat qui ne remplit pas encore les conditions d&rsquo;exp&eacute;rience peut passer l&rsquo;examen&nbsp;: c&rsquo;est la demande de titre qui est soumise &agrave; ces conditions, et elle peut &ecirc;tre faite plus tard.</p>
+    </div>
+  </details>
+
+  <!-- 5. Déroulement -->
+  <details class="acc">
+    <summary>Comment cela se d&eacute;roule</summary>
+    <div class="acc-body">
+      <ol class="steps">
+        <li>Vous finalisez votre commande et recevez votre confirmation</li>
+        <li>Nous enregistrons votre inscription directement aupr&egrave;s de PECB</li>
+        <li>Vous recevez vos acc&egrave;s &agrave; la plateforme myPECB par courriel dans les 24 heures suivant l&rsquo;enregistrement de votre inscription aupr&egrave;s de PECB (jours ouvr&eacute;s)</li>
+        <li>Vous suivez les vingt sections &agrave; votre rythme, avec les supports t&eacute;l&eacute;chargeables et les quiz int&eacute;gr&eacute;s</li>
+        <li>Vous r&eacute;servez l&rsquo;examen correspondant &agrave; la formule achet&eacute;e via PECB Exams, &agrave; la date et au lieu qui vous conviennent</li>
+      </ol>
+    </div>
+  </details>
+
+  <!-- 6. Ce que comprend le prix -->
+  <details class="acc">
+    <summary>Ce que comprend le prix</summary>
+    <div class="acc-body">
+      <ul>
+        <li>Les frais d&rsquo;examen et de certification sont inclus dans le prix de la formation en e-Learning</li>
+        <li>Support de formation de plus de 450 pages&nbsp;: explications, exemples pratiques, exercices et quiz</li>
+        <li>Repassage de l&rsquo;examen gratuit dans les 12 mois en cas d&rsquo;&eacute;chec</li>
+        <li>Attestation d&rsquo;ach&egrave;vement de 35 unit&eacute;s de FPC (formation professionnelle continue)</li>
+        <li>Acc&egrave;s aux supports de cours pendant 12 mois</li>
+      </ul>
+    </div>
+  </details>
+
+  </div>
+</div>
+
+<!-- CATALOGUE ANGLAIS -->
+<div class="related">
+  <div class="inn">
+    <div class="sl">Notre catalogue en anglais</div>
+    <div class="st">Un catalogue plus large est dispens&eacute; en anglais</div>
+    <div class="ss">Cette formation est propos&eacute;e en fran&ccedil;ais. Un professionnel qui lit l&rsquo;anglais peut pr&eacute;f&eacute;rer l&rsquo;offre plus large du catalogue anglophone.</div>
+    <div class="related-grid">
+      <a href="/training/index.html" class="related-card">
+        <div class="rc-title">Catalogue complet NexGenio<span class="lang-tag">en anglais</span></div>
+        <div class="rc-reason">Toutes les formations PECB&nbsp;: ISO&nbsp;27001, NIS&nbsp;2, DORA, ISO&nbsp;42001, ISO&nbsp;22301 et ISO&nbsp;31000</div>
+      </a>
+      <a href="/training/iso-27701-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO/IEC 27701 Lead Implementer<span class="lang-tag">en anglais</span></div>
+        <div class="rc-reason">Le syst&egrave;me de management de la protection de la vie priv&eacute;e, avec en plus une session en direct avec un formateur PECB Platinum</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FORMATIONS LIÉES -->
+<div class="related alt">
+  <div class="inn">
+    <div class="sl">Poursuivre votre parcours</div>
+    <div class="st">Formations li&eacute;es</div>
+    <div class="related-grid">
+      <a href="/training/fr/gdpr-foundation.html" class="related-card">
+        <div class="rc-title">RGPD Foundation<span class="lang-tag">en fran&ccedil;ais</span></div>
+        <div class="rc-reason">Le socle en deux jours, sans pr&eacute;requis, si vous d&eacute;couvrez le r&egrave;glement avant d&rsquo;aller vers la fonction de DPO</div>
+      </a>
+      <a href="/training/fr/iso-27701-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO/IEC 27701 Lead Implementer<span class="lang-tag">en fran&ccedil;ais</span></div>
+        <div class="rc-reason">Traduire les exigences du RGPD en un syst&egrave;me de management de la protection de la vie priv&eacute;e</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-text">
+          <div class="fn">NexGenio LTD</div>
+          <div class="ft">Compliance by design.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Formations</h5><a href="/training/index.html">Toutes les formations</a></div>
+        <div class="footer-col"><h5>Soci&eacute;t&eacute;</h5><a href="/#about">&Agrave; propos</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Mentions l&eacute;gales</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Conditions de vente</a><a href="/legal/privacy.html">Politique de confidentialit&eacute;</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. Tous droits r&eacute;serv&eacute;s.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://nexgenio.com/"},{"@type":"ListItem","position":2,"name":"Catalogue","item":"https://nexgenio.com/training/index.html"},{"@type":"ListItem","position":3,"name":"RGPD CDPO","item":"https://nexgenio.com/training/fr/gdpr-cdpo.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com","logo":"https://assets.nexgenio.com/brand/logo.png","address":{"@type":"PostalAddress","streetAddress":"36 St Dminika Street","addressLocality":"Victoria, Gozo","postalCode":"VCT 9030","addressCountry":"MT"},"vatID":"MT25941925","taxID":"C 88842","sameAs":["https://www.linkedin.com/company/nexgenio"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"RGPD — Délégué à la protection des données (CDPO)","description":"Exercer la fonction de délégué à la protection des données, ce n’est pas connaître le RGPD : c’est savoir désigner un DPO, tenir un registre des activités de traitement, conduire une analyse d’impact, gérer une violation de données et rendre compte à l’autorité de contrôle. NexGenio propose cette formation en e-Learning français, en vingt sections que vous suivez à votre rythme. Vous choisissez votre examen au moment de l’achat : celui de PECB, reconnu à l’international, ou celui aligné sur le référentiel de certification des compétences du DPO de la CNIL, propre au marché français.","inLanguage":"fr","image":"https://assets.nexgenio.com/PECB/course-badges/gdpr-cdpo.png","provider":{"@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"À votre rythme — 20 sections"},"areaServed":{"@type":"Place","name":"France"},"url":"https://nexgenio.com/training/fr/gdpr-cdpo.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Que fait un délégué à la protection des données ?","acceptedAnswer":{"@type":"Answer","text":"Le RGPD — règlement général sur la protection des données, règlement (UE) 2016/679 — impose à de nombreux organismes de désigner un délégué à la protection des données. Le DPO informe et conseille le responsable de traitement et le sous-traitant, contrôle le respect du règlement, et coopère avec l’autorité de contrôle — en France, la CNIL. C’est une fonction opérationnelle : elle suppose de savoir tenir un registre des activités de traitement, écrire une politique de protection des données, conduire une analyse d’impact relative à la protection des données, instruire une violation de données à caractère personnel dans les délais, mener un audit interne et rendre compte. La formation couvre ce métier dans son ensemble, en vingt sections, et le relie aux cadres connexes que sont l’ISO/IEC 27701 et l’ISO/IEC 29134."}},{"@type":"Question","name":"À qui s’adresse cette formation et que couvre-t-elle ?","acceptedAnswer":{"@type":"Answer","text":"À qui elle s’adresse : gestionnaires et consultants qui accompagnent un organisme dans la mise en place et le maintien d’un programme de conformité au RGPD ; DPO en poste et personnes chargées du maintien de la conformité ; membres d’une équipe sécurité de l’information, gestion des incidents ou continuité d’activité ; experts techniques et experts conformité qui envisagent un poste de DPO. Le programme compte 20 sections vidéo, et non des journées de classe, chacune d’au plus une vingtaine de minutes : objectifs et structure, le RGPD, considérations fondamentales, désignation du DPO, analyse du programme de conformité, relations avec la direction, politique de protection des données, registre des activités de traitement, processus de gestion des risques, analyse d’impact, gestion de la documentation, évaluation des mesures de protection, protection des données et technologies, sensibilisation et formation, gestion des incidents et violations, surveillance et mesure de la conformité, audit interne, traitement des non-conformités, amélioration continue et clôture. La formation est entièrement en ligne sur la plateforme myPECB, accessible 24 h/24, avec des supports téléchargeables au format modifiable. L’examen se passe séparément via PECB Exams."}},{"@type":"Question","name":"Deux examens au choix — lequel passer ?","acceptedAnswer":{"@type":"Answer","text":"Il s’agit d’une seule et même formation : mêmes sections, mêmes supports, même plateforme. Ce que vous choisissez au moment de l’achat, c’est l’examen que vous passerez — et donc le titre auquel vous pourrez prétendre. Les deux satisfont pleinement au programme d’examen et de certification de PECB ; ils diffèrent par le référentiel auquel ils se rattachent. L’examen PECB Certified Data Protection Officer est le choix habituel pour une carrière internationale, avec trois domaines : concepts de protection des données, RGPD et mesures de conformité ; rôles et responsabilités des parties responsables de la conformité au RGPD ; mesures techniques et organisationnelles pour la protection des données. L’examen aligné sur le référentiel de la CNIL est le choix pertinent sur le marché français, avec trois domaines : réglementation générale en matière de protection des données et mesures prises pour la mise en conformité ; responsabilité ; mesures techniques et organisationnelles pour la sécurité des données au regard des risques. La CNIL, Commission nationale de l’informatique et des libertés, est l’autorité française de protection des données : elle publie le référentiel et agrée les organismes habilités à certifier selon ce référentiel. La certification est délivrée par l’organisme certificateur, non par la CNIL, et non par NexGenio."}},{"@type":"Question","name":"Quelle certification vais-je obtenir ?","acceptedAnswer":{"@type":"Answer","text":"Vous obtenez un seul titre : celui qui correspond à la formule que vous avez achetée. L’achat détermine l’examen, et l’examen détermine le titre. Si vous avez acheté « eLearning + examen PECB », deux niveaux existent : PECB Certified Provisional Data Protection Officer, sans aucune expérience requise ; et PECB Certified Data Protection Officer, qui demande 5 ans d’expérience professionnelle dont 2 en protection des données, et 300 heures d’activités de protection des données au total. Si vous avez acheté « eLearning + examen CNIL », un seul titre existe : délégué à la protection des données certifié conformément au référentiel de certification des compétences du DPO de la CNIL. Il demande dans tous les cas au moins 2 ans d’expérience professionnelle, et deux voies y mènent. Voie 1 : ces 2 ans portent sur des projets, activités ou tâches liés aux missions du DPO, et aucune formation supplémentaire n’est exigée. Voie 2 : ces 2 ans relèvent de tout autre domaine, et s’y ajoutent 35 heures de formation en protection des données personnelles reçues auprès d’un organisme de formation. Les 35 heures ne remplacent pas l’expérience : elles complètent la voie non spécialisée. Les deux parcours supposent la signature du code de déontologie de PECB. Les titres ne sont pas cumulables par un seul achat : obtenir les deux suppose de passer les deux examens, donc d’acheter les deux formules. Le candidat qui ne remplit pas encore les conditions d’expérience peut passer l’examen : c’est la demande de titre qui est soumise à ces conditions, et elle peut être faite plus tard."}},{"@type":"Question","name":"Comment se déroulent l’inscription et l’accès à la formation ?","acceptedAnswer":{"@type":"Answer","text":"Vous finalisez votre commande et recevez votre confirmation. Nous enregistrons votre inscription directement auprès de PECB. Vous recevez vos accès à la plateforme myPECB par courriel dans les 24 heures suivant l’enregistrement de votre inscription auprès de PECB (jours ouvrés). Vous suivez les vingt sections à votre rythme, avec les supports téléchargeables et les quiz intégrés. Vous réservez l’examen correspondant à la formule achetée via PECB Exams, à la date et au lieu qui vous conviennent."}},{"@type":"Question","name":"Ce que comprend le prix","acceptedAnswer":{"@type":"Answer","text":"Les frais d’examen et de certification sont inclus dans le prix de la formation en e-Learning. Support de formation de plus de 450 pages : explications, exemples pratiques, exercices et quiz. Repassage de l’examen gratuit dans les 12 mois en cas d’échec. Attestation d’achèvement de 35 unités de FPC (formation professionnelle continue). Accès aux supports de cours pendant 12 mois."}}]}</script>
+<script src="/tokens/nxg-events.js"></script>
+</body>
+</html>

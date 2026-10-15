@@ -41,7 +41,14 @@ const TRAINING_PATHS = new Set([
   "self/iso-31000-risk-manager.html",
   "self/caim.html",
   "self/isa-iec-62443-lead-implementer.html",
+  "training/fr/index.html",
   "training/fr/iso-27701-lead-implementer.html",
+  "training/fr/iso-27001-lead-implementer.html",
+  "training/fr/iso-27001-lead-auditor.html",
+  "training/fr/iso-27001-foundation.html",
+  "training/fr/gdpr-foundation.html",
+  "training/fr/gdpr-cdpo.html",
+  "training/fr/ebios-risk-manager.html",
 ]);
 
 // A language subdirectory is listed explicitly, because the walk below is not

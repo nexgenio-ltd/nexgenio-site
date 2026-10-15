@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formations en fran&ccedil;ais &mdash; NexGenio</title>
+  <meta name="description" content="Formations certifiantes PECB en français — ISO/IEC 27001, RGPD CDPO, référentiel CNIL, ISO/IEC 27701 et EBIOS Risk Manager. Examen et certification inclus.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/tokens/tokens.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
+    .brand-divider{width:1px;height:36px;background:#e0e8ed}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:72px 32px 64px;text-align:center}
+    .hero h1{font-size:clamp(28px,4vw,46px);font-weight:bold;color:#fff;margin-bottom:10px}
+    .hero p{font-size:17px;color:rgba(255,255,255,.75);max-width:620px;margin:0 auto}
+
+    /* LANGUAGE SWITCH — catalogue to catalogue only, never per course */
+    .langbar{background:var(--bg);border-bottom:1px solid #e0e8ed;padding:14px 32px}
+    .langbar .inn{display:flex;align-items:center;justify-content:flex-end;gap:12px}
+    .langbar .lb-lab{font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--lg);margin-right:4px}
+    .langsw{display:inline-flex;border:1px solid #d4dde3;border-radius:6px;overflow:hidden;background:#fff}
+    .langsw a,.langsw span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;font-weight:700;text-decoration:none;color:var(--t);transition:background .15s,color .15s}
+    .langsw a:hover{background:var(--bg);color:var(--o)}
+    .langsw .on{background:var(--t);color:#fff;cursor:default}
+    .langsw a + a,.langsw span + a,.langsw a + span{border-left:1px solid #d4dde3}
+    .langsw svg{width:20px;height:14px;display:block;border:1px solid rgba(0,0,0,.12);border-radius:2px;flex-shrink:0}
+
+    .inn{max-width:1140px;margin:0 auto}
+    section{padding:64px 32px}
+    section.alt{background:var(--bg)}
+    .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:clamp(20px,2.5vw,30px);font-weight:bold;color:var(--t);margin-bottom:24px;line-height:1.2}
+    .ss{font-size:16px;color:var(--lg);max-width:580px;margin-bottom:36px;line-height:1.75}
+
+    /* SELF-PACED ROWS — same component as training/index.html */
+    .sp-list{border-top:1px solid #e0e8ed}
+    .sp-row{display:grid;grid-template-columns:72px 1fr auto auto;align-items:center;gap:20px;padding:20px 0;border-bottom:1px solid #e0e8ed}
+    .sp-badge{width:72px;height:72px;object-fit:contain}
+    .sp-main h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:4px;line-height:1.3}
+    .sp-main h3 a{color:inherit;text-decoration:none}
+    .sp-main h3 a:hover{color:var(--o)}
+    .sp-pop{display:inline-block;background:var(--o);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-left:10px;vertical-align:2px}
+    .sp-desc{font-size:13px;color:#666;line-height:1.5}
+    .sp-fmt{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--o);margin-top:5px}
+    .sp-price{text-align:right;font-size:20px;font-weight:bold;color:var(--t);white-space:nowrap}
+    .sp-price span{display:block;font-size:11px;font-weight:600;color:#888;letter-spacing:.3px}
+    .sp-cta{border:2px solid var(--t);color:var(--t);font-size:13px;font-weight:700;text-decoration:none;padding:10px 20px;border-radius:5px;white-space:nowrap;transition:background .15s,color .15s}
+    .sp-cta:hover{background:var(--t);color:#fff}
+
+    /* ENGLISH CATALOGUE BLOCK */
+    .encat{border:1px solid #e0e8ed;border-left:4px solid var(--o);border-radius:6px;background:#fff;padding:24px 28px;margin-top:40px}
+    .encat h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:6px}
+    .encat p{font-size:14px;color:#555;line-height:1.75;max-width:720px}
+    .encat a{display:inline-block;margin-top:12px;font-size:14px;font-weight:700;color:var(--t);text-decoration:none}
+    .encat a:hover{color:var(--o)}
+
+    /* ACCORDION */
+    .accordion-section{padding:64px 32px}
+    details.acc{border:1px solid #e4e9ed;border-radius:6px;margin-bottom:12px;background:#fff;overflow:hidden}
+    details.acc + details.acc{margin-top:0}
+    details.acc summary{padding:18px 24px;font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .15s}
+    details.acc summary:hover{background:var(--bg)}
+    details.acc summary::-webkit-details-marker{display:none}
+    details.acc summary::after{content:"+";font-size:var(--heading-fs,20px);font-weight:300;color:var(--lg);flex-shrink:0;margin-left:16px;transition:transform .2s}
+    details.acc[open] summary::after{content:"\2212"}
+    details.acc[open] summary{border-bottom:1px solid #e4e9ed}
+    .acc-body{padding:24px;font-size:var(--body-fs,15px);color:#444;line-height:1.8}
+    .acc-body .partner-row,.acc-body .pecb-row{display:flex;align-items:center;gap:36px;flex-wrap:wrap}
+    .acc-body .partner-row img{width:140px;height:auto;flex-shrink:0}
+    .acc-body .pecb-row img{width:180px;height:auto;flex-shrink:0}
+    .acc-body p{flex:1;min-width:260px;margin:0}
+
+    footer{background:var(--t);border-top:3px solid var(--o)}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
+    .footer-brand{display:flex;align-items:center;gap:16px}
+    .footer-brand-text .fn{font-size:14px;font-weight:bold;color:#fff}
+    .footer-brand-text .ft{font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+    .footer-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:7px}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+    .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
+    .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+
+    @media(max-width:900px){nav{display:none}}
+    @media(max-width:600px){
+      section{padding:40px 20px}
+      .hero{padding:48px 20px 40px}
+      .hi{padding:0 20px}
+      .langbar{padding:12px 20px}
+      .langbar .inn{justify-content:center}
+      .sp-row{grid-template-columns:72px 1fr;gap:8px 16px;padding:22px 0}
+      .sp-price{grid-column:1/-1;text-align:left;margin-top:4px}
+      .sp-price span{display:inline;margin-left:8px}
+      .sp-cta{grid-column:1/-1;text-align:center;margin-top:8px}
+      .accordion-section{padding:40px 20px}
+      .acc-body .partner-row,.acc-body .pecb-row{gap:20px}
+    }
+  </style>
+  <link rel="canonical" href="https://nexgenio.com/training/fr/index.html">
+  <link rel="alternate" hreflang="fr" href="https://nexgenio.com/training/fr/index.html">
+  <link rel="alternate" hreflang="en" href="https://nexgenio.com/training/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://nexgenio.com/training/index.html">
+  <!-- OG -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NexGenio">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Formations en français — NexGenio">
+  <meta property="og:description" content="Formations certifiantes PECB en français — ISO/IEC 27001, RGPD CDPO, référentiel CNIL, ISO/IEC 27701 et EBIOS Risk Manager. Examen et certification inclus.">
+  <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <meta property="og:url" content="https://nexgenio.com/training/fr/index.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Formations en français — NexGenio">
+  <meta name="twitter:description" content="Formations certifiantes PECB en français — ISO/IEC 27001, RGPD CDPO, référentiel CNIL, ISO/IEC 27701 et EBIOS Risk Manager. Examen et certification inclus.">
+  <meta name="twitter:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <!-- /OG -->
+</head>
+<body>
+
+<!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+      <div class="brand-divider"></div>
+      <img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite_Tagline@2x.png" alt="PECB — Where Excellence Meets Recognition" class="pecb-mark" height="35">
+    </a>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/training/fr/index.html">Catalogue</a>
+      <a href="/blog/index.html">Analyses</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Accueil</a>
+    <a href="/training/fr/index.html">Catalogue</a>
+    <a href="/blog/index.html">Analyses</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'},{name:'_clck'},{name:'_clsk'},{name:'CLID'},{name:'ANONCHK'},{name:'MR'},{name:'MUID'},{name:'SM'}]},services:{ga4:{},clarity:{}}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'fr',
+      translations:{"fr":{"consentModal":{"title":"Nous respectons votre vie privée","description":"Ce site utilise des cookies afin de mesurer ses performances et d’améliorer votre expérience. Vous pouvez choisir les catégories que vous autorisez. Pour en savoir plus, consultez notre <a href=\"/legal/privacy.html\">politique de confidentialité</a>.","acceptAllBtn":"Tout accepter","acceptNecessaryBtn":"Tout refuser","showPreferencesBtn":"Paramètres des cookies"},"preferencesModal":{"title":"Préférences relatives aux cookies","acceptAllBtn":"Tout accepter","acceptNecessaryBtn":"Tout refuser","savePreferencesBtn":"Enregistrer mes préférences","sections":[{"title":"Utilisation des cookies","description":"Nous utilisons des cookies pour assurer le fonctionnement de base du site et améliorer votre expérience. Vous pouvez accepter ou refuser chaque catégorie."},{"title":"Nécessaires","description":"Ces cookies sont indispensables au fonctionnement du site. Ils ne peuvent pas être désactivés.","linkedCategory":"necessary"},{"title":"Mesure d’audience","description":"Nous utilisons Google Analytics 4 et Microsoft Clarity pour comprendre comment les visiteurs utilisent le site. Ces outils collectent des données d’usage anonymisées (pages vues, clics, profondeur de défilement) afin d’améliorer le contenu et la structure du site. Ils ne s’activent qu’après votre consentement.","linkedCategory":"analytics"},{"title":"Marketing","description":"Les cookies marketing servent à suivre les visiteurs d’un site à l’autre afin d’afficher des publicités pertinentes. Aucun outil marketing n’est actuellement actif.","linkedCategory":"marketing"},{"title":"Plus d’informations","description":"Pour toute question sur notre politique en matière de cookies, <a href=\"/#contact\">contactez-nous</a>. Vous pouvez modifier vos préférences à tout moment via le lien Paramètres des cookies en pied de page."}]}}}
+    }
+  });
+  function _nxgLoadAnalytics(){
+    if(window._nxgAnalyticsLoaded)return;
+    if(!CookieConsent.acceptedService('ga4','analytics'))return;
+    window._nxgAnalyticsLoaded=true;
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-R6WRM25278';document.head.appendChild(gs);
+    /* gtag must be global: gtag.js never defines it, and nxg-events.js calls it
+       from its own scope. Declaring it with "function gtag(){}" here would trap
+       it inside _nxgLoadAnalytics and silently drop every conversion event. */
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
+    if(CookieConsent.acceptedService('clarity','analytics')){
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+    }
+  }
+  window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
+  window.addEventListener('cc:onChange',_nxgLoadAnalytics);
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent="Paramètres des cookies";a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
+
+<section class="hero">
+  <h1>Formations en fran&ccedil;ais</h1>
+  <p>Partenaire de formation agr&eacute;&eacute; PECB &mdash; formations certifiantes en fran&ccedil;ais, examen et certification inclus.</p>
+</section>
+
+<!-- LANGUAGE SWITCH: catalogue to catalogue. Twin course pages exist for only 2 of 7 slugs,
+     so the switch is deliberately scoped to the two index pages. -->
+<div class="langbar">
+  <div class="inn">
+    <span class="lb-lab">Langue du catalogue</span>
+    <div class="langsw">
+      <span class="on" aria-current="true">
+        <svg viewBox="0 0 60 40" role="img" aria-label="Drapeau fran&ccedil;ais"><rect width="20" height="40" fill="#002395"/><rect x="20" width="20" height="40" fill="#fff"/><rect x="40" width="20" height="40" fill="#ED2939"/></svg>
+        Fran&ccedil;ais
+      </span>
+      <a href="/training/index.html" hreflang="en" lang="en" title="Switch to the English catalogue">
+        <svg viewBox="0 0 60 30" role="img" aria-label="United Kingdom flag"><clipPath id="uk-c"><path d="M0,0 v30 h60 v-30 z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" clip-path="url(#uk-c)"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        English
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: French self-paced catalogue — row list, /training/fr/<slug>.html -->
+<section class="alt">
+  <div class="inn">
+    <div class="sl">&Agrave; votre rythme</div>
+    <h2 class="st">Nos formations certifiantes en fran&ccedil;ais.</h2>
+    <p class="ss">Une certification PECB que vous pr&eacute;parez &agrave; votre rythme, en parall&egrave;le de votre activit&eacute;.</p>
+    <p style="font-size:15px;color:#444;line-height:1.75;max-width:720px;margin-bottom:36px">Les supports de cours sont en fran&ccedil;ais et l&rsquo;examen se passe en fran&ccedil;ais. L&rsquo;auto-formation vous donne l&rsquo;int&eacute;gralit&eacute; des supports &agrave; travailler de mani&egrave;re autonome. L&rsquo;eLearning y ajoute les vid&eacute;os d&rsquo;un formateur sur le m&ecirc;me contenu. Dans les deux cas, l&rsquo;examen et la certification sont inclus.</p>
+
+    <div class="sp-list" role="list">
+
+      <div class="sp-row" role="listitem">
+        <img class="sp-badge" src="https://assets.nexgenio.com/PECB/course-badges/gdpr-cdpo.png" alt="PECB RGPD Certified Data Protection Officer">
+        <div class="sp-main">
+          <h3><a href="/training/fr/gdpr-cdpo.html">RGPD &mdash; D&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es (CDPO)</a><span class="sp-pop">Le plus demand&eacute;</span></h3>
+          <div class="sp-desc">Exercer la fonction de d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es &mdash; au choix, l&rsquo;examen PECB ou l&rsquo;examen du r&eacute;f&eacute;rentiel de la CNIL</div>
+          <div class="sp-fmt">eLearning</div>
+        </div>
+        <div class="sp-price">&agrave; partir de 839&nbsp;&euro;<span>HT</span></div>
+        <a class="sp-cta" href="/training/fr/gdpr-cdpo.html">Voir la formation</a>
+      </div>
+
+      <div class="sp-row" role="listitem">
+        <img class="sp-badge" src="https://assets.nexgenio.com/PECB/course-badges/gdpr-foundation.png" alt="PECB RGPD Foundation">
+        <div class="sp-main">
+          <h3><a href="/training/fr/gdpr-foundation.html">RGPD Foundation</a></h3>
+          <div class="sp-desc">Comprendre les principes et les obligations du RGPD, accessible &agrave; tous les niveaux d&rsquo;exp&eacute;rience</div>
+          <div class="sp-fmt">Auto-formation</div>
+        </div>
+        <div class="sp-price">&agrave; partir de 279&nbsp;&euro;<span>HT</span></div>
+        <a class="sp-cta" href="/training/fr/gdpr-foundation.html">Voir la formation</a>
+      </div>
+
+      <div class="sp-row" role="listitem">
+        <img class="sp-badge" src="https://assets.nexgenio.com/PECB/course-badges/iso-27701-lead-implementer.png" alt="PECB ISO/IEC 27701 Lead Implementer">
+        <div class="sp-main">
+          <h3><a href="/training/fr/iso-27701-lead-implementer.html">ISO/IEC 27701 Lead Implementer</a></h3>
+          <div class="sp-desc">Mettre en &oelig;uvre un syst&egrave;me de management de la protection de la vie priv&eacute;e conforme &agrave; l&rsquo;ISO/IEC 27701</div>
+          <div class="sp-fmt">Auto-formation &middot; eLearning</div>
+        </div>
+        <div class="sp-price">&agrave; partir de 699&nbsp;&euro;<span>HT</span></div>
+        <a class="sp-cta" href="/training/fr/iso-27701-lead-implementer.html">Voir la formation</a>
+      </div>
+
+      <div class="sp-row" role="listitem">
+        <img class="sp-badge" src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-foundation.png" alt="PECB ISO/IEC 27001 Foundation">
+        <div class="sp-main">
+          <h3><a href="/training/fr/iso-27001-foundation.html">ISO/IEC 27001 Foundation</a></h3>
+          <div class="sp-desc">Comprendre les principes d&rsquo;un syst&egrave;me de management de la s&eacute;curit&eacute; de l&rsquo;information, accessible &agrave; tous les niveaux</div>
+          <div class="sp-fmt">Auto-formation &middot; eLearning</div>
+        </div>
+        <div class="sp-price">&agrave; partir de 279&nbsp;&euro;<span>HT</span></div>
+        <a class="sp-cta" href="/training/fr/iso-27001-foundation.html">Voir la formation</a>
+      </div>
+
+      <div class="sp-row" role="listitem">
+        <img class="sp-badge" src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-implementer.png" alt="PECB ISO/IEC 27001 Lead Implementer">
+        <div class="sp-main">
+          <h3><a href="/training/fr/iso-27001-lead-implementer.html">ISO/IEC 27001 Lead Implementer</a></h3>
+          <div class="sp-desc">Piloter la mise en &oelig;uvre d&rsquo;un syst&egrave;me de management de la s&eacute;curit&eacute; de l&rsquo;information selon l&rsquo;ISO/IEC 27001</div>
+          <div class="sp-fmt">Auto-formation &middot; eLearning</div>
+        </div>
+        <div class="sp-price">&agrave; partir de 699&nbsp;&euro;<span>HT</span></div>
+        <a class="sp-cta" href="/training/fr/iso-27001-lead-implementer.html">Voir la formation</a>
+      </div>
+
+      <div class="sp-row" role="listitem">
+        <img class="sp-badge" src="https://assets.nexgenio.com/PECB/course-badges/iso-27001-lead-auditor.png" alt="PECB ISO/IEC 27001 Lead Auditor">
+        <div class="sp-main">
+          <h3><a href="/training/fr/iso-27001-lead-auditor.html">ISO/IEC 27001 Lead Auditor</a></h3>
+          <div class="sp-desc">Conduire des audits de certification d&rsquo;un SMSI selon l&rsquo;ISO/IEC 27001 et les lignes directrices de l&rsquo;ISO 19011</div>
+          <div class="sp-fmt">Auto-formation &middot; eLearning</div>
+        </div>
+        <div class="sp-price">&agrave; partir de 699&nbsp;&euro;<span>HT</span></div>
+        <a class="sp-cta" href="/training/fr/iso-27001-lead-auditor.html">Voir la formation</a>
+      </div>
+
+      <div class="sp-row" role="listitem">
+        <img class="sp-badge" src="https://assets.nexgenio.com/PECB/course-badges/ebios-risk-manager.png" alt="PECB EBIOS Risk Manager">
+        <div class="sp-main">
+          <h3><a href="/training/fr/ebios-risk-manager.html">EBIOS Risk Manager</a></h3>
+          <div class="sp-desc">Mener une appr&eacute;ciation des risques num&eacute;riques avec la m&eacute;thode EBIOS Risk Manager de l&rsquo;ANSSI</div>
+          <div class="sp-fmt">Auto-formation</div>
+        </div>
+        <div class="sp-price">&agrave; partir de 419&nbsp;&euro;<span>HT</span></div>
+        <a class="sp-cta" href="/training/fr/ebios-risk-manager.html">Voir la formation</a>
+      </div>
+
+    </div>
+
+    <div class="encat">
+      <h3>Notre catalogue en anglais</h3>
+      <p>NexGenio propose une gamme plus large de formations certifiantes PECB en anglais &mdash; NIS 2, DORA, ISO/IEC 42001, ISO 22301, ISO 31000 et ISA/IEC 62443 &mdash; ainsi que des sessions en direct avec un formateur PECB Platinum. Si vous travaillez en anglais, ces formations vous sont ouvertes.</p>
+      <a href="/training/index.html" hreflang="en">Voir le catalogue en anglais &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: Explainer Accordion -->
+<div class="accordion-section">
+  <div class="inn">
+    <details class="acc">
+      <summary>NexGenio et PECB</summary>
+      <div class="acc-body">
+        <div class="partner-row">
+          <img src="https://assets.nexgenio.com/PECB/pecb-authorized-partner.png" alt="PECB Authorized Training Partner" width="140" height="140">
+          <p>NexGenio est partenaire de formation agr&eacute;&eacute; PECB et dispense les formations certifiantes officielles de PECB en cybers&eacute;curit&eacute;, en gouvernance de l&rsquo;IA et en r&eacute;silience des organisations. Nous transposons dans chaque formation la m&ecirc;me approche concr&egrave;te que dans nos missions de conseil, afin que vous en ressortiez avec une comp&eacute;tence r&eacute;elle et pas seulement avec un certificat.</p>
+        </div>
+      </div>
+    </details>
+    <details class="acc">
+      <summary>Qu&rsquo;est-ce que PECB&nbsp;?</summary>
+      <div class="acc-body">
+        <div class="pecb-row">
+          <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_RedWhite.svg" alt="PECB" width="180">
+          <p>PECB (Professional Evaluation and Certification Board) est un organisme de certification international qui assure la formation, l&rsquo;examen et la certification sur un large ensemble de normes &mdash; s&eacute;curit&eacute; de l&rsquo;information (ISO/IEC 27001), continuit&eacute; d&rsquo;activit&eacute; (ISO 22301), management de l&rsquo;IA (ISO/IEC 42001), protection de la vie priv&eacute;e (ISO/IEC 27701), ainsi que des cadres plus r&eacute;cents comme la directive NIS 2 et le r&egrave;glement DORA. Une certification PECB atteste d&rsquo;une capacit&eacute; &agrave; mettre en &oelig;uvre ces cadres, et non d&rsquo;une simple connaissance th&eacute;orique.</p>
+        </div>
+      </div>
+    </details>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-brand-text"><div class="fn">NexGenio LTD</div><div class="ft">Compliance by design.</div></div></div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Formations</h5><a href="/training/fr/index.html">Catalogue en fran&ccedil;ais</a><a href="/training/index.html" hreflang="en">Catalogue en anglais</a></div>
+        <div class="footer-col"><h5>Soci&eacute;t&eacute;</h5><a href="/#about">&Agrave; propos</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Mentions l&eacute;gales</h5><a href="/legal/terms.html">Conditions de vente</a><a href="/legal/privacy.html">Politique de confidentialit&eacute;</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. Tous droits r&eacute;serv&eacute;s.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com","logo":"https://assets.nexgenio.com/brand/logo.png","address":{"@type":"PostalAddress","streetAddress":"36 St Dminika Street","addressLocality":"Victoria, Gozo","postalCode":"VCT 9030","addressCountry":"MT"},"vatID":"MT25941925","taxID":"C 88842","sameAs":["https://www.linkedin.com/company/nexgenio"]}</script>
+</body>
+</html>

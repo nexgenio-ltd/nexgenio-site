@@ -30,6 +30,17 @@
     .hero h1{font-size:clamp(28px,4vw,46px);font-weight:bold;color:#fff;margin-bottom:10px}
     .hero p{font-size:17px;color:rgba(255,255,255,.75);max-width:600px;margin:0 auto}
 
+    /* LANGUAGE SWITCH — catalogue to catalogue only, never per course */
+    .langbar{background:var(--bg);border-bottom:1px solid #e0e8ed;padding:14px 32px}
+    .langbar .inn{display:flex;align-items:center;justify-content:flex-end;gap:12px}
+    .langbar .lb-lab{font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--lg);margin-right:4px}
+    .langsw{display:inline-flex;border:1px solid #d4dde3;border-radius:6px;overflow:hidden;background:#fff}
+    .langsw a,.langsw span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;font-weight:700;text-decoration:none;color:var(--t);transition:background .15s,color .15s}
+    .langsw a:hover{background:var(--bg);color:var(--o)}
+    .langsw .on{background:var(--t);color:#fff;cursor:default}
+    .langsw a + a,.langsw span + a,.langsw a + span{border-left:1px solid #d4dde3}
+    .langsw svg{width:20px;height:14px;display:block;border:1px solid rgba(0,0,0,.12);border-radius:2px;flex-shrink:0}
+
     .inn{max-width:1140px;margin:0 auto}
     section{padding:64px 32px}
     section.alt{background:var(--bg)}
@@ -141,9 +152,14 @@
       .sp-cta{grid-column:1/-1;text-align:center;margin-top:8px}
       .accordion-section{padding:40px 20px}
       .acc-body .partner-row,.acc-body .pecb-row{gap:20px}
+      .langbar{padding:12px 20px}
+      .langbar .inn{justify-content:center}
     }
   </style>
   <link rel="canonical" href="https://nexgenio.com/training/index.html">
+  <link rel="alternate" hreflang="en" href="https://nexgenio.com/training/index.html">
+  <link rel="alternate" hreflang="fr" href="https://nexgenio.com/training/fr/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://nexgenio.com/training/index.html">
   <!-- OG -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NexGenio">
@@ -222,6 +238,24 @@
   <h1>Academy</h1>
   <p>PECB Authorized Training Partner &mdash; certification courses with exam and certificate included.</p>
 </section>
+
+<!-- LANGUAGE SWITCH: catalogue to catalogue. Twin course pages exist for only 2 of 7 French
+     slugs, so the switch is deliberately scoped to the two index pages. -->
+<div class="langbar">
+  <div class="inn">
+    <span class="lb-lab">Catalogue language</span>
+    <div class="langsw">
+      <span class="on" aria-current="true">
+        <svg viewBox="0 0 60 30" role="img" aria-label="United Kingdom flag"><clipPath id="uk-c"><path d="M0,0 v30 h60 v-30 z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" clip-path="url(#uk-c)"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+        English
+      </span>
+      <a href="/training/fr/index.html" hreflang="fr" lang="fr" title="Voir le catalogue en fran&ccedil;ais">
+        <svg viewBox="0 0 60 40" role="img" aria-label="Flag of France"><rect width="20" height="40" fill="#002395"/><rect x="20" width="20" height="40" fill="#fff"/><rect x="40" width="20" height="40" fill="#ED2939"/></svg>
+        Fran&ccedil;ais
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- SECTION 1: Live Training schedule — rendered from data/courses.json -->
 <section>

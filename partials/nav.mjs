@@ -163,7 +163,7 @@ export const trainingNavFr = `<!-- NAV -->${navAlignCss}
     </a>
     <nav>
       <a href="/">Accueil</a>
-      <a href="/training/index.html">Catalogue</a>
+      <a href="/training/fr/index.html">Catalogue</a>
       <a href="/blog/index.html">Analyses</a>
       <a href="/#contact">Contact</a>
     </nav>
@@ -171,7 +171,7 @@ export const trainingNavFr = `<!-- NAV -->${navAlignCss}
   </div>
   <div class="mobile-menu">
     <a href="/">Accueil</a>
-    <a href="/training/index.html">Catalogue</a>
+    <a href="/training/fr/index.html">Catalogue</a>
     <a href="/blog/index.html">Analyses</a>
     <a href="/#contact">Contact</a>
   </div>

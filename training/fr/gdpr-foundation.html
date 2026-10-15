@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="9GOHPWeMc-CevqT2Oj_hXuEpD5PAmUswGS9RMU6cR1k">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RGPD (GDPR) Foundation en fran&ccedil;ais &mdash; Formation NexGenio</title>
+  <meta name="description" content="Formation RGPD Foundation (PECB Certified GDPR Foundation) en fran&ccedil;ais, &agrave; votre rythme. Formule auto-formation, examen de certification PECB inclus.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/tokens/tokens.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+
+    /* HEADER */
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
+    .brand-divider{width:1px;height:36px;background:#e0e8ed}
+    .brand-sub{font-size:var(--sub-fs,16px);color:var(--lg);line-height:1.35}
+    .brand-sub strong{display:block;font-size:var(--tag-fs,17px);color:var(--t)}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    /* BREADCRUMB */
+    .breadcrumb{max-width:1140px;margin:0 auto;padding:16px 32px;font-size:var(--label-fs,11px);color:var(--lg)}
+    .breadcrumb a{color:var(--t);text-decoration:none}
+    .breadcrumb a:hover{color:var(--o)}
+
+    /* COURSE HERO */
+    .course-hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:64px 32px 56px}
+    .course-hero .inn{max-width:1140px;margin:0 auto}
+    .hero-badges{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .chip{display:inline-block;font-size:var(--label-fs,11px);font-weight:700;background:rgba(255,255,255,.12);color:#fff;padding:4px 14px;border-radius:10px;letter-spacing:.6px;text-transform:uppercase}
+    .chip-orange{background:var(--o);color:#fff}
+    .course-hero h1{font-size:var(--h1-fs,clamp(24px,3.5vw,42px));font-weight:bold;color:#fff;line-height:1.2;margin-bottom:16px}
+    .credential-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .course-hero .credential{font-size:var(--body-fs,15px);color:rgba(255,255,255,.75)}
+    .pecb-hero-logo{height:22px;width:auto;opacity:.8}
+
+    /* INTRO FRAME */
+    .intro-frame{padding:48px 32px}
+    .intro-frame .inn{max-width:1140px;margin:0 auto}
+    .intro-card{background:#fff;border:1px solid #e4e9ed;border-left:4px solid var(--o);border-radius:6px;padding:32px 36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;box-shadow:0 2px 12px rgba(33,86,117,.05)}
+    .intro-card p{font-size:var(--body-fs,15px);color:#333;line-height:1.85;flex:1;min-width:280px;margin:0;font-weight:600}
+    .intro-card .pecb-red-logo{height:32px;width:auto;flex-shrink:0}
+
+    /* SECTIONS */
+    .inn{max-width:1140px;margin:0 auto}
+    section{padding:64px 32px}
+    .alt{background:var(--bg)}
+    .sl{font-size:var(--label-fs,11px);font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:var(--body-fs,15px);color:var(--lg);max-width:640px;margin-bottom:36px;line-height:1.75}
+
+    /* TIER CARDS */
+    .tiers{display:grid;grid-template-columns:1fr;gap:32px;margin:16px auto 0;max-width:560px}
+    .tier-card{background:#fff;border-radius:8px;border-top:4px solid var(--t);box-shadow:0 2px 16px rgba(33,86,117,.08);padding:36px 32px;display:flex;flex-direction:column}
+    .tier-card.elearning{border-top-color:var(--o)}
+    .tier-label{display:inline-block;font-size:var(--heading-fs,20px);font-weight:700;letter-spacing:.4px;padding:6px 18px;border-radius:10px;margin-bottom:12px;background:var(--tl);color:var(--t)}
+    .tier-card.elearning .tier-label{background:rgba(246,145,27,.12);color:#b86800}
+    .tier-desc{font-size:var(--body-fs,15px);color:#555;line-height:1.7;margin-bottom:20px}
+    .tier-desc .only{font-size:var(--body-fs,15px);font-weight:bold;letter-spacing:.5px;color:#333}
+    .tier-includes{list-style:none;padding:0;margin:0 0 28px}
+    .tier-includes li{font-size:var(--body-fs,15px);color:#555;padding:7px 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px}
+    .tier-includes li:last-child{border-bottom:none}
+    .tier-includes li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .tier-price{font-size:var(--label-fs,11px);color:var(--lg);margin-bottom:16px;margin-top:auto}
+    .tier-price .amount{font-size:var(--price-fs,28px);font-weight:bold;color:var(--t);display:block;margin-top:4px}
+    .tier-card.elearning .tier-price .amount{color:var(--tm)}
+    .vat-note{display:block;font-size:var(--label-fs,11px);color:var(--lg);font-weight:normal;margin-top:2px}
+    .tier-cta{}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:var(--body-fs,15px);font-weight:bold;padding:14px 36px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;text-align:center;width:100%}
+    .btn:hover{background:#d97a0f}
+
+    /* ACCORDION */
+    .accordion{padding:0 32px 64px}
+    .accordion .inn{max-width:1140px;margin:0 auto}
+    details.acc{border:1px solid #e4e9ed;border-radius:6px;margin-bottom:12px;background:#fff;overflow:hidden}
+    details.acc + details.acc{margin-top:0}
+    details.acc summary{padding:18px 24px;font-size:var(--heading-fs,20px);font-weight:bold;color:var(--t);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .15s}
+    details.acc summary:hover{background:var(--bg)}
+    details.acc summary::-webkit-details-marker{display:none}
+    details.acc summary::after{content:"+";font-size:var(--heading-fs,20px);font-weight:300;color:var(--lg);flex-shrink:0;margin-left:16px;transition:transform .2s}
+    details.acc[open] summary::after{content:"\2212"}
+    details.acc[open] summary{border-bottom:1px solid #e4e9ed}
+    .acc-body{padding:24px;font-size:var(--body-fs,15px);color:#444;line-height:1.8}
+    .acc-body p{margin-bottom:14px}
+    .acc-body p:last-child{margin-bottom:0}
+    .acc-body ul{margin:0 0 14px 0;padding:0;list-style:none;font-size:var(--body-fs,15px)}
+    .acc-body ul li{padding:6px 0;display:flex;gap:10px}
+    .acc-body ul li::before{content:"\2713";color:var(--g);font-weight:bold;flex-shrink:0}
+    .acc-body .curriculum li::before{content:"\25B6";color:var(--o);font-size:var(--label-fs,11px);margin-top:4px}
+    .acc-body a{color:var(--t);text-decoration:underline}
+    .acc-body a:hover{color:var(--o)}
+    .acc-body h4{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin:20px 0 8px}
+    .acc-body h4:first-child{margin-top:0}
+    .acc-body .steps{list-style:none;padding:0;margin:0;counter-reset:step}
+    .acc-body .steps li{padding:8px 0;display:flex;gap:12px;counter-increment:step}
+    .acc-body .steps li::before{content:counter(step);background:var(--t);color:#fff;font-size:var(--label-fs,11px);font-weight:bold;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .acc-body .placeholder{background:#fff3e0;border:2px dashed var(--o);border-radius:4px;padding:10px 16px;color:#b86800;font-size:var(--body-fs,15px);font-style:italic;margin:8px 0}
+
+    /* CREDENTIAL TABLE */
+    .cred-intro{display:flex;align-items:flex-start;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+    .cred-badge{width:120px;height:auto;flex-shrink:0;border-radius:6px}
+    .cred-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:var(--body-fs,15px)}
+    .cred-table th{background:var(--t);color:#fff;text-align:left;padding:10px 14px;font-weight:600;font-size:var(--body-fs,15px);letter-spacing:.3px}
+    .cred-table td{padding:10px 14px;border-bottom:1px solid #eee;color:#444}
+    .cred-table tr:last-child td{border-bottom:none}
+    .cred-table tr:nth-child(even){background:var(--bg)}
+    @media(max-width:600px){
+      .cred-table thead{display:none}
+      .cred-table,.cred-table tbody,.cred-table tr,.cred-table td{display:block;width:100%}
+      .cred-table tr{background:#fff;border:1px solid var(--tl);border-radius:8px;padding:14px 16px;margin-bottom:10px}
+      .cred-table tr:nth-child(even){background:#fff}
+      .cred-table td{padding:3px 0;border-bottom:none;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+      .cred-table td:first-child{font-weight:700;color:var(--t);font-size:15px;padding-bottom:8px;display:block}
+      .cred-table td:not(:first-child)::before{content:attr(data-label);font-weight:600;color:var(--t);font-size:13px;flex-shrink:0}
+      .cred-table tr:last-child td{border-bottom:none}
+    }
+    .cred-closing{font-size:var(--body-fs,15px);color:var(--lg);line-height:1.7;margin-top:16px}
+
+    /* RELATED COURSES */
+    .related{padding:48px 32px 56px}
+    .related .inn{max-width:1140px;margin:0 auto}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px}
+    .related-card{background:#fff;border:1px solid #e4e9ed;border-top:3px solid var(--t);border-radius:6px;padding:24px 28px;text-decoration:none;display:block;transition:box-shadow .15s,border-color .15s}
+    .related-card:hover{box-shadow:0 4px 20px rgba(33,86,117,.1);border-top-color:var(--o)}
+    .related-card .rc-title{font-size:var(--body-fs,15px);font-weight:bold;color:var(--t);margin-bottom:8px}
+    .related-card .rc-reason{font-size:13px;color:var(--lg);line-height:1.6}
+    .lang-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:var(--tl);color:var(--t);padding:2px 8px;border-radius:8px;margin-left:8px;vertical-align:middle}
+
+    /* FOOTER */
+    footer{background:var(--t);border-top:3px solid var(--o)}
+    .footer-inner{max-width:1140px;margin:0 auto;padding:36px 32px 20px}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:28px;align-items:flex-start}
+    .footer-brand{display:flex;align-items:center;gap:16px}
+    .footer-brand-text .fn{font-size:14px;font-weight:bold;color:#fff}
+    .footer-brand-text .ft{font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+    .footer-col h5{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:10px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;margin-bottom:7px}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+    .footer-bottom a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none;margin-left:14px}
+    .footer-bottom a:hover{color:rgba(255,255,255,.8)}
+
+    @media(max-width:900px){
+      .tiers{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    @media(max-width:520px){
+      section{padding:40px 20px}
+      .course-hero{padding:40px 20px 36px}
+      .hi{padding:0 20px}
+      .breadcrumb{padding:12px 20px}
+      .intro-frame{padding:32px 20px}
+      .intro-card{padding:24px 20px}
+      .accordion{padding:0 20px 40px}
+      .related{padding:32px 20px 40px}
+    }
+
+  </style>
+  <link rel="canonical" href="https://nexgenio.com/training/fr/gdpr-foundation.html">
+  <link rel="alternate" hreflang="fr" href="https://nexgenio.com/training/fr/gdpr-foundation.html">
+  <link rel="alternate" hreflang="x-default" href="https://nexgenio.com/training/fr/gdpr-foundation.html">
+  <!-- OG -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NexGenio">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:title" content="RGPD (GDPR) Foundation en français — Formation NexGenio">
+  <meta property="og:description" content="Formation RGPD Foundation (PECB Certified GDPR Foundation) en français, à votre rythme. Formule auto-formation, examen de certification PECB inclus.">
+  <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <meta property="og:url" content="https://nexgenio.com/training/fr/gdpr-foundation.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RGPD (GDPR) Foundation en français — Formation NexGenio">
+  <meta name="twitter:description" content="Formation RGPD Foundation (PECB Certified GDPR Foundation) en français, à votre rythme. Formule auto-formation, examen de certification PECB inclus.">
+  <meta name="twitter:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <!-- /OG -->
+</head>
+<body>
+
+<!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+      <div class="brand-divider"></div>
+      <img src="https://assets.nexgenio.com/PECB/logo/PNG/PECB_Logo_RedWhite_Tagline@2x.png" alt="PECB — Where Excellence Meets Recognition" class="pecb-mark" height="35">
+    </a>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/training/fr/index.html">Catalogue</a>
+      <a href="/blog/index.html">Analyses</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Accueil</a>
+    <a href="/training/fr/index.html">Catalogue</a>
+    <a href="/blog/index.html">Analyses</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'},{name:'_clck'},{name:'_clsk'},{name:'CLID'},{name:'ANONCHK'},{name:'MR'},{name:'MUID'},{name:'SM'}]},services:{ga4:{},clarity:{}}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'fr',
+      translations:{"fr":{"consentModal":{"title":"Nous respectons votre vie privée","description":"Ce site utilise des cookies afin de mesurer ses performances et d’améliorer votre expérience. Vous pouvez choisir les catégories que vous autorisez. Pour en savoir plus, consultez notre <a href=\"/legal/privacy.html\">politique de confidentialité</a>.","acceptAllBtn":"Tout accepter","acceptNecessaryBtn":"Tout refuser","showPreferencesBtn":"Paramètres des cookies"},"preferencesModal":{"title":"Préférences relatives aux cookies","acceptAllBtn":"Tout accepter","acceptNecessaryBtn":"Tout refuser","savePreferencesBtn":"Enregistrer mes préférences","sections":[{"title":"Utilisation des cookies","description":"Nous utilisons des cookies pour assurer le fonctionnement de base du site et améliorer votre expérience. Vous pouvez accepter ou refuser chaque catégorie."},{"title":"Nécessaires","description":"Ces cookies sont indispensables au fonctionnement du site. Ils ne peuvent pas être désactivés.","linkedCategory":"necessary"},{"title":"Mesure d’audience","description":"Nous utilisons Google Analytics 4 et Microsoft Clarity pour comprendre comment les visiteurs utilisent le site. Ces outils collectent des données d’usage anonymisées (pages vues, clics, profondeur de défilement) afin d’améliorer le contenu et la structure du site. Ils ne s’activent qu’après votre consentement.","linkedCategory":"analytics"},{"title":"Marketing","description":"Les cookies marketing servent à suivre les visiteurs d’un site à l’autre afin d’afficher des publicités pertinentes. Aucun outil marketing n’est actuellement actif.","linkedCategory":"marketing"},{"title":"Plus d’informations","description":"Pour toute question sur notre politique en matière de cookies, <a href=\"/#contact\">contactez-nous</a>. Vous pouvez modifier vos préférences à tout moment via le lien Paramètres des cookies en pied de page."}]}}}
+    }
+  });
+  function _nxgLoadAnalytics(){
+    if(window._nxgAnalyticsLoaded)return;
+    if(!CookieConsent.acceptedService('ga4','analytics'))return;
+    window._nxgAnalyticsLoaded=true;
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-R6WRM25278';document.head.appendChild(gs);
+    /* gtag must be global: gtag.js never defines it, and nxg-events.js calls it
+       from its own scope. Declaring it with "function gtag(){}" here would trap
+       it inside _nxgLoadAnalytics and silently drop every conversion event. */
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
+    if(CookieConsent.acceptedService('clarity','analytics')){
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+    }
+  }
+  window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
+  window.addEventListener('cc:onChange',_nxgLoadAnalytics);
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent="Paramètres des cookies";a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
+
+<div class="breadcrumb">
+  <a href="/">Accueil</a> &rsaquo; <a href="/training/index.html#self-paced">Catalogue</a> &rsaquo; RGPD Foundation
+</div>
+
+<!-- HERO -->
+<div class="course-hero">
+  <div class="inn">
+    <div class="hero-badges">
+      <span class="chip">Certifi&eacute; PECB</span>
+      <span class="chip chip-orange">Support de cours en fran&ccedil;ais</span>
+      <span class="chip">&Agrave; votre rythme</span>
+    </div>
+    <h1>RGPD Foundation</h1>
+    <div class="credential-line">
+      <span class="credential">Certification PECB&nbsp;: Certified GDPR Foundation</span>
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_White.svg" alt="PECB" class="pecb-hero-logo">
+    </div>
+  </div>
+</div>
+
+<!-- INTRO FRAME -->
+<div class="intro-frame">
+  <div class="inn">
+    <div class="intro-card">
+      <img src="https://assets.nexgenio.com/PECB/logo/SVG/PECB_Logo_RedWhite.svg" alt="PECB" class="pecb-red-logo">
+      <p>Appr&eacute;hendez en deux jours les concepts et les exigences du r&egrave;glement g&eacute;n&eacute;ral sur la protection des donn&eacute;es &mdash; les principes de protection de la vie priv&eacute;e, les obligations qui p&egrave;sent sur le responsable de traitement, et le r&ocirc;le du d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es (DPO). NexGenio propose une formation RGPD Foundation avec laquelle un professionnel acquiert le vocabulaire et la structure d&rsquo;un cadre de conformit&eacute; &agrave; la protection des donn&eacute;es, sans pr&eacute;requis, avant d&rsquo;envisager le parcours praticien de d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="alt">
+  <div class="inn">
+    <div class="sl">&Agrave; votre rythme</div>
+    <div class="st">Votre formule</div>
+
+    <div class="tiers">
+
+      <!-- AUTO-FORMATION -->
+      <div class="tier-card">
+        <div class="tier-label">Auto-formation</div>
+        <div class="tier-desc">Supports de cours, exercices et quiz, pour une &eacute;tude en autonomie. Vous avancez &agrave; votre propre rythme.</div>
+        <ul class="tier-includes">
+          <li><strong>Sans enregistrements vid&eacute;o &mdash; supports uniquement</strong></li>
+          <li>Supports de cours (programme complet)</li>
+          <li>Exercices et quiz</li>
+          <li>Examen de certification PECB inclus</li>
+          <li>Certificat inclus, sans frais suppl&eacute;mentaires</li>
+        </ul>
+        <div class="tier-price">
+          Prix
+          <span class="amount">279&nbsp;&euro;</span>
+          <span class="vat-note">hors taxes</span>
+        </div>
+        <div class="tier-cta">
+          <a href="https://buy.stripe.com/3cI4gr3977Ly74R3690Ba0x" class="btn" data-course="RGPD Foundation (FR)" data-format="self-study" data-price="279">Acheter l&rsquo;auto-formation</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACCORDION -->
+<div class="accordion">
+  <div class="inn">
+
+  <!-- 1. Qu'est-ce que la norme ? -->
+  <details class="acc">
+    <summary>Qu&rsquo;est-ce que le RGPD&nbsp;?</summary>
+    <div class="acc-body">
+      <p>Le RGPD &mdash; r&egrave;glement g&eacute;n&eacute;ral sur la protection des donn&eacute;es, r&egrave;glement (UE) 2016/679, connu &agrave; l&rsquo;international sous le sigle GDPR &mdash; encadre le traitement des donn&eacute;es &agrave; caract&egrave;re personnel dans l&rsquo;Union europ&eacute;enne. Il s&rsquo;applique directement, sans transposition, &agrave; tout organisme qui traite les donn&eacute;es de personnes situ&eacute;es dans l&rsquo;Union, quel que soit son lieu d&rsquo;&eacute;tablissement. En France, son application est contr&ocirc;l&eacute;e par la CNIL.</p>
+      <p>Avant de b&acirc;tir un programme de conformit&eacute; ou d&rsquo;exercer la fonction de d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es, encore faut-il ma&icirc;triser le socle&nbsp;: les principes relatifs au traitement, les bases l&eacute;gales, les droits des personnes concern&eacute;es, les obligations du responsable de traitement et du sous-traitant, et le p&eacute;rim&egrave;tre exact du r&ocirc;le de DPO. Cette formation couvre ce socle en deux jours. Elle ne demande aucun pr&eacute;requis et s&rsquo;adresse aussi bien &agrave; la personne qui rejoint une &eacute;quipe conformit&eacute; qu&rsquo;&agrave; celle qui doit dialoguer avec elle en connaissance de cause.</p>
+    </div>
+  </details>
+
+  <!-- 2. À propos de cette formation -->
+  <details class="acc">
+    <summary>&Agrave; propos de cette formation</summary>
+    <div class="acc-body">
+      <h4>&Agrave; qui elle s&rsquo;adresse</h4>
+      <ul>
+        <li>Personnes impliqu&eacute;es dans la protection des donn&eacute;es personnelles et la s&eacute;curit&eacute; de l&rsquo;information</li>
+        <li>Personnes souhaitant acqu&eacute;rir les principes essentiels de la protection de la vie priv&eacute;e</li>
+        <li>Personnes souhaitant s&rsquo;orienter vers une carri&egrave;re dans la protection des donn&eacute;es</li>
+      </ul>
+
+      <h4>Programme &mdash; 2 jours</h4>
+      <ul class="curriculum">
+        <li><strong>Jour 1&nbsp;:</strong>&nbsp; introduction aux principes de la protection des donn&eacute;es et au RGPD</li>
+        <li><strong>Jour 2&nbsp;:</strong>&nbsp; les exigences du RGPD, puis examen de certification &mdash; 1 heure, 2 domaines de comp&eacute;tence</li>
+      </ul>
+
+      <h4>Pr&eacute;requis</h4>
+      <ul>
+        <li>Aucun</li>
+      </ul>
+
+      <h4>Langue</h4>
+      <ul>
+        <li>Les supports de cours sont fournis en fran&ccedil;ais</li>
+        <li>L&rsquo;intitul&eacute; de la certification PECB reste en anglais, car c&rsquo;est la d&eacute;nomination officielle port&eacute;e par le certificat</li>
+      </ul>
+
+      <p><a href="https://assets.nexgenio.com/training/pecb/brochures/fr/gdpr-foundation.pdf">Consulter la brochure PECB de la formation (PDF, en fran&ccedil;ais) &rarr;</a></p>
+    </div>
+  </details>
+
+  <!-- 3. Certification -->
+  <details class="acc">
+    <summary>Quelle certification vais-je obtenir&nbsp;?</summary>
+    <div class="acc-body">
+      <div class="cred-intro">
+        <img src="https://assets.nexgenio.com/PECB/course-badges/gdpr-foundation.png" alt="PECB Certified GDPR Foundation" class="cred-badge">
+        <p style="flex:1;min-width:260px">La formation Foundation d&eacute;bouche sur une seule certification &mdash; PECB Certified GDPR Foundation. Contrairement aux parcours praticiens, elle ne comporte pas de niveaux &eacute;chelonn&eacute;s selon l&rsquo;exp&eacute;rience&nbsp;: la r&eacute;ussite de l&rsquo;examen et la signature du code de d&eacute;ontologie de PECB suffisent.</p>
+      </div>
+
+      <table class="cred-table">
+        <thead>
+          <tr>
+            <th>Certification</th>
+            <th>Exp&eacute;rience requise</th>
+            <th>Autres exigences</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>GDPR Foundation</td><td data-label="Exp&eacute;rience">Aucune</td><td data-label="Autres exigences">Suivre la formation, r&eacute;ussir l&rsquo;examen et signer le code de d&eacute;ontologie de PECB</td></tr>
+        </tbody>
+      </table>
+
+      <p class="cred-closing">C&rsquo;est le point d&rsquo;entr&eacute;e du parcours protection des donn&eacute;es. La certification Foundation atteste que vous ma&icirc;trisez les m&eacute;thodes, les lignes directrices et l&rsquo;approche de gestion du RGPD&nbsp;; elle ne demande aucune exp&eacute;rience pr&eacute;alable et constitue une base solide avant le parcours de d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es.</p>
+    </div>
+  </details>
+
+  <!-- 4. Déroulement -->
+  <details class="acc">
+    <summary>Comment cela se d&eacute;roule</summary>
+    <div class="acc-body">
+      <ol class="steps">
+        <li>Vous finalisez votre commande et recevez votre confirmation</li>
+        <li>Nous enregistrons votre inscription directement aupr&egrave;s de PECB</li>
+        <li>Vous recevez l&rsquo;acc&egrave;s &agrave; vos supports de cours par courriel dans les 24 heures suivant l&rsquo;enregistrement de votre inscription aupr&egrave;s de PECB (jours ouvr&eacute;s)</li>
+        <li>Vous &eacute;tudiez &agrave; votre rythme, avec les supports inclus</li>
+        <li>Vous r&eacute;servez votre examen de certification directement aupr&egrave;s de PECB lorsque vous &ecirc;tes pr&ecirc;t</li>
+      </ol>
+    </div>
+  </details>
+
+  <!-- 5. Ce que comprend le prix -->
+  <details class="acc">
+    <summary>Ce que comprend le prix</summary>
+    <div class="acc-body">
+      <ul>
+        <li>Examen inclus dans le prix de la formation, et frais de certification inclus dans l&rsquo;examen</li>
+        <li>Supports de cours de plus de 200 pages&nbsp;: explications, exemples, bonnes pratiques, exercices et quiz</li>
+        <li>Repassage de l&rsquo;examen gratuit dans les 12 mois en cas d&rsquo;&eacute;chec</li>
+        <li>14 cr&eacute;dits DPC attribu&eacute;s &agrave; l&rsquo;issue de la formation</li>
+        <li>Acc&egrave;s aux supports de cours pendant 12 mois</li>
+      </ul>
+    </div>
+  </details>
+
+  </div>
+</div>
+
+<!-- CATALOGUE ANGLAIS -->
+<div class="related">
+  <div class="inn">
+    <div class="sl">Notre catalogue en anglais</div>
+    <div class="st">Un catalogue plus large est dispens&eacute; en anglais</div>
+    <div class="ss">Cette formation est propos&eacute;e en fran&ccedil;ais. Un professionnel qui lit l&rsquo;anglais peut pr&eacute;f&eacute;rer l&rsquo;offre plus large du catalogue anglophone.</div>
+    <div class="related-grid">
+      <a href="/training/index.html" class="related-card">
+        <div class="rc-title">Catalogue complet NexGenio<span class="lang-tag">en anglais</span></div>
+        <div class="rc-reason">Toutes les formations PECB&nbsp;: ISO&nbsp;27001, NIS&nbsp;2, DORA, ISO&nbsp;42001, ISO&nbsp;22301 et ISO&nbsp;31000</div>
+      </a>
+      <a href="/training/iso-27701-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO/IEC 27701 Lead Implementer<span class="lang-tag">en anglais</span></div>
+        <div class="rc-reason">Le syst&egrave;me de management de la protection de la vie priv&eacute;e, avec en plus une session en direct avec un formateur PECB Platinum</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FORMATIONS LIÉES -->
+<div class="related alt">
+  <div class="inn">
+    <div class="sl">Poursuivre votre parcours</div>
+    <div class="st">Formations li&eacute;es</div>
+    <div class="related-grid">
+      <a href="/training/fr/gdpr-cdpo.html" class="related-card">
+        <div class="rc-title">D&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es (CDPO)<span class="lang-tag">en fran&ccedil;ais</span></div>
+        <div class="rc-reason">La suite praticienne sur le m&ecirc;me r&egrave;glement&nbsp;: exercer effectivement la fonction de DPO</div>
+      </a>
+      <a href="/training/fr/iso-27701-lead-implementer.html" class="related-card">
+        <div class="rc-title">ISO/IEC 27701 Lead Implementer<span class="lang-tag">en fran&ccedil;ais</span></div>
+        <div class="rc-reason">Traduire les exigences du RGPD en un syst&egrave;me de management de la protection de la vie priv&eacute;e</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-text">
+          <div class="fn">NexGenio LTD</div>
+          <div class="ft">Compliance by design.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Formations</h5><a href="/training/index.html">Toutes les formations</a></div>
+        <div class="footer-col"><h5>Soci&eacute;t&eacute;</h5><a href="/#about">&Agrave; propos</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Mentions l&eacute;gales</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Conditions de vente</a><a href="/legal/privacy.html">Politique de confidentialit&eacute;</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. Tous droits r&eacute;serv&eacute;s.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://nexgenio.com/"},{"@type":"ListItem","position":2,"name":"Catalogue","item":"https://nexgenio.com/training/index.html"},{"@type":"ListItem","position":3,"name":"RGPD Foundation","item":"https://nexgenio.com/training/fr/gdpr-foundation.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com","logo":"https://assets.nexgenio.com/brand/logo.png","address":{"@type":"PostalAddress","streetAddress":"36 St Dminika Street","addressLocality":"Victoria, Gozo","postalCode":"VCT 9030","addressCountry":"MT"},"vatID":"MT25941925","taxID":"C 88842","sameAs":["https://www.linkedin.com/company/nexgenio"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"RGPD Foundation (PECB Certified GDPR Foundation)","description":"Appréhendez en deux jours les concepts et les exigences du règlement général sur la protection des données — les principes de protection de la vie privée, les obligations qui pèsent sur le responsable de traitement, et le rôle du délégué à la protection des données (DPO). NexGenio propose une formation RGPD Foundation avec laquelle un professionnel acquiert le vocabulaire et la structure d’un cadre de conformité à la protection des données, sans prérequis, avant d’envisager le parcours praticien de délégué à la protection des données.","inLanguage":"fr","image":"https://assets.nexgenio.com/PECB/course-badges/gdpr-foundation.png","provider":{"@type":"Organization","name":"NexGenio LTD","url":"https://nexgenio.com"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"À votre rythme"},"areaServed":{"@type":"Place","name":"France"},"url":"https://nexgenio.com/training/fr/gdpr-foundation.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Qu’est-ce que le RGPD ?","acceptedAnswer":{"@type":"Answer","text":"Le RGPD — règlement général sur la protection des données, règlement (UE) 2016/679, connu à l’international sous le sigle GDPR — encadre le traitement des données à caractère personnel dans l’Union européenne. Il s’applique directement, sans transposition, à tout organisme qui traite les données de personnes situées dans l’Union, quel que soit son lieu d’établissement. En France, son application est contrôlée par la CNIL. Avant de bâtir un programme de conformité ou d’exercer la fonction de délégué à la protection des données, encore faut-il maîtriser le socle : les principes relatifs au traitement, les bases légales, les droits des personnes concernées, les obligations du responsable de traitement et du sous-traitant, et le périmètre exact du rôle de DPO. Cette formation couvre ce socle en deux jours et ne demande aucun prérequis."}},{"@type":"Question","name":"À qui s’adresse cette formation et que couvre-t-elle ?","acceptedAnswer":{"@type":"Answer","text":"À qui elle s’adresse : personnes impliquées dans la protection des données personnelles et la sécurité de l’information ; personnes souhaitant acquérir les principes essentiels de la protection de la vie privée ; personnes souhaitant s’orienter vers une carrière dans la protection des données. Programme sur 2 jours : jour 1, introduction aux principes de la protection des données et au RGPD ; jour 2, les exigences du RGPD, puis examen de certification, 1 heure, 2 domaines de compétence. Aucun prérequis n’est demandé. Les supports de cours sont fournis en français. L’intitulé de la certification PECB reste en anglais, car c’est la dénomination officielle portée par le certificat."}},{"@type":"Question","name":"Quelle certification vais-je obtenir ?","acceptedAnswer":{"@type":"Answer","text":"La formation Foundation débouche sur une seule certification — PECB Certified GDPR Foundation. Contrairement aux parcours praticiens, elle ne comporte pas de niveaux échelonnés selon l’expérience : la réussite de l’examen et la signature du code de déontologie de PECB suffisent. Aucune expérience professionnelle n’est requise. C’est le point d’entrée du parcours protection des données. La certification Foundation atteste que vous maîtrisez les méthodes, les lignes directrices et l’approche de gestion du RGPD ; elle constitue une base solide avant le parcours de délégué à la protection des données."}},{"@type":"Question","name":"Comment se déroulent l’inscription et l’accès à la formation ?","acceptedAnswer":{"@type":"Answer","text":"Vous finalisez votre commande et recevez votre confirmation. Nous enregistrons votre inscription directement auprès de PECB. Vous recevez l’accès à vos supports de cours par courriel dans les 24 heures suivant l’enregistrement de votre inscription auprès de PECB (jours ouvrés). Vous étudiez à votre rythme, avec les supports inclus. Vous réservez votre examen de certification directement auprès de PECB lorsque vous êtes prêt."}},{"@type":"Question","name":"Ce que comprend le prix","acceptedAnswer":{"@type":"Answer","text":"Examen inclus dans le prix de la formation, et frais de certification inclus dans l’examen. Supports de cours de plus de 200 pages : explications, exemples, bonnes pratiques, exercices et quiz. Repassage de l’examen gratuit dans les 12 mois en cas d’échec. 14 crédits DPC attribués à l’issue de la formation. Accès aux supports de cours pendant 12 mois."}}]}</script>
+<script src="/tokens/nxg-events.js"></script>
+</body>
+</html>
