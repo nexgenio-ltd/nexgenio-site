@@ -144,7 +144,7 @@ jobs:
             echo "INDEXNOW_KEY not set — skipping"
             exit 0
           fi
-          URLS=$(grep -oP 'https://nexgenio\.com/[^<]+' apex/sitemap.xml | head -50)
+          URLS=$(grep -oP 'https://nexgenio\.com/[^<]*' apex/sitemap.xml | head -50)
           JSON_URLS=$(echo "$URLS" | jq -R . | jq -s .)
           curl -sf -X POST "https://api.indexnow.org/IndexNow" \
             -H "Content-Type: application/json" \
