@@ -200,6 +200,8 @@
     .legal h3{font-size:14px;color:var(--t);font-weight:bold;margin:20px 0 6px}
     .legal p{font-size:13px;color:#444;line-height:1.75;margin-bottom:4px}
     .legal a{color:var(--t)}
+    .copy-mail{font:inherit;font-size:12px;color:var(--t);background:none;border:1px solid #ccc;border-radius:4px;padding:1px 8px;margin-left:6px;cursor:pointer;vertical-align:baseline}
+    .copy-mail:hover{border-color:var(--t)}
 
     /* FOOTER */
     footer{background:var(--t);border-top:3px solid var(--o)}
@@ -295,6 +297,12 @@
     window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
     if(CookieConsent.acceptedService('clarity','analytics')){
       (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+      /* Without this, Clarity stays in cookieless mode, writes no _clck or _clsk,
+         and every page view arrives as its own one-page session. It is queued on
+         the clarity stub above, so it reaches the tag once the tag loads. This
+         line runs only inside the accepted branch, so nothing is granted before
+         the banner decision. */
+      window.clarity('consentv2',{ad_Storage:'granted',analytics_Storage:'granted'});
     }
   }
   window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
@@ -710,7 +718,9 @@
     <div id="legal-impressum">
       <h2>Impressum / Legal Notice</h2>
       <h3>Company</h3><p>NexGenio LTD &nbsp;&middot;&nbsp; 36 St Dminika Street, Victoria (Gozo) VCT9030, Malta<br>VAT: MT25941925 &nbsp;&middot;&nbsp; Registered under the Companies Act (Cap. 386)</p>
-      <h3>Contact</h3><p>Email: <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a> &nbsp;&middot;&nbsp; Phone: +356 2778 0376</p>
+      <h3>Contact</h3><p>Email: <a href="mailto:contact@nexgenio.com">contact@nexgenio.com</a>
+      <button type="button" class="copy-mail" data-copy="contact@nexgenio.com">Copy address</button>
+      &nbsp;&middot;&nbsp; Phone: +356 2778 0376</p>
       <h3>Responsible for content</h3><p>Tobias Bayer, Director, NexGenio LTD</p>
       <h3>EU dispute resolution</h3><p>Platform: <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a>. NexGenio is not obliged to participate in consumer dispute resolution proceedings.</p>
     </div>
@@ -754,6 +764,28 @@
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Service", "name": "ISO 27001 Information Security Management", "description": "ISMS design, gap assessment, risk treatment, Statement of Applicability, control implementation and certification readiness. Integrated with NIS2 and DORA obligations where applicable.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "ISO 27001 Compliance"}, {"@context": "https://schema.org", "@type": "Service", "name": "ISO 22301 Business Continuity Management", "description": "BCMS design and implementation. Business impact analysis, recovery strategy, continuity plans and exercise programmes. Directly addresses NIS2 Art.21 resilience and DORA ICT continuity obligations.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "ISO 22301 Compliance"}, {"@context": "https://schema.org", "@type": "Service", "name": "ISO 42001 AI Management System", "description": "AIMS implementation aligned to ISO 42001 and the EU AI Act. AI risk classification, transparency obligations, governance framework design and conformity assessment preparation.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "ISO 42001 AI Governance"}, {"@context": "https://schema.org", "@type": "Service", "name": "NIS2 & DORA Implementation", "description": "End-to-end implementation for essential and important entities, and for financial entities. Governance, risk management, incident reporting, supply chain assessment, and competent authority registration.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "NIS2 and DORA Regulatory Compliance"}, {"@context": "https://schema.org", "@type": "Service", "name": "ICT Third-Party & Supply Chain Risk", "description": "ICT third-party register, supplier risk classification, contractual provisions mapping, concentration risk analysis and critical function designation. Dual NIS2 + DORA supply chain assessments available.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "ICT Supply Chain Risk Management"}, {"@context": "https://schema.org", "@type": "Service", "name": "Security Architecture & Control Verification", "description": "Practitioner review of whether deployed technology actually satisfies the controls your compliance framework selects, not just whether documentation claims it does.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "Security Architecture Review"}]</script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Tobias Bayer", "jobTitle": "Director", "worksFor": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}}</script>
+<!-- Click to copy the contact address. Clarity recorded four dead clicks on the
+     plain mailto, from a visitor who then selected the address as text. -->
+<script>
+(function(){
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.copy-mail');
+    if(!b)return;
+    var addr=b.getAttribute('data-copy');
+    var label=b.textContent;
+    function done(){b.textContent='Address copied';setTimeout(function(){b.textContent=label},2000)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addr).then(done,fallback);
+    }else{fallback()}
+    function fallback(){
+      var t=document.createElement('textarea');t.value=addr;t.setAttribute('readonly','');
+      t.style.position='fixed';t.style.left='-9999px';document.body.appendChild(t);
+      t.select();try{document.execCommand('copy');done()}catch(err){}
+      document.body.removeChild(t);
+    }
+  });
+})();
+</script>
 <script src="https://tally.so/widgets/embed.js" async></script>
 <style>
 /* Center Tally popup — override Tally's fixed positioning */

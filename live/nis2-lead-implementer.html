@@ -235,6 +235,12 @@
     window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
     if(CookieConsent.acceptedService('clarity','analytics')){
       (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+      /* Without this, Clarity stays in cookieless mode, writes no _clck or _clsk,
+         and every page view arrives as its own one-page session. It is queued on
+         the clarity stub above, so it reaches the tag once the tag loads. This
+         line runs only inside the accepted branch, so nothing is granted before
+         the banner decision. */
+      window.clarity('consentv2',{ad_Storage:'granted',analytics_Storage:'granted'});
     }
   }
   window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
