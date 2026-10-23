@@ -54,7 +54,7 @@ const TRAINING_PATHS = new Set([
 // A language subdirectory is listed explicitly, because the walk below is not
 // recursive. Without its entry a translated page ships with no nav, no consent
 // banner and therefore no analytics.
-const DIRS = ["apex", "self", "training", "training/fr", "live", "legal"];
+const DIRS = ["apex", "apex/insights", "self", "training", "training/fr", "live", "legal"];
 
 // Language of a page, from its path. Drives which nav variant it receives.
 const langOf = (relPath) => (relPath.startsWith("training/fr/") ? "fr" : "en");

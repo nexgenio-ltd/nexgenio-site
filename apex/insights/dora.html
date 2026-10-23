@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DORA Guides and Analysis | Register of Information, Article 16, Criticality | NexGenio</title>
+  <meta name="description" content="Reference guides to DORA: the register of information and its 15 ITS templates, the simplified framework in Article 16, criticality, and the mapping to ISO 27001.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nexgenio.com/insights/dora.html">
+  <meta property="og:title" content="DORA guides and analysis">
+  <meta property="og:description" content="The register of information, the simplified framework in Article 16, the criticality measurement the regulation never defines, and the mapping to ISO 27001.">
+  <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <meta property="og:url" content="https://nexgenio.com/insights/dora.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+    :root{--t:#215675;--o:#f6911b;--g:#3c9a00;--tm:#2d6e94;--tl:#e6eef3;--bg:#f8f9fb;--lg:#666}
+
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:100px 32px 92px;text-align:center}
+    .hero h1{font-size:clamp(28px,4vw,50px);font-weight:bold;color:#fff;line-height:1.18;margin-bottom:20px;max-width:880px;margin-inline:auto;text-wrap:balance}
+    .hero h1 em{color:var(--o);font-style:normal;white-space:nowrap}
+    .hero p{font-size:18px;color:rgba(255,255,255,.85);max-width:680px;margin:0 auto 36px;line-height:1.7}
+    .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:44px}
+    .tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:12px;font-weight:600;padding:5px 18px;border-radius:20px;letter-spacing:.4px}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:15px;font-weight:bold;padding:15px 40px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;font-family:inherit;line-height:1.4}
+    .btn:hover{background:#d97a0f}
+
+    section{padding:88px 32px}
+    .inn{max-width:1140px;margin:0 auto}
+    .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:clamp(22px,3vw,36px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:16px;color:var(--lg);max-width:640px;margin-bottom:52px;line-height:1.75}
+    .alt{background:var(--bg)}
+
+    .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .gridg{display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:24px}
+    .card{background:#fff;border-radius:6px;padding:32px 28px;border-top:3px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06)}
+    .card.b{border-top-color:var(--tm)}
+    .card.c{border-top-color:var(--o)}
+    .card h3{font-size:17px;color:var(--t);font-weight:bold;margin-bottom:10px}
+    .card p{font-size:14px;color:#555;line-height:1.7}
+    .card ul{margin-top:14px;list-style:none;padding:0}
+    .card ul li{font-size:13px;color:#555;padding:6px 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px}
+    .card ul li:last-child{border-bottom:none}
+    .card ul li::before{content:"▸";color:var(--t);flex-shrink:0}
+    .chip{display:inline-block;font-size:10px;font-weight:700;background:var(--tl);color:var(--t);padding:3px 10px;border-radius:10px;margin-bottom:12px;letter-spacing:.4px;text-transform:uppercase}
+    .chip.c{background:#fff3e0;color:#b86800}
+
+    a.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s}
+    a.card:hover{box-shadow:0 6px 24px rgba(33,86,117,.14);transform:translateY(-2px)}
+    a.card p{flex:1}
+    a.card .chip{align-self:flex-start}
+    .view-link{font-size:13px;font-weight:600;color:var(--o);margin-top:16px;display:block}
+    a.card:hover .view-link{text-decoration:underline}
+
+    .article-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+    .article-card{background:#fff;border-radius:8px;border:2px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06);padding:24px;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+    .article-card:hover{box-shadow:0 6px 24px rgba(33,86,117,.14);transform:translateY(-2px)}
+    .article-card h3{font-size:17px;font-weight:700;color:var(--t);margin-bottom:8px;line-height:1.3}
+    .article-card p{font-size:14px;color:#555;line-height:1.6;margin:0;flex:1}
+    .article-card .card-date{font-size:12px;color:var(--lg);margin-bottom:8px}
+    .article-card .view-link{margin-top:12px}
+
+    .cta-band{background:var(--t);text-align:center;padding:76px 32px}
+    .cta-band h2{font-size:clamp(22px,3vw,32px);color:#fff;font-weight:bold;margin-bottom:16px}
+    .cta-band p{font-size:16px;color:rgba(255,255,255,.75);max-width:640px;margin:0 auto 32px;line-height:1.75}
+
+    footer{background:#162f40;padding:56px 32px 28px}
+    .footer-inner{max-width:1140px;margin:0 auto}
+    .footer-top{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap;margin-bottom:40px}
+    .fn{font-size:18px;font-weight:bold;color:#fff;margin-bottom:4px}
+    .ft{font-size:13px;color:rgba(255,255,255,.55)}
+    .footer-cols{display:flex;gap:56px;flex-wrap:wrap}
+    .footer-col h5{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--o);margin-bottom:14px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;padding:5px 0}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.45)}
+    @media(max-width:520px){section{padding:56px 20px}.hero{padding:64px 20px 56px}}
+  </style>
+</head>
+<body>
+
+<!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/training/index.html">Academy</a>
+      <a href="/insights/index.html">Insights</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/training/index.html">Academy</a>
+    <a href="/insights/index.html">Insights</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'},{name:'_clck'},{name:'_clsk'},{name:'CLID'},{name:'ANONCHK'},{name:'MR'},{name:'MUID'},{name:'SM'}]},services:{ga4:{},clarity:{}}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'en',
+      translations:{"en":{"consentModal":{"title":"We value your privacy","description":"This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href=\"/legal/privacy.html\">Privacy Policy</a>.","acceptAllBtn":"Accept All","acceptNecessaryBtn":"Reject All","showPreferencesBtn":"Cookie Settings"},"preferencesModal":{"title":"Cookie Preferences","acceptAllBtn":"Accept All","acceptNecessaryBtn":"Reject All","savePreferencesBtn":"Save Preferences","sections":[{"title":"Cookie Usage","description":"We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out."},{"title":"Necessary","description":"These cookies are essential for the website to function. They cannot be disabled.","linkedCategory":"necessary"},{"title":"Analytics","description":"We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.","linkedCategory":"analytics"},{"title":"Marketing","description":"Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.","linkedCategory":"marketing"},{"title":"More information","description":"For questions about our cookie policy, please <a href=\"/#contact\">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer."}]}}}
+    }
+  });
+  function _nxgLoadAnalytics(){
+    if(window._nxgAnalyticsLoaded)return;
+    if(!CookieConsent.acceptedService('ga4','analytics'))return;
+    window._nxgAnalyticsLoaded=true;
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-R6WRM25278';document.head.appendChild(gs);
+    /* gtag must be global: gtag.js never defines it, and nxg-events.js calls it
+       from its own scope. Declaring it with "function gtag(){}" here would trap
+       it inside _nxgLoadAnalytics and silently drop every conversion event. */
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
+    if(CookieConsent.acceptedService('clarity','analytics')){
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+      /* Without this, Clarity stays in cookieless mode, writes no _clck or _clsk,
+         and every page view arrives as its own one-page session. It is queued on
+         the clarity stub above, so it reaches the tag once the tag loads. This
+         line runs only inside the accepted branch, so nothing is granted before
+         the banner decision. */
+      window.clarity('consentv2',{ad_Storage:'granted',analytics_Storage:'granted'});
+    }
+  }
+  window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
+  window.addEventListener('cc:onChange',_nxgLoadAnalytics);
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent="Cookie Settings";a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
+
+<div class="hero">
+  <h1>Everything we have published on <em>DORA</em>.</h1>
+  <p>Reference guides to the register of information, the simplified framework in Article 16, the criticality measurement the regulation never defines, and the mapping to ISO 27001. Written against the primary text, kept current, free to use.</p>
+  <div class="tags">
+    <span class="tag">Register of information</span>
+    <span class="tag">Article 16</span>
+    <span class="tag">Criticality</span>
+    <span class="tag">ISO 27001 mapping</span>
+    <span class="tag">ICT third-party risk</span>
+  </div>
+  <a class="btn" href="https://calendly.com/toby-nexgenio/scope_check" data-lead="dora_scope_call" data-lead-position="hero">Book a scoping call</a>
+</div>
+
+<section>
+  <div class="inn">
+    <div class="sl">Guides</div>
+    <h2 class="st">Reference guides</h2>
+    <p class="ss">Each guide is written against Regulation (EU) 2022/2554 and the implementing and delegated acts under it, with the article and template references stated so you can check them.</p>
+    <div class="gridg">
+
+      <a class="card" href="/dora-register-of-information.html">
+        <span class="chip">Guide and download</span>
+        <h3>The register of information</h3>
+        <p>The 15 ITS templates of Commission Implementing Regulation (EU) 2024/2956 and all 117 fields, with the data-collection sheet to gather them in, the corrigendum renumbering applied, and the three uncorrected errors in the official text marked where they bite.</p>
+        <span class="view-link">Read the guide &rarr;</span>
+      </a>
+
+      <a class="card b" href="/dora-article-16.html">
+        <span class="chip">Guide</span>
+        <h3>Article 16, the simplified framework</h3>
+        <p>Four ICT risk management obligations fall away for small and non-interconnected financial entities. The eligibility tests run on internal figures rather than public data, and the register obligation is not one of the four.</p>
+        <span class="view-link">Read the guide &rarr;</span>
+      </a>
+
+      <a class="card c" href="/blog/dora-criticality-the-measurement-nobody-defines.html">
+        <span class="chip c">Guide</span>
+        <h3>Criticality, the measurement nobody defines</h3>
+        <p>DORA gates 22 of its 41 articles on whether a function is critical or important, and Article 3(22) defines the term without giving a method. The same gap sits under the risk tolerance level in Articles 3 and 31.</p>
+        <span class="view-link">Read the guide &rarr;</span>
+      </a>
+
+      <a class="card" href="/dora-mapping.html">
+        <span class="chip">Reference</span>
+        <h3>DORA to ISO 27001 mapping</h3>
+        <p>The DORA requirements set against the ISO 27001 clauses and Annex A controls, so an existing ISMS can be read as evidence where it genuinely is, and the gaps show up as gaps.</p>
+        <span class="view-link">Open the mapping &rarr;</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inn">
+    <div class="sl">Analysis</div>
+    <h2 class="st">Latest analysis</h2>
+    <p class="ss">Shorter pieces on what the obligations look like once they reach an operating organisation.</p>
+    <!-- POSTS:dora -->
+    <div class="article-grid">
+      <a href="/blog/five-regulations-one-spreadsheet.html" class="article-card">
+        <div class="card-date">1 September 2026</div>
+        <h3>NIS2. DORA. ISO 27001. ISO 42001. EU AI Act. All tracked in one person's spreadsheet.</h3>
+        <p>What it costs to hold five regulatory frameworks together by hand, and what replaces the spreadsheet.</p>
+        <span class="view-link">Read article &rarr;</span>
+      </a>
+      <a href="/blog/third-redesign-translation-gap.html" class="article-card">
+        <div class="card-date">29 August 2026</div>
+        <h3>Third redesign. Same deadline, six months gone. What actually needed fixing was the translation.</h3>
+        <p>Why a governance architecture breaks with every new regulation, and what building the translation layer once changes.</p>
+        <span class="view-link">Read article &rarr;</span>
+      </a>
+    </div>
+    <!-- /POSTS:dora -->
+    <p style="margin-top:36px;font-size:14px;color:#666"><a href="/blog/index.html" style="color:var(--t);font-weight:600">All articles &rarr;</a></p>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Start with where you actually stand</h2>
+  <p>A short call establishes your scope under DORA, whether Article 16 reaches you, and which obligations matter first.</p>
+  <a class="btn" href="https://calendly.com/toby-nexgenio/scope_check" data-lead="dora_scope_call" data-lead-position="closing">Book a scoping call</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-brand-text"><div class="fn">NexGenio LTD</div><div class="ft">Compliance by design.</div></div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Services</h5><a href="/#services">ISO 27001</a><a href="/#services">ISO 22301</a><a href="/#services">ISO 42001</a><a href="/nis2.html">NIS2</a><a href="/dora-article-16.html">DORA Article 16</a></div>
+        <div class="footer-col"><h5>Training</h5><a href="/training/index.html">All courses</a><a href="/training/index.html">Live schedule</a></div>
+        <div class="footer-col"><h5>Who we serve</h5><a href="/#who">Essential entities</a><a href="/#who">Financial entities</a><a href="/#who">Important entities</a></div>
+        <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#approach">Approach</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","url":"https://nexgenio.com/insights/dora.html","name":"DORA guides and analysis","description":"Reference guides to the DORA register of information, the simplified framework in Article 16, criticality, and the mapping to ISO 27001.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"NexGenio","url":"https://nexgenio.com"},"about":{"@type":"Legislation","name":"Regulation (EU) 2022/2554 (DORA)","legislationIdentifier":"32022R2554","url":"https://eur-lex.europa.eu/eli/reg/2022/2554/oj"}}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"DORA reference guides","itemListElement":[{"@type":"ListItem","position":1,"name":"The register of information","url":"https://nexgenio.com/dora-register-of-information.html"},{"@type":"ListItem","position":2,"name":"Article 16, the simplified framework","url":"https://nexgenio.com/dora-article-16.html"},{"@type":"ListItem","position":3,"name":"Criticality, the measurement nobody defines","url":"https://nexgenio.com/blog/dora-criticality-the-measurement-nobody-defines.html"},{"@type":"ListItem","position":4,"name":"DORA to ISO 27001 mapping","url":"https://nexgenio.com/dora-mapping.html"}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nexgenio.com/"},{"@type":"ListItem","position":2,"name":"DORA","item":"https://nexgenio.com/insights/dora.html"}]}</script>
+
+</body>
+</html>

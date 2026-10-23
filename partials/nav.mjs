@@ -118,7 +118,7 @@ export const baseNav = `<!-- NAV -->${navAlignCss}
     <nav>
       <a href="/">Home</a>
       <a href="/training/index.html">Academy</a>
-      <a href="/blog/index.html">Insights</a>
+      <a href="/insights/index.html">Insights</a>
       <a href="/#contact">Contact</a>
     </nav>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -126,7 +126,7 @@ export const baseNav = `<!-- NAV -->${navAlignCss}
   <div class="mobile-menu">
     <a href="/">Home</a>
     <a href="/training/index.html">Academy</a>
-    <a href="/blog/index.html">Insights</a>
+    <a href="/insights/index.html">Insights</a>
     <a href="/#contact">Contact</a>
   </div>
 </header>
@@ -143,7 +143,7 @@ export const trainingNav = `<!-- NAV -->${navAlignCss}
     <nav>
       <a href="/">Home</a>
       <a href="/training/index.html">Academy</a>
-      <a href="/blog/index.html">Insights</a>
+      <a href="/insights/index.html">Insights</a>
       <a href="/#contact">Contact</a>
     </nav>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -151,7 +151,7 @@ export const trainingNav = `<!-- NAV -->${navAlignCss}
   <div class="mobile-menu">
     <a href="/">Home</a>
     <a href="/training/index.html">Academy</a>
-    <a href="/blog/index.html">Insights</a>
+    <a href="/insights/index.html">Insights</a>
     <a href="/#contact">Contact</a>
   </div>
 </header>
@@ -170,7 +170,7 @@ export const trainingNavFr = `<!-- NAV -->${navAlignCss}
     <nav>
       <a href="/">Accueil</a>
       <a href="/training/fr/index.html">Catalogue</a>
-      <a href="/blog/index.html">Analyses</a>
+      <a href="/insights/index.html">Analyses</a>
       <a href="/#contact">Contact</a>
     </nav>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -178,7 +178,7 @@ export const trainingNavFr = `<!-- NAV -->${navAlignCss}
   <div class="mobile-menu">
     <a href="/">Accueil</a>
     <a href="/training/fr/index.html">Catalogue</a>
-    <a href="/blog/index.html">Analyses</a>
+    <a href="/insights/index.html">Analyses</a>
     <a href="/#contact">Contact</a>
   </div>
 </header>
