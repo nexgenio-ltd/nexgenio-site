@@ -1,0 +1,21 @@
+networks:
+  nexgenio-net:
+    external: true
+services:
+  tally-webhook:
+    image: node:20-alpine
+    container_name: nexgenio-tally-webhook
+    restart: unless-stopped
+    mem_limit: 64m
+    networks:
+      - nexgenio-net
+    working_dir: /app
+    command: node server.js
+    environment:
+      - PIPEDRIVE_API_KEY=${PIPEDRIVE_API_KEY}
+      - TALLY_SIGNING_SECRET=${TALLY_SIGNING_SECRET:-}
+      - INSTANTLY_API_KEY=${INSTANTLY_API_KEY}
+    volumes:
+      - /home/ubuntu/nexgenio/tally-webhook/server.js:/app/server.js:ro
+      - /home/ubuntu/nexgenio/tally-webhook/ses-alert.js:/app/ses-alert.js:ro
+      - /home/ubuntu/nexgenio/tally-webhook/data:/data
