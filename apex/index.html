@@ -17,7 +17,7 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
-    :root{--t:#215675;--o:#f6911b;--g:#3c9a00;--tm:#2d6e94;--tl:#e6eef3;--bg:#f8f9fb;--lg:#666}
+    :root{--t:#215675;--o:#f6911b;--g:#3c9a00;--tm:#2d6e94;--tl:#e6eef3;--bg:#f8f9fb;--lg:#666;--w-col:820px}
 
     /* HEADER */
     header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
@@ -33,9 +33,9 @@
 
     /* HERO — teal gradient, full width */
     .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:100px 32px 92px;text-align:center}
-    .hero h1{font-size:clamp(28px,4vw,50px);font-weight:bold;color:#fff;line-height:1.18;margin-bottom:20px;max-width:860px;margin-inline:auto}
+    .hero h1{font-size:clamp(28px,4vw,50px);font-weight:bold;color:#fff;line-height:1.18;margin-bottom:20px;max-width:880px;margin-inline:auto}
     .hero h1 em{color:var(--o);font-style:normal}
-    .hero p{font-size:18px;color:rgba(255,255,255,.85);max-width:660px;margin:0 auto 36px;line-height:1.7}
+    .hero p{font-size:18px;color:rgba(255,255,255,.85);max-width:680px;margin:0 auto 36px;line-height:1.7}
     .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:44px}
     .tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:12px;font-weight:600;padding:5px 18px;border-radius:20px;letter-spacing:.4px}
     .btn{display:inline-block;background:var(--o);color:#fff;font-size:15px;font-weight:bold;padding:15px 40px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;font-family:inherit;line-height:1.4}
@@ -45,14 +45,14 @@
 
     /* SECTIONS */
     section{padding:88px 32px}
-    .inn{max-width:1140px;margin:0 auto}
+    .inn{max-width:var(--w-col);margin:0 auto}
     .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
     .st{font-size:clamp(22px,3vw,36px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
-    .ss{font-size:16px;color:var(--lg);max-width:580px;margin-bottom:52px;line-height:1.75}
+    .ss{font-size:16px;color:var(--lg);margin-bottom:52px;line-height:1.75}
     .alt{background:var(--bg)}
 
     /* WHO WE SERVE */
-    .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
     .card{background:#fff;border-radius:6px;padding:32px 28px;border-top:3px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06)}
     .card.b{border-top-color:var(--tm)}
     .card.c{border-top-color:var(--o)}
@@ -69,7 +69,7 @@
     /* SERVICES */
     .grp-label{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--t);text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--tl)}
     .grp-label.reg{color:var(--tm);border-bottom-color:#d5e4ee}
-    .grid-svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:40px}
+    .grid-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
     .svc{background:var(--bg);border-radius:6px;padding:26px 24px;border-left:3px solid var(--t)}
     .svc.reg{border-left-color:var(--tm);background:#f5f9fc}
     .svc-std{font-size:10px;font-weight:700;color:var(--lg);letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px}
@@ -80,7 +80,7 @@
     .why-bg{background:var(--t)}
     .why-bg .st{color:#fff}
     .why-bg .ss{color:rgba(255,255,255,.7)}
-    .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(255,255,255,.08)}
+    .grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.08)}
     .why-item{background:var(--t);padding:36px 30px}
     .why-n{font-size:38px;font-weight:bold;color:var(--o);opacity:.4;line-height:1;margin-bottom:12px}
     .why-item h4{font-size:16px;font-weight:bold;color:#fff;margin-bottom:10px}
@@ -128,7 +128,8 @@
 
     /* TRAINING */
     .training{padding:72px 32px;background:#fff}
-    .training .inn{max-width:1140px;margin:0 auto}
+    .training .inn{max-width:var(--w-col);margin:0 auto}
+    .inn.read{max-width:var(--w-col)}
     .training-header{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;margin-bottom:40px;flex-wrap:wrap}
     .training-header-text{max-width:620px}
     .training-badge-link{flex-shrink:0;display:block;border-radius:6px;transition:transform .2s,box-shadow .2s}
@@ -231,6 +232,9 @@
       .hero{padding:64px 20px 56px}
       .hi{padding:0 20px}
     }
+    @media(max-width:900px){.grid-svc{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.grid2,.grid3,.grid4,.grid-svc{grid-template-columns:1fr}}
   </style>
   <!-- OG -->
   <meta property="og:type" content="website">
@@ -311,7 +315,7 @@
 </script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
 
 <section class="hero">
-  <div class="inn">
+  <div class="inn read">
     <h1>ISO &amp; Regulatory Compliance<br><em>for organisations that run critical operations.</em></h1>
     <p>NexGenio delivers NIS2, DORA, ISO 27001, ISO 22301 and AI governance programmes for essential entities, financial entities and important entities across Europe, built on a decade of operating the infrastructure these frameworks govern.</p>
     <div class="tags">
@@ -451,7 +455,7 @@
 </section>
 
 <section class="faq" id="faq">
-  <div class="inn">
+  <div class="inn read">
     <p class="sl">Frequently asked questions</p>
     <h2 class="st">Scoping your compliance programme</h2>
     <p class="ss">Common questions from organisations working out which obligations apply and what an engagement involves.</p>
@@ -489,7 +493,7 @@
 </section>
 
 <section id="about">
-  <div class="inn">
+  <div class="inn read">
     <p class="sl">About NexGenio</p>
     <h2 class="st">Built on operating experience</h2>
     <div class="about-grid">
@@ -512,11 +516,11 @@
 </section>
 
 <section class="training" id="training">
-  <div class="inn">
+  <div class="inn read">
     <div class="sl">Live Training</div>
     <h2 class="st">Learn live, online, from PECB Platinum Trainers.</h2>
     <p class="ss">Fixed dates. Real-time instruction. The full course, delivered live.</p>
-    <p style="font-size:15px;color:#444;line-height:1.75;max-width:720px;margin-bottom:36px">Instructor-led sessions on fixed dates, delivered online in real time by PECB Platinum Trainers. You attend live and ask questions as they come up. The PECB certification exam is included and scheduled with PECB after the course.</p>
+    <p style="font-size:15px;color:#444;line-height:1.75;margin-bottom:36px">Instructor-led sessions on fixed dates, delivered online in real time by PECB Platinum Trainers. You attend live and ask questions as they come up. The PECB certification exam is included and scheduled with PECB after the course.</p>
 
     <!-- COURSES:SCHEDULE -->
     <div class="sched-list" role="list">
@@ -582,11 +586,11 @@
 </section>
 
 <section class="training alt" id="self-paced">
-  <div class="inn">
+  <div class="inn read">
     <div class="sl">Self-Paced</div>
     <h2 class="st">Or study entirely on your own schedule.</h2>
     <p class="ss">Real certification you build alongside full-time work, at your own pace.</p>
-    <p style="font-size:15px;color:#444;line-height:1.75;max-width:720px;margin-bottom:36px">The same PECB certification, studied on your own schedule. Self-Study gives you the full course materials to work through independently. e-Learning adds guided video instruction on top of the same content. Exam and certificate included either way.</p>
+    <p style="font-size:15px;color:#444;line-height:1.75;margin-bottom:36px">The same PECB certification, studied on your own schedule. Self-Study gives you the full course materials to work through independently. e-Learning adds guided video instruction on top of the same content. Exam and certificate included either way.</p>
 
     <!-- Self-Paced Course Carousel -->
     <div class="course-slider">
@@ -679,7 +683,7 @@
 </section>
 
 <section id="contact" class="alt">
-  <div class="inn" style="text-align:center">
+  <div class="inn read" style="text-align:center">
     <p class="sl">Get in touch</p>
     <h2 class="st" style="margin-inline:auto">Start a conversation</h2>
     <p class="ss" style="margin-inline:auto">No obligation. We will tell you honestly whether we can help and what an engagement would look like.</p>

@@ -21,7 +21,7 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
-    :root{--t:#215675;--o:#f6911b;--g:#3c9a00;--tm:#2d6e94;--tl:#e6eef3;--bg:#f8f9fb;--lg:#666}
+    :root{--t:#215675;--o:#f6911b;--g:#3c9a00;--tm:#2d6e94;--tl:#e6eef3;--bg:#f8f9fb;--lg:#666;--w-col:820px}
 
     header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
     .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
@@ -42,15 +42,16 @@
     .btn:hover{background:#d97a0f}
 
     section{padding:88px 32px}
-    .inn{max-width:1140px;margin:0 auto}
+    .inn{max-width:var(--w-col);margin:0 auto}
+    .inn.read{max-width:var(--w-col)}
     .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
     .st{font-size:clamp(22px,3vw,36px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
-    .ss{font-size:16px;color:var(--lg);max-width:640px;margin-bottom:52px;line-height:1.75}
+    .ss{font-size:16px;color:var(--lg);margin-bottom:52px;line-height:1.75}
     .alt{background:var(--bg)}
 
-    .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
-    .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-    .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
     .card{background:#fff;border-radius:6px;padding:32px 28px;border-top:3px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06)}
     .card.b{border-top-color:var(--tm)}
     .card.c{border-top-color:var(--o)}
@@ -105,6 +106,9 @@
     .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
     .footer-bottom p{font-size:12px;color:rgba(255,255,255,.45)}
     @media(max-width:520px){section{padding:56px 20px}.hero{padding:64px 20px 56px}.nl-box{padding:26px 22px}}
+    @media(max-width:900px){.grid-svc{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.grid2,.grid3,.grid4,.grid-svc{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -186,12 +190,12 @@
 </div>
 
 <section class="alt">
-  <div class="inn">
+  <div class="inn read">
     <div class="sl">In brief</div>
     <h2 class="st">Does NIS2 require board members to be trained?</h2>
-    <p class="ss" style="max-width:820px">Yes. Article 20(2) of NIS2 requires Member States to ensure that the members of the management body of essential and important entities follow training, and encourages entities to offer equivalent training to employees regularly. It is written as an obligation on the individuals, which is what separates it from general staff awareness training. The directive names no interval; supervisory practice is converging on an annual cycle, plus a session when a new member joins or the risk profile changes materially.</p>
-    <p class="ss" style="max-width:820px;margin-top:18px">What a supervisor asks for is the evidence: the date, the agenda, the materials used, who attended and who delivered it. The attendance record is usually requested first, because it shows the duty reached the named individuals rather than the organisation in general.</p>
-    <p class="ss" style="max-width:820px;margin-top:18px">Source: <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj" rel="noopener" target="_blank" style="color:var(--t);font-weight:600">Article 20 of Directive (EU) 2022/2555</a> on EUR-Lex. Your operative obligation sits in your own country's transposing law — in the Netherlands, the <a href="https://www.ncsc.nl/cyberbeveiligingswet-nis2" rel="noopener" target="_blank" style="color:var(--t);font-weight:600">Cyberbeveiligingswet</a>.</p>
+    <p class="ss">Yes. Article 20(2) of NIS2 requires Member States to ensure that the members of the management body of essential and important entities follow training, and encourages entities to offer equivalent training to employees regularly. It is written as an obligation on the individuals, which is what separates it from general staff awareness training. The directive names no interval; supervisory practice is converging on an annual cycle, plus a session when a new member joins or the risk profile changes materially.</p>
+    <p class="ss" style=";margin-top:18px">What a supervisor asks for is the evidence: the date, the agenda, the materials used, who attended and who delivered it. The attendance record is usually requested first, because it shows the duty reached the named individuals rather than the organisation in general.</p>
+    <p class="ss" style=";margin-top:18px">Source: <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj" rel="noopener" target="_blank" style="color:var(--t);font-weight:600">Article 20 of Directive (EU) 2022/2555</a> on EUR-Lex. Your operative obligation sits in your own country's transposing law — in the Netherlands, the <a href="https://www.ncsc.nl/cyberbeveiligingswet-nis2" rel="noopener" target="_blank" style="color:var(--t);font-weight:600">Cyberbeveiligingswet</a>.</p>
   </div>
 </section>
 
@@ -214,12 +218,12 @@
         <p>Supervisory powers reach the management body directly. Penalties reach &euro;10 million or 2% of worldwide turnover for essential entities, and &euro;7 million or 1.4% for important entities.</p>
       </div>
     </div>
-    <p style="margin-top:32px;font-size:15px;color:#444;max-width:760px;line-height:1.8">Article 21(2)(g) carries the parallel duty for staff, requiring basic cyber hygiene practices and cybersecurity training as one of the risk-management measures. The board duty is the one written as a requirement on the individuals, which is why it is worth handling as a distinct engagement. <a href="/nis2-training.html" style="color:var(--t);font-weight:600">See NIS2 staff training</a>, or <a href="/nis2.html" style="color:var(--t);font-weight:600">the full NIS2 picture</a>.</p>
+    <p style="margin-top:32px;font-size:15px;color:#444;line-height:1.8">Article 21(2)(g) carries the parallel duty for staff, requiring basic cyber hygiene practices and cybersecurity training as one of the risk-management measures. The board duty is the one written as a requirement on the individuals, which is why it is worth handling as a distinct engagement. <a href="/nis2-training.html" style="color:var(--t);font-weight:600">See NIS2 staff training</a>, or <a href="/nis2.html" style="color:var(--t);font-weight:600">the full NIS2 picture</a>.</p>
   </div>
 </section>
 
 <section class="alt">
-  <div class="inn">
+  <div class="inn read">
     <div class="sl">The session</div>
     <h2 class="st">What a board actually needs to hear</h2>
     <p class="ss">Half a day, built around your organisation rather than around the directive. The agenda below is the standard shape and it moves to fit the room.</p>
@@ -279,7 +283,7 @@
 </section>
 
 <section class="alt">
-  <div class="inn">
+  <div class="inn read">
     <div class="sl">Delivery</div>
     <h2 class="st">A governance conversation, not a security briefing</h2>
     <div class="nl-box">
@@ -319,15 +323,15 @@
         <p>Agenda, materials, attendance record and date, in the form a supervisor or auditor will ask to see.</p>
       </div>
     </div>
-    <p style="margin-top:32px;font-size:15px;color:#444;max-width:760px;line-height:1.8">Pricing is set on the scoping call, because a five-person board in one sector and a two-tier supervisory structure across three countries are genuinely different engagements.</p>
+    <p style="margin-top:32px;font-size:15px;color:#444;line-height:1.8">Pricing is set on the scoping call, because a five-person board in one sector and a two-tier supervisory structure across three countries are genuinely different engagements.</p>
   </div>
 </section>
 
 <section class="alt">
-  <div class="inn">
+  <div class="inn read">
     <div class="sl">Questions</div>
     <h2 class="st">Frequently asked</h2>
-    <div style="max-width:820px">
+    <div>
       <details class="faq-item">
         <summary>Does NIS2 really require board members personally to be trained?</summary>
         <div class="faq-a">Yes. Article 20(2) states that Member States shall ensure that members of the management body are required to follow training, and encourages entities to offer equivalent training to employees regularly. It is written as an obligation on the individuals, which is what separates it from awareness training delivered to staff.</div>
@@ -353,7 +357,7 @@
         <div class="faq-a">It is usually the opposite. The board approves the measures and sets the budget, so a board that understands the duty early tends to scope the programme correctly the first time. If you want the ground established first, the <a href="/nis2.html" style="color:var(--t);font-weight:600">NIS2 Baseline Check</a> gives you a written determination of scope and exposure that the board session can then build on.</div>
       </details>
     </div>
-    <p style="margin-top:36px;font-size:14px;color:#666;max-width:820px">This page is reviewed against the directive and its national transpositions. <strong>Last reviewed 16 September 2026.</strong></p>
+    <p style="margin-top:36px;font-size:14px;color:#666">This page is reviewed against the directive and its national transpositions. <strong>Last reviewed 16 September 2026.</strong></p>
   </div>
 </section>
 

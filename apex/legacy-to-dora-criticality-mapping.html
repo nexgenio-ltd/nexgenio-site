@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legacy Classification to DORA Critical Function Mapping | NexGenio</title>
+  <meta name="description" content="What carries from BAIT, MaRisk, CSSF 22/806 and the CBI guidance to the DORA critical or important function test, and what has to be assessed again.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nexgenio.com/legacy-to-dora-criticality-mapping.html">
+  <meta property="og:title" content="Your pre-DORA classification does not transfer">
+  <meta property="og:description" content="Five jurisdictions rated three different objects before DORA. A heatmap of what carries into the register of information, and what does not.">
+  <meta property="og:image" content="https://assets.nexgenio.com/brand/logo.png">
+  <meta property="og:url" content="https://nexgenio.com/legacy-to-dora-criticality-mapping.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
+    :root{--t:#215675;--o:#f6911b;--g:#3c9a00;--tm:#2d6e94;--tl:#e6eef3;--bg:#f8f9fb;--lg:#666;
+          --hg:#63be7b;--hy:#ffd666;--ho:#fcaa66;--hr:#f8696b;--w-col:820px}
+
+    /* HEADER */
+    header{background:#fff;border-bottom:2px solid var(--tl);position:sticky;top:0;z-index:100;box-shadow:0 1px 12px rgba(33,86,117,.06)}
+    .hi{max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h,92px)}
+    .brand{display:flex;align-items:center;gap:20px;text-decoration:none}
+    .brand img{width:var(--logo-w,230px);height:auto;display:block}
+    nav{display:flex;gap:32px}
+    nav a{color:var(--t);text-decoration:none;font-size:var(--nav-fs,18px);font-weight:600;letter-spacing:.2px}
+    nav a:hover{color:var(--o)}
+
+    /* HERO */
+    .hero{background:linear-gradient(150deg,#162f40 0%,var(--t) 55%,var(--tm) 100%);padding:100px 32px 92px;text-align:center}
+    .hero h1{font-size:clamp(28px,4vw,50px);font-weight:bold;color:#fff;line-height:1.18;margin-bottom:20px;max-width:880px;margin-inline:auto;text-wrap:balance}
+    .hero h1 em{color:var(--o);font-style:normal;white-space:nowrap}
+    .hero p{font-size:18px;color:rgba(255,255,255,.85);max-width:680px;margin:0 auto 36px;line-height:1.7}
+    .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:44px}
+    .tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:12px;font-weight:600;padding:5px 18px;border-radius:20px;letter-spacing:.4px}
+    .btn{display:inline-block;background:var(--o);color:#fff;font-size:15px;font-weight:bold;padding:15px 40px;border-radius:4px;text-decoration:none;letter-spacing:.2px;border:none;cursor:pointer;font-family:inherit;line-height:1.4}
+    .btn:hover{background:#d97a0f}
+
+    /* SECTIONS */
+    section{padding:88px 32px}
+    /* One column for headings, prose, tables and figures. Narrowing the prose
+       inside a wider container strands every paragraph on the left. */
+    .inn{max-width:var(--w-col);margin:0 auto}
+    .inn.read{max-width:var(--w-col)}
+    .sl{font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--o);text-transform:uppercase;margin-bottom:8px}
+    .st{font-size:clamp(22px,3vw,36px);font-weight:bold;color:var(--t);margin-bottom:14px;line-height:1.2}
+    .ss{font-size:16px;color:var(--lg);margin-bottom:52px;line-height:1.75}
+    .bd{font-size:16px;color:#444;line-height:1.8;margin-bottom:18px}
+    .alt{background:var(--bg)}
+    a.ref{color:var(--t);font-weight:600}
+
+    /* QUOTE */
+    .quote{background:#fff;border-left:4px solid var(--t);padding:26px 30px;border-radius:0 6px 6px 0;box-shadow:0 2px 12px rgba(33,86,117,.06)}
+    .quote p{font-size:16px;color:#2f3842;line-height:1.85;font-style:italic}
+    .quote cite{display:block;margin-top:14px;font-size:13px;color:var(--lg);font-style:normal;font-weight:600}
+
+    /* TABLE */
+    .mkt{width:100%;border-collapse:collapse;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 2px 12px rgba(33,86,117,.06)}
+    .mkt th{background:var(--t);color:#fff;font-size:12px;letter-spacing:.8px;text-transform:uppercase;text-align:left;padding:16px 20px;font-weight:700}
+    .mkt td{padding:16px 20px;border-bottom:1px solid var(--tl);font-size:14px;color:#444;vertical-align:top;line-height:1.6}
+    .mkt tr:last-child td{border-bottom:none}
+    .mkt td:first-child{font-weight:bold;color:var(--t)}
+    .mkt code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12.5px;background:var(--tl);color:var(--t);padding:2px 6px;border-radius:3px;white-space:nowrap}
+    .mkt-note{font-size:14px;color:var(--lg);margin-top:24px;line-height:1.75}
+    .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    @media(max-width:700px){.mkt th,.mkt td{padding:12px 12px;font-size:13px}}
+
+    /* TIMELINE */
+    .tlw{position:relative;padding-left:26px}
+    .tlw::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--tl)}
+    .tli{position:relative;padding:0 0 26px}
+    .tli::before{content:"";position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--tm)}
+    .tli.key::before{border-color:var(--o);background:var(--o)}
+    .tli .yr{font-size:13px;font-weight:700;letter-spacing:1.4px;color:var(--o);text-transform:uppercase;margin-bottom:3px}
+    .tli .ev{font-size:15px;color:#444;line-height:1.7}
+    .tli.key .ev{font-weight:600;color:var(--t)}
+
+    /* HEATMAP */
+    .hmw{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+    .hm{border-collapse:separate;border-spacing:5px;width:100%;min-width:720px;table-layout:fixed}
+    .hm th{font-size:13px;font-weight:700;color:var(--t);text-align:center;padding:6px 8px;vertical-align:bottom;line-height:1.4}
+    .hm th small{display:block;font-weight:400;color:var(--lg);font-size:11px;margin-top:3px;letter-spacing:.3px}
+    .hm th.rh{text-align:right;vertical-align:middle;width:150px;padding-right:14px}
+    .hm td{vertical-align:top;padding:12px;border-radius:5px;height:146px}
+    .hm td.g{background:var(--hg)} .hm td.y{background:var(--hy)}
+    .hm td.o{background:var(--ho)} .hm td.r{background:var(--hr)}
+    .hm .sc{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;opacity:.68;margin-bottom:9px;color:#1a1a1a}
+    .hm ul{list-style:none;padding:0;margin:0}
+    .hm li{font-size:13px;line-height:1.5;padding:2px 0;font-weight:600;color:#1a1a1a}
+    .hm .nil{font-size:13px;font-style:italic;opacity:.62;color:#1a1a1a}
+    .ax{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--lg);text-transform:uppercase}
+    .ax.x{text-align:center;padding-top:12px}
+    .ax.y{padding-bottom:10px}
+    .lg{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;font-size:14px;color:#444}
+    .lg div{display:flex;align-items:flex-start;gap:8px;max-width:250px;line-height:1.6}
+    .sw{width:14px;height:14px;border-radius:3px;flex-shrink:0;margin-top:4px}
+
+    /* CARDS */
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;border-radius:6px;padding:30px 26px;border-top:3px solid var(--t);box-shadow:0 2px 12px rgba(33,86,117,.06)}
+    .card.b{border-top-color:var(--tm)}
+    .card.c{border-top-color:var(--o)}
+    .card h3{font-size:17px;color:var(--t);font-weight:bold;margin-bottom:10px}
+    .card p{font-size:14px;color:#555;line-height:1.7}
+    .card p + p{margin-top:10px}
+    .chip{display:inline-block;font-size:10px;font-weight:700;background:var(--tl);color:var(--t);padding:3px 10px;border-radius:10px;margin-bottom:12px;letter-spacing:.5px;text-transform:uppercase}
+
+    /* CALLOUT */
+    .call{background:#fff;border-left:4px solid var(--o);padding:24px 28px;border-radius:0 6px 6px 0;box-shadow:0 2px 12px rgba(33,86,117,.06);margin-top:34px}
+    .call h4{font-size:16px;color:var(--t);font-weight:bold;margin-bottom:8px}
+    .call p{font-size:15px;color:#444;line-height:1.8}
+    .verdict{background:var(--t);color:#fff;padding:26px 30px;border-radius:6px;margin-bottom:34px}
+    .verdict .vl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--o);margin-bottom:8px}
+    .verdict p{font-size:19px;line-height:1.55;font-weight:600}
+
+    /* FAQ */
+    .faq-item{border-bottom:1px solid var(--tl)}
+    .faq-item summary{font-size:16px;font-weight:600;color:var(--t);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:"+";font-size:22px;color:var(--o);flex-shrink:0}
+    .faq-item[open] summary::after{content:"\2212"}
+    .faq-item .faq-a{font-size:15px;color:#444;line-height:1.8;padding:0 0 22px}
+
+    /* CTA BAND */
+    .cta-band{background:var(--t);text-align:center;padding:76px 32px}
+    .cta-band h2{font-size:clamp(22px,3vw,32px);color:#fff;font-weight:bold;margin-bottom:16px}
+    .cta-band p{font-size:16px;color:rgba(255,255,255,.75);max-width:640px;margin:0 auto 32px;line-height:1.75}
+
+    /* FOOTER */
+    footer{background:#162f40;padding:56px 32px 28px}
+    .footer-inner{max-width:1140px;margin:0 auto}
+    .footer-top{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap;margin-bottom:40px}
+    .fn{font-size:18px;font-weight:bold;color:#fff;margin-bottom:4px}
+    .ft{font-size:13px;color:rgba(255,255,255,.55)}
+    .footer-cols{display:flex;gap:56px;flex-wrap:wrap}
+    .footer-col h5{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--o);margin-bottom:14px}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;padding:5px 0}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.45)}
+    @media(max-width:520px){section{padding:56px 20px}.hero{padding:64px 20px 56px}}
+    @media(max-width:900px){.grid-svc{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.grid2,.grid3,.grid4,.grid-svc{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- NAV --><style id="nav-align">header{padding:0 32px}.hi{padding-left:0;padding-right:0}.brand .pecb-mark{height:35px;width:auto;display:inline;object-fit:contain}@media(max-width:520px){header{padding:0 20px}}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;justify-content:center;gap:5px;z-index:102}.hamburger span{display:block;width:24px;height:2.5px;background:#215675;border-radius:2px;transition:transform .3s,opacity .3s}.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:2px solid #e6eef3;box-shadow:0 4px 16px rgba(33,86,117,.1);padding:16px 32px;z-index:101}.mobile-menu.open{display:flex;flex-direction:column;gap:0}.mobile-menu a{color:#215675;text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid #e6eef3}.mobile-menu a:last-child{border-bottom:none}.mobile-menu a:hover,.mobile-menu a:active{color:#f6911b}@media(max-width:900px){.hamburger{display:flex}.brand-divider,.pecb-mark{display:none!important}}@media(max-width:520px){.mobile-menu{padding:12px 20px}}</style>
+<header>
+  <div class="hi">
+    <a href="/" class="brand">
+      <img src="/tokens/logo.jpg" alt="NexGenio" width="230">
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/training/index.html">Academy</a>
+      <a href="/insights/index.html">Insights</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/training/index.html">Academy</a>
+    <a href="/insights/index.html">Insights</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</header>
+<script>(function(){var b=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');if(!b||!m)return;b.addEventListener('click',function(e){e.stopPropagation();b.classList.toggle('open');m.classList.toggle('open')});m.addEventListener('click',function(){b.classList.remove('open');m.classList.remove('open')});document.addEventListener('click',function(e){if(!b.contains(e.target)&&!m.contains(e.target)){b.classList.remove('open');m.classList.remove('open')}});})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  CookieConsent.run({
+    guiOptions:{
+      consentModal:{layout:'box',position:'bottom center'},
+      preferencesModal:{layout:'box'}
+    },
+    categories:{
+      necessary:{enabled:true,readOnly:true},
+      analytics:{autoClear:{cookies:[{name:/^_ga/},{name:'_gid'},{name:'_clck'},{name:'_clsk'},{name:'CLID'},{name:'ANONCHK'},{name:'MR'},{name:'MUID'},{name:'SM'}]},services:{ga4:{},clarity:{}}},
+      marketing:{autoClear:{cookies:[{name:/^_fb/},{name:'_gcl_au'}]}}
+    },
+    language:{
+      default:'en',
+      translations:{"en":{"consentModal":{"title":"We value your privacy","description":"This website uses cookies to measure site performance and improve your experience. You can choose which categories to allow. For details, see our <a href=\"/legal/privacy.html\">Privacy Policy</a>.","acceptAllBtn":"Accept All","acceptNecessaryBtn":"Reject All","showPreferencesBtn":"Cookie Settings"},"preferencesModal":{"title":"Cookie Preferences","acceptAllBtn":"Accept All","acceptNecessaryBtn":"Reject All","savePreferencesBtn":"Save Preferences","sections":[{"title":"Cookie Usage","description":"We use cookies to ensure basic site functionality and to improve your experience. You can choose for each category to opt-in or opt-out."},{"title":"Necessary","description":"These cookies are essential for the website to function. They cannot be disabled.","linkedCategory":"necessary"},{"title":"Analytics","description":"We use Google Analytics 4 and Microsoft Clarity to understand how visitors interact with the website. These tools collect anonymised usage data (page views, clicks, scroll depth) to help us improve site content and structure. They only activate after you consent.","linkedCategory":"analytics"},{"title":"Marketing","description":"Marketing cookies are used to track visitors across websites to display relevant advertisements. No marketing tools are currently active.","linkedCategory":"marketing"},{"title":"More information","description":"For questions about our cookie policy, please <a href=\"/#contact\">contact us</a>. You can change your preferences at any time using the Cookie Settings link in the footer."}]}}}
+    }
+  });
+  function _nxgLoadAnalytics(){
+    if(window._nxgAnalyticsLoaded)return;
+    if(!CookieConsent.acceptedService('ga4','analytics'))return;
+    window._nxgAnalyticsLoaded=true;
+    var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-R6WRM25278';document.head.appendChild(gs);
+    /* gtag must be global: gtag.js never defines it, and nxg-events.js calls it
+       from its own scope. Declaring it with "function gtag(){}" here would trap
+       it inside _nxgLoadAnalytics and silently drop every conversion event. */
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','G-R6WRM25278',{anonymize_ip:true});
+    if(CookieConsent.acceptedService('clarity','analytics')){
+      (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','y9ff6oyuwp');
+      /* Without this, Clarity stays in cookieless mode, writes no _clck or _clsk,
+         and every page view arrives as its own one-page session. It is queued on
+         the clarity stub above, so it reaches the tag once the tag loads. This
+         line runs only inside the accepted branch, so nothing is granted before
+         the banner decision. */
+      window.clarity('consentv2',{ad_Storage:'granted',analytics_Storage:'granted'});
+    }
+  }
+  window.addEventListener('cc:onConsent',_nxgLoadAnalytics);
+  window.addEventListener('cc:onChange',_nxgLoadAnalytics);
+  document.addEventListener('DOMContentLoaded',function(){var lc=document.querySelector('.footer-col:last-child');if(lc){var a=document.createElement('a');a.href='#';a.textContent="Cookie Settings";a.setAttribute('data-cc','show-preferencesModal');a.onclick=function(e){e.preventDefault()};lc.appendChild(a);}});
+</script><script src="/tokens/nxg-events.js"></script><!-- /NAV -->
+
+<div class="hero">
+  <h1>Your pre-DORA classification <em>does not transfer</em></h1>
+  <p>Five jurisdictions rated three different objects before DORA. Part of that work carries straight into the register of information. Most of it shows you where to look and decides nothing.</p>
+  <div class="tags">
+    <span class="tag">Germany</span>
+    <span class="tag">Austria</span>
+    <span class="tag">Luxembourg</span>
+    <span class="tag">Ireland</span>
+    <span class="tag">EU guidelines</span>
+  </div>
+  <a class="btn" href="https://calendly.com/toby-nexgenio/scope_check" data-lead="legacy_dora_mapping_call" data-lead-position="hero">Book a scoping call</a>
+</div>
+
+<section class="alt">
+  <div class="inn read">
+    <div class="sl">The target test</div>
+    <h2 class="st">What the critical or important function test actually asks</h2>
+    <p class="ss">Everything a supervisor now expects about criticality resolves to one definition, in Article 3(22) of DORA, and to a small number of register fields that force an answer in writing.</p>
+    <div class="quote">
+      <p>&ldquo;Critical or important function&rdquo; means a function, the disruption of which would materially impair the financial performance of a financial entity, or the soundness or continuity of its services and activities, or the discontinued, defective or failed performance of that function would materially impair the continuing compliance of a financial entity with the conditions and obligations of its authorisation, or with its other obligations under applicable financial services law.</p>
+      <cite>Regulation (EU) 2022/2554, Article 3(22)</cite>
+    </div>
+    <p class="bd" style="margin-top:30px">Three limbs, joined by <em>or</em>. Any one of them is enough. The object being rated is a <strong>function</strong>, not a system, not a contract and not a dataset. That single point is where most legacy work stops being reusable.</p>
+    <p class="bd">The register of information turns the definition into fields you have to populate, under Commission Implementing Regulation (EU) 2024/2956.</p>
+    <div class="scroll" style="margin-top:34px">
+      <table class="mkt">
+        <thead>
+          <tr><th style="width:170px">Field</th><th>What it asks for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>B_06.01.0060</code></td><td>Criticality or importance assessment. A closed set of options, so there is no partial answer</td></tr>
+          <tr><td><code>B_06.01.0070</code></td><td>Reasons for criticality or importance, in 300 characters</td></tr>
+          <tr><td><code>B_06.01.0080</code></td><td>Date of the last assessment of criticality or importance, as an ISO 8601 date</td></tr>
+          <tr><td><code>B_06.01.0090</code></td><td>Recovery time objective of the function, in hours</td></tr>
+          <tr><td><code>B_06.01.0100</code></td><td>Recovery point objective of the function, in hours</td></tr>
+          <tr><td><code>B_02.02.0170</code></td><td>Sensitiveness of the data stored by the ICT third-party service provider</td></tr>
+          <tr><td><code>B_02.02.0180</code></td><td>Level of reliance on the ICT service supporting the critical or important function</td></tr>
+          <tr><td><code>B_07.01.0050</code></td><td>Substitutability of the ICT third-party service provider</td></tr>
+          <tr><td><code>B_07.01.0100</code></td><td>Impact of discontinuing the ICT services</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mkt-note">Field <code>B_06.01.0080</code> is the quiet one. It asks for a date, which means the assessment has to exist as a dated act rather than as a view held by the team. Most legacy classification work has no date attached to it.</p>
+  </div>
+</section>
+
+<section>
+  <div class="inn read">
+    <div class="sl">The history</div>
+    <h2 class="st">What each supervisor asked for before DORA</h2>
+    <p class="ss">Nothing here was idle. Every jurisdiction had a classification duty, and several ran for the better part of a decade. The question is not whether firms classified things. It is what they classified.</p>
+    <div class="tlw">
+      <div class="tli"><div class="yr">2017</div><div class="ev">BaFin issues BAIT, Rundschreiben 10/2017. German institutions must establish the protection requirements of the components of their Informationsverbund.</div></div>
+      <div class="tli"><div class="yr">2018</div><div class="ev">VAIT follows for insurers. The FMA circulates two draft IT-Sicherheit Leitf&auml;den in Austria.</div></div>
+      <div class="tli"><div class="yr">2019</div><div class="ev">The EBA publishes the revised outsourcing Guidelines in February, defining a critical or important function, and the ICT and security risk management Guidelines in November, requiring criticality classification of information assets.</div></div>
+      <div class="tli"><div class="yr">2020</div><div class="ev">CSSF Circular 20/750 in Luxembourg. EIOPA issues its cloud outsourcing Guidelines for insurers.</div></div>
+      <div class="tli"><div class="yr">2021</div><div class="ev">ZAIT for payment institutions. ESMA issues its cloud outsourcing Guidelines. The Central Bank of Ireland publishes cross-industry guidance on outsourcing and on operational resilience.</div></div>
+      <div class="tli"><div class="yr">2022</div><div class="ev">CSSF Circular 22/806 replaces the Luxembourg outsourcing framework. DORA is adopted in December.</div></div>
+      <div class="tli key"><div class="yr">16 January 2025</div><div class="ev">VAIT, ZAIT and KAIT expire.</div></div>
+      <div class="tli key"><div class="yr">17 January 2025</div><div class="ev">DORA applies.</div></div>
+      <div class="tli key"><div class="yr">31 December 2026</div><div class="ev">BAIT expires in full, having run on in reduced form through the transition.</div></div>
+    </div>
+    <div class="call">
+      <h4>Why the German dates are not interchangeable</h4>
+      <p>Three of the four German IT circulars expired at the end of 16 January 2025. BAIT did not. A recast BAIT with reduced scope entered force on 17 January 2025 and runs to the end of 2026. Anyone citing a single withdrawal date for all four is citing the wrong one for BAIT.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inn">
+    <div class="sl">The core distinction</div>
+    <h2 class="st">Three objects, and only one of them is a function</h2>
+    <p class="ss">Pre-DORA schemes rated one of three different things. Keeping them apart is the whole exercise, because they are not degrees of the same judgement. They are answers to different questions.</p>
+    <div class="grid3">
+      <div class="card">
+        <span class="chip">Object one</span>
+        <h3>ICT asset or information</h3>
+        <p>Rated for protection need against confidentiality, integrity, availability and in the German and Austrian texts authenticity as well.</p>
+        <p>This is BAIT, VAIT, ZAIT and the EBA ICT Guidelines. A property of a thing you hold.</p>
+      </div>
+      <div class="card b">
+        <span class="chip">Object two</span>
+        <h3>Contractual arrangement</h3>
+        <p>Rated material or not material, which decided whether a heavier outsourcing regime applied to the contract.</p>
+        <p>This is MaRisk AT 9, the CSSF circulars, the CBI outsourcing guidance and the EBA outsourcing Guidelines. A property of a deal.</p>
+      </div>
+      <div class="card c">
+        <span class="chip">Object three</span>
+        <h3>Business function or service</h3>
+        <p>Rated critical or important by reference to the harm its disruption would do.</p>
+        <p>This is the object DORA rates. Only the European guidelines and the Luxembourg and Irish texts reached it directly.</p>
+      </div>
+    </div>
+    <div class="call">
+      <h4>The error this prevents</h4>
+      <p>A high protection rating on an asset is not a critical function, and a low one does not clear it. An asset can carry the highest confidentiality rating a firm issues and support nothing critical. A critical function can run on assets with modest confidentiality needs. Protection need maps to the data sensitivity and recovery fields of the register. It never maps to <code style="font-family:Menlo,monospace;font-size:13px;background:var(--tl);color:var(--t);padding:2px 6px;border-radius:3px">B_06.01.0060</code>.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inn read">
+    <div class="sl">The map</div>
+    <h2 class="st">Where each scheme lands against the DORA test</h2>
+    <p class="ss">Two axes. Across, what the scheme actually rated. Down, how far that rating carries to Article 3(22). The colour is derived rather than chosen: carry-over scores one to three, object distance scores one to three, and the band follows the sum.</p>
+    <p class="ax y">How far the legacy rating carries to Article 3(22)</p>
+    <div class="hmw">
+      <table class="hm">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Business function, process or service<small>Distance 1</small></th>
+            <th>Contractual arrangement<small>Distance 2</small></th>
+            <th>ICT asset or information<small>Distance 3</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="rh">Direct<small>Names a critical function on criteria DORA reuses</small></th>
+            <td class="g"><div class="sc">Score 2</div><p class="nil">No scheme.</p></td>
+            <td class="g"><div class="sc">Score 3</div><ul><li>EBA/GL/2019/02</li><li>CSSF 22/806</li><li>EIOPA Guideline 7</li><li>Austria, EBA scope, by adoption</li></ul></td>
+            <td class="y"><div class="sc">Score 4</div><p class="nil">No scheme.</p></td>
+          </tr>
+          <tr>
+            <th class="rh">Partial<small>Right object, criteria incomplete or set by the firm</small></th>
+            <td class="g"><div class="sc">Score 3</div><ul><li>CBI operational resilience guidance</li></ul></td>
+            <td class="y"><div class="sc">Score 4</div><ul><li>CBI outsourcing guidance</li><li>ESMA cloud Guidelines</li></ul></td>
+            <td class="o"><div class="sc">Score 5</div><ul><li>CSSF 20/750</li></ul></td>
+          </tr>
+          <tr>
+            <th class="rh">Indicative only<small>A different object. Shows where to look, rates nothing DORA rates</small></th>
+            <td class="y"><div class="sc">Score 4</div><p class="nil">No scheme.</p></td>
+            <td class="o"><div class="sc">Score 5</div><ul><li>MaRisk AT 9</li></ul></td>
+            <td class="r"><div class="sc">Score 6</div><ul><li>EBA/GL/2019/04</li><li>BAIT</li><li>VAIT</li><li>ZAIT</li></ul></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ax x">What the legacy scheme actually rated</p>
+    <div class="lg">
+      <div><span class="sw" style="background:var(--hg)"></span><span>Carries over. Re-express the existing rating in DORA terms.</span></div>
+      <div><span class="sw" style="background:var(--hy)"></span><span>Partial rework. Right object, criteria have to be rebuilt.</span></div>
+      <div><span class="sw" style="background:var(--ho)"></span><span>Substantial rework. The rating indicates, it does not decide.</span></div>
+      <div><span class="sw" style="background:var(--hr)"></span><span>Assess again. The scheme rated a different object.</span></div>
+    </div>
+    <p class="mkt-note" style="margin-top:34px">Four of the nine cells are empty, and two of those four are in the top row. <strong>No scheme in any of these jurisdictions named a critical function on criteria DORA reuses.</strong> Every direct mapping on this grid is European, and every one of them is about an arrangement rather than a function. Austria appears in the best cell for one reason only: the FMA adopted the EBA Guidelines in German translation, subject to a compliance declaration, rather than writing national guidance of its own.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inn read">
+    <div class="sl">The translation</div>
+    <h2 class="st">How the legacy levels actually map</h2>
+    <p class="ss">Four patterns cover every scheme on the grid. The register field is what makes each one concrete, so every row says what you may carry forward and what is still open.</p>
+
+    <h3 style="font-size:19px;color:var(--t);margin:0 0 14px">1. A binary flag under the same test</h3>
+    <p class="bd">EBA/GL/2019/02, CSSF 22/806, EIOPA Guideline 7, and the Austrian population working to the EBA text.</p>
+    <div class="scroll">
+      <table class="mkt">
+        <thead><tr><th style="width:230px">What you hold</th><th>Carries to</th><th>Still open</th></tr></thead>
+        <tbody>
+          <tr><td>Function flagged critical or important</td><td><code>B_06.01.0060</code> as it stands, with <code>B_06.01.0070</code> re-expressed against the three limbs</td><td>Confirm the scope has not moved, and supply <code>B_06.01.0080</code> where the legacy file carries no date</td></tr>
+          <tr><td>Function flagged not critical</td><td>Nothing</td><td>A full re-test. The legacy exercise looked at functions that were outsourced. DORA looks at all of them</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mkt-note">That asymmetry is the expensive line on this page. <strong>The positives transfer. None of the negatives do.</strong></p>
+
+    <h3 style="font-size:19px;color:var(--t);margin:46px 0 14px">2. A binary flag under a differently scoped test</h3>
+    <div class="scroll">
+      <table class="mkt">
+        <thead><tr><th style="width:230px">Scheme</th><th>Relationship to the DORA set</th><th>What follows</th></tr></thead>
+        <tbody>
+          <tr><td>ESMA cloud Guidelines</td><td>A subset. ESMA refers to the main services and activities. Article 3(22) refers to its services and activities, with no qualifier</td><td>Functions sitting behind secondary services are absent and have to be found</td></tr>
+          <tr><td>CBI outsourcing guidance</td><td>A superset. The methodology is the firm's own and board approved, and it weighs a financial stability factor that Article 3(22) does not apply to a single entity</td><td>A function on the list only for stability reasons is not a DORA critical function. Prune rather than extend</td></tr>
+          <tr><td>CBI operational resilience guidance</td><td>A different object. A business service is external facing by definition. A function is internal</td><td>The service list is the top of the chain. The DORA functions are the internal links beneath it</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:19px;color:var(--t);margin:46px 0 14px">3. A materiality flag on an arrangement</h3>
+    <p class="bd">MaRisk AT 9, and the Austrian materiality test under section 25 of the Bankwesengesetz.</p>
+    <div class="scroll">
+      <table class="mkt">
+        <thead><tr><th style="width:230px">Legacy level</th><th>What it indicates</th><th>What closes the gap</th></tr></thead>
+        <tbody>
+          <tr><td>Material</td><td>The function behind the arrangement is worth assessing. No limb is engaged, because none of these texts names limbs</td><td>A fresh Article 3(22) assessment per function, documented against each of the three limbs</td></tr>
+          <tr><td>Not material</td><td>Nothing either way</td><td>The same assessment. MaRisk leaves the criteria to the institution, so two firms can classify one arrangement oppositely and both comply</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mkt-note">Austria differs on evidence rather than on the test. Because section 25(5) of the Bankwesengesetz required prior notification of every material IT outsourcing to the FMA, an Austrian institution holds a dated filing that went to the regulator for each arrangement it called material. That is the closest thing to a legacy answer for <code>B_06.01.0080</code> anywhere in this set.</p>
+
+    <h3 style="font-size:19px;color:var(--t);margin:46px 0 14px">4. A protection need on an asset</h3>
+    <p class="bd">BAIT, VAIT, ZAIT and the EBA ICT and security risk Guidelines. This pattern maps sideways, never up.</p>
+    <div class="scroll">
+      <table class="mkt">
+        <thead><tr><th style="width:230px">Legacy rating</th><th>Carries to</th><th>Never to</th></tr></thead>
+        <tbody>
+          <tr><td>Protection need, confidentiality</td><td><code>B_02.02.0170</code>, the sensitiveness of the data being processed</td><td><code>B_06.01.0060</code></td></tr>
+          <tr><td>Protection need, availability</td><td><code>B_06.01.0090</code> and <code>B_06.01.0100</code>, the recovery time and recovery point objectives</td><td><code>B_06.01.0060</code></td></tr>
+          <tr><td>Protection class on an end-user application</td><td><code>B_02.02.0170</code>, and it is where undocumented dependencies usually sit</td><td><code>B_06.01.0060</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mkt-note">BAIT names four protection objectives and no levels at all. The categories every German institution uses are its own invention, which is why two firms in the same business can hold incomparable ratings and both satisfy BAIT. The register does not accept that, because <code>B_06.01.0060</code> is a closed set of options.</p>
+  </div>
+</section>
+
+<section>
+  <div class="inn read">
+    <div class="sl">By jurisdiction</div>
+    <h2 class="st">Five starting positions</h2>
+    <p class="ss">What each supervisor built, and what a firm in that jurisdiction is likely to be holding today.</p>
+    <div class="scroll">
+      <table class="mkt">
+        <thead><tr><th style="width:130px">Jurisdiction</th><th>Where it started</th><th>Carry-over</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>European guidelines</td>
+            <td>The EBA defined a critical or important function in February 2019 for outsourcing purposes, then addressed information asset classification separately nine months later. DORA kept the first object and left the levels of the second to the firm.</td>
+            <td>Strong on functions, indicative on assets</td>
+          </tr>
+          <tr>
+            <td>Germany</td>
+            <td>BaFin rated information rather than functions. Four protection objectives, no categories named in the circular, and a materiality test the institution wrote for itself. Three of the four circulars expired on 16 January 2025 and BAIT runs to the end of 2026.</td>
+            <td>Weak. The object is wrong and the criteria were never prescribed</td>
+          </tr>
+          <tr>
+            <td>Austria</td>
+            <td>Austria never finalised national IT guidance of its own, and what the FMA publishes for ICT risk and outsourcing is the EBA text in German translation. The Austrian contribution is statutory instead: a materiality flag in section 25 of the Bankwesengesetz and a prior notification to the FMA for every material IT outsourcing.</td>
+            <td>Strong by adoption for EBA scope firms, and the best dated evidence in the set</td>
+          </tr>
+          <tr>
+            <td>Luxembourg</td>
+            <td>The CSSF came closest. Circular 22/806 defines a critical or important function in terms DORA reuses almost unchanged, and the CSSF has since rescoped Circular 20/750 to the entities DORA does not reach.</td>
+            <td>Strong. A 22/806 register maps straight across</td>
+          </tr>
+          <tr>
+            <td>Ireland</td>
+            <td>The Central Bank rated the business service rather than the function, and asked who the external end user was. A different question, and a sharper one than any limb of Article 3(22).</td>
+            <td>Partial on both counts, over-inclusive on outsourcing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inn read">
+    <div class="sl">Our assessment</div>
+    <h2 class="st">Which test is the better instrument</h2>
+    <p class="ss">Everything above this heading is quoted from the instruments themselves. What follows is our judgement, offered as such.</p>
+    <div class="verdict">
+      <div class="vl">Verdict</div>
+      <p>DORA is the better supervisory instrument and the weaker internal risk tool.</p>
+    </div>
+    <div class="scroll">
+      <table class="mkt">
+        <thead><tr><th style="width:190px">Dimension</th><th style="width:130px">Better</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Comparability</td><td>DORA</td><td>One definition across every jurisdiction. A group with entities in four of them previously ran four incompatible tests on three different objects.</td></tr>
+          <tr><td>Falsifiability</td><td>DORA</td><td>MaRisk and the Austrian materiality test both leave the criteria to the institution. A test whose criteria the tested party writes cannot be failed, so it could not be compared across a market.</td></tr>
+          <tr><td>Named criteria</td><td>DORA</td><td>Article 3(22) names three limbs. BAIT names a method and no categories.</td></tr>
+          <tr><td>Granularity</td><td>Legacy</td><td>Several legacy schemes graded protection need across four levels. DORA is binary, and a binary flag across a register of several hundred rows tends to collapse toward one side.</td></tr>
+          <tr><td>Asset protection need</td><td>Legacy</td><td>BAIT, VAIT and ZAIT all rated information on confidentiality, integrity, availability and authenticity. Article 3(22) rates no assets at all. That work moved to Delegated Regulation (EU) 2024/1774, so criticality and protection need now sit in separate instruments with nothing joining them.</td></tr>
+          <tr><td>Timeliness of evidence</td><td>Legacy, Austria</td><td>Section 25(5) of the Bankwesengesetz put the assessment in front of the FMA before signature. The register of information is annual and looks backwards.</td></tr>
+          <tr><td>Customer harm</td><td>Legacy, Ireland</td><td>The Central Bank asked who the external end user was. No limb of Article 3(22) asks that, and it is the sharpest question in the whole pre-DORA set.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="call">
+      <h4>The honest version</h4>
+      <p>Four to three is a split, not a win, which is why the verdict is phrased the way it is. DORA tells a supervisor which arrangements matter across a market. It does not tell a firm which of its own systems to protect first, and three of the schemes it replaced did exactly that.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inn read">
+    <div class="sl">Questions</div>
+    <h2 class="st">Frequently asked</h2>
+    <div>
+      <details class="faq-item">
+        <summary>Can we reuse our BAIT protection need ratings for the register of information?</summary>
+        <div class="faq-a">For some fields, yes. The confidentiality rating supports the data sensitiveness field, and the availability rating supports the recovery time and recovery point objectives. It cannot support the criticality assessment field, because protection need is a property of an asset and criticality is a property of a function. The two were always different objects, and BAIT never claimed otherwise.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Our outsourcing register already flags material arrangements. Is that our critical function list?</summary>
+        <div class="faq-a">No, for two reasons. A material arrangement is a contract and a critical function is a function, so the register rows are not the same rows. And the legacy materiality test engaged none of the three limbs in Article 3(22), because neither MaRisk nor the Austrian provision names limbs at all. A material flag tells you which functions to assess first. It does not record the assessment.</div>
+      </details>
+      <details class="faq-item">
+        <summary>We assessed a function as not critical before 2025. Does that still stand?</summary>
+        <div class="faq-a">Treat it as untested. The pre-DORA exercises looked at functions that were being outsourced, and DORA looks at all functions. A negative reached under a narrower question is not a negative under a wider one. Positives are the reusable half of the legacy work.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does a Luxembourg 22/806 classification transfer?</summary>
+        <div class="faq-a">More cleanly than any other national scheme in this set. Circular 22/806 defines a critical or important function in terms very close to Article 3(22), including the phrase about services and activities without the narrowing qualifier other guidelines used. The work left is confirming scope and attaching assessment dates.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What does a supervisor actually want to see?</summary>
+        <div class="faq-a">A dated assessment per function, with the reasons recorded against the limbs, and a method that someone outside the firm could apply to the same facts and reach the same answer. The second half is where legacy evidence is usually thin, because most pre-DORA schemes let each firm define its own levels.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Where do the quotations come from?</summary>
+        <div class="faq-a">Primary texts only, read in full rather than summarised from commentary. DORA and the implementing regulation come from the EU publications office. The supervisory guidance comes from the EBA, EIOPA, ESMA, BaFin, the FMA, the CSSF and the Central Bank of Ireland, each as published by the authority itself. Sources are listed at the foot of this page.</div>
+      </details>
+    </div>
+    <p style="margin-top:36px;font-size:14px;color:#666">Reviewed against the instruments cited. <strong>Last reviewed 30 October 2026.</strong></p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="inn read">
+    <div class="sl">Sources</div>
+    <h2 class="st">Every instrument cited on this page</h2>
+    <p class="ss">Each link goes to the text as published by the authority responsible for it.</p>
+    <div class="scroll">
+      <table class="mkt">
+        <thead><tr><th style="width:120px">Jurisdiction</th><th>Instrument</th><th style="width:150px">Version used</th></tr></thead>
+        <tbody>
+          <tr><td>EU</td><td><a class="ref" href="https://eur-lex.europa.eu/eli/reg/2022/2554/oj" rel="noopener" target="_blank">Regulation (EU) 2022/2554 (DORA)</a></td><td>In force</td></tr>
+          <tr><td>EU</td><td>Commission Implementing Regulation (EU) 2024/2956, register of information</td><td>In force</td></tr>
+          <tr><td>EU</td><td>Commission Delegated Regulation (EU) 2024/1774, ICT risk management framework</td><td>In force</td></tr>
+          <tr><td>EU</td><td><a class="ref" href="https://www.eba.europa.eu/sites/default/files/documents/10180/2551996/38c80601-f5d7-4855-8ba3-702423665479/EBA%20revised%20Guidelines%20on%20outsourcing%20arrangements.pdf" rel="noopener" target="_blank">EBA/GL/2019/02, outsourcing arrangements</a></td><td>25 February 2019</td></tr>
+          <tr><td>EU</td><td><a class="ref" href="https://www.eba.europa.eu/sites/default/files/documents/10180/2522896/32a28233-12f5-49c8-9bb5-f8744ccb4e92/Final%20Guidelines%20on%20ICT%20and%20security%20risk%20management.pdf" rel="noopener" target="_blank">EBA/GL/2019/04, ICT and security risk management</a></td><td>28 November 2019</td></tr>
+          <tr><td>EU</td><td><a class="ref" href="https://www.eiopa.europa.eu/system/files/2020-04/guidelines_on_outsourcing_to_cloud_service_providers_en.pdf" rel="noopener" target="_blank">EIOPA-BoS-20-002, cloud outsourcing</a></td><td>Applies from 1 January 2021</td></tr>
+          <tr><td>EU</td><td><a class="ref" href="https://www.esma.europa.eu/sites/default/files/library/esma_cloud_guidelines.pdf" rel="noopener" target="_blank">ESMA50-164-4285, cloud outsourcing</a></td><td>Applies from 31 July 2021</td></tr>
+          <tr><td>DE</td><td><a class="ref" href="https://www.bafin.de/SharedDocs/Downloads/DE/Rundschreiben/dl_rs_06_2024_MaRisk_pdf_BA.pdf?__blob=publicationFile&amp;v=2" rel="noopener" target="_blank">MaRisk, Rundschreiben 06/2024</a></td><td>29 May 2024</td></tr>
+          <tr><td>DE</td><td><a class="ref" href="https://www.bafin.de/SharedDocs/Downloads/EN/Rundschreiben/dl_rs_1710_ba_BAIT_en.pdf?__blob=publicationFile&amp;v=6" rel="noopener" target="_blank">BAIT, Circular 10/2017</a></td><td>16 December 2024</td></tr>
+          <tr><td>DE</td><td><a class="ref" href="https://www.bafin.de/SharedDocs/Downloads/EN/Rundschreiben/dl_rs_1810_vait_va_Aktualisierung_2022_en.pdf?__blob=publicationFile&amp;v=8" rel="noopener" target="_blank">VAIT, Circular 10/2018</a></td><td>3 March 2022</td></tr>
+          <tr><td>DE</td><td><a class="ref" href="https://www.bafin.de/SharedDocs/Downloads/DE/Rundschreiben/dl_rs_1121_BA_ZAIT.pdf?__blob=publicationFile&amp;v=4" rel="noopener" target="_blank">ZAIT, Rundschreiben 11/2021</a></td><td>16 August 2021</td></tr>
+          <tr><td>DE</td><td><a class="ref" href="https://www.bafin.de/SharedDocs/Downloads/DE/Anlage/dl_250110_Informationsschreiben.pdf?__blob=publicationFile&amp;v=1" rel="noopener" target="_blank">BaFin Informationsschreiben on withdrawing the IT circulars</a></td><td>19 December 2024</td></tr>
+          <tr><td>AT</td><td>Bankwesengesetz, section 25, and the FMA compliance declarations adopting the EBA Guidelines</td><td>As in force pre-DORA</td></tr>
+          <tr><td>LU</td><td><a class="ref" href="https://www.cssf.lu/wp-content/uploads/cssf22_806eng.pdf" rel="noopener" target="_blank">Circular CSSF 22/806, outsourcing</a></td><td>22 April 2022, as amended</td></tr>
+          <tr><td>LU</td><td><a class="ref" href="https://www.cssf.lu/wp-content/uploads/cssf20_750eng.pdf" rel="noopener" target="_blank">Circular CSSF 20/750, ICT and security risk management</a></td><td>25 August 2020, as amended</td></tr>
+          <tr><td>IE</td><td><a class="ref" href="https://www.centralbank.ie/docs/default-source/publications/consultation-papers/cp138/cross-industry-guidance-on-outsourcing.pdf" rel="noopener" target="_blank">CBI cross-industry guidance on outsourcing</a></td><td>December 2021</td></tr>
+          <tr><td>IE</td><td><a class="ref" href="https://www.centralbank.ie/docs/default-source/publications/consultation-papers/cp140/cross-industry-guidance-on-operational-resilience.pdf" rel="noopener" target="_blank">CBI cross-industry guidance on operational resilience</a></td><td>July 2025</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mkt-note">Two gaps worth stating. The Irish operational resilience guidance at that address is now the DORA-aligned July 2025 version, so the December 2021 original is no longer retrievable there. And Austria published no final national IT guidance, which is why no Austrian circular appears in this list.</p>
+    <p class="mkt-note" style="margin-top:18px">Related reading: <a class="ref" href="/dora-register-of-information.html">the register of information</a>, <a class="ref" href="/dora-article-16.html">DORA Article 16 and the simplified regime</a>, and our free <a class="ref" href="/dora-mapping.html">DORA framework mapping</a>.</p>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Find out what your existing classification is worth</h2>
+  <p>Half an hour against your own documents, with a straight answer on what carries into the register and what has to be assessed again.</p>
+  <a class="btn" href="https://calendly.com/toby-nexgenio/scope_check" data-lead="legacy_dora_mapping_call" data-lead-position="closing">Book a scoping call</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-brand-text"><div class="fn">NexGenio LTD</div><div class="ft">Compliance by design.</div></div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><h5>Services</h5><a href="/#services">ISO 27001</a><a href="/#services">ISO 22301</a><a href="/#services">ISO 42001</a><a href="/#services">NIS2 &amp; DORA</a><a href="/#services">EU AI Act</a></div>
+        <div class="footer-col"><h5>Training</h5><a href="/training/index.html">All courses</a><a href="/training/index.html">Live schedule</a></div>
+        <div class="footer-col"><h5>Who we serve</h5><a href="/#who">Essential entities</a><a href="/#who">Financial entities</a><a href="/#who">Important entities</a></div>
+        <div class="footer-col"><h5>Company</h5><a href="/#about">About</a><a href="/#approach">Approach</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col"><h5>Legal</h5><a href="/#impressum">Impressum</a><a href="/legal/terms.html">Terms of Sale</a><a href="/legal/privacy.html">Privacy Policy</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NexGenio LTD. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://nexgenio.com/legacy-to-dora-criticality-mapping.html","name":"Legacy classification to DORA critical function mapping","dateModified":"2026-10-30","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"NexGenio","url":"https://nexgenio.com"},"about":{"@type":"Legislation","name":"Regulation (EU) 2022/2554 (DORA)","legislationIdentifier":"32022R2554","url":"https://eur-lex.europa.eu/eli/reg/2022/2554/oj"}}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nexgenio.com/"},{"@type":"ListItem","position":2,"name":"Legacy to DORA criticality mapping","item":"https://nexgenio.com/legacy-to-dora-criticality-mapping.html"}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can we reuse our BAIT protection need ratings for the register of information?","acceptedAnswer":{"@type":"Answer","text":"For some fields, yes. The confidentiality rating supports the data sensitiveness field, and the availability rating supports the recovery time and recovery point objectives. It cannot support the criticality assessment field, because protection need is a property of an asset and criticality is a property of a function."}},{"@type":"Question","name":"Our outsourcing register already flags material arrangements. Is that our critical function list?","acceptedAnswer":{"@type":"Answer","text":"No. A material arrangement is a contract and a critical function is a function, so the register rows are not the same rows. The legacy materiality test also engaged none of the three limbs in Article 3(22), because neither MaRisk nor the Austrian provision names limbs at all."}},{"@type":"Question","name":"We assessed a function as not critical before 2025. Does that still stand?","acceptedAnswer":{"@type":"Answer","text":"Treat it as untested. The pre-DORA exercises looked at functions that were being outsourced, and DORA looks at all functions. A negative reached under a narrower question is not a negative under a wider one."}},{"@type":"Question","name":"Does a Luxembourg 22/806 classification transfer?","acceptedAnswer":{"@type":"Answer","text":"More cleanly than any other national scheme. Circular CSSF 22/806 defines a critical or important function in terms very close to Article 3(22). The work left is confirming scope and attaching assessment dates."}},{"@type":"Question","name":"What does a supervisor actually want to see?","acceptedAnswer":{"@type":"Answer","text":"A dated assessment per function, with the reasons recorded against the limbs, and a method that someone outside the firm could apply to the same facts and reach the same answer."}}]}</script>
+
+</body>
+</html>
