@@ -18,14 +18,14 @@
     html{scroll-behavior:smooth}
     body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
     :root{
-      /* Palette. Everything is navy-derived except one hue, and that hue is
-         spent only on the two buttons. */
+      /* Palette. Everything is navy-derived except one hue: the two buttons
+         and the five storyline labels. */
       --ink:#15303f;      /* deepest navy — headings, button text */
       --t:#215675;        /* brand navy */
       --tm:#2d6e94;
-      --slate:#4d6c81;    /* de-emphasised navy — level labels, card tags */
+      --slate:#4d6c81;    /* de-emphasised navy — card tags, cycle note */
       --tl:#e6eef3;
-      --o:#F5901A;        /* orange — buttons, and the storyline ellipses */
+      --o:#F5901A;        /* orange — buttons, and the storyline labels */
       --o-dark:#d97a0f;
       --cream:#F5F3EE;
       --bg:#F5F3EE;
@@ -110,12 +110,17 @@
        Compliance … across all three lines of defence … delivered end to end
        with our European partners." Setting them as tracked-out uppercase
        chrome destroyed that reading. They are set as prose instead: sentence
-       case, regular weight, brand navy. The leading and trailing ellipsis on
-       each label is the continuation mark for that reading — it is the only
-       orange on the page besides the buttons, and it is carried by the
-       punctuation alone, never by the words. */
-    .t-label{text-align:center;font-size:var(--fs-lg);font-weight:400;letter-spacing:-.1px;color:var(--t);line-height:1.45;max-width:38ch;margin:0 auto;padding:var(--s3) 0 var(--s1)}
-    .t-label .el{color:var(--o)}
+       case, regular weight. The leading and trailing ellipsis on each label is
+       the continuation mark for that reading.
+
+       The whole label — words and ellipses alike — is brand orange, by
+       Director decision. Recording the cost rather than leaving it to be
+       rediscovered: #F5901A on the cream trunk is 2.13:1. At 19px regular
+       (16px below 1000px) this is normal-size text, so WCAG AA wants 4.5:1
+       and even the large-text floor is 3:1. The navy it replaces was 7.14:1
+       and the slate before that 5.01:1. The .el span is kept as the markup
+       hook for the ellipses but needs no colour of its own now. */
+    .t-label{text-align:center;font-size:var(--fs-lg);font-weight:400;letter-spacing:-.1px;color:var(--o);line-height:1.45;max-width:38ch;margin:0 auto;padding:var(--s3) 0 var(--s1)}
 
     .t-row{display:grid;gap:var(--tgap);margin-top:var(--stem);align-items:stretch}
     .t-row>*{position:relative}
