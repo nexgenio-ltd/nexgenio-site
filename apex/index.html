@@ -18,20 +18,15 @@
     html{scroll-behavior:smooth}
     body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
     :root{
-      /* Palette. Everything is navy-derived except one hue: brand orange,
-         spent on the two buttons and on the five level labels. */
+      /* Palette. Everything is navy-derived except one hue, and that hue is
+         spent only on the two buttons. */
       --ink:#15303f;      /* deepest navy — headings, button text */
       --t:#215675;        /* brand navy */
       --tm:#2d6e94;
-      --slate:#4d6c81;    /* de-emphasised navy — card tags */
+      --slate:#4d6c81;    /* de-emphasised navy — level labels, card tags */
       --tl:#e6eef3;
-      --o:#F5901A;        /* orange — button fill only, 2.13:1, never text */
-      --o-dark:#d97a0f;   /* button hover fill */
-      /* Brand orange taken down to text strength. Same hue (32.33deg) and
-         same saturation (91.6%) as --o, lightness 53.1% -> 33%. Reaches
-         4.76:1 on --cream and 5.28:1 on white, so it clears AA as body text
-         at any size. --o itself is 2.13:1 and must never be used for text. */
-      --o-deep:#A15A07;
+      --o:#F5901A;        /* orange — BUTTONS ONLY */
+      --o-dark:#d97a0f;
       --cream:#F5F3EE;
       --bg:#F5F3EE;
       --lg:#666;
@@ -110,16 +105,9 @@
        "We build … supporting your obligations … through Governance, Risk &
        Compliance … across all three lines of defence … delivered end to end
        with our European partners." Setting them as tracked-out uppercase
-       chrome destroyed that reading, so they stay sentence case with no
-       tracking. But at 19px/400 in de-emphasised navy they read as captions
-       and disappeared into the cream. They now carry the brand hue at text
-       strength, semibold, one step up the scale — louder than the nodes they
-       head without becoming the uppercase chrome this layout replaced. */
-    /* balance, not pretty: at 23px the longest label wraps, and the default
-       greedy break left "partners" alone on line two. Balancing splits the
-       two lines evenly instead. Unsupported browsers just get the greedy
-       break back, which is the current behaviour, so this is safe to ship. */
-    .t-label{text-align:center;font-size:var(--fs-xl);font-weight:600;letter-spacing:-.1px;color:var(--o-deep);line-height:1.45;max-width:38ch;margin:0 auto;padding:var(--s3) 0 var(--s1);text-wrap:balance}
+       chrome destroyed that reading. They are set as prose instead: sentence
+       case, regular weight, de-emphasised navy. */
+    .t-label{text-align:center;font-size:var(--fs-lg);font-weight:400;letter-spacing:-.1px;color:var(--slate);line-height:1.45;max-width:38ch;margin:0 auto;padding:var(--s3) 0 var(--s1)}
 
     .t-row{display:grid;gap:var(--tgap);margin-top:var(--stem);align-items:stretch}
     .t-row>*{position:relative}
@@ -226,7 +214,7 @@
       .t-row{gap:var(--stem)}
       .t-row>*::after{display:none}
       .n{font-size:var(--fs-md);padding:var(--s2) var(--s2)}
-      .t-label{font-size:var(--fs-lg);max-width:30ch}
+      .t-label{font-size:var(--fs-md);max-width:30ch}
       .academy-inner{flex-direction:column;align-items:flex-start}
     }
     @media(max-width:900px){
