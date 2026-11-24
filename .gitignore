@@ -1,5 +1,9 @@
 node_modules/
 
+# Local agent config and vendored skills. Not part of the site, and this
+# repository is public.
+.claude/
+
 # Generated blog content (built from Strapi, deployed via blog-build workflow)
 blog/*.html
 blog/*.xml
