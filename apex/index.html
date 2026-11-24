@@ -85,7 +85,11 @@
     /* HERO — two stops, not three. The tree is the memorable thing; the hero
        is its quiet introduction. */
     .hero{background:linear-gradient(168deg,var(--ink) 0%,var(--t) 100%);padding:var(--s7) var(--s4);text-align:center}
-    .hero h1{font-size:clamp(32px,4.4vw,48px);font-weight:bold;color:#fff;line-height:1.16;margin-bottom:var(--s3);max-width:16ch;margin-inline:auto;letter-spacing:-.4px}
+    /* No max-width on the h1. At 16ch the 32-character headline broke into
+       three one-word lines on desktop, which read as three slogans instead of
+       one. Unconstrained it sets on a single line down to roughly 640px and
+       wraps naturally below that, which is the intended behaviour on mobile. */
+    .hero h1{font-size:clamp(32px,4.4vw,48px);font-weight:bold;color:#fff;line-height:1.16;margin-bottom:var(--s3);letter-spacing:-.4px}
     .hero p{font-size:var(--fs-lg);color:rgba(255,255,255,.88);max-width:34ch;margin:0 auto var(--s5);line-height:1.6}
 
     /* STORY SENTENCE — held to ~62ch so it reads as one sentence, not a slab */
@@ -121,16 +125,14 @@
     .t-4{grid-template-columns:repeat(4,1fr)}
     .t-3{grid-template-columns:repeat(3,1fr)}
 
-    /* level 1 — lightest weight in the tree: a label, not a card */
-    .n{background:#fff;border:1px solid var(--tl);border-radius:var(--r-node);padding:var(--s3) var(--s2);font-size:var(--fs-md);font-weight:600;color:var(--t);text-align:center;line-height:1.4;display:flex;align-items:center;justify-content:center}
-
-    /* level 2 — obligations. The only links inside the tree, so they are the
-       only tree elements that respond to the pointer. */
-    .n-ob{background:#fff;border:1px solid var(--tl);border-radius:var(--r-node);padding:var(--s3) var(--s2);text-align:center;font-size:var(--fs-md);font-weight:700;color:var(--t);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:border-color .15s,background .15s}
-    a.n-ob:hover{border-color:var(--t);background:var(--tl)}
-    .n-ob .arr{color:var(--slate);font-size:var(--fs-sm);font-weight:700}
-    a.n-ob:hover .arr{color:var(--t)}
-    .n-ob.nolink{color:var(--lg);background:transparent;border-style:dashed;font-weight:400}
+    /* Cells. One style for every cell in the tree, levels 1 and 2 alike: the
+       declarations are the NIS2 cell's, minus the ones that only existed to
+       serve a link and an arrow (text-decoration, gap, transition, hover).
+       The per-level weight difference and the dashed "nolink" treatment on
+       GDPR and EU AI Act are gone — a cell that looks different for no
+       reason the reader can see is noise, and a cell that looks clickable
+       and is not is worse than one that looks like what it is. */
+    .n{background:#fff;border:1px solid var(--tl);border-radius:var(--r-node);padding:var(--s3) var(--s2);font-size:var(--fs-md);font-weight:700;color:var(--t);text-align:center;line-height:1.4;display:flex;align-items:center;justify-content:center}
 
     /* cards — hairline only. No shadow, no coloured top rule: the connector
        already says where the card sits, so a second marker is decoration. */
@@ -346,10 +348,10 @@
     <span class="t-drop" aria-hidden="true"></span>
     <h2 class="t-label" id="obligations">supporting your obligations</h2>
     <div class="t-row t-4">
-      <a class="n-ob" href="/nis2.html">NIS2 <span class="arr" aria-hidden="true">&rarr;</span></a>
-      <a class="n-ob" href="/dora.html">DORA <span class="arr" aria-hidden="true">&rarr;</span></a>
-      <div class="n-ob nolink">GDPR</div>
-      <div class="n-ob nolink">EU AI Act</div>
+      <div class="n">NIS2</div>
+      <div class="n">DORA</div>
+      <div class="n">GDPR</div>
+      <div class="n">EU AI Act</div>
     </div>
 
     <!-- LEVEL 3 -->
