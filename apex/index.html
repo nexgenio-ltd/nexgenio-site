@@ -25,7 +25,7 @@
       --tm:#2d6e94;
       --slate:#4d6c81;    /* de-emphasised navy — level labels, card tags */
       --tl:#e6eef3;
-      --o:#F5901A;        /* orange — BUTTONS ONLY */
+      --o:#F5901A;        /* orange — buttons, and the storyline ellipses */
       --o-dark:#d97a0f;
       --cream:#F5F3EE;
       --bg:#F5F3EE;
@@ -110,8 +110,12 @@
        Compliance … across all three lines of defence … delivered end to end
        with our European partners." Setting them as tracked-out uppercase
        chrome destroyed that reading. They are set as prose instead: sentence
-       case, regular weight, de-emphasised navy. */
-    .t-label{text-align:center;font-size:var(--fs-lg);font-weight:400;letter-spacing:-.1px;color:var(--slate);line-height:1.45;max-width:38ch;margin:0 auto;padding:var(--s3) 0 var(--s1)}
+       case, regular weight, brand navy. The leading and trailing ellipsis on
+       each label is the continuation mark for that reading — it is the only
+       orange on the page besides the buttons, and it is carried by the
+       punctuation alone, never by the words. */
+    .t-label{text-align:center;font-size:var(--fs-lg);font-weight:400;letter-spacing:-.1px;color:var(--t);line-height:1.45;max-width:38ch;margin:0 auto;padding:var(--s3) 0 var(--s1)}
+    .t-label .el{color:var(--o)}
 
     .t-row{display:grid;gap:var(--tgap);margin-top:var(--stem);align-items:stretch}
     .t-row>*{position:relative}
@@ -335,7 +339,7 @@
 
     <!-- LEVEL 1 -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="services">We build</h2>
+    <h2 class="t-label" id="services"><span class="el" aria-hidden="true">&hellip;</span>We build<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-5">
       <div class="n">Operational resilience</div>
       <div class="n">Cyber &amp; information security</div>
@@ -346,7 +350,7 @@
 
     <!-- LEVEL 2 -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="obligations">supporting your obligations</h2>
+    <h2 class="t-label" id="obligations"><span class="el" aria-hidden="true">&hellip;</span>supporting your obligations<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-4">
       <div class="n">NIS2</div>
       <div class="n">DORA</div>
@@ -356,7 +360,7 @@
 
     <!-- LEVEL 3 -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="grc">through Governance, Risk &amp; Compliance</h2>
+    <h2 class="t-label" id="grc"><span class="el" aria-hidden="true">&hellip;</span>through Governance, Risk &amp; Compliance<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-3">
       <div class="c">
         <h3>Governance</h3>
@@ -389,7 +393,7 @@
 
     <!-- LEVEL 4 -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="lines-of-defence">across all three lines of defence</h2>
+    <h2 class="t-label" id="lines-of-defence"><span class="el" aria-hidden="true">&hellip;</span>across all three lines of defence<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-3">
       <div class="c">
         <span class="c-tag">1st line</span>
@@ -410,7 +414,7 @@
 
     <!-- LEVEL 5 -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="approach">delivered end to end with our European partners</h2>
+    <h2 class="t-label" id="approach"><span class="el" aria-hidden="true">&hellip;</span>delivered end to end with our European partners<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-4">
       <div class="c start">
         <span class="c-tag">Plan &middot; 4</span>
