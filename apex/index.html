@@ -131,6 +131,19 @@
     .t-3{grid-template-columns:repeat(3,1fr)}
     .t-2{grid-template-columns:repeat(2,1fr)}
 
+    /* The row above is stretched, so every cell takes the height of the row
+       track and a row of closed cards sits level. The track is sized by its
+       tallest cell, so once one card is open the stretch applies that card's
+       height to its closed neighbours too, and they render as tall empty
+       boxes. The cards opt out of stretch for exactly as long as one of them
+       is open: the open card grows, the closed ones take their own content
+       height and sit at the top of the row.
+       Scoped to .c on purpose. Widening this to .t-row>* would unlevel the
+       level 1 and 2 .n nodes, which have no disclosure and are equal-height
+       only because of the stretch. A browser without :has() keeps today's
+       behaviour rather than breaking. */
+    .t-row:has(details[open])>.c{align-self:start}
+
     /* Nodes. One style for every node in the tree — levels 1 and 2 alike.
        None of them links anywhere yet, so none of them carries an arrow or a
        hover state: a node that looks clickable and is not is worse than a
