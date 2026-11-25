@@ -242,15 +242,27 @@
        list rows carry --s2 of vertical padding rather than --s1. At 16px the
        8px rows read as a dense table, not as copy. The collapsed teaser
        (.s-one) stays at --fs-sm: it is the summary, not the description.
-       Blocks sit --s4 apart, which is what the in-card rule's --s2 margin
-       plus --s2 padding came to. */
+
+       Blocks sit --s2 apart, the same step the link below them takes. The
+       lead sentence and its list are the exception: they are one block of
+       copy, not two, so the margin between them is zero and the space is the
+       --s2 the first list row already carries as padding. The two together
+       came to 48px, which read as a section break rather than a paragraph
+       break. The three panels that open straight into a list are unaffected,
+       and so is anything else a panel might hold.
+
+       The rows carry no marker. The subpages set a ▸ in front of every list
+       row and that is carried over here, but a glyph in front of a line of
+       text inside a panel that was opened by clicking reads as something to
+       click. The hairline between the rows already says this is a list, so
+       the marker goes rather than being swapped for another one. */
     .pan{background:#fff;border:1px solid var(--tl);border-radius:var(--r-card);padding:var(--s3)}
-    .pan>*+*{margin-top:var(--s4)}
+    .pan>*+*{margin-top:var(--s2)}
+    .pan>p+ul{margin-top:0}
     .pan p,.pan li{font-size:var(--fs-md);color:var(--body);line-height:1.75}
     .pan ul{list-style:none}
-    .pan li{padding:var(--s2) 0;border-bottom:1px solid #f1efec;display:flex;gap:var(--s1)}
+    .pan li{padding:var(--s2) 0;border-bottom:1px solid #f1efec}
     .pan li:last-child{border-bottom:none}
-    .pan li::before{content:"\25B8";color:var(--rule);flex-shrink:0}
     /* Closed is the scripted state, so it is scoped to .js and the panels
        ship visible. Without JavaScript every panel renders open underneath
        its own cell (see the single-column fallback in RESPONSIVE) instead of
@@ -267,9 +279,11 @@
        empty at this commit, so no slot renders. The style is the subpages'
        .view-link: weight 600, orange, block, 16px above. Their 13px is off
        this page's six-step scale, so the nearest step, --fs-xs at 12px, is
-       used rather than introducing an off-scale value for one rule. The 16px
-       beats the --s4 between blocks above because it is the more specific
-       selector: the link is a footnote to the panel, not another block. */
+       used rather than introducing an off-scale value for one rule. Its 16px
+       is now the same --s2 the blocks above take, so the declaration is
+       redundant today; it stays because the link's spacing is its own, not
+       the block rhythm's, and the two happening to agree is not a reason to
+       make one depend on the other. */
     .pan .view-link{font-size:var(--fs-xs);font-weight:600;color:var(--o);text-decoration:none;margin-top:var(--s2);display:block}
     .pan .view-link:hover{color:var(--o-dark);text-decoration:underline}
     .pan .view-link[href=""]{display:none}
