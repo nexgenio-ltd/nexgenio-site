@@ -222,21 +222,26 @@
 
     /* The join. The open cell and its panel are one shape, so the line
        between them has to go without either of them losing an edge.
-       The cell keeps its fill, its two side hairlines and its exact size:
-       only the colour of its bottom border changes, from the hairline to the
-       fill, and the -1px above carries that white over the panel's top
-       border for the width of the cell. The panel's top border survives
+       The cell keeps its two side hairlines and its exact size, and takes
+       the panel's --tl fill. Its bottom border is --tl too — the same value
+       the hairline already was, so the declaration states the intent rather
+       than changing a pixel: the line goes because it now sits on a fill of
+       its own colour, and the -1px above carries that fill over the panel's
+       top border for the width of the cell. The panel's top border survives
        everywhere else, which is what gives the shape its tab: a cell opening
        down into a wider surface.
        Both square off the corners they meet on, so the two outlines join as
        straight lines. The cell's other three corners and the panel's bottom
        two keep --r-card. Inactive cells are untouched. */
-    .c[aria-expanded="true"]{border-bottom-color:#fff;border-bottom-left-radius:0;border-bottom-right-radius:0}
+    .c[aria-expanded="true"]{background:var(--tl);border-bottom-color:var(--tl);border-bottom-left-radius:0;border-bottom-right-radius:0}
     .pan.open{border-top-left-radius:0;border-top-right-radius:0}
 
     /* The panel. It is its own surface now rather than the lower half of a
-       card, so it takes the card's vocabulary — white fill, hairline, same
-       radius — and the row's full width.
+       card, so it takes the card's vocabulary — hairline, same radius — and
+       the row's full width. The fill is --tl rather than white so that it
+       and the open cell read as one surface; the list hairlines move from
+       #f1efec to --rule, which is the same family one step darker, because
+       the warm near-white was invisible against the tint.
        Type is unchanged from the in-card panel: one step up the scale to
        --fs-md and the 1.75 line-height the subpages set on .ss, which is why
        list rows carry --s2 of vertical padding rather than --s1. At 16px the
@@ -256,12 +261,12 @@
        text inside a panel that was opened by clicking reads as something to
        click. The hairline between the rows already says this is a list, so
        the marker goes rather than being swapped for another one. */
-    .pan{background:#fff;border:1px solid var(--tl);border-radius:var(--r-card);padding:var(--s3)}
+    .pan{background:var(--tl);border:1px solid var(--tl);border-radius:var(--r-card);padding:var(--s3)}
     .pan>*+*{margin-top:var(--s2)}
     .pan>p+ul{margin-top:0}
     .pan p,.pan li{font-size:var(--fs-md);color:var(--body);line-height:1.75}
     .pan ul{list-style:none}
-    .pan li{padding:var(--s2) 0;border-bottom:1px solid #f1efec}
+    .pan li{padding:var(--s2) 0;border-bottom:1px solid var(--rule)}
     .pan li:last-child{border-bottom:none}
     /* Closed is the scripted state, so it is scoped to .js and the panels
        ship visible. Without JavaScript every panel renders open underneath
