@@ -13,6 +13,13 @@
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
+  <!-- The tree's disclosure panels are closed by CSS, not by a hidden
+       attribute, and the rule that closes them is scoped to .js. Setting the
+       class here rather than from the script at the end of the document means
+       the panels are never painted open and then collapsed, and it keeps the
+       no-script fallback honest: no class, no closing rule, all content
+       visible. -->
+  <script>document.documentElement.classList.add('js')</script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -119,30 +126,36 @@
     .t-sub{font-size:var(--fs-md)}
 
     .t-row{display:grid;gap:var(--tgap);margin-top:var(--stem);align-items:stretch}
-    .t-row>*{position:relative}
+    /* Connectors belong to the cells. A disclosure panel sits in the row's
+       second track, so a stem drawn --stem above it would run back up through
+       the cards; .pan is excluded from all of these. */
+    .t-row>:not(.pan){position:relative}
     /* vertical stem up from each child */
-    .t-row>*::before{content:"";position:absolute;top:calc(var(--stem) * -1);left:50%;margin-left:-.5px;width:1px;height:var(--stem);background:var(--rule)}
+    .t-row>:not(.pan)::before{content:"";position:absolute;top:calc(var(--stem) * -1);left:50%;margin-left:-.5px;width:1px;height:var(--stem);background:var(--rule)}
     /* horizontal bar, bridged across the gaps, clipped at the outer children */
-    .t-row>*::after{content:"";position:absolute;top:calc(var(--stem) * -1);left:calc(var(--tgap) / -2);right:calc(var(--tgap) / -2);height:1px;background:var(--rule)}
-    .t-row>*:first-child::after{left:50%}
-    .t-row>*:last-child::after{right:50%}
+    .t-row>:not(.pan)::after{content:"";position:absolute;top:calc(var(--stem) * -1);left:calc(var(--tgap) / -2);right:calc(var(--tgap) / -2);height:1px;background:var(--rule)}
+    .t-row>:first-child::after{left:50%}
+    /* A node row ends on a node, so :last-child clips it. A card row reads
+       cell, panel, cell, panel …, so its last cell is the second-to-last
+       child and :last-child is a panel, which has no ::after to clip. */
+    .t-row>:last-child::after{right:50%}
+    .t-row>.cw:nth-last-child(2)::after{right:50%}
     .t-5{grid-template-columns:repeat(5,1fr)}
     .t-4{grid-template-columns:repeat(4,1fr)}
     .t-3{grid-template-columns:repeat(3,1fr)}
     .t-2{grid-template-columns:repeat(2,1fr)}
 
-    /* The row above is stretched, so every cell takes the height of the row
-       track and a row of closed cards sits level. The track is sized by its
-       tallest cell, so once one card is open the stretch applies that card's
-       height to its closed neighbours too, and they render as tall empty
-       boxes. The cards opt out of stretch for exactly as long as one of them
-       is open: the open card grows, the closed ones take their own content
-       height and sit at the top of the row.
-       Scoped to .c on purpose. Widening this to .t-row>* would unlevel the
-       level 1 and 2 .n nodes, which have no disclosure and are equal-height
-       only because of the stretch. A browser without :has() keeps today's
-       behaviour rather than breaking. */
-    .t-row:has(details[open])>.c{align-self:start}
+    /* An open panel is one full-width track underneath the whole row: the
+       cells hold track 1, the panel spans every column of track 2. Because
+       the panel is outside the cell, no cell ever grows, so a row of cells
+       stays level on the stretch above and the :has(details[open]) opt-out
+       added at ddf4640 has nothing left to do. It is removed.
+       Each panel sits immediately after its own cell in the source, so the
+       stacked layout below 1000px needs no placement at all — it drops the
+       two rules here and auto-placement puts the panel under the cell that
+       opened it. */
+    .js .t-row>.cw{grid-row:1}
+    .js .t-row>.pan{grid-row:2;grid-column:1/-1}
 
     /* Nodes. One style for every node in the tree — levels 1 and 2 alike.
        None of them links anywhere yet, so none of them carries an arrow or a
@@ -153,67 +166,78 @@
     .n{background:#fff;border:1px solid var(--tl);border-radius:var(--r-node);padding:var(--s3) var(--s2);font-size:var(--fs-md);font-weight:600;color:var(--t);text-align:center;line-height:1.4;display:flex;align-items:center;justify-content:center}
 
     /* cards — hairline only. No shadow, no coloured top rule: the connector
-       already says where the card sits, so a second marker is decoration. */
-    .c{background:#fff;border:1px solid var(--tl);border-radius:var(--r-card);padding:var(--s3) var(--s3) calc(var(--s3) - 4px)}
-    .c h3{font-size:var(--fs-md);color:var(--ink);font-weight:bold;margin-bottom:var(--s2);line-height:1.35}
-    .c p,.c .s-one{font-size:var(--fs-sm);color:var(--body);line-height:1.65}
-    .c ul{list-style:none}
-    .c li{font-size:var(--fs-sm);color:var(--body);line-height:1.55;padding:var(--s1) 0;border-bottom:1px solid #f1efec;display:flex;gap:var(--s1)}
-    .c li:last-child{border-bottom:none}
-    .c li::before{content:"\25B8";color:var(--rule);flex-shrink:0}
+       already says where the card sits, so a second marker is decoration.
+
+       The cell is a button, because its panel is now a sibling further down
+       the row and only a scripted control can reach across to it. A button
+       may not contain a heading, so the heading wraps the button rather than
+       the other way round — which is also the accordion pattern. .cw is the
+       grid item and carries no visual weight of its own; display:grid makes
+       the button fill the stretched track without a percentage height. */
+    .cw{display:grid;font-size:var(--fs-md);font-weight:400}
+    .c{background:#fff;border:1px solid var(--tl);border-radius:var(--r-card);padding:var(--s3) var(--s3) calc(var(--s3) - 4px);font-family:inherit;font-size:inherit;color:inherit;text-align:left;width:100%;cursor:pointer;appearance:none;-webkit-appearance:none}
+    /* .c-in is the old <summary> box, kept so the marker still hangs off the
+       content edge. Positioning .arr against .c instead would put it against
+       the padding box, and the offset would then have to be restated at every
+       breakpoint that changes the card's padding. */
+    .c-in{display:block;position:relative;padding-right:var(--s3)}
+    .c-t{display:block;font-size:var(--fs-md);color:var(--ink);font-weight:bold;line-height:1.35}
+    .c .s-one{display:block;margin-top:var(--s1);font-size:var(--fs-sm);color:var(--body);line-height:1.65}
     /* Tag device kept — "1st line" is a line-of-defence reference, so it
        carries information. The pill, the caps and the tracking were carrying
        none, so they are gone. */
     .c-tag{display:block;font-size:var(--fs-xs);font-weight:700;color:var(--slate);margin-bottom:var(--s1)}
 
-    /* Every card below level 2 discloses its detail in place — levels 3, 4 and
-       5 and the partner row. Native <details> and <summary> rather than a
-       scripted button: collapsed by default, operable by pointer, Enter and
-       Space, announced as a disclosure by assistive technology, and it costs
-       no JavaScript. Only the default marker is restyled; the card vocabulary
-       above is untouched. */
-    .c summary{list-style:none;cursor:pointer;position:relative;padding-right:var(--s3)}
-    .c summary::-webkit-details-marker{display:none}
-    .c summary h3{margin-bottom:0}
-    .c .s-one{display:block;margin-top:var(--s1)}
-    /* The marker is the only affordance that says a card opens, so it is sized
-       to be seen and carries the brand orange. Two steps up the scale, from
-       --fs-md to --fs-xl; the hover pair is --o-dark, the same pair .btn
-       already uses, so hovering darkens the marker rather than changing its
-       hue. Vertical placement is unchanged: line-height 1.35 is the h3's, so
-       the glyph box still aligns to the summary's first line. */
-    .c summary .arr{position:absolute;right:0;top:0;color:var(--o);font-size:var(--fs-xl);font-weight:700;line-height:1.35}
-    .c details:not([open]) summary .arr::after{content:"+"}
-    .c details[open] summary .arr::after{content:"\2212"}
-    .c summary:hover .arr{color:var(--o-dark)}
+    /* The marker is the only affordance that says a card opens, and now that
+       the panel is detached from the cell it is also the only thing that says
+       which cell the open panel belongs to. Sized to be seen and carrying the
+       brand orange: two steps up the scale, from --fs-md to --fs-xl, with
+       --o-dark on hover, the pair .btn already uses. line-height 1.35 is the
+       title's, so the glyph box aligns to the cell's first line. */
+    .c .arr{position:absolute;right:0;top:0;color:var(--o);font-size:var(--fs-xl);font-weight:700;line-height:1.35}
+    .c[aria-expanded="false"] .arr::after{content:"+"}
+    .c[aria-expanded="true"] .arr::after{content:"\2212"}
+    .c:hover .arr{color:var(--o-dark)}
 
-    /* The disclosed panel, whatever element it is. It reads as a description
-       rather than as a footnote to the title, so it takes the subpages' prose
-       measure: one step up the scale to --fs-md, the 1.75 line-height the
-       subpages set on .ss, and a full --s2 of padding above the content on top
-       of the margin the panel already had. List rows take the same step, which
-       is why their vertical padding goes from --s1 to --s2 — at 16px type the
+    /* The panel. It is its own surface now rather than the lower half of a
+       card, so it takes the card's vocabulary — white fill, hairline, same
+       radius — and the row's full width.
+       Type is unchanged from the in-card panel: one step up the scale to
+       --fs-md and the 1.75 line-height the subpages set on .ss, which is why
+       list rows carry --s2 of vertical padding rather than --s1. At 16px the
        8px rows read as a dense table, not as copy. The collapsed teaser
-       (.s-one) is deliberately left at --fs-sm: it is the summary, not the
-       description, and bumping it would flatten the two apart.
-       The rule is per block, and the seven product panels carry two of them —
-       a lead sentence and then its list — so those two sit --s4 apart rather
-       than --s2. That is the existing rule applied evenly, not a new one. */
-    .c details>:not(summary):not(.view-link){margin-top:var(--s2);padding-top:var(--s2)}
-    .c details p,.c details li{font-size:var(--fs-md);line-height:1.75}
-    .c details li{padding:var(--s2) 0}
+       (.s-one) stays at --fs-sm: it is the summary, not the description.
+       Blocks sit --s4 apart, which is what the in-card rule's --s2 margin
+       plus --s2 padding came to. */
+    .pan{background:#fff;border:1px solid var(--tl);border-radius:var(--r-card);padding:var(--s3)}
+    .pan>*+*{margin-top:var(--s4)}
+    .pan p,.pan li{font-size:var(--fs-md);color:var(--body);line-height:1.75}
+    .pan ul{list-style:none}
+    .pan li{padding:var(--s2) 0;border-bottom:1px solid #f1efec;display:flex;gap:var(--s1)}
+    .pan li:last-child{border-bottom:none}
+    .pan li::before{content:"\25B8";color:var(--rule);flex-shrink:0}
+    /* Closed is the scripted state, so it is scoped to .js and the panels
+       ship visible. Without JavaScript every panel renders open underneath
+       its own cell (see the single-column fallback in RESPONSIVE) instead of
+       the content vanishing, which is what a bare hidden attribute would do.
+       The old <details> needed no script at all; this is the nearest thing to
+       that guarantee now that the panel has to span the row. */
+    .js .pan{display:none}
+    .js .pan.open{display:block}
 
-    /* Optional link slot, one per expandable card. The anchor is always in the
+    /* Optional link slot, one per expandable cell. The anchor is always in the
        markup and the CSS hides it while href is empty, so a cell gains its
        link by having a URL pasted into it and nothing else — no new markup, no
        JavaScript, and no half-built link can ever ship visible. Every href is
        empty at this commit, so no slot renders. The style is the subpages'
        .view-link: weight 600, orange, block, 16px above. Their 13px is off
        this page's six-step scale, so the nearest step, --fs-xs at 12px, is
-       used rather than introducing an off-scale value for one rule. */
-    .c .view-link{font-size:var(--fs-xs);font-weight:600;color:var(--o);text-decoration:none;margin-top:var(--s2);display:block}
-    .c .view-link:hover{color:var(--o-dark);text-decoration:underline}
-    .c .view-link[href=""]{display:none}
+       used rather than introducing an off-scale value for one rule. The 16px
+       beats the --s4 between blocks above because it is the more specific
+       selector: the link is a footnote to the panel, not another block. */
+    .pan .view-link{font-size:var(--fs-xs);font-weight:600;color:var(--o);text-decoration:none;margin-top:var(--s2);display:block}
+    .pan .view-link:hover{color:var(--o-dark);text-decoration:underline}
+    .pan .view-link[href=""]{display:none}
 
     /* ACT — end of trunk. Same card vocabulary as the rest of the tree: white
        fill, hairline border. It earns its emphasis from scale and from being
@@ -260,18 +284,29 @@
     .footer-bottom a:hover{color:#fff}
 
     /* ---- RESPONSIVE ---- */
+
+    /* No JavaScript: every panel is open, so the row has to stack or the
+       panels would land in the cells' columns. Same shape as the 1000px
+       layout below, and the source order already alternates cell, panel. */
+    html:not(.js) .t-row{grid-template-columns:1fr;gap:var(--stem)}
+
     @media(max-width:1180px){
       .n{font-size:var(--fs-sm);padding:var(--s2) 10px}
       .c{padding:var(--s2) var(--s2) calc(var(--s2) - 2px)}
+      .pan{padding:var(--s2)}
       .t-row{--tgap:14px}
     }
     /* Every tree row collapses to one column. The horizontal bars go; the
        vertical stems stay and bridge the gap, because the gap is set to the
-       exact stem height. */
+       exact stem height. The panel stops being a full-width second track and
+       goes back to auto-placement, which puts it directly below the cell that
+       opened it — the source order is cell, its own panel, next cell. */
     @media(max-width:1000px){
       .t-5,.t-4,.t-3,.t-2{grid-template-columns:1fr}
       .t-row{gap:var(--stem)}
       .t-row>*::after{display:none}
+      .js .t-row>.cw{grid-row:auto}
+      .js .t-row>.pan{grid-row:auto;grid-column:auto}
       .n{font-size:var(--fs-md);padding:var(--s2) var(--s2)}
       .t-label{font-size:var(--fs-md);max-width:30ch}
       .t-sub{font-size:var(--fs-sm)}
@@ -292,6 +327,7 @@
       .act{padding:var(--s5) var(--s3);border-radius:var(--r-card)}
       .act .btn{display:block;padding:15px 20px}
       .c{padding:var(--s3) var(--s2) calc(var(--s3) - 6px)}
+      .pan{padding:var(--s3) var(--s2)}
       .footer-cols{gap:var(--s3) var(--s4)}
     }
   </style>
@@ -416,53 +452,53 @@
     <span class="t-drop" aria-hidden="true"></span>
     <h2 class="t-label" id="grc">through Governance, Risk &amp; Compliance</h2>
     <div class="t-row t-3">
-      <div class="c">
-        <details>
-          <summary>
-            <h3>Governance</h3>
-            <span class="s-one">Roles, reporting, oversight.</span>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <ul>
-            <li>Roles, committees and policies</li>
-            <li>Management and board reporting</li>
-            <li>IT governance (COBIT)</li>
-            <li>AI governance</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-governance">
+        <span class="c-in">
+          <span class="c-t">Governance</span>
+          <span class="s-one">Roles, reporting, oversight.</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-governance">
+        <ul>
+          <li>Roles, committees and policies</li>
+          <li>Management and board reporting</li>
+          <li>IT governance (COBIT)</li>
+          <li>AI governance</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
-      <div class="c">
-        <details>
-          <summary>
-            <h3>Risk</h3>
-            <span class="s-one">Analysed, treated, controlled.</span>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <ul>
-            <li>Risk analysis and treatment</li>
-            <li>ICT third-party risk</li>
-            <li>Business continuity management</li>
-            <li>Risk control and KRIs</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-risk">
+        <span class="c-in">
+          <span class="c-t">Risk</span>
+          <span class="s-one">Analysed, treated, controlled.</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-risk">
+        <ul>
+          <li>Risk analysis and treatment</li>
+          <li>ICT third-party risk</li>
+          <li>Business continuity management</li>
+          <li>Risk control and KRIs</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
-      <div class="c">
-        <details>
-          <summary>
-            <h3>Compliance</h3>
-            <span class="s-one">One integrated management system.</span>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <ul>
-            <li>Maturity assessment and roadmap</li>
-            <li>Integrated management system: ISMS &middot; BCMS &middot; AIMS</li>
-            <li>Audit and examination readiness</li>
-            <li>Incident management and reporting</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-compliance">
+        <span class="c-in">
+          <span class="c-t">Compliance</span>
+          <span class="s-one">One integrated management system.</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-compliance">
+        <ul>
+          <li>Maturity assessment and roadmap</li>
+          <li>Integrated management system: ISMS &middot; BCMS &middot; AIMS</li>
+          <li>Audit and examination readiness</li>
+          <li>Incident management and reporting</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
     </div>
 
@@ -470,38 +506,56 @@
     <span class="t-drop" aria-hidden="true"></span>
     <h2 class="t-label" id="lines-of-defence">across all three lines of defence</h2>
     <div class="t-row t-3">
-      <div class="c">
-        <details>
-          <summary>
-            <span class="c-tag">1st line</span>
-            <h3>Operations &amp; IT</h3>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>Controls and processes that work in production.</p>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-first-line">
+        <span class="c-in">
+          <span class="c-tag">1st line</span>
+          <span class="c-t">Operations &amp; IT</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-first-line">
+        <p>Your operations own the risks they run.</p>
+        <ul>
+          <li>Business and IT owners accountable for the risks in their processes</li>
+          <li>Controls built into daily operations, change and supplier management</li>
+          <li>Key controls monitored, with clear thresholds and escalation</li>
+          <li>Incidents and deviations reported to the second line</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
-      <div class="c">
-        <details>
-          <summary>
-            <span class="c-tag">2nd line</span>
-            <h3>Risk &amp; Compliance</h3>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>A management system that is owned and steered.</p>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-second-line">
+        <span class="c-in">
+          <span class="c-tag">2nd line</span>
+          <span class="c-t">Risk &amp; Compliance</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-second-line">
+        <p>The function that steers and challenges.</p>
+        <ul>
+          <li>Risk framework, risk appetite and reporting to your management body</li>
+          <li>Independent challenge of first-line risk assessments</li>
+          <li>One integrated management system across all your obligations</li>
+          <li>KRIs, policy reviews and compliance monitoring</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
-      <div class="c">
-        <details>
-          <summary>
-            <span class="c-tag">3rd line</span>
-            <h3>Internal Audit</h3>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>Independent assurance and IT audit co-sourcing.</p>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-third-line">
+        <span class="c-in">
+          <span class="c-tag">3rd line</span>
+          <span class="c-t">Internal Audit</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-third-line">
+        <p>Independent assurance that your controls work.</p>
+        <ul>
+          <li>Assurance to the board and audit committee on governance, risk and controls</li>
+          <li>Risk-based audit planning for IT, security and resilience</li>
+          <li>IT audit co-sourcing where your internal audit needs specialist depth</li>
+          <li>Strict independence: we audit only where we did not build or operate</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
     </div>
 
@@ -512,130 +566,130 @@
     <span class="t-drop" aria-hidden="true"></span>
     <h2 class="t-label" id="approach">delivered end to end</h2>
     <div class="t-row t-5">
-      <div class="c">
-        <details>
-          <summary>
-            <h3>Strategy</h3>
-            <span class="s-one">Maturity assessment, target picture and roadmap</span>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>Security investments that serve your business strategy.</p>
-          <ul>
-            <li>Risk appetite set by your management, translated into priorities</li>
-            <li>Business cases with tangible and intangible value</li>
-            <li>Sourcing strategy: outsourcing, insourcing and nearshoring decisions</li>
-            <li>A roadmap ordered by business impact</li>
-            <li>Weighted decision analysis for control, tool and supplier options</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-strategy">
+        <span class="c-in">
+          <span class="c-t">Strategy</span>
+          <span class="s-one">Maturity assessment, target picture and roadmap</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-strategy">
+        <p>Security investments that serve your business strategy.</p>
+        <ul>
+          <li>Risk appetite set by your management, translated into priorities</li>
+          <li>Business cases with tangible and intangible value</li>
+          <li>Sourcing strategy: outsourcing, insourcing and nearshoring decisions</li>
+          <li>A roadmap ordered by business impact</li>
+          <li>Weighted decision analysis for control, tool and supplier options</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
-      <div class="c">
-        <details>
-          <summary>
-            <h3>Architecture</h3>
-            <span class="s-one">Security architecture and risk-based design</span>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>Controls designed into how your business connects.</p>
-          <ul>
-            <li>Every control traced to the risk and obligation it serves</li>
-            <li>Security and network architecture, from data centre to cloud</li>
-            <li>Partner and third-party connectivity</li>
-            <li>Proof of concept before you commit to a control or tool</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-architecture">
+        <span class="c-in">
+          <span class="c-t">Architecture</span>
+          <span class="s-one">Security architecture and risk-based design</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-architecture">
+        <p>Controls designed into how your business connects.</p>
+        <ul>
+          <li>Every control traced to the risk and obligation it serves</li>
+          <li>Security and network architecture, from data centre to cloud</li>
+          <li>Partner and third-party connectivity</li>
+          <li>Proof of concept before you commit to a control or tool</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
-      <div class="c">
-        <details>
-          <summary>
-            <h3>Implementation</h3>
-            <span class="s-one">Your ISMS, BCMS or AIMS and the controls behind it</span>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>Obligations made livable.</p>
-          <ul>
-            <li>Built to your maturity level: build, maintain, improve</li>
-            <li>Controls rolled out into processes, systems and tooling</li>
-            <li>Processes your teams run day to day, owned by the business</li>
-            <li>Evidence produced by daily operations, so audits follow naturally</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-implementation">
+        <span class="c-in">
+          <span class="c-t">Implementation</span>
+          <span class="s-one">Your ISMS, BCMS or AIMS and the controls behind it</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-implementation">
+        <p>Obligations made livable.</p>
+        <ul>
+          <li>Built to your maturity level: build, maintain, improve</li>
+          <li>Controls rolled out into processes, systems and tooling</li>
+          <li>Processes your teams run day to day, owned by the business</li>
+          <li>Evidence produced by daily operations, so audits follow naturally</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
-      <div class="c">
-        <details>
-          <summary>
-            <h3>Integration</h3>
-            <span class="s-one">One management system for all your obligations</span>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>Integrating your obligations into your harmonised management systems.</p>
-          <ul>
-            <li>ISMS, BCMS and AIMS harmonised into one management system</li>
-            <li>Each obligation mapped once, so one control serves several at a time</li>
-            <li>Risk-driven integration support for new controls, systems and suppliers</li>
-            <li>Changes integrated alongside running operations</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-integration">
+        <span class="c-in">
+          <span class="c-t">Integration</span>
+          <span class="s-one">One management system for all your obligations</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-integration">
+        <p>Integrating your obligations into your harmonised management systems.</p>
+        <ul>
+          <li>ISMS, BCMS and AIMS harmonised into one management system</li>
+          <li>Each obligation mapped once, so one control serves several at a time</li>
+          <li>Risk-driven integration support for new controls, systems and suppliers</li>
+          <li>Changes integrated alongside running operations</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
-      <div class="c">
-        <details>
-          <summary>
-            <h3>vCISO</h3>
-            <span class="s-one">ISMS ownership and ongoing operation</span>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>We run your security with you.</p>
-          <ul>
-            <li>Your management decides on prioritised risks, KRIs and business cases</li>
-            <li>One accountable lead across security, resilience and AI governance</li>
-            <li>We own and steer your management system as your second line</li>
-            <li>Third-party risk: supplier processes, contracts and planned exit strategies</li>
-            <li>Improvements driven by risk assessments, business impact analysis and AI impact assessments</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-vciso">
+        <span class="c-in">
+          <span class="c-t">vCISO</span>
+          <span class="s-one">ISMS ownership and ongoing operation</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-vciso">
+        <p>We run your security with you.</p>
+        <ul>
+          <li>Your management decides on prioritised risks, KRIs and business cases</li>
+          <li>One accountable lead across security, resilience and AI governance</li>
+          <li>We own and steer your management system as your second line</li>
+          <li>Third-party risk: supplier processes, contracts and planned exit strategies</li>
+          <li>Improvements driven by risk assessments, business impact analysis and AI impact assessments</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
     </div>
 
     <span class="t-drop" aria-hidden="true"></span>
     <p class="t-label t-sub">with our European partners</p>
     <div class="t-row t-2">
-      <div class="c">
-        <details>
-          <summary>
-            <h3>Pentesting and red teaming</h3>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>Know where you stand.</p>
-          <ul>
-            <li>Results set the priorities of your security roadmap</li>
-            <li>Every finding lands in your risk register with an owner</li>
-            <li>Red teaming as your maturity grows</li>
-            <li>A fixed-price entry test as the starting point</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-pentesting">
+        <span class="c-in">
+          <span class="c-t">Pentesting and red teaming</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-pentesting">
+        <p>Know where you stand.</p>
+        <ul>
+          <li>Results set the priorities of your security roadmap</li>
+          <li>Every finding lands in your risk register with an owner</li>
+          <li>Red teaming as your maturity grows</li>
+          <li>A fixed-price entry test as the starting point</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
-      <div class="c">
-        <details>
-          <summary>
-            <h3>MSSP / SOC</h3>
-            <span class="arr" aria-hidden="true"></span>
-          </summary>
-          <p>Detection and response that feeds your governance.</p>
-          <ul>
-            <li>One contract and one point of accountability through NexGenio</li>
-            <li>Reprioritised risks drive the revision and reprioritisation of your controls</li>
-            <li>Lessons learned flow into your risk register for continuous improvement</li>
-            <li>Incidents flow straight into your incident management and reporting</li>
-            <li>24/7 monitoring and response from European partners</li>
-          </ul>
-          <a class="view-link" href="">Learn more &rarr;</a>
-        </details>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-mssp">
+        <span class="c-in">
+          <span class="c-t">MSSP / SOC</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-mssp">
+        <p>Detection and response that feeds your governance.</p>
+        <ul>
+          <li>One contract and one point of accountability through NexGenio</li>
+          <li>Reprioritised risks drive the revision and reprioritisation of your controls</li>
+          <li>Lessons learned flow into your risk register for continuous improvement</li>
+          <li>Incidents flow straight into your incident management and reporting</li>
+          <li>24/7 monitoring and response from European partners</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
       </div>
     </div>
 
@@ -708,6 +762,37 @@
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Service", "name": "ISO 27001 Information Security Management", "description": "ISMS design, gap assessment, risk treatment, Statement of Applicability, control implementation and certification readiness. Integrated with NIS2 and DORA obligations where applicable.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "ISO 27001 Compliance"}, {"@context": "https://schema.org", "@type": "Service", "name": "ISO 22301 Business Continuity Management", "description": "BCMS design and implementation. Business impact analysis, recovery strategy, continuity plans and exercise programmes. Directly addresses NIS2 Art.21 resilience and DORA ICT continuity obligations.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "ISO 22301 Compliance"}, {"@context": "https://schema.org", "@type": "Service", "name": "ISO 42001 AI Management System", "description": "AIMS implementation aligned to ISO 42001 and the EU AI Act. AI risk classification, transparency obligations, governance framework design and conformity assessment preparation.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "ISO 42001 AI Governance"}, {"@context": "https://schema.org", "@type": "Service", "name": "NIS2 & DORA Implementation", "description": "End-to-end implementation for essential and important entities, and for financial entities. Governance, risk management, incident reporting, supply chain assessment, and competent authority registration.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "NIS2 and DORA Regulatory Compliance"}, {"@context": "https://schema.org", "@type": "Service", "name": "ICT Third-Party & Supply Chain Risk", "description": "ICT third-party register, supplier risk classification, contractual provisions mapping, concentration risk analysis and critical function designation. Dual NIS2 + DORA supply chain assessments available.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "ICT Supply Chain Risk Management"}, {"@context": "https://schema.org", "@type": "Service", "name": "Security Architecture & Control Verification", "description": "Practitioner review of whether deployed technology actually satisfies the controls your compliance framework selects, not just whether documentation claims it does.", "provider": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}, "areaServed": "Europe", "serviceType": "Security Architecture Review"}]</script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Tobias Bayer", "jobTitle": "Director", "worksFor": {"@type": "Organization", "name": "NexGenio LTD", "url": "https://nexgenio.com"}}</script>
+<!-- Row accordion. One panel open per row. The panel is a sibling of the cells
+     rather than a child, because it has to span the whole row, and that is the
+     one thing a native <details> cannot do: its content is inside it, so it can
+     never be wider than the cell it belongs to. Hence the script.
+     The button holds the state in aria-expanded and names its panel through
+     aria-controls, so the DOM is the single source of truth and nothing here
+     has to remember which cell is open. Closing every button in the row before
+     opening the clicked one gives switch, open and close in one path. Enter and
+     Space already work because the cells are real buttons. -->
+<script>
+(function(){
+  function shut(b){
+    b.setAttribute('aria-expanded','false');
+    var p=document.getElementById(b.getAttribute('aria-controls'));
+    if(p)p.classList.remove('open');
+  }
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('.c[aria-controls]');
+    if(!btn)return;
+    var wasOpen=btn.getAttribute('aria-expanded')==='true';
+    var row=btn.closest('.t-row');
+    if(!row)return;
+    Array.prototype.forEach.call(row.querySelectorAll('.c[aria-controls]'),shut);
+    if(wasOpen)return;
+    btn.setAttribute('aria-expanded','true');
+    var p=document.getElementById(btn.getAttribute('aria-controls'));
+    if(p)p.classList.add('open');
+  });
+})();
+</script>
+
 <!-- Click to copy the contact address. Clarity recorded four dead clicks on the
      plain mailto, from a visitor who then selected the address as text. -->
 <script>
