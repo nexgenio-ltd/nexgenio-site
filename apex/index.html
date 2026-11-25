@@ -125,7 +125,12 @@
        opening a new level, so it sits one step down the same scale. */
     .t-sub{font-size:var(--fs-md)}
 
-    .t-row{display:grid;gap:var(--tgap);margin-top:var(--stem);align-items:stretch}
+    /* --tgap is a column gap only. The row's second track holds the open
+       panel, and the panel has to sit against the cells rather than float
+       below them, so there is nothing between the two tracks. The stacked
+       layout below 1000px puts the gap back, because there every child is a
+       row of its own and the gap is what the stems bridge. */
+    .t-row{display:grid;column-gap:var(--tgap);row-gap:0;margin-top:var(--stem);align-items:stretch}
     /* Connectors belong to the cells. A disclosure panel sits in the row's
        second track, so a stem drawn --stem above it would run back up through
        the cards; .pan is excluded from all of these. */
@@ -173,9 +178,25 @@
        may not contain a heading, so the heading wraps the button rather than
        the other way round — which is also the accordion pattern. .cw is the
        grid item and carries no visual weight of its own; display:grid makes
-       the button fill the stretched track without a percentage height. */
+       the button fill the stretched track without a percentage height.
+
+       The -1px bottom margin sits every cell one hairline over whatever is
+       beneath it, so the join to an open panel is drawn once and not twice:
+       under a cell the cell's own bottom border covers the panel's top
+       border, and in the column gaps the panel draws it itself. Without it
+       the join reads as a 2px rule under the cells and a 1px rule between
+       them. The cells are the positioned children of the row, so they already
+       paint over the panel and no z-index is needed. With no panel open there
+       is nothing underneath to overlap. */
     .cw{display:grid;font-size:var(--fs-md);font-weight:400}
-    .c{background:#fff;border:1px solid var(--tl);border-radius:var(--r-card);padding:var(--s3) var(--s3) calc(var(--s3) - 4px);font-family:inherit;font-size:inherit;color:inherit;text-align:left;width:100%;cursor:pointer;appearance:none;-webkit-appearance:none}
+    .c{background:#fff;border:1px solid var(--tl);border-radius:var(--r-card);padding:var(--s3) var(--s3) calc(var(--s3) - 4px);font-family:inherit;font-size:inherit;color:inherit;text-align:left;width:100%;cursor:pointer;appearance:none;-webkit-appearance:none;margin-bottom:-1px}
+    /* The focus ring is drawn 3px outside the control, which on an open cell
+       is a navy rectangle cutting straight across the join to its panel. On
+       the cells it is drawn inside the border instead — same ring, same
+       colour, no line through the shape. It is moved rather than deleted:
+       opening a cell with Enter leaves focus on it, and a keyboard user needs
+       to be able to see where that is. */
+    .c:focus-visible{outline-offset:-3px}
     /* .c-in is the old <summary> box, kept so the marker still hangs off the
        content edge. Positioning .arr against .c instead would put it against
        the padding box, and the offset would then have to be restated at every
@@ -198,6 +219,20 @@
     .c[aria-expanded="false"] .arr::after{content:"+"}
     .c[aria-expanded="true"] .arr::after{content:"\2212"}
     .c:hover .arr{color:var(--o-dark)}
+
+    /* The join. The open cell and its panel are one shape, so the line
+       between them has to go without either of them losing an edge.
+       The cell keeps its fill, its two side hairlines and its exact size:
+       only the colour of its bottom border changes, from the hairline to the
+       fill, and the -1px above carries that white over the panel's top
+       border for the width of the cell. The panel's top border survives
+       everywhere else, which is what gives the shape its tab: a cell opening
+       down into a wider surface.
+       Both square off the corners they meet on, so the two outlines join as
+       straight lines. The cell's other three corners and the panel's bottom
+       two keep --r-card. Inactive cells are untouched. */
+    .c[aria-expanded="true"]{border-bottom-color:#fff;border-bottom-left-radius:0;border-bottom-right-radius:0}
+    .pan.open{border-top-left-radius:0;border-top-right-radius:0}
 
     /* The panel. It is its own surface now rather than the lower half of a
        card, so it takes the card's vocabulary — white fill, hairline, same
@@ -300,13 +335,21 @@
        vertical stems stay and bridge the gap, because the gap is set to the
        exact stem height. The panel stops being a full-width second track and
        goes back to auto-placement, which puts it directly below the cell that
-       opened it — the source order is cell, its own panel, next cell. */
+       opened it — the source order is cell, its own panel, next cell.
+       Every child is its own row here, so the gap is back and it is the gap
+       the stems bridge. That would leave the open panel floating a stem below
+       the cell it belongs to, so the panel is pulled up by exactly that gap
+       and lands against the cell. The cell and the panel are the same width
+       at this size, so the join reads as one box rather than as a tab. The
+       stems are unaffected: the cell after a panel still has a full gap above
+       it to bridge. */
     @media(max-width:1000px){
       .t-5,.t-4,.t-3,.t-2{grid-template-columns:1fr}
       .t-row{gap:var(--stem)}
       .t-row>*::after{display:none}
       .js .t-row>.cw{grid-row:auto}
       .js .t-row>.pan{grid-row:auto;grid-column:auto}
+      .js .t-row>.pan.open{margin-top:calc(var(--stem) * -1)}
       .n{font-size:var(--fs-md);padding:var(--s2) var(--s2)}
       .t-label{font-size:var(--fs-md);max-width:30ch}
       .t-sub{font-size:var(--fs-sm)}
