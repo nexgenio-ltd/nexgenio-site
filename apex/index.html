@@ -19,13 +19,15 @@
     body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
     :root{
       /* Palette. Everything is navy-derived except one hue, and that hue is
-         spent only on the two buttons. */
+         spent only on things you can act on: the buttons, the nav hover, the
+         card disclosure markers and the card link slot. */
       --ink:#15303f;      /* deepest navy — headings, button text */
       --t:#215675;        /* brand navy */
       --tm:#2d6e94;
       --slate:#4d6c81;    /* de-emphasised navy — level labels, card tags */
       --tl:#e6eef3;
-      --o:#F5901A;        /* orange — BUTTONS ONLY */
+      --o:#F5901A;        /* orange — buttons, nav hover, card disclosure
+                             markers and the optional card link slot */
       --o-dark:#d97a0f;
       --cream:#F5F3EE;
       --bg:#F5F3EE;
@@ -163,12 +165,41 @@
     .c summary::-webkit-details-marker{display:none}
     .c summary h3{margin-bottom:0}
     .c .s-one{display:block;margin-top:var(--s1)}
-    .c summary .arr{position:absolute;right:0;top:0;color:var(--slate);font-size:var(--fs-md);font-weight:700;line-height:1.35}
+    /* The marker is the only affordance that says a card opens, so it is sized
+       to be seen and carries the brand orange. Two steps up the scale, from
+       --fs-md to --fs-xl; the hover pair is --o-dark, the same pair .btn
+       already uses, so hovering darkens the marker rather than changing its
+       hue. Vertical placement is unchanged: line-height 1.35 is the h3's, so
+       the glyph box still aligns to the summary's first line. */
+    .c summary .arr{position:absolute;right:0;top:0;color:var(--o);font-size:var(--fs-xl);font-weight:700;line-height:1.35}
     .c details:not([open]) summary .arr::after{content:"+"}
     .c details[open] summary .arr::after{content:"\2212"}
-    .c summary:hover .arr{color:var(--t)}
-    /* the disclosed panel, whatever element it is */
-    .c details>:not(summary){margin-top:var(--s2)}
+    .c summary:hover .arr{color:var(--o-dark)}
+
+    /* The disclosed panel, whatever element it is. It reads as a description
+       rather than as a footnote to the title, so it takes the subpages' prose
+       measure: one step up the scale to --fs-md, the 1.75 line-height the
+       subpages set on .ss, and a full --s2 of padding above the content on top
+       of the margin the panel already had. List rows take the same step, which
+       is why their vertical padding goes from --s1 to --s2 — at 16px type the
+       8px rows read as a dense table, not as copy. The collapsed teaser
+       (.s-one) is deliberately left at --fs-sm: it is the summary, not the
+       description, and bumping it would flatten the two apart. */
+    .c details>:not(summary):not(.view-link){margin-top:var(--s2);padding-top:var(--s2)}
+    .c details p,.c details li{font-size:var(--fs-md);line-height:1.75}
+    .c details li{padding:var(--s2) 0}
+
+    /* Optional link slot, one per expandable card. The anchor is always in the
+       markup and the CSS hides it while href is empty, so a cell gains its
+       link by having a URL pasted into it and nothing else — no new markup, no
+       JavaScript, and no half-built link can ever ship visible. Every href is
+       empty at this commit, so no slot renders. The style is the subpages'
+       .view-link: weight 600, orange, block, 16px above. Their 13px is off
+       this page's six-step scale, so the nearest step, --fs-xs at 12px, is
+       used rather than introducing an off-scale value for one rule. */
+    .c .view-link{font-size:var(--fs-xs);font-weight:600;color:var(--o);text-decoration:none;margin-top:var(--s2);display:block}
+    .c .view-link:hover{color:var(--o-dark);text-decoration:underline}
+    .c .view-link[href=""]{display:none}
 
     /* ACT — end of trunk. Same card vocabulary as the rest of the tree: white
        fill, hairline border. It earns its emphasis from scale and from being
@@ -384,6 +415,7 @@
             <li>IT governance (COBIT)</li>
             <li>AI governance</li>
           </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
         </details>
       </div>
       <div class="c">
@@ -399,6 +431,7 @@
             <li>Business continuity management</li>
             <li>Risk control and KRIs</li>
           </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
         </details>
       </div>
       <div class="c">
@@ -414,6 +447,7 @@
             <li>Audit and examination readiness</li>
             <li>Incident management and reporting</li>
           </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
         </details>
       </div>
     </div>
@@ -430,6 +464,7 @@
             <span class="arr" aria-hidden="true"></span>
           </summary>
           <p>Controls and processes that work in production.</p>
+          <a class="view-link" href="">Learn more &rarr;</a>
         </details>
       </div>
       <div class="c">
@@ -440,6 +475,7 @@
             <span class="arr" aria-hidden="true"></span>
           </summary>
           <p>A management system that is owned and steered.</p>
+          <a class="view-link" href="">Learn more &rarr;</a>
         </details>
       </div>
       <div class="c">
@@ -450,6 +486,7 @@
             <span class="arr" aria-hidden="true"></span>
           </summary>
           <p>Independent assurance and IT audit co-sourcing.</p>
+          <a class="view-link" href="">Learn more &rarr;</a>
         </details>
       </div>
     </div>
