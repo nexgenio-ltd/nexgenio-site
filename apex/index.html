@@ -25,16 +25,17 @@
     html{scroll-behavior:smooth}
     body{font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff;line-height:1.65}
     :root{
-      /* Palette. Everything is navy-derived except one hue, and that hue is
-         spent only on things you can act on: the buttons, the nav hover, the
-         card disclosure markers and the card link slot. */
+      /* Palette. Everything is navy-derived except one hue: the buttons, the
+         nav hover, the card disclosure markers, the card link slot and the
+         storyline labels. */
       --ink:#15303f;      /* deepest navy — headings, button text */
       --t:#215675;        /* brand navy */
       --tm:#2d6e94;
-      --slate:#4d6c81;    /* de-emphasised navy — level labels, card tags */
+      --slate:#4d6c81;    /* de-emphasised navy — card tags, cycle note */
       --tl:#e6eef3;
       --o:#F5901A;        /* orange — buttons, nav hover, card disclosure
-                             markers and the optional card link slot */
+                             markers, the optional card link slot and the
+                             storyline labels */
       --o-dark:#d97a0f;
       --cream:#F5F3EE;
       --bg:#F5F3EE;
@@ -119,8 +120,23 @@
        Compliance … across all three lines of defence … delivered end to end
        with our European partners." Setting them as tracked-out uppercase
        chrome destroyed that reading. They are set as prose instead: sentence
-       case, regular weight, de-emphasised navy. */
-    .t-label{text-align:center;font-size:var(--fs-lg);font-weight:400;letter-spacing:-.1px;color:var(--slate);line-height:1.45;max-width:38ch;margin:0 auto;padding:var(--s3) 0 var(--s1)}
+       case, regular weight. The ellipses are the continuation mark for that
+       reading: the first label opens the sentence, so it takes a trailing
+       ellipsis only; the other five are mid-sentence and take both.
+
+       No max-width. At 38ch the longest label broke across two lines, which
+       reads as two clauses rather than one. Unconstrained, each label sets on
+       a single line on desktop and wraps only when the viewport itself is
+       narrower than the text.
+
+       The whole label — words and ellipses alike — is brand orange, by
+       Director decision. Recording the cost rather than leaving it to be
+       rediscovered: #F5901A on the cream trunk is 2.13:1. At 19px regular
+       (16px below 1000px) this is normal-size text, so WCAG AA wants 4.5:1
+       and even the large-text floor is 3:1. The navy it replaces was 7.14:1
+       and the slate before that 5.01:1. The .el span is kept as the markup
+       hook for the ellipses but needs no colour of its own now. */
+    .t-label{text-align:center;font-size:var(--fs-lg);font-weight:400;letter-spacing:-.1px;color:var(--o);line-height:1.45;margin:0 auto;padding:var(--s3) 0 var(--s1)}
     /* "with our European partners" qualifies the label above it rather than
        opening a new level, so it sits one step down the same scale. */
     .t-sub{font-size:var(--fs-md)}
@@ -371,7 +387,7 @@
       .js .t-row>.pan{grid-row:auto;grid-column:auto}
       .js .t-row>.pan.open{margin-top:calc(var(--stem) * -1)}
       .n{font-size:var(--fs-md);padding:var(--s2) var(--s2)}
-      .t-label{font-size:var(--fs-md);max-width:30ch}
+      .t-label{font-size:var(--fs-md)}
       .t-sub{font-size:var(--fs-sm)}
       .academy-inner{flex-direction:column;align-items:flex-start}
     }
@@ -492,7 +508,7 @@
 
     <!-- LEVEL 1 -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="services">We build</h2>
+    <h2 class="t-label" id="services">We build<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-5">
       <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-resilience">
         <span class="c-in">
@@ -578,7 +594,7 @@
 
     <!-- LEVEL 2 -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="obligations">supporting your obligations</h2>
+    <h2 class="t-label" id="obligations"><span class="el" aria-hidden="true">&hellip;</span>supporting your obligations<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-4">
       <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-nis2">
         <span class="c-in">
@@ -648,7 +664,7 @@
 
     <!-- LEVEL 3 -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="grc">through Governance, Risk &amp; Compliance</h2>
+    <h2 class="t-label" id="grc"><span class="el" aria-hidden="true">&hellip;</span>through Governance, Risk &amp; Compliance<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-3">
       <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-governance">
         <span class="c-in">
@@ -702,7 +718,7 @@
 
     <!-- LEVEL 4 -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="lines-of-defence">across all three lines of defence</h2>
+    <h2 class="t-label" id="lines-of-defence"><span class="el" aria-hidden="true">&hellip;</span>across all three lines of defence<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-3">
       <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-first-line">
         <span class="c-in">
@@ -762,7 +778,7 @@
          clause 4-to-10 footnote) is removed, not relocated: the storyline now
          ends in what you can buy, not in a diagram of how we work. -->
     <span class="t-drop" aria-hidden="true"></span>
-    <h2 class="t-label" id="approach">delivered end to end</h2>
+    <h2 class="t-label" id="approach"><span class="el" aria-hidden="true">&hellip;</span>delivered end to end<span class="el" aria-hidden="true">&hellip;</span></h2>
     <div class="t-row t-5">
       <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-strategy">
         <span class="c-in">
@@ -854,7 +870,7 @@
     </div>
 
     <span class="t-drop" aria-hidden="true"></span>
-    <p class="t-label t-sub">with our European partners</p>
+    <p class="t-label t-sub"><span class="el" aria-hidden="true">&hellip;</span>with our European partners<span class="el" aria-hidden="true">&hellip;</span></p>
     <div class="t-row t-2">
       <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-pentesting">
         <span class="c-in">
