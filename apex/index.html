@@ -143,9 +143,6 @@
        already says where the card sits, so a second marker is decoration. */
     .c{background:#fff;border:1px solid var(--tl);border-radius:var(--r-card);padding:var(--s3) var(--s3) calc(var(--s3) - 4px)}
     .c h3{font-size:var(--fs-md);color:var(--ink);font-weight:bold;margin-bottom:var(--s2);line-height:1.35}
-    /* The partner cards carry a title and nothing else, so the gap the title
-       reserves for the copy underneath it would otherwise be dead space. */
-    .c h3:last-child{margin-bottom:0}
     .c p,.c .s-one{font-size:var(--fs-sm);color:var(--body);line-height:1.65}
     .c ul{list-style:none}
     .c li{font-size:var(--fs-sm);color:var(--body);line-height:1.55;padding:var(--s1) 0;border-bottom:1px solid #f1efec;display:flex;gap:var(--s1)}
@@ -156,11 +153,12 @@
        none, so they are gone. */
     .c-tag{display:block;font-size:var(--fs-xs);font-weight:700;color:var(--slate);margin-bottom:var(--s1)}
 
-    /* Levels 3 and 4 disclose their detail in place. Native <details> and
-       <summary> rather than a scripted button: collapsed by default, operable
-       by pointer, Enter and Space, announced as a disclosure by assistive
-       technology, and it costs no JavaScript. Only the default marker is
-       restyled; the card vocabulary above is untouched. */
+    /* Every card below level 2 discloses its detail in place — levels 3, 4 and
+       5 and the partner row. Native <details> and <summary> rather than a
+       scripted button: collapsed by default, operable by pointer, Enter and
+       Space, announced as a disclosure by assistive technology, and it costs
+       no JavaScript. Only the default marker is restyled; the card vocabulary
+       above is untouched. */
     .c summary{list-style:none;cursor:pointer;position:relative;padding-right:var(--s3)}
     .c summary::-webkit-details-marker{display:none}
     .c summary h3{margin-bottom:0}
@@ -184,7 +182,10 @@
        is why their vertical padding goes from --s1 to --s2 — at 16px type the
        8px rows read as a dense table, not as copy. The collapsed teaser
        (.s-one) is deliberately left at --fs-sm: it is the summary, not the
-       description, and bumping it would flatten the two apart. */
+       description, and bumping it would flatten the two apart.
+       The rule is per block, and the seven product panels carry two of them —
+       a lead sentence and then its list — so those two sit --s4 apart rather
+       than --s2. That is the existing rule applied evenly, not a new one. */
     .c details>:not(summary):not(.view-link){margin-top:var(--s2);padding-top:var(--s2)}
     .c details p,.c details li{font-size:var(--fs-md);line-height:1.75}
     .c details li{padding:var(--s2) 0}
@@ -499,24 +500,91 @@
     <h2 class="t-label" id="approach">delivered end to end</h2>
     <div class="t-row t-5">
       <div class="c">
-        <h3>Strategy</h3>
-        <p>Maturity assessment, target picture and roadmap</p>
+        <details>
+          <summary>
+            <h3>Strategy</h3>
+            <span class="s-one">Maturity assessment, target picture and roadmap</span>
+            <span class="arr" aria-hidden="true"></span>
+          </summary>
+          <p>Security investments that serve your business strategy.</p>
+          <ul>
+            <li>Risk appetite set by your management, translated into priorities</li>
+            <li>Business cases with tangible and intangible value</li>
+            <li>Sourcing strategy: outsourcing, insourcing and nearshoring decisions</li>
+            <li>A roadmap ordered by business impact</li>
+            <li>Weighted decision analysis for control, tool and supplier options</li>
+          </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
+        </details>
       </div>
       <div class="c">
-        <h3>Architecture</h3>
-        <p>Security architecture and risk-based design</p>
+        <details>
+          <summary>
+            <h3>Architecture</h3>
+            <span class="s-one">Security architecture and risk-based design</span>
+            <span class="arr" aria-hidden="true"></span>
+          </summary>
+          <p>Controls designed into how your business connects.</p>
+          <ul>
+            <li>Every control traced to the risk and obligation it serves</li>
+            <li>Security and network architecture, from data centre to cloud</li>
+            <li>Partner and third-party connectivity</li>
+            <li>Proof of concept before you commit to a control or tool</li>
+          </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
+        </details>
       </div>
       <div class="c">
-        <h3>Implementation</h3>
-        <p>Your ISMS, BCMS or AIMS and the controls behind it</p>
+        <details>
+          <summary>
+            <h3>Implementation</h3>
+            <span class="s-one">Your ISMS, BCMS or AIMS and the controls behind it</span>
+            <span class="arr" aria-hidden="true"></span>
+          </summary>
+          <p>Obligations made livable.</p>
+          <ul>
+            <li>Built to your maturity level: build, maintain, improve</li>
+            <li>Controls rolled out into processes, systems and tooling</li>
+            <li>Processes your teams run day to day, owned by the business</li>
+            <li>Evidence produced by daily operations, so audits follow naturally</li>
+          </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
+        </details>
       </div>
       <div class="c">
-        <h3>Integration</h3>
-        <p>One management system for all your obligations</p>
+        <details>
+          <summary>
+            <h3>Integration</h3>
+            <span class="s-one">One management system for all your obligations</span>
+            <span class="arr" aria-hidden="true"></span>
+          </summary>
+          <p>Integrating your obligations into your harmonised management systems.</p>
+          <ul>
+            <li>ISMS, BCMS and AIMS harmonised into one management system</li>
+            <li>Each obligation mapped once, so one control serves several at a time</li>
+            <li>Risk-driven integration support for new controls, systems and suppliers</li>
+            <li>Changes integrated alongside running operations</li>
+          </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
+        </details>
       </div>
       <div class="c">
-        <h3>vCISO</h3>
-        <p>ISMS ownership and ongoing operation</p>
+        <details>
+          <summary>
+            <h3>vCISO</h3>
+            <span class="s-one">ISMS ownership and ongoing operation</span>
+            <span class="arr" aria-hidden="true"></span>
+          </summary>
+          <p>We run your security with you.</p>
+          <ul>
+            <li>Your management decides on prioritised risks, KRIs and business cases</li>
+            <li>One accountable lead across security, resilience and AI governance</li>
+            <li>We own and steer your management system as your second line</li>
+            <li>Third-party risk: supplier processes, contracts and planned exit strategies</li>
+            <li>Improvements driven by risk assessments, business impact analysis and AI impact assessments</li>
+          </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
+        </details>
       </div>
     </div>
 
@@ -524,10 +592,37 @@
     <p class="t-label t-sub">with our European partners</p>
     <div class="t-row t-2">
       <div class="c">
-        <h3>Pentesting and red teaming</h3>
+        <details>
+          <summary>
+            <h3>Pentesting and red teaming</h3>
+            <span class="arr" aria-hidden="true"></span>
+          </summary>
+          <p>Know where you stand.</p>
+          <ul>
+            <li>Results set the priorities of your security roadmap</li>
+            <li>Every finding lands in your risk register with an owner</li>
+            <li>Red teaming as your maturity grows</li>
+            <li>A fixed-price entry test as the starting point</li>
+          </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
+        </details>
       </div>
       <div class="c">
-        <h3>MSSP / SOC</h3>
+        <details>
+          <summary>
+            <h3>MSSP / SOC</h3>
+            <span class="arr" aria-hidden="true"></span>
+          </summary>
+          <p>Detection and response that feeds your governance.</p>
+          <ul>
+            <li>One contract and one point of accountability through NexGenio</li>
+            <li>Reprioritised risks drive the revision and reprioritisation of your controls</li>
+            <li>Lessons learned flow into your risk register for continuous improvement</li>
+            <li>Incidents flow straight into your incident management and reporting</li>
+            <li>24/7 monitoring and response from European partners</li>
+          </ul>
+          <a class="view-link" href="">Learn more &rarr;</a>
+        </details>
       </div>
     </div>
 
