@@ -265,6 +265,7 @@
     .pan>*+*{margin-top:var(--s2)}
     .pan>p+ul{margin-top:0}
     .pan p,.pan li{font-size:var(--fs-md);color:var(--body);line-height:1.75}
+    .pan>p:first-child{font-size:var(--fs-lg);font-weight:600;color:var(--ink);margin-bottom:var(--s2)}
     .pan ul{list-style:none}
     .pan li{padding:var(--s2) 0;border-bottom:1px solid var(--rule)}
     .pan li:last-child{border-bottom:none}
@@ -493,21 +494,156 @@
     <span class="t-drop" aria-hidden="true"></span>
     <h2 class="t-label" id="services">We build</h2>
     <div class="t-row t-5">
-      <div class="n">Operational resilience</div>
-      <div class="n">Cyber &amp; information security</div>
-      <div class="n">Supply-chain security</div>
-      <div class="n">Trustworthy AI &amp; data</div>
-      <div class="n">Risk transparency</div>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-resilience">
+        <span class="c-in">
+          <span class="c-t">Operational resilience</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-resilience">
+        <p>Critical services that keep running.</p>
+        <ul>
+          <li>Critical business functions identified with your management</li>
+          <li>Impact tolerances and recovery objectives set by business impact</li>
+          <li>Continuity and recovery plans that are tested and exercised</li>
+          <li>Lessons learned fed back into the risk register</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
+      </div>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-infosec">
+        <span class="c-in">
+          <span class="c-t">Cyber &amp; information security</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-infosec">
+        <p>Information protected by design.</p>
+        <ul>
+          <li>Security objectives aligned with your business strategy</li>
+          <li>Risk-based controls across people, processes and technology</li>
+          <li>Security architecture from network to cloud</li>
+          <li>Monitoring, detection and incident response</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
+      </div>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-supply-chain">
+        <span class="c-in">
+          <span class="c-t">Supply-chain security</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-supply-chain">
+        <p>Suppliers that strengthen your security.</p>
+        <ul>
+          <li>Supplier criticality classified by business impact</li>
+          <li>Security requirements and audit rights in contracts</li>
+          <li>Concentration risk and planned exit strategies</li>
+          <li>Ongoing supplier monitoring and reassessment</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
+      </div>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-ai-data">
+        <span class="c-in">
+          <span class="c-t">Trustworthy AI &amp; data</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-ai-data">
+        <p>AI and data you can account for.</p>
+        <ul>
+          <li>AI governance with clear accountability</li>
+          <li>AI risk classification and impact assessments</li>
+          <li>Data quality, protection and transparency</li>
+          <li>Human oversight built into AI-supported processes</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
+      </div>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-risk-transparency">
+        <span class="c-in">
+          <span class="c-t">Risk transparency</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-risk-transparency">
+        <p>One risk picture for your management.</p>
+        <ul>
+          <li>Risks expressed in business terms for decision-makers</li>
+          <li>KRIs and reporting your management body can steer by</li>
+          <li>A risk register owned by the business</li>
+          <li>Findings from audits, tests and incidents in one place</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
+      </div>
     </div>
 
     <!-- LEVEL 2 -->
     <span class="t-drop" aria-hidden="true"></span>
     <h2 class="t-label" id="obligations">supporting your obligations</h2>
     <div class="t-row t-4">
-      <div class="n">NIS2</div>
-      <div class="n">DORA</div>
-      <div class="n">GDPR</div>
-      <div class="n">EU AI Act</div>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-nis2">
+        <span class="c-in">
+          <span class="c-t">NIS2</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-nis2">
+        <p>Security obligations for essential and important entities.</p>
+        <ul>
+          <li>Management body accountable and trained</li>
+          <li>Scope check: whether and how NIS2 applies to you</li>
+          <li>Risk management measures across all Article 21 areas</li>
+          <li>Staged incident reporting: early warning, notification, final report</li>
+        </ul>
+        <a class="view-link" href="/nis2.html">Learn more &rarr;</a>
+      </div>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-dora">
+        <span class="c-in">
+          <span class="c-t">DORA</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-dora">
+        <p>Digital operational resilience for financial entities.</p>
+        <ul>
+          <li>Management body owns the ICT risk framework</li>
+          <li>ICT risk management and resilience testing</li>
+          <li>ICT third-party risk and the register of information</li>
+          <li>Major ICT incident classification and reporting</li>
+        </ul>
+        <a class="view-link" href="/dora.html">Learn more &rarr;</a>
+      </div>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-gdpr">
+        <span class="c-in">
+          <span class="c-t">GDPR</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-gdpr">
+        <p>Personal data protected and processed lawfully.</p>
+        <ul>
+          <li>Accountability and documented processing</li>
+          <li>Data protection impact assessments</li>
+          <li>Technical and organisational measures aligned with your security controls</li>
+          <li>Breach notification within 72 hours</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
+      </div>
+      <h3 class="cw"><button class="c" type="button" aria-expanded="false" aria-controls="p-eu-ai-act">
+        <span class="c-in">
+          <span class="c-t">EU AI Act</span>
+          <span class="arr" aria-hidden="true"></span>
+        </span>
+      </button></h3>
+      <div class="pan" id="p-eu-ai-act">
+        <p>AI systems classified and governed by risk.</p>
+        <ul>
+          <li>AI inventory and risk classification</li>
+          <li>Obligations by role: provider or deployer</li>
+          <li>Transparency and human oversight</li>
+          <li>AI literacy for staff</li>
+        </ul>
+        <a class="view-link" href="">Learn more &rarr;</a>
+      </div>
     </div>
 
     <!-- LEVEL 3 -->
